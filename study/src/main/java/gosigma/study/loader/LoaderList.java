@@ -10,6 +10,7 @@ public class LoaderList {
 	public static void main(String[] args) {
 		list01();
 		list02();
+		list03();
 	}
 
 	public static void list01() {
@@ -64,8 +65,10 @@ public class LoaderList {
 					java.lang.reflect.Field classesField = clClass.getDeclaredField("classes");
 					domainField.setAccessible(true);
 					classesField.setAccessible(true);
-					// System.out.println("domains : " + domainField.get(classLoader).getClass().getCanonicalName());
-					// System.out.println("classes : " + classesField.get(classLoader).getClass().getCanonicalName());
+					// System.out.println("domains : " +
+					// domainField.get(classLoader).getClass().getCanonicalName());
+					// System.out.println("classes : " +
+					// classesField.get(classLoader).getClass().getCanonicalName());
 					Set<String> domains = (Set<String>) domainField.get(classLoader);
 					Vector classes = (Vector) classesField.get(classLoader);
 					System.out.println("\n******************** " + classLoader.toString() + "\n");
@@ -83,6 +86,34 @@ public class LoaderList {
 					// TODO
 				}
 			} while (classLoader.getParent() != null);
+		}
+	}
+
+	public static void list03() {
+		Field f;
+		try {
+			f = ClassLoader.class.getDeclaredField("classes");
+			f.setAccessible(true);
+
+			ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+			Vector<Class> classes = (Vector<Class>) f.get(classLoader);
+			
+			System.out.println("list loaded classes");
+			for (Class c : classes) {
+				System.out.println(c.getName());
+			}
+		} catch (NoSuchFieldException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SecurityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalArgumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 }
