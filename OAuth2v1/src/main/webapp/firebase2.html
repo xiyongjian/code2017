@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Sample FirebaseUI App</title>
+    <!-- *******************************************************************************************
+       * TODO(DEVELOPER): Paste the initialization snippet from:
+       * Firebase Console > Overview > Add Firebase to your web app. *
+       ***************************************************************************************** -->
+    <script src="https://cdn.firebase.com/libs/firebaseui/2.4.0/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.4.0/firebaseui.css" />
+    <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
+    <script type="text/javascript">
+	  // Initialize Firebase
+	  var config = {
+		apiKey: "AIzaSyDpF-mzKyOVwD0xSgtO2Is0tDc5s0KYtoM",
+		authDomain: "fir-52b84.firebaseapp.com",
+		databaseURL: "https://fir-52b84.firebaseio.com",
+		projectId: "fir-52b84",
+		storageBucket: "",
+		messagingSenderId: "750776338709"
+	  };
+	  firebase.initializeApp(config);
+
+      // FirebaseUI config.
+      var uiConfig = {
+        callbacks: {
+            'signInSuccess': function(currentUser, credential, redirectUrl) {
+              // Do something.
+              // Return type determines whether we continue the redirect automatically
+              // or whether we leave that to developer to handle.
+              console.log("callback singInSuccess.");
+              console.log("currentUser : " + currentUser);
+              console.log("credential : " + credential);
+              console.log("redirectUrl : " + redirectUrl);
+              // return true;
+              return false;
+            }.bind(this),
+            uiShown: function() {
+              console.log("callback uiShown.");
+              // The widget is rendered.
+              // Hide the loader.
+              document.getElementById('loader').style.display = 'none';
+            }
+          },
+        credentialHelper: firebaseui.auth.CredentialHelper.ACCOUNT_CHOOSER_COM,
+        // Query parameter name for mode.
+        queryParameterForWidgetMode: 'mode',
+        // Query parameter name for sign in success url.
+        queryParameterForSignInSuccessUrl: 'signInSuccessUrl',
+        // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+        signInFlow: 'popup',
+        signInSuccessUrl: '<url-to-redirect-to-on-success>',
+        signInOptions: [
+          // Leave the lines as is for the providers you want to offer your users.
+          firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+          firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+          firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+          {
+            provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
+            // Whether the display name should be displayed in the Sign Up page.
+            requireDisplayName: true
+          },
+          {
+            provider: firebase.auth.PhoneAuthProvider.PROVIDER_ID,
+            // Invisible reCAPTCHA with image challenge and bottom left badge.
+            recaptchaParameters: {
+              type: 'image',
+              size: 'invisible',
+              badge: 'bottomleft'
+            }
+          }
+        ],
+        // Terms of service url.
+        tosUrl: '<your-tos-url>'
+      };
+
+      var ui = new firebaseui.auth.AuthUI(firebase.auth());
+      // The start method will wait until the DOM is loaded.
+      ui.start('#firebaseui-auth-container', uiConfig);
+    </script>
+  </head>
+  <body>
+    <!-- The surrounding HTML is left untouched by FirebaseUI.
+         Your app may use that space for branding, controls and other customizations.-->
+    <h1>Welcome to My Awesome App</h1>
+    <div id="firebaseui-auth-container"></div>
+    <div id="loader">Loading...</div>
+  </body>
+</html>
