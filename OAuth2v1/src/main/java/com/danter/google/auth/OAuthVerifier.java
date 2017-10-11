@@ -54,8 +54,9 @@ public class OAuthVerifier extends HttpServlet {
 		try {
 			FileInputStream serviceAccount;
 			// xyj
-			serviceAccount = new FileInputStream(
-					"c:\\Users\\jxi.AD\\Documents\\firebase\\fir-52b84-firebase-adminsdk-bwv5g-b8976c35c1.json");
+			String keyFile = System.getProperty("user.home") + "\\git\\code2017\\OAuth2v1\\src\\main\\resources\\fir-52b84-firebase-adminsdk-bwv5g-b8976c35c1.json";
+			serviceAccount = new FileInputStream(keyFile);
+
 			// xyj
 			FirebaseOptions options = new FirebaseOptions.Builder()
 					.setCredential(FirebaseCredentials.fromCertificate(serviceAccount))
