@@ -45,6 +45,7 @@ public class Wait {
 				}
 			}
 		});
+
 		synchronized (sb) {
 			while (sb.length() < 1) {
 				System.out.println("wait 100 ms for string builder, " + sb.length());
