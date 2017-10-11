@@ -1,5 +1,7 @@
 package gosigma.study;
 
+import java.util.concurrent.Callable;
+
 public class AnonymousClass {
 
 	public interface HelloWorld {
@@ -36,5 +38,22 @@ public class AnonymousClass {
 		};
 		
 		in.greet();
+		
+		Runnable lambda = () -> {
+			System.out.println("lambda");
+			System.out.println(AnonymousClass.this.msg);
+		};
+		
+		lambda.run();
+		
+		Callable<String> call = () -> {
+			return "Callable again";
+		};
+		try {
+			System.out.println("callable : " + call.call());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
