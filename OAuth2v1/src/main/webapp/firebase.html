@@ -1,100 +1,130 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Sample FirebaseUI App</title>
-    <!-- *******************************************************************************************
+<head>
+<meta charset="UTF-8">
+<title>Sample FirebaseUI App</title>
+<!-- *******************************************************************************************
        * TODO(DEVELOPER): Paste the initialization snippet from:
        * Firebase Console > Overview > Add Firebase to your web app. *
        ***************************************************************************************** -->
-    <script src="https://cdn.firebase.com/libs/firebaseui/2.4.0/firebaseui.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.4.0/firebaseui.css" />
-    <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
-    <script type="text/javascript">
-	  // Initialize Firebase
-	  var config = {
-		apiKey: "AIzaSyDpF-mzKyOVwD0xSgtO2Is0tDc5s0KYtoM",
-		authDomain: "fir-52b84.firebaseapp.com",
-		databaseURL: "https://fir-52b84.firebaseio.com",
-		projectId: "fir-52b84",
-		storageBucket: "",
-		messagingSenderId: "750776338709"
-	  };
-	  firebase.initializeApp(config);
+<script
+	src="https://cdn.firebase.com/libs/firebaseui/2.4.0/firebaseui.js"></script>
+<link type="text/css" rel="stylesheet"
+	href="https://cdn.firebase.com/libs/firebaseui/2.4.0/firebaseui.css" />
+<script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+	// Initialize Firebase
+	var config = {
+		apiKey : "AIzaSyDpF-mzKyOVwD0xSgtO2Is0tDc5s0KYtoM",
+		authDomain : "fir-52b84.firebaseapp.com",
+		databaseURL : "https://fir-52b84.firebaseio.com",
+		projectId : "fir-52b84",
+		storageBucket : "",
+		messagingSenderId : "750776338709"
+	};
+	firebase.initializeApp(config);
 
-      // FirebaseUI config.
-      var uiConfig = {
-        signInSuccessUrl: '<url-to-redirect-to-on-success>',
-        callbacks: {
-            signInSuccess: function(currentUser, credential, redirectUrl) {
-              // Do something.
-              // Return type determines whether we continue the redirect automatically
-              // or whether we leave that to developer to handle.
-              console.log("callback singInSuccess.");
-              console.log("currentUser : " + currentUser);
-              console.log("currentUser.uid : " + currentUser.uid);
-              console.log("credential : " + credential);
-              console.log("redirectUrl : " + redirectUrl);
-              return false;
-              // return true;
-            },
-            uiShown: function() {
-              console.log("callback uiShown.");
-              // The widget is rendered.
-              // Hide the loader.
-              // document.getElementById('loader').style.display = 'none';
-            }
-          },
-        signInOptions: [
-          // Leave the lines as is for the providers you want to offer your users.
-
-          // firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-          //firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-			{
-			  provider: firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-			  scopes: [
-				'https://www.googleapis.com/auth/plus.login'
-			  ],
-			  customParameters: {
-				// Forces account selection even when one account
-				// is available.
-				prompt: 'select_account'
-			  }
+	// FirebaseUI config.
+	var uiConfig = {
+		signInSuccessUrl : '<url-to-redirect-to-on-success>',
+		callbacks : {
+			signInSuccess : function(currentUser, credential, redirectUrl) {
+				// Do something.
+				// Return type determines whether we continue the redirect automatically
+				// or whether we leave that to developer to handle.
+				console.log("callback singInSuccess.");
+				console.log("currentUser : " + currentUser);
+				console.log("currentUser.uid : " + currentUser.uid);
+				console.log("credential : " + credential);
+				console.log("redirectUrl : " + redirectUrl);
+				verifyFirebaseSignIn();
+				return false;
+				// return true;
 			},
-			{
-			  provider: firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-			  scopes: [
-				'public_profile',
-				'email',
-				'user_likes',
-				'user_friends'
-			  ],
-			  customParameters: {
-				// Forces password re-entry.
-				auth_type: 'reauthenticate'
-			  }
-			},
-			
-          firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-          firebase.auth.GithubAuthProvider.PROVIDER_ID,
-          firebase.auth.EmailAuthProvider.PROVIDER_ID,
-          firebase.auth.PhoneAuthProvider.PROVIDER_ID
-        ],
-		signInFlow: 'popup',
-        // Terms of service url.
-        tosUrl: '<your-tos-url>'
-      };
+			uiShown : function() {
+				console.log("callback uiShown.");
+				// The widget is rendered.
+				// Hide the loader.
+				// document.getElementById('loader').style.display = 'none';
+			}
+		},
+		signInOptions : [
+				// Leave the lines as is for the providers you want to offer your users.
 
-      // Initialize the FirebaseUI Widget using Firebase.
-      var ui = new firebaseui.auth.AuthUI(firebase.auth());
-      // The start method will wait until the DOM is loaded.
-      ui.start('#firebaseui-auth-container', uiConfig);
-    </script>
-  </head>
-  <body>
-    <!-- The surrounding HTML is left untouched by FirebaseUI.
+				// firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+				//firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+				{
+					provider : firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+					scopes : [ 'https://www.googleapis.com/auth/plus.login' ],
+					customParameters : {
+						// Forces account selection even when one account
+						// is available.
+						prompt : 'select_account'
+					}
+				},
+				{
+					provider : firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+					scopes : [ 'public_profile', 'email', 'user_likes',
+							'user_friends' ],
+					customParameters : {
+						// Forces password re-entry.
+						auth_type : 'reauthenticate'
+					}
+				},
+
+				firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+				firebase.auth.GithubAuthProvider.PROVIDER_ID,
+				firebase.auth.EmailAuthProvider.PROVIDER_ID,
+				firebase.auth.PhoneAuthProvider.PROVIDER_ID ],
+		signInFlow : 'popup',
+		// Terms of service url.
+		tosUrl : '<your-tos-url>'
+	};
+
+	// Initialize the FirebaseUI Widget using Firebase.
+	var ui = new firebaseui.auth.AuthUI(firebase.auth());
+	// The start method will wait until the DOM is loaded.
+	ui.start('#firebaseui-auth-container', uiConfig);
+
+	var verifyFirebaseSignIn = function() {
+		console.log("verifyFirebaseSignIn()");
+		firebase.auth().currentUser.getIdToken(/* forceRefresh */true).then(
+				function(idToken) {
+					console.log("idToken : " + JSON.stringify(idToken));
+					var url = "/OAuth2v1/OAuthVerifier";
+					$.post(url,
+							JSON.stringify({from:"firebase", token:idToken}),
+							function(data, status){
+								console.log("Data: " + JSON.stringify(data) + "\nStatus: " + status);
+							}).catch(function(error) {
+								console.log("error " + JSON.stringify(error));
+							});
+//					$.ajax({
+//						url : url,
+//						type : 'post',
+//						dataType : 'json',
+//						data : JSON.stringify({from:"firebase", token:idToken}),
+//						success : function(data) {
+//							console.log("Data: " + data + "\nStatus: " + status);
+//						},
+//						error : function(xhr,options, thrown) {
+//							console.log(xhr.status);
+//							console.log("options : " + JSON.stringify(options));
+//							console.log("thrown : " + JSON.stringify(thrown));
+//						}
+//					}).catch(function(error) {
+//						console.log("catch error " + JSON.stringify(error));
+//					});
+				});
+	};
+</script>
+</head>
+<body>
+	<!-- The surrounding HTML is left untouched by FirebaseUI.
          Your app may use that space for branding, controls and other customizations.-->
-    <h1>Welcome to My Awesome App</h1>
-    <div id="firebaseui-auth-container" style="transform: scale(0.75);"></div>
-  </body>
+	<h1>Welcome to My Awesome App</h1>
+	<div id="firebaseui-auth-container" style="transform: scale(0.75);"></div>
+</body>
 </html>

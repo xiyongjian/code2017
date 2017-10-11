@@ -14,6 +14,7 @@ import com.google.api.client.json.jackson.JacksonFactory;
 import java.io.IOException;
 import java.security.SecureRandom;
 import java.util.Arrays;
+import java.util.Collection;
 
 /**
  * A helper class for Google's OAuth2 authentication API.
@@ -51,8 +52,9 @@ public final class GoogleAuthHelper {
 	 * Constructor initializes the Google Authorization Code Flow with CLIENT ID, SECRET, and SCOPE 
 	 */
 	public GoogleAuthHelper() {
+		// flow = null;
 		flow = new GoogleAuthorizationCodeFlow.Builder(HTTP_TRANSPORT,
-				JSON_FACTORY, CLIENT_ID, CLIENT_SECRET, SCOPE).build();
+				JSON_FACTORY, CLIENT_ID, CLIENT_SECRET, (Collection<String>) SCOPE).build();
 		
 		generateStateToken();
 	}
