@@ -54,7 +54,7 @@ public class OAuthVerifier extends HttpServlet {
 		try {
 			FileInputStream serviceAccount;
 			// xyj
-			String keyFile = System.getProperty("user.home") + "\\git\\code2017\\OAuth2v1\\src\\main\\resources\\fir-52b84-firebase-adminsdk-bwv5g-b8976c35c1.json";
+			String keyFile = System.getProperty("user.home") + "\\git\\code2017\\OAuth2v1\\src\\main\\resources\\firebase_key.json";
 			logger.info("initialization via key file : " + keyFile);
 			serviceAccount = new FileInputStream(keyFile);
 
