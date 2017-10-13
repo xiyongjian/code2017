@@ -28,6 +28,7 @@ public class App {
 	public static void main(String[] args) throws IOException {
 		post01();
 		post02();
+		post03();
 	}
 
 	public static void post01() throws IOException {
@@ -147,5 +148,49 @@ public class App {
 
 		return sb.toString();
 
+	}
+
+	public static void post03() throws IOException {
+
+		try {
+			System.out.println("post03");
+
+			HttpClient httpClient = new DefaultHttpClient();
+			HttpPost httpPost = new HttpPost("http://localhost:8080/OAuth2v1/PostTesting?name=hello&num=8888888");
+			// HttpPost httpPost = new HttpPost("http://localhost:8080/OAuth2v1/PostTesting");
+		 
+		    String json = "{\"id\":1,\"name\":\"John\"}";
+		    StringEntity entity = new StringEntity(json);
+		    httpPost.setEntity(entity);
+		    httpPost.setHeader("Accept", "application/json");
+		    httpPost.setHeader("Content-type", "application/json");
+		 
+			HttpResponse response = httpClient.execute(httpPost);
+			InputStream in = response.getEntity().getContent();
+			// System.out.println(getStringFromInputStream(in));
+			
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			IOUtils.copy(in, baos);
+			String theString = baos.toString();
+			System.out.println("response : " + theString);
+			
+//			byte[] buffer = new byte[1024];
+//			int read = 0;
+//			while ((read = in.read(buffer, 0, buffer.length)) != -1) {
+//				System.out.println("read : " + read);
+//				System.out.println(new String(buffer));
+//			}		
+
+			System.out.println("post03 done");
+			// handle response here...
+
+		} catch (Exception ex) {
+
+			// handle exception here
+
+		} finally {
+			// Deprecated
+			// httpClient.getConnectionManager().shutdown();
+		}
 	}
 }
