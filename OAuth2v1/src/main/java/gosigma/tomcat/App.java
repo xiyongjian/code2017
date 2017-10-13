@@ -1,10 +1,13 @@
 package gosigma.tomcat;
 
 import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.StringWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -18,6 +21,8 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.params.BasicHttpParams;
 import org.apache.http.params.HttpParams;
+
+import com.google.api.client.util.IOUtils;
 
 public class App {
 	public static void main(String[] args) throws IOException {
@@ -89,12 +94,17 @@ public class App {
 			InputStream in = response.getEntity().getContent();
 			// System.out.println(getStringFromInputStream(in));
 			
-			byte[] buffer = new byte[1024];
-			int read = 0;
-			while ((read = in.read(buffer, 0, buffer.length)) != -1) {
-				System.out.println("read : " + read);
-				System.out.println(new String(buffer));
-			}		
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			IOUtils.copy(in, baos);
+			String theString = baos.toString();
+			System.out.println("response : " + theString);
+			
+//			byte[] buffer = new byte[1024];
+//			int read = 0;
+//			while ((read = in.read(buffer, 0, buffer.length)) != -1) {
+//				System.out.println("read : " + read);
+//				System.out.println(new String(buffer));
+//			}		
 
 			System.out.println("post02 done");
 			// handle response here...
