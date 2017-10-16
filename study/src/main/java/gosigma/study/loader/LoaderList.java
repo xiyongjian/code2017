@@ -3,6 +3,7 @@ package gosigma.study.loader;
 import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 import java.util.Vector;
 
@@ -11,6 +12,15 @@ public class LoaderList {
 		list01();
 		list02();
 		list03();
+		list04(Thread.currentThread().getContextClassLoader());
+
+		ClassLoader x = Thread.currentThread().getContextClassLoader();
+		x = x.getParent();
+		while (x != null) {
+			list04(x);
+			x = x.getParent();
+		}
+
 	}
 
 	public static void list01() {
@@ -115,5 +125,30 @@ public class LoaderList {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	static public void list04(ClassLoader byClassLoader) {
+	    Class clKlass = byClassLoader.getClass();
+	    System.out.println("list04, Classloader: " + clKlass.getCanonicalName());
+	    while (clKlass != java.lang.ClassLoader.class) {
+	        clKlass = clKlass.getSuperclass();
+	    }
+	    try {
+	        java.lang.reflect.Field fldClasses = clKlass
+	                .getDeclaredField("classes");
+	        fldClasses.setAccessible(true);
+	        Vector classes = (Vector) fldClasses.get(byClassLoader);
+	        for (Iterator iter = classes.iterator(); iter.hasNext();) {
+	            System.out.println("   Loaded " + iter.next());
+	        }
+	    } catch (SecurityException e) {
+	        e.printStackTrace();
+	    } catch (IllegalArgumentException e) {
+	        e.printStackTrace();
+	    } catch (NoSuchFieldException e) {
+	        e.printStackTrace();
+	    } catch (IllegalAccessException e) {
+	        e.printStackTrace();
+	    }
 	}
 }
