@@ -17,6 +17,8 @@ public class CheckCache {
       InetAddress.getByName("stackoverflow.com");
       InetAddress.getByName("www.google.com");
       InetAddress.getByName("www.rgagnon.com");
+      InetAddress.getByName("google.com");
+      InetAddress.getByName("rgagnon.com");
       try {
          // bad DNS name
          InetAddress.getByName("bad.rgagnon.com");
