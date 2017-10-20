@@ -50,7 +50,8 @@ public class log4jExample {
 
 		ConsoleAppender console = new ConsoleAppender(); // create appender
 		// configure the appender
-		String PATTERN = "%d [%p|%c|%C{1}] %m%n";
+		// String PATTERN = "%d [%p|%c|%C{1}] %m%n";
+		String PATTERN = "%d [%p|%c|%M] %m%n";
 		console.setLayout(new PatternLayout(PATTERN));
 		console.setThreshold(Level.DEBUG);
 		console.activateOptions();
