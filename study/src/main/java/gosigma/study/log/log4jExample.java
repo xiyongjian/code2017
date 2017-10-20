@@ -4,6 +4,7 @@ import java.io.*;
 import java.sql.SQLException;
 import java.util.*;
 
+import org.apache.log4j.ConsoleAppender;
 import org.apache.log4j.FileAppender;
 import org.apache.log4j.Layout;
 import org.apache.log4j.Level;
@@ -46,6 +47,15 @@ public class log4jExample {
 		fa.activateOptions();
 
 		logger.getRootLogger().addAppender(fa);
+
+		ConsoleAppender console = new ConsoleAppender(); // create appender
+		// configure the appender
+		String PATTERN = "%d [%p|%c|%C{1}] %m%n";
+		console.setLayout(new PatternLayout(PATTERN));
+		console.setThreshold(Level.DEBUG);
+		console.activateOptions();
+
+		logger.addAppender(console);
 
 		logger.debug("Hello this is a debug message");
 		logger.info("Hello this is an info message");
