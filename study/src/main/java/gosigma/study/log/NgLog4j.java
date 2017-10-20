@@ -72,4 +72,11 @@ public class NgLog4j {
 
 		logger.info("hello from NgLog");
 	}
+	
+	
+	//	usage : 
+	//		NgLog4j.getlogger(<name>); -> get logger (log4j stuff)	
+	//		NgLog4j.init(<prop file>);	 when prop file location is ready
+		
+	
 }

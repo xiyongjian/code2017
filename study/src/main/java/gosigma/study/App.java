@@ -1,5 +1,6 @@
 package gosigma.study;
 
+import java.lang.management.ManagementFactory;
 import java.util.Properties;
 import java.util.Random;
 
@@ -48,5 +49,7 @@ public class App
 		for (Object k : props.keySet()) {
 			System.out.println("[" + k.toString() + "] - " + props.getProperty((String) k));
 		}
+		
+		System.out.println("get current PID : " + ManagementFactory.getRuntimeMXBean().getName());
     }
 }
