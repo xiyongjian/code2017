@@ -4,6 +4,18 @@
 
 <web-app>
 	<display-name>Archetype Created Web Application</display-name>
+	<!-- 
+	<servlet>
+		<servlet-name>WelcomeServlet</servlet-name>
+		<display-name>WelcomeServlet</display-name>
+		<description></description>
+		<servlet-class>gosigma.webapp.WelcomeServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>WelcomeServlet</servlet-name>
+		<url-pattern>/welcome/*</url-pattern>
+	</servlet-mapping>
+	 -->
 
 	<resource-ref>
 		<description>MySQL Datasource example </description>

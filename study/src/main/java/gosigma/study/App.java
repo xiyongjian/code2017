@@ -6,7 +6,7 @@ import java.util.Random;
 
 /**
  * Hello world!
- *
+ * also dump all system properties and information
  */
 public class App 
 {
