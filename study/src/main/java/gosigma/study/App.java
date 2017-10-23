@@ -23,7 +23,7 @@ public class App
         p("random : " + String.format("OAUTH-%08d",  rand.nextInt(1000 * 1000)));
         
         doTest();
-        dotest02();
+        showSystemInfo();
     }
     
     static class AppI {
@@ -36,8 +36,8 @@ public class App
     	System.out.println("o.i is : " + o.i);
     }
     
-    static public void dotest02() {
-		System.out.println("\ndoTest2()");
+    static public void showSystemInfo() {
+		System.out.println("\nshowSystemInfo()");
 
 		final String dir = System.getProperty("user.dir");
 		System.out.println("[current dir] - " + dir);
