@@ -24,7 +24,7 @@ import org.apache.http.params.HttpParams;
 
 import com.google.api.client.util.IOUtils;
 
-public class App {
+public class PostWithBodyParam {
 	public static void main(String[] args) throws IOException {
 		post01();
 		post02();
