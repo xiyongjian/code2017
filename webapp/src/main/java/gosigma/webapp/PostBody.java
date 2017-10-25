@@ -1,4 +1,4 @@
-package gosigma.tomcat;
+package gosigma.webapp;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -6,20 +6,22 @@ import java.io.PrintWriter;
 import java.util.Map.Entry;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class PostTesting
+ * Servlet implementation class PostBody
  */
-public class PostTesting extends HttpServlet {
+@WebServlet(urlPatterns = "/postbody/*")
+public class PostBody extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public PostTesting() {
+	public PostBody() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -30,8 +32,19 @@ public class PostTesting extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		StringBuilder sb = new StringBuilder();
+		sb.append(p("doGet()"));
+		for (Entry<String, String[]> e : request.getParameterMap().entrySet()) {
+			sb.append(p("[" + e.getKey() + "] - [" + String.join(",", e.getValue()) + "]"));
+		}
+
+		sb.append(p("Content-type : " + request.getContentType()));
+		sb.append(p("header Referer : " + request.getHeader("Referer")));
+		sb.append(p("requestURL : " + request.getRequestURL().toString()));
+		sb.append(p("requestURI : " + request.getRequestURI().toString()));
+
+		PrintWriter writer = response.getWriter();
+		writer.append(sb.toString());
 	}
 
 	/**
@@ -43,7 +56,7 @@ public class PostTesting extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		StringBuilder sb = new StringBuilder();
-		sb.append(p("doPost()\n"));
+		sb.append(p("doPost()"));
 		for (Entry<String, String[]> e : request.getParameterMap().entrySet()) {
 			sb.append(p("[" + e.getKey() + "] - [" + String.join(",", e.getValue()) + "]"));
 		}
@@ -69,7 +82,7 @@ public class PostTesting extends HttpServlet {
 	}
 
 	static public String p(String msg) {
-		String s = "PostTesting - " + msg;
+		String s = "PostBody - " + msg;
 		System.out.println(s);
 		return s + "\n";
 	}
