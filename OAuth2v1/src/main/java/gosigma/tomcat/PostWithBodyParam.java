@@ -29,10 +29,12 @@ public class PostWithBodyParam {
 		post01();
 		post02();
 		post03();
+		post04();
 	}
 
 	public static void post01() throws IOException {
-		String url = "http://localhost:8080/OAuth2v1/PostTesting";
+		System.out.println("post01() start");
+		String url = "http://192.168.0.9:8080/OAuth2v1/PostTesting?name=first";
 		URL obj = new URL(url);
 		HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 
@@ -45,6 +47,8 @@ public class PostWithBodyParam {
 		con.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
 		con.setRequestProperty("Referer", "Local Testing");
 		// con.setRequestProperty("Content-Length", Integer.toString(body.length()));
+		// default is application/x-www-form-urlencoded, thus the output is the parameter!
+		// if want to output body, use : con.setRequestProperty("Content-Type", "application/json");
 
 		String boundary = "===" + System.currentTimeMillis() + "===";
 
@@ -74,6 +78,7 @@ public class PostWithBodyParam {
 		// print result
 		System.out.println(response.toString());
 
+		System.out.println("post01() end");
 	}
 
 	public static void post02() throws IOException {
@@ -82,30 +87,30 @@ public class PostWithBodyParam {
 			System.out.println("post02");
 
 			HttpClient httpClient = new DefaultHttpClient();
-			HttpPost post = new HttpPost("http://localhost:8080/OAuth2v1/PostTesting?name=hello&num=8888888");
+			HttpPost post = new HttpPost("http://192.168.0.9:8080/OAuth2v1/PostTesting?name=hello&num=8888888");
 
 			post.setHeader("Content-type", "application/json");
 			post.setHeader("Referer", "Local Testing");
 
-	        String xml = "<xml>xxxx</xml>";
-	        HttpEntity entity = new ByteArrayEntity(xml.getBytes("UTF-8"));
-	        post.setEntity(entity);
+			String xml = "<xml>xxxx</xml>";
+			HttpEntity entity = new ByteArrayEntity(xml.getBytes("UTF-8"));
+			post.setEntity(entity);
 
 			HttpResponse response = httpClient.execute(post);
 			InputStream in = response.getEntity().getContent();
 			// System.out.println(getStringFromInputStream(in));
-			
+
 			ByteArrayOutputStream baos = new ByteArrayOutputStream();
 			IOUtils.copy(in, baos);
 			String theString = baos.toString();
 			System.out.println("response : " + theString);
-			
-//			byte[] buffer = new byte[1024];
-//			int read = 0;
-//			while ((read = in.read(buffer, 0, buffer.length)) != -1) {
-//				System.out.println("read : " + read);
-//				System.out.println(new String(buffer));
-//			}		
+
+			// byte[] buffer = new byte[1024];
+			// int read = 0;
+			// while ((read = in.read(buffer, 0, buffer.length)) != -1) {
+			// System.out.println("read : " + read);
+			// System.out.println(new String(buffer));
+			// }
 
 			System.out.println("post02 done");
 			// handle response here...
@@ -156,30 +161,31 @@ public class PostWithBodyParam {
 			System.out.println("post03");
 
 			HttpClient httpClient = new DefaultHttpClient();
-			HttpPost httpPost = new HttpPost("http://localhost:8080/OAuth2v1/PostTesting?name=hello&num=8888888");
-			// HttpPost httpPost = new HttpPost("http://localhost:8080/OAuth2v1/PostTesting");
-		 
-		    String json = "{\"id\":1,\"name\":\"John\"}";
-		    StringEntity entity = new StringEntity(json);
-		    httpPost.setEntity(entity);
-		    httpPost.setHeader("Accept", "application/json");
-		    httpPost.setHeader("Content-type", "application/json");
-		 
+			HttpPost httpPost = new HttpPost("http://192.168.0.9:8080/OAuth2v1/PostTesting?name=hello&num=8888888");
+			// HttpPost httpPost = new
+			// HttpPost("http://192.168.0.9:8080/OAuth2v1/PostTesting");
+
+			String json = "{\"id\":1,\"name\":\"John abcdefghlaksdflksajdfl;asdjfl;sajdlf\"}";
+			StringEntity entity = new StringEntity(json);
+			httpPost.setEntity(entity);
+			httpPost.setHeader("Accept", "application/json");
+			httpPost.setHeader("Content-type", "application/json");
+
 			HttpResponse response = httpClient.execute(httpPost);
 			InputStream in = response.getEntity().getContent();
 			// System.out.println(getStringFromInputStream(in));
-			
+
 			ByteArrayOutputStream baos = new ByteArrayOutputStream();
 			IOUtils.copy(in, baos);
 			String theString = baos.toString();
 			System.out.println("response : " + theString);
-			
-//			byte[] buffer = new byte[1024];
-//			int read = 0;
-//			while ((read = in.read(buffer, 0, buffer.length)) != -1) {
-//				System.out.println("read : " + read);
-//				System.out.println(new String(buffer));
-//			}		
+
+			// byte[] buffer = new byte[1024];
+			// int read = 0;
+			// while ((read = in.read(buffer, 0, buffer.length)) != -1) {
+			// System.out.println("read : " + read);
+			// System.out.println(new String(buffer));
+			// }
 
 			System.out.println("post03 done");
 			// handle response here...
@@ -192,5 +198,73 @@ public class PostWithBodyParam {
 			// Deprecated
 			// httpClient.getConnectionManager().shutdown();
 		}
+	}
+
+	public static void post04() throws IOException {
+		System.out.println("post04() start");
+		String url = "http://192.168.0.9:8080/OAuth2v1/PostTesting?name=first";
+		URL obj = new URL(url);
+		HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+
+		String body = "hello, world, and ti's body";
+		String urlParameters = "name=helloworld&sn=C02G8416DRJM&cn=&locale=&caller=&num=12345";
+
+		// add reuqest header
+		con.setRequestProperty("User-Agent", "Testing");
+		con.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
+		con.setRequestProperty("Referer", "Local Testing");
+
+		// Don't use a cached copy.
+		con.setUseCaches(false);
+		// Allow Inputs
+		con.setDoInput(true);
+		// Allow Outputs
+		con.setDoOutput(true);
+
+		// Use a post method.
+		con.setRequestMethod("POST");
+		con.setRequestProperty("Connection", "Keep-Alive");
+
+		// setup boundary
+		String lineEnd = "\r\n";
+		String twoHyphens = "--";
+		String boundary = "===" + System.currentTimeMillis() + "===";
+		// con.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + boundary);
+		con.setRequestProperty("Content-Type", "application/txt");
+		// /json also works
+
+		DataOutputStream wr = new DataOutputStream(con.getOutputStream());
+		// fisrt part as param?
+		wr.writeBytes(urlParameters);
+
+		wr.writeBytes(twoHyphens + boundary + lineEnd);
+		wr.writeBytes("Content-Disposition: form-data; name=\"userfile\";" + " filename=\"temp.dat\"" + lineEnd);
+		wr.writeBytes(lineEnd);
+		// should be something??
+		wr.writeBytes(urlParameters);
+		wr.write(body.getBytes("UTF8"));
+		// wr.writeBytes(body);
+
+		wr.flush();
+		wr.close();
+
+		int responseCode = con.getResponseCode();
+		System.out.println("\nSending 'POST' request to URL : " + url);
+		System.out.println("Post parameters : " + urlParameters);
+		System.out.println("Response Code : " + responseCode);
+
+		BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+		String inputLine;
+		StringBuffer response = new StringBuffer();
+
+		while ((inputLine = in.readLine()) != null) {
+			response.append(inputLine + "\n");
+		}
+		in.close();
+
+		// print result
+		System.out.println(response.toString());
+
+		System.out.println("post04() end");
 	}
 }

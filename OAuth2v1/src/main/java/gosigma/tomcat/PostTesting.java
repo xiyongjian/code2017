@@ -3,6 +3,8 @@ package gosigma.tomcat;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Map.Entry;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -39,24 +41,29 @@ public class PostTesting extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
-		PrintWriter writer = response.getWriter();
-		writer.append("Served at: ").append(request.getContextPath()).append("\n" + p("doPost"))
-				.append(p("param name : " + request.getParameter("name")))
-				.append(p("param num : " + request.getParameter("num")))
-				.append(p("param details : " + request.getParameter("details")));
-
+		
 		StringBuilder sb = new StringBuilder();
+		sb.append(p("doPost()\n"));
+		for (Entry<String, String[]> e : request.getParameterMap().entrySet()) {
+			sb.append(p("[" + e.getKey() + "] - [" + String.join(",", e.getValue()) + "]"));
+		}
+
+		StringBuilder sb2 = new StringBuilder();
 		BufferedReader br = request.getReader();
 		String str = null;
 		while ((str = br.readLine()) != null) {
-			sb.append(str);
+			sb2.append(str);
 		}
-		writer.append(p("body : " + sb.toString()));
+		sb.append(p("body : " + sb2.toString()));
 		
-		writer.append(p("header Referer : " + request.getHeader("Referer")));
-		writer.append(p("requestURL : " + request.getRequestURL().toString()));
-		writer.append(p("requestURI : " + request.getRequestURI().toString()));
+		sb.append(p("Content-type : " + request.getContentType()));
+		
+		sb.append(p("header Referer : " + request.getHeader("Referer")));
+		sb.append(p("requestURL : " + request.getRequestURL().toString()));
+		sb.append(p("requestURI : " + request.getRequestURI().toString()));
+
+		PrintWriter writer = response.getWriter();
+		writer.append(sb.toString());
 
 		// doGet(request, response);
 	}
