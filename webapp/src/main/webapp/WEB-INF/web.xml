@@ -6,6 +6,18 @@
 	<display-name>Archetype Created Web Application</display-name>
 	<!-- 
 	<servlet>
+		<servlet-name>PostBody</servlet-name>
+		<display-name>PostBody</display-name>
+		<description></description>
+		<servlet-class>gosigma.webapp.PostBody</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PostBody</servlet-name>
+		<url-pattern>/Post</url-pattern>
+	</servlet-mapping>
+	 -->
+	<!-- 
+	<servlet>
 		<servlet-name>WelcomeServlet</servlet-name>
 		<display-name>WelcomeServlet</display-name>
 		<description></description>
