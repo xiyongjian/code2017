@@ -4,6 +4,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import sun.misc.BASE64Encoder;
 
+@SuppressWarnings("restriction")
 public class DigestDemo {
     public static void main(String[] args) throws NoSuchAlgorithmException {
     	System.out.println("{SHA}" + digest("pass", "SHA"));
