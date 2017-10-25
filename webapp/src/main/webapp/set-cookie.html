@@ -1,0 +1,88 @@
+<!--
+    All Blue Solutions Inc.
+
+	set cookies based on encoded parameter in request url 
+-->
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<title>JavaScript: setting cookies</title>
+</head>
+
+<body onload="setAuthToken()">
+
+	<h3>Set Session Cookie</h3>
+
+	<p id="message"></p>
+
+	<script language="JavaScript">
+		function SetCookie(cookieName, cookieValue) {
+			document.cookie = cookieName + "=" + escape(cookieValue);
+		}
+
+		console.log("request url : " + window.location.href);
+		var urlParams;
+		(window.onpopstate = function() {
+			var match, pl = /\+/g, // Regex for replacing addition symbol with a space
+			search = /([^&=]+)=?([^&]*)/g, decode = function(s) {
+				return decodeURIComponent(s.replace(pl, " "));
+			}, query = window.location.search.substring(1);
+
+			urlParams = {};
+			while (match = search.exec(query))
+				urlParams[decode(match[1])] = decode(match[2]);
+		})();
+
+		console.log("param : " + JSON.stringify(urlParams));
+
+		function setAuthToken() {
+			var authentication_token = urlParams.authentication_token;
+			if (authentication_token != null) {
+				SetCookie("authentication_token", authentication_token);
+				document.getElementById("message").innerHTML = "authentication_token set : " + authentication_token;
+			} else
+				document.getElementById("message").innerHTML = "no authentication_token found";
+
+			setTimeout(function() { window.history.back(); }, 1000);
+		}
+	</script>
+
+<!-- 
+usage :  setup/goto this link 
+http://path/to/set-cookie.html?authentication_token=<token>
+http://localhost:8080/webapp/set-cookie.html?authentication_token=<token>
+ -->
+
+	<!-- 
+<form name="setCookie">
+<table border=0 cellspacing=3 cellpadding=0>
+ <tr>
+  <td>
+  <p>Cookie User Name:</p>
+  </td>
+  <td>
+  <p><INPUT TYPE="TEXT" NAME="t1" VALUE="TRUSTED_SIGNON_USER"></p>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  <p>Cookie Tenant ID (Company Subdomain):</p>
+  </td>
+  <td>
+  <p><INPUT TYPE="TEXT" NAME="t2" VALUE="scarter"></p>
+  </td>
+ </tr>
+ <tr>
+  <td/>
+  <td>
+      <p><input type=button value="Set Cookie" name=b1 onclick="SetCookie(this.form.t1.value,this.form.t2.value);parent.location='index.html';">
+  </td>
+ </tr>
+</table>
+</form>
+ -->
+
+</body>
+
+</html>
