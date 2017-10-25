@@ -29,6 +29,8 @@ public class PostWithBodyParam {
 		post01();
 		post02();
 		post03();
+
+		post01a();
 	}
 
 	public static void post01() throws IOException {
@@ -54,6 +56,53 @@ public class PostWithBodyParam {
 		wr.writeBytes(urlParameters);
 		wr.write(body.getBytes("UTF8"));
 		// wr.writeBytes(body);
+		wr.flush();
+		wr.close();
+
+		int responseCode = con.getResponseCode();
+		System.out.println("\nSending 'POST' request to URL : " + url);
+		System.out.println("Post parameters : " + urlParameters);
+		System.out.println("Response Code : " + responseCode);
+
+		BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+		String inputLine;
+		StringBuffer response = new StringBuffer();
+
+		while ((inputLine = in.readLine()) != null) {
+			response.append(inputLine + "\n");
+		}
+		in.close();
+
+		// print result
+		System.out.println(response.toString());
+
+	}
+
+	public static void post01a() throws IOException {
+		System.out.println("\n post01a(), another method try to post with body");
+		String url = "http://localhost:8080/OAuth2v1/PostTesting";
+		URL obj = new URL(url);
+		HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+
+		String body = "hello, world, and ti's body";
+		String urlParameters = "name=helloworld&sn=C02G8416DRJM&cn=&locale=&caller=&num=12345";
+
+		// add reuqest header
+		con.setRequestMethod("POST");
+		con.setRequestProperty("User-Agent", "Testing");
+		con.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
+		con.setRequestProperty("Referer", "Local Testing");
+
+        con.setChunkedStreamingMode(0);
+        con.setRequestProperty("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
+        con.setRequestProperty("Content-Length", Integer.toString(urlParameters.length()));
+
+		// Send post request
+		con.setDoOutput(true);
+		DataOutputStream wr = new DataOutputStream(con.getOutputStream());
+		wr.write(urlParameters.getBytes());
+		wr.write(urlParameters.getBytes());
+
 		wr.flush();
 		wr.close();
 
@@ -164,6 +213,8 @@ public class PostWithBodyParam {
 		    httpPost.setEntity(entity);
 		    httpPost.setHeader("Accept", "application/json");
 		    httpPost.setHeader("Content-type", "application/json");
+		    
+		    System.out.println("httpPost toString(): " + httpPost.toString());
 		 
 			HttpResponse response = httpClient.execute(httpPost);
 			InputStream in = response.getEntity().getContent();
