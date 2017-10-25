@@ -32,8 +32,19 @@ public class PostBody extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		StringBuilder sb = new StringBuilder();
+		sb.append(p("doGet()"));
+		for (Entry<String, String[]> e : request.getParameterMap().entrySet()) {
+			sb.append(p("[" + e.getKey() + "] - [" + String.join(",", e.getValue()) + "]"));
+		}
+
+		sb.append(p("Content-type : " + request.getContentType()));
+		sb.append(p("header Referer : " + request.getHeader("Referer")));
+		sb.append(p("requestURL : " + request.getRequestURL().toString()));
+		sb.append(p("requestURI : " + request.getRequestURI().toString()));
+
+		PrintWriter writer = response.getWriter();
+		writer.append(sb.toString());
 	}
 
 	/**
@@ -45,7 +56,7 @@ public class PostBody extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		StringBuilder sb = new StringBuilder();
-		sb.append(p("doPost()\n"));
+		sb.append(p("doPost()"));
 		for (Entry<String, String[]> e : request.getParameterMap().entrySet()) {
 			sb.append(p("[" + e.getKey() + "] - [" + String.join(",", e.getValue()) + "]"));
 		}
