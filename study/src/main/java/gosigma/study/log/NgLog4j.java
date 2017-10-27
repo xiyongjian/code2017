@@ -167,6 +167,8 @@ public class NgLog4j {
 		logger.info("info should not show");
 		logger.error("error should show");
 
+		logger.error(_console.getThreshold().toString());
+
 	}
 
 	public static void listRootAppender() {
