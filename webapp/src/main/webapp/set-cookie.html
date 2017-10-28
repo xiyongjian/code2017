@@ -40,15 +40,29 @@
 			var authentication_token = urlParams.authentication_token;
 			if (authentication_token != null) {
 				SetCookie("authentication_token", authentication_token);
-				document.getElementById("message").innerHTML = "authentication_token set : " + authentication_token;
+				document.getElementById("message").innerHTML = "authentication_token set : "
+						+ authentication_token;
 			} else
 				document.getElementById("message").innerHTML = "no authentication_token found";
 
-			setTimeout(function() { window.history.back(); }, 1000);
+			var stay = false;
+			for ( var key in urlParams) {
+				var value = urlParams[key];
+				console.log(key + "=" + value)
+				if (key == "stay") {
+					console.log("stay, not back");
+					stay = true;
+				}
+			}
+
+			if (stay != true)
+				setTimeout(function() {
+					window.history.back();
+				}, 1000);
 		}
 	</script>
 
-<!-- 
+	<!-- 
 usage :  setup/goto this link 
 http://path/to/set-cookie.html?authentication_token=<token>
 http://localhost:8080/webapp/set-cookie.html?authentication_token=<token>
