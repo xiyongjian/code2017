@@ -19,12 +19,13 @@ import org.apache.log4j.Layout;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PatternLayout;
+import org.apache.log4j.RollingFileAppender;
 
 // import com.cognos.CAM_AAA.authentication.INamespaceConfiguration;
 
 public class NgLog4j {
 
-	public static FileAppender _appender = null;
+	public static RollingFileAppender _appender = null;
 	// public static String _pattern = "%d [%t|%p|%c|%C{1}|%C{2}] %m%n";
 	public static String _pattern = "[%d %t|%p|%c|%M] - %m%n";
 	public static Layout _layout = new PatternLayout(_pattern);
@@ -67,19 +68,19 @@ public class NgLog4j {
 				_appender.close();
 				Logger.getRootLogger().removeAppender(_appender);
 				_appender = null;
-			}
-			else
+			} else
 				logger.info("two file same, do nothing");
 		}
 
 		if (_appender == null) {
-			_appender = new FileAppender();
+			_appender = new RollingFileAppender();
 			_appender.setFile(file);
 			_appender.setName("FileLogger");
 			_appender.setLayout(_layout);
 			_appender.setThreshold(Level.DEBUG);
 			_appender.setAppend(true);
 			_appender.activateOptions();
+			_appender.setMaximumFileSize(1024 * 50);
 			Logger.getRootLogger().addAppender(_appender);
 		}
 	}
@@ -152,14 +153,22 @@ public class NgLog4j {
 		init("c:\\tmp\\NgLog4j.prop.log");
 
 		logger.info("remove appender");
-		_appender.close();
+		// _appender.close();
 		Logger.getRootLogger().removeAppender(_appender);
 		listRootAppender();
 
 		logger.info("remove same appender again");
 		Logger.getRootLogger().removeAppender(_appender);
 		listRootAppender();
-		
+
+		Logger.getRootLogger().addAppender(_appender);
+		logger.info("change console level to ERROR");
+		_console.setThreshold(Level.ERROR);
+		logger.info("info should not show");
+		logger.error("error should show");
+
+		logger.error(_console.getThreshold().toString());
+
 	}
 
 	public static void listRootAppender() {
@@ -176,6 +185,11 @@ public class NgLog4j {
 			if (a.getClass().equals(ConsoleAppender.class)) {
 				ConsoleAppender ca = (ConsoleAppender) a;
 				logger.info("name : " + ca.getName() + ", encoding : " + ca.getEncoding());
+			}
+			if (a.getClass().equals(RollingFileAppender.class)) {
+				RollingFileAppender fa = (RollingFileAppender) a;
+				logger.info("name : " + fa.getName() + ", file : " + fa.getFile() + ", encoding : " + fa.getEncoding()
+						+ " , max size " + fa.getMaximumFileSize());
 			}
 
 			++i;
