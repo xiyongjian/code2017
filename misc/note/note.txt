@@ -7,3 +7,22 @@ docker pull <name>:<tag>
 
 check image 
 docker image inspect
+
+docker image for spark
+http://semantive.com/docker-images-for-apache-spark/
+https://github.com/Semantive/docker-spark
+and docker-compose
+
+setup compose :
+docker-compose up
+
+start another docker and run
+spark-shell --master spark://<docker-host-ip>:7077
+
+tk project
+QNAP mysql (100G)
+RAM  as much as possible
+CPU  intel x86, support virtualization
+HD   SSD + HD
+RAID RAID 5
+
