@@ -5,6 +5,7 @@ import com.machinepublishers.jbrowserdriver.Timezone;
 import com.machinepublishers.jbrowserdriver.JBrowserDriver;
 import com.machinepublishers.jbrowserdriver.Settings;
 
+// this one have some error, can't solved. use htmlUnit + Jsoup
 public class JBrowserDriverExample {
 	public static void main(String[] args) {
 
