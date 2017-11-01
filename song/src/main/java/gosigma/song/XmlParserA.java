@@ -54,9 +54,16 @@ public class XmlParserA {
 		{
 			Document doc = Jsoup.parse(xml, "", Parser.xmlParser());
 			logger.info("Title : " + doc.select("DocTitle").text());
-			Elements ies = doc.select("IntervalEnergy");
+			// Elements ies = doc.select("IntervalEnergy");
 			for (Element ie : doc.select("IntervalEnergy")) {
-				logger.info("select mq : " + ie.select("> MQ").text());
+				String i = ie.select(":root > Interval").text();
+				//				for (Element mq : ie.select(":root > MQ")) {
+				//					String s = "";
+				//					for (Element e : mq.children()) {
+				//						s += " - " + e.tagName() + ":" + e.text();
+				//					}
+				//					// logger.info("interval : " + i + ", MQ : " + s);
+				//				}
 				// String i = ie.select("Interval").get(0).text();
 				// logger.info("IntervalEnergy, Interval : " + i);
 				// for (Element mq : ie.select("MQ")) {
@@ -67,10 +74,15 @@ public class XmlParserA {
 			}
 
 			logger.info("path select : " + doc.select(":root DocBody DeliveryDate"));
+			
+			for (Element e : doc.select(":root > *")) {
+				logger.info(":root > * : " + e.tagName() + ", " + e.ownText());
+			}
 
 		}
 
-		if (true) {
+		if (false) {
+			logger.info("translate xml to html");
 			TransformerFactory tFactory = TransformerFactory.newInstance();
 
 			StringReader readerXml = new StringReader(xml);
@@ -98,6 +110,8 @@ public class XmlParserA {
 				logger.info("ele : " + e.toString());
 			}
 		}
+
+		logger.info("Leaving...");
 	}
 
 	// convert InputStream to String
