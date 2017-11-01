@@ -61,5 +61,10 @@ public class log4jExample {
 		logger.debug("Hello this is a debug message");
 		logger.info("Hello this is an info message");
 
+		final String dir = System.getProperty("user.dir");
+		System.out.println("[current dir] - " + dir);
+		String classpathStr = System.getProperty("java.class.path");
+		System.out.println("[classpath] - " + classpathStr.replaceAll(";", "\n"));
+
 	}
 }
