@@ -2,6 +2,7 @@ package gosigma.song;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 import org.jsoup.parser.Parser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,9 +33,13 @@ public class JsoupTest {
 			"</results>";
 	
 	public static void main(String[] args) {
+		logger.info("Entering...");
+
 		Document doc = Jsoup.parse(xml, "", Parser.xmlParser());
 		String status = doc.select("status").text();
 		logger.info("status : " + status);
+		
+		listChildren(doc.select(":root").get(0), "root");
 
 
 		//		if (status.equals("OK")) {
@@ -45,6 +50,15 @@ public class JsoupTest {
 		//		                        + e.select("score").text());
 		//		    }
 		//		}
+		logger.info("Leaving...");
+	}
+	
+	public static void listChildren(Element e, String prefix) {
+		String p = prefix + "." + e.tagName();
+		System.out.println(p + ":" + e.ownText());
+		for (Element c : e.children()) {
+			listChildren(c, p);
+		}
 	}
 
 }

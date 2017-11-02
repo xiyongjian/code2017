@@ -78,6 +78,8 @@ public class XmlParserA {
 			for (Element e : doc.select(":root > *")) {
 				logger.info(":root > * : " + e.tagName() + ", " + e.ownText());
 			}
+			
+			XmlParserA.listChildren(doc.select(":root").get(0),  "root");
 
 		}
 
@@ -172,5 +174,14 @@ public class XmlParserA {
 		logger.info("Leaving...");
 		return rsl;
 	}
+	
+	public static void listChildren(Element e, String prefix) {
+		String p = prefix + "." + e.tagName();
+		System.out.println(p + ":" + e.ownText());
+		for (Element c : e.children()) {
+			listChildren(c, p);
+		}
+	}
+
 
 }
