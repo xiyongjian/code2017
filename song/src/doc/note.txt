@@ -1,0 +1,25 @@
+
+tk system architecture
+
+NAS x2, mirror setting (hot standby)
+  synology vs qnap
+  
+synology
+  x2 mirror
+  docker container
+  vpn
+  email
+  cctv
+  
+x5+ bay, raid 5 or 6
+	5x 3T -> 3x3T = 9T
+	
+at least two net port
+
+10x download point (xml/html/csv)
+
+tk application design
+cron job vs all day run?
+
+archive download files
+	folder structure
