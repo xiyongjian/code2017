@@ -36,7 +36,7 @@ public class PostBodyTest {
 
 	public static void post01() throws IOException {
 		System.out.println("post01() start");
-		String url = "http://192.168.0.9:8080/webapp/postbody?name=first";
+		String url = "http://localhost:8080/webapp/postbody?name=first";
 		URL obj = new URL(url);
 		HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 
@@ -89,7 +89,7 @@ public class PostBodyTest {
 			System.out.println("post02");
 
 			HttpClient httpClient = new DefaultHttpClient();
-			HttpPost post = new HttpPost("http://192.168.0.9:8080/webapp/postbody?name=hello&num=8888888");
+			HttpPost post = new HttpPost("http://localhost:8080/webapp/postbody?name=hello&num=8888888");
 
 			post.setHeader("Content-type", "application/json");
 			post.setHeader("Referer", "Local Testing");
@@ -163,9 +163,9 @@ public class PostBodyTest {
 			System.out.println("post03");
 
 			HttpClient httpClient = new DefaultHttpClient();
-			HttpPost httpPost = new HttpPost("http://192.168.0.9:8080/webapp/postbody?name=hello&num=8888888");
+			HttpPost httpPost = new HttpPost("http://localhost:8080/webapp/postbody?name=hello&num=8888888");
 			// HttpPost httpPost = new
-			// HttpPost("http://192.168.0.9:8080/webapp/postbody");
+			// HttpPost("http://localhost:8080/webapp/postbody");
 
 			String json = "{\"id\":1,\"name\":\"John abcdefghlaksdflksajdfl;asdjfl;sajdlf\"}";
 			StringEntity entity = new StringEntity(json);
@@ -204,7 +204,7 @@ public class PostBodyTest {
 
 	public static void post04() throws IOException {
 		System.out.println("post04() start");
-		String url = "http://192.168.0.9:8080/webapp/postbody?name=first";
+		String url = "http://localhost:8080/webapp/postbody?name=first";
 		URL obj = new URL(url);
 		HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 
@@ -272,7 +272,7 @@ public class PostBodyTest {
 
 	public static void get01() throws IOException {
 		System.out.println("get01() start");
-		String url = "http://192.168.0.9:8080/webapp/postbody?name=first";
+		String url = "http://localhost:8080/webapp/postbody?name=first";
 		URL obj = new URL(url);
 		HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 

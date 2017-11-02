@@ -29,12 +29,13 @@ public class PostWithBodyParam {
 		post01();
 		post02();
 		post03();
+		post01a();
 		post04();
 	}
 
 	public static void post01() throws IOException {
 		System.out.println("post01() start");
-		String url = "http://192.168.0.9:8080/OAuth2v1/PostTesting?name=first";
+		String url = "http://localhost:8080/OAuth2v1/PostTesting?name=first";
 		URL obj = new URL(url);
 		HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 
@@ -81,13 +82,60 @@ public class PostWithBodyParam {
 		System.out.println("post01() end");
 	}
 
+	public static void post01a() throws IOException {
+		System.out.println("\n post01a(), another method try to post with body");
+		String url = "http://localhost:8080/OAuth2v1/PostTesting";
+		URL obj = new URL(url);
+		HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+
+		String body = "hello, world, and ti's body";
+		String urlParameters = "name=helloworld&sn=C02G8416DRJM&cn=&locale=&caller=&num=12345";
+
+		// add reuqest header
+		con.setRequestMethod("POST");
+		con.setRequestProperty("User-Agent", "Testing");
+		con.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
+		con.setRequestProperty("Referer", "Local Testing");
+
+        con.setChunkedStreamingMode(0);
+        con.setRequestProperty("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
+        con.setRequestProperty("Content-Length", Integer.toString(urlParameters.length()));
+
+		// Send post request
+		con.setDoOutput(true);
+		DataOutputStream wr = new DataOutputStream(con.getOutputStream());
+		wr.write(urlParameters.getBytes());
+		wr.write(urlParameters.getBytes());
+
+		wr.flush();
+		wr.close();
+
+		int responseCode = con.getResponseCode();
+		System.out.println("\nSending 'POST' request to URL : " + url);
+		System.out.println("Post parameters : " + urlParameters);
+		System.out.println("Response Code : " + responseCode);
+
+		BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+		String inputLine;
+		StringBuffer response = new StringBuffer();
+
+		while ((inputLine = in.readLine()) != null) {
+			response.append(inputLine + "\n");
+		}
+		in.close();
+
+		// print result
+		System.out.println(response.toString());
+
+	}
+
 	public static void post02() throws IOException {
 
 		try {
 			System.out.println("post02");
 
 			HttpClient httpClient = new DefaultHttpClient();
-			HttpPost post = new HttpPost("http://192.168.0.9:8080/OAuth2v1/PostTesting?name=hello&num=8888888");
+			HttpPost post = new HttpPost("http://localhost:8080/OAuth2v1/PostTesting?name=hello&num=8888888");
 
 			post.setHeader("Content-type", "application/json");
 			post.setHeader("Referer", "Local Testing");
@@ -161,9 +209,9 @@ public class PostWithBodyParam {
 			System.out.println("post03");
 
 			HttpClient httpClient = new DefaultHttpClient();
-			HttpPost httpPost = new HttpPost("http://192.168.0.9:8080/OAuth2v1/PostTesting?name=hello&num=8888888");
+			HttpPost httpPost = new HttpPost("http://localhost:8080/OAuth2v1/PostTesting?name=hello&num=8888888");
 			// HttpPost httpPost = new
-			// HttpPost("http://192.168.0.9:8080/OAuth2v1/PostTesting");
+			// HttpPost("http://localhost:8080/OAuth2v1/PostTesting");
 
 			String json = "{\"id\":1,\"name\":\"John abcdefghlaksdflksajdfl;asdjfl;sajdlf\"}";
 			StringEntity entity = new StringEntity(json);
@@ -202,7 +250,7 @@ public class PostWithBodyParam {
 
 	public static void post04() throws IOException {
 		System.out.println("post04() start");
-		String url = "http://192.168.0.9:8080/OAuth2v1/PostTesting?name=first";
+		String url = "http://localhost:8080/OAuth2v1/PostTesting?name=first";
 		URL obj = new URL(url);
 		HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 

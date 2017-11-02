@@ -1,0 +1,14 @@
+# termcapinfo xterm ti@:te@
+#       Hardstatus (update xterm title)
+# hardstatus string "SCREEN @ %H: %-n - %t"
+hardstatus alwayslastline
+hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f %t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %d/%m %{W}%c %{g}]'
+
+# create initial windows
+screen -t root      0
+screen -t general   1
+screen -t work2     3
+screen -t reading   4
+screen -t download  5
+screen -t work      2
+
