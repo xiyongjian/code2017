@@ -1,0 +1,105 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+<h2>Async Process!</h2>
+<br>
+<pre id='output'>
+javascript testing output :
+</pre>
+
+<script>
+var o = function(s) {
+	// console.log("append w/o new line : " + s);
+	console.log(s);
+	var html = $('#output').html();
+	$('#output').html( html + s);
+}
+
+var p = function(s) {
+	// console.log("append new line : " + s);
+	// console.log(s);
+	o(s + "\n");
+}
+
+p("hello, world");
+o("hello again");
+p(", world");
+
+Promise.resolve(10).then(function(a) {
+	p("then : " + a);
+	return 20;
+}).catch(function(a) {
+	p("catch : " + JSON.stringify(a));
+	return 30;
+}).then(function(a) {
+	p("second then : " + a);
+	return Promise.reject(10);
+}).then(function(a){
+	p("NOT");
+}).catch(function(a){
+	p("second catch : " + a);	
+});
+
+Promise.reject(10).then(function(a) {
+	p("reject then : " + a);
+	return 20;
+}).catch(function(a) {
+	p("reject catch : " + JSON.stringify(a));
+	throw "helo, world";
+}).then(function(a) {
+	p("reject second then : " + a);
+}).catch(function(a){
+	p("reject again with throw : " + a);	
+});
+
+
+function wait(ms) {
+  var deferred = $.Deferred();
+  setTimeout(function(){deferred.resolve(99)}, ms);
+  return deferred.promise();
+}
+wait(1500).then(function (a) {
+	p("wait 1500 then : " + a);
+}).fail(function(a){
+	p("wait 1500 fail : " + a);
+}).then(function(a){
+	p("wait 1500 second then ");
+}).then(function(a){
+	p("wait 1500 third then ");
+	return $.Deferred().reject(100);
+}).then(function(a){
+	p("wait 1500 second then ");
+}).catch(function(a){
+	p("wait 1500 second catch : " + a);
+	throw "hello wait 1500"
+}).catch(function(a){
+	p("wait 1500 third catch : " + a);
+	return "xxx";
+}).then(function(a){
+	p("wait 1500 fourth then : " + a);
+});
+
+Promise.resolve(10).then(function(a) {
+	p("x then : " + a);
+	return 20;
+}).catch(function(a) {
+	p("x catch : " + JSON.stringify(a));
+	return 30;
+}).then(function(a) {
+	p("x second then : " + a);
+	return 40;
+}).then(function(a){
+	p("x third then : " + a);
+	return 50;
+}).then(function(a){
+	p("x forth then : " + a);
+	return 60;
+}).catch(function(a){
+	p("x second catch : " + a);	
+});
+</script>
+</body>
+</html>
