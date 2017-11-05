@@ -3,8 +3,8 @@ package gosigma.song;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import ch.qos.logback.classic.LoggerContext;
-import ch.qos.logback.core.util.StatusPrinter;
+// import ch.qos.logback.classic.LoggerContext;
+// import ch.qos.logback.core.util.StatusPrinter;
 
 public class LogbackExample {
 	// usage : before class initialization
@@ -25,6 +25,9 @@ public class LogbackExample {
 		logger.warn("Msg #2");
 		logger.error("Msg #3");
 		logger.debug("Msg #4");
+
+		//		String classpathStr = System.getProperty("java.class.path");
+		//		System.out.println("[classpath] - " + classpathStr.replaceAll(";",  "\n"));
 
 		// final String dir = System.getProperty("user.dir");
 		// System.out.println("[current dir] - " + dir);
