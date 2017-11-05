@@ -1,0 +1,2 @@
+cmdhistory=["(foo 'james')" "(foo \\"james\\")" "(defmacro inc10 [n] '(+ 10 n))" "(inc10 5)" "(defmacro inc10 [n] '(+ 10 ~n))" "(inc10 5)" " (defmacro inc10 [n] (list '+ 10 n))" "(inc10 8)" "(macroexpand '(inc10 5))" "(macroexpand '(inc102 5))" "(defmacro inc102 [n] '(+ 10 ~(n)))" "(macroexpand '(inc102 5))" "(defmacro inc102 [n] `(+ 10 ~n))" "(macroexpand '(inc102 5))" "(inc102 5)" "(macroexpand '(inc102 5))" "(macroexpand '(inc105))" "(macroexpand '(inc10 5))" "(foo \:key)"]
+eclipse.preferences.version=1
