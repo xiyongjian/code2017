@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<video autoplay></video>
+	<pre id="msg">
+output :
+	
+	</pre>
+
+	<script>
+	//checks if the browser supports WebRTC 
+	function info(msg) {
+		document.getElementById("msg").innerHTML += msg + "\n";
+	}
+
+	function hasUserMedia() { 
+	   navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia 
+	      || navigator.mozGetUserMedia || navigator.msGetUserMedia; 
+	   return !!navigator.getUserMedia; 
+	}
+	 
+	if (hasUserMedia()) { 
+	   info("hasUserMedia");
+	   navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia
+	      || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+			
+	   //get both video and audio streams from user's camera 
+	   navigator.getUserMedia({ video: true, audio: true }, function (stream) { 
+	      var video = document.querySelector('video'); 
+			
+	      //insert stream into the video tag 
+	      video.src = window.URL.createObjectURL(stream); 
+		  info("get video : \n" + JSON.stringify(video));
+		  info("video src : \n" + JSON.stringify(video.src));
+	   }, function (err) {
+		  info("get user media error : \n" + JSON.stringify(err));
+	   }); 
+		
+	}else {
+	   alert("Error. WebRTC is not supported!"); 
+	}
+		
+	</script>
+
+</body>
+</html>

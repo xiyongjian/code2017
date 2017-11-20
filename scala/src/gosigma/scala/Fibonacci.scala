@@ -11,11 +11,11 @@ object fibs {
     // println(Info.getSystemInfo())
     // println(Info getSystemInfo)
 
-    //    fibVariable();
-    //    fibVarNFunc();
+    fibVariable();
+    //fibVarNFunc();
     //    fibFuncRecurWrong();
     //    fibFactoryObject();
-        fibFactoryClass();
+    //    fibFactoryClass();
   }
 
   // varibles here, will hook the object in memory all along the iteration!
@@ -51,6 +51,7 @@ object fibs {
     var prev = 0;
     def loop(v: Int): Stream[Int] = {
       var rsl = prev + v;
+      println("fib02 add " + prev + " and " + v);
       prev = v;
       return v #:: loop(rsl);
     }
