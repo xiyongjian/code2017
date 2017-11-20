@@ -127,7 +127,7 @@
 		window.addEventListener("paste", function(e) {
 
 			// Handle the event
-			if (false)
+			if (true)
 			retrieveImageFromClipboardAsBlob(e, function(imageBlob) {
 				// If there's an image, display it in the canvas
 				if (imageBlob) {
@@ -158,6 +158,7 @@
 			});
 			
 		    // Handle the event
+		    if (false)
 		    retrieveImageFromClipboardAsBase64(e, function(imageDataBase64){
 		        // If there's an image, open it in the browser as a new window :)
 		        if(imageDataBase64){
