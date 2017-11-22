@@ -53,8 +53,8 @@ public class IESO_RealtimeConstTotals extends FeedBase {
 				for (int i = 0; i < 9; ++i)
 					values += ", \"" + record.get(i).trim() + "\"";
 
-				key = date + StringUtils.leftPad(record.get(0).trim(), 2, "0")
-						+ "_" + StringUtils.leftPad(record.get(1).trim(), 2, "0");
+				key = date + '_' + StringUtils.leftPad(record.get(0).trim(), 2, "0")
+						+ StringUtils.leftPad(record.get(1).trim(), 2, "0");
 			}
 			String sql = "insert into " + _table + " (" + _cols + ") values (" + values + ")";
 			if (sqls.size() == 0) {
