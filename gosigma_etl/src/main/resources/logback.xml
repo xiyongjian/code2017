@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<!-- etl_base_dir, feed_id should be defined in System property -->
+	<!-- <property name="logDir" valuel="${log_dir}" /> -->
+	<!-- <property name="logDir" valuel="e:/tmp/etl/logs" /> -->
+
+<!-- 	<property name="defaultPattern" -->
+<!-- 		value="[%d{yyyyMMdd HHmmss.SSS}][%thread][%-5level][%C{15}][%M#%L] - %msg%n" /> -->
+	<property name="defaultPattern"
+		value="%d{yyyyMMdd HHmmss.SSS}|%thread|%-5level|%C{15}|%M#%L|- %msg%n" />
+	<!-- "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n" -->
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<encoder>
+				<pattern> ${defaultPattern} </pattern>
+			</encoder>
+		</layout>
+	</appender>
+
+	<if condition='isDefined("log_dir")'>
+		<then>
+			<appender name="TIME_BASED_FILE"
+				class="ch.qos.logback.core.rolling.RollingFileAppender">
+				<file>${log_dir}/etl_${feed_id}.log</file>
+				<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+					<!-- daily rollover -->
+					<!-- <fileNamePattern>${log_dir}/arc/etc_${feed_id}.%d{yyyyMMdd.HHmm}.log -->
+					<fileNamePattern>${log_dir}/arc/etc_${feed_id}.%d{yyyyMMdd}.log
+					</fileNamePattern>
+					<maxHistory>30</maxHistory>
+				</rollingPolicy>
+
+				<encoder>
+					<pattern> ${defaultPattern} </pattern>
+				</encoder>
+			</appender>
+
+			<appender name="TIME_BASED_ERROR_FILE"
+				class="ch.qos.logback.core.rolling.RollingFileAppender">
+				<file>${log_dir}/etl_error.log</file>
+				<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+					<!-- daily rollover -->
+					<fileNamePattern>${log_dir}/arc/etc_error.%d{yyyyMMdd}.log
+					</fileNamePattern>
+					<maxHistory>30</maxHistory>
+				</rollingPolicy>
+
+				<encoder>
+					<pattern> ${defaultPattern} </pattern>
+				</encoder>
+				<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+					<level>ERROR</level>
+				</filter>
+			</appender>
+		</then>
+	</if>
+
+	<!-- <logger name="gosigma" level="INFO"> -->
+	<!-- <appender-ref ref="TIME_BASED_FILE" /> -->
+	<!-- <appender-ref ref="STDOUT" /> -->
+	<!-- </logger> -->
+
+	<root level="TRACE">
+		<if condition='isDefined("log_dir")'>
+			<then>
+				<appender-ref ref="TIME_BASED_FILE" />
+				<appender-ref ref="TIME_BASED_ERROR_FILE" />
+			</then>
+		</if>
+		<appender-ref ref="STDOUT" />
+	</root>
+
+	<!-- <root level="ERROR"> -->
+	<!-- <appender-ref ref="TIME_BASED_ERROR_FILE" /> -->
+	<!-- </root> -->
+</configuration>
