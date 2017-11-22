@@ -105,7 +105,7 @@ public class FeedBase {
 
 	public void loadProperties() throws IOException, EtlException {
 		log.info("#### load properties");
-		InputStream inProp = Template.class.getClassLoader().getResourceAsStream("etl.properties");
+		InputStream inProp = FeedBase.class.getClassLoader().getResourceAsStream("etl.properties");
 		Properties prop = new Properties();
 		prop.load(inProp);
 
@@ -178,8 +178,7 @@ public class FeedBase {
 			File target = new File(_targetFile);
 			File arc = new File(_arcFile);
 			boolean rsl = arc.delete();
-			if (!rsl)
-				log.error("failed to remove file : " + _arcFile);
+			log.info("remove file : " + _arcFile + " : " + rsl);
 			rsl = target.renameTo(arc);
 			if (!rsl)
 				log.error("failed to rename file " + _targetFile + " to " + _arcFile);
