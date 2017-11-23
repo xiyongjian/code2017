@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-	<!-- etl_base_dir, feed_id should be defined in System property -->
+	<!-- log_dir, feed_id should be defined in System property -->
 	<!-- <property name="logDir" valuel="${log_dir}" /> -->
 	<!-- <property name="logDir" valuel="e:/tmp/etl/logs" /> -->
 
@@ -38,10 +38,10 @@
 
 			<appender name="TIME_BASED_ERROR_FILE"
 				class="ch.qos.logback.core.rolling.RollingFileAppender">
-				<file>${log_dir}/etl_error.log</file>
+				<file>${log_dir}/error_${feed_id}.log</file>
 				<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 					<!-- daily rollover -->
-					<fileNamePattern>${log_dir}/arc/etc_error.%d{yyyyMMdd}.log
+					<fileNamePattern>${log_dir}/arc/error_${feed_id}.%d{yyyyMMdd}.log
 					</fileNamePattern>
 					<maxHistory>30</maxHistory>
 				</rollingPolicy>

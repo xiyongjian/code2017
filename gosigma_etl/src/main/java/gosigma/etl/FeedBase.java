@@ -28,12 +28,15 @@ public class FeedBase {
 	public Logger log = null;
 	public String _logDir = null;
 	
+	public String _jdbcUrl = null;
+	public String _jdbcUser = null;
+	public String _jdbcPassword = null;
+
 	public String _feedId = null;
 	public String _dataDir = null;
 	public String _feedDir = null;
 	public String _feedUrl = null;
 	public String _feedFile = null;
-	public String _jdbcUrl = null;
 	public String _cols = null;
 	public String _table = null;
 	public String _targetFile = null;
@@ -44,6 +47,14 @@ public class FeedBase {
 		_feedId = feedId;
 	}
 	
+	@Override
+	public String toString() {
+		return "FeedBase [log=" + log + ", _logDir=" + _logDir + ", _jdbcUrl=" + _jdbcUrl + ", _jdbcUser=" + _jdbcUser
+				+ ", _jdbcPassword=" + _jdbcPassword + ", _feedId=" + _feedId + ", _dataDir=" + _dataDir + ", _feedDir="
+				+ _feedDir + ", _feedUrl=" + _feedUrl + ", _feedFile=" + _feedFile + ", _cols=" + _cols + ", _table="
+				+ _table + ", _targetFile=" + _targetFile + ", _arcFile=" + _arcFile + ", _key=" + _key + "]";
+	}
+
 	// derived class must implement following method
 	// parse target file, build sqls, and return key to rename targetFile
 	public String parseFeed(String targetFile, List<String> sqls) throws EtlException, IOException {
@@ -110,6 +121,8 @@ public class FeedBase {
 		prop.load(inProp);
 
 		_jdbcUrl = prop.getProperty("jdbc.url");
+		_jdbcUser = prop.getProperty("jdbc.user");
+		_jdbcPassword = prop.getProperty("jdbc.password");
 
 		_feedDir = prop.getProperty(_feedId + ".dir");
 		_feedUrl = prop.getProperty(_feedId + ".url");
@@ -118,6 +131,8 @@ public class FeedBase {
 		_table = prop.getProperty(_feedId + ".table");
 
 		log.info("jdbcUrl : " + _jdbcUrl);
+		log.info("jdbcUser : " + _jdbcUser);
+		log.info("jdbcPassword : " + _jdbcPassword.length());
 
 		log.info("feedDir  : " + _feedDir);
 		log.info("feedUrl  : " + _feedUrl);
@@ -194,8 +209,8 @@ public class FeedBase {
 		Connection conn = null;
 
 		try {
-			log.info("create connection : " + _jdbcUrl);
-			conn = DriverManager.getConnection(_jdbcUrl);
+			log.info("create connection : " + _jdbcUrl + " with user/pass");
+			conn = DriverManager.getConnection(_jdbcUrl, _jdbcUser, _jdbcPassword);
 			Statement statement = conn.createStatement();
 
 			for (int i = 0; i < sqls.size(); ++i) {

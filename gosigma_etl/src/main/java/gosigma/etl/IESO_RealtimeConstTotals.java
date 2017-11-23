@@ -19,11 +19,13 @@ public class IESO_RealtimeConstTotals extends FeedBase {
 		super(feedId);
 	}
 
+	@Override
 	public Logger getLogger() throws EtlException {
 		return LoggerFactory.getLogger(IESO_RealtimeConstTotals.class);
 	}
 
 	// parse target file, build sqls, and return key to rename targetFile
+	@Override
 	public String parseFeed(String targetFile, List<String> sqls) throws IOException, EtlException {
 		log.info("#### parse csv file : " + targetFile);
 		Reader reader = new FileReader(targetFile);
@@ -83,6 +85,12 @@ public class IESO_RealtimeConstTotals extends FeedBase {
 			feed.doEtl();
 		} catch (EtlException e) {
 			feed.log.error("etl error", e);
+			feed.log.error(feed.toString());
 		}
+	}
+
+	@Override
+	public String toString() {
+		return "IESO_RealtimeConstTotals []" + super.toString();
 	}
 }
