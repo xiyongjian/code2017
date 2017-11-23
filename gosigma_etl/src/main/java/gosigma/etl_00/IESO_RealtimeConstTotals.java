@@ -1,4 +1,4 @@
-package gosigma.etl;
+package gosigma.etl_00;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -82,7 +82,7 @@ public class IESO_RealtimeConstTotals extends FeedBase {
 	public static void main(String[] args) {
 		FeedBase feed = new IESO_RealtimeConstTotals("IESO_PUB_RealtimeConstTotals");
 		try {
-			feed.doEtl(args);
+			feed.doEtl();
 		} catch (EtlException e) {
 			feed.log.error("etl error", e);
 			feed.log.error(feed.toString());

@@ -1,4 +1,4 @@
-package gosigma.etl;
+package gosigma.etl_00;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -33,14 +33,6 @@ import ch.qos.logback.core.joran.spi.JoranException;
 
 public class FeedBase {
 	public Logger log = null;
-
-	// section for command line argument/control, _cXXX
-	public String _cDir = null;
-	public String _cInputFile = null;
-	public boolean _cParseOnly = false;
-	public boolean _cIsCronJob = false;
-	public boolean _cDebug = false;
-
 	public String _logDir = null;
 	public boolean _logToFile = true;
 
@@ -65,23 +57,14 @@ public class FeedBase {
 
 	@Override
 	public String toString() {
-		return "FeedBase [log=" + log + ", _cDir=" + _cDir + ", _cInputFile=" + _cInputFile + ", _cParseOnly="
-				+ _cParseOnly + ", _cIsCronJob=" + _cIsCronJob + ", _logDir=" + _logDir + ", _logToFile=" + _logToFile
-				+ ", _jdbcUrl=" + _jdbcUrl + ", _jdbcUser=" + _jdbcUser + ", _jdbcPassword=" + _jdbcPassword
-				+ ", _feedId=" + _feedId + ", _dataDir=" + _dataDir + ", _feedDir=" + _feedDir + ", _feedUrl="
-				+ _feedUrl + ", _feedFile=" + _feedFile + ", _cols=" + _cols + ", _table=" + _table + ", _targetFile="
-				+ _targetFile + ", _arcFile=" + _arcFile + ", _key=" + _key + "]";
+		return "FeedBase [log=" + log + ", _logDir=" + _logDir + ", _jdbcUrl=" + _jdbcUrl + ", _jdbcUser=" + _jdbcUser
+				+ ", _jdbcPassword=" + _jdbcPassword + ", _feedId=" + _feedId + ", _dataDir=" + _dataDir + ", _feedDir="
+				+ _feedDir + ", _feedUrl=" + _feedUrl + ", _feedFile=" + _feedFile + ", _cols=" + _cols + ", _table="
+				+ _table + ", _targetFile=" + _targetFile + ", _arcFile=" + _arcFile + ", _key=" + _key + "]";
 	}
 
-	/**
-	 * parsing feed file, generate sql statements and timestamp key
-	 * 
-	 * @param targetFile - feed file to be parsed
-	 * @param sqls - store result sql statements
-	 * @return - timestamp key
-	 * @throws EtlException
-	 * @throws IOException
-	 */
+	// derived class must implement following method
+	// parse target file, build sqls, and return key to rename targetFile
 	public String parseFeed(String targetFile, List<String> sqls) throws EtlException, IOException {
 		throw new EtlException("base parseFeed should never been called");
 	}
@@ -97,121 +80,42 @@ public class FeedBase {
 	}
 
 	public void init(String dataDir, String logDir) throws JoranException, EtlException, IOException {
-		log.info("Entering... args : " + dataDir + ", " + logDir);
+		System.out.println("FeedBase init()");
 
 		String userDir = System.getProperty("user.dir");
-		log.info("[current dir] - " + userDir);
-		if (_cDir != null)
-			_logDir = _cDir;
-		else if (logDir != null)
+		System.out.println("[current dir] - " + userDir);
+		if (logDir != null)
 			_logDir = logDir;
 		else
 			_logDir = userDir + File.separator + "logs";
-
-		log.info("initialize logback");
-		log.info("log_dir : " + _logDir);
-		log.info("feed_id : " + _feedId);
-		log.info("_cIsCronJob : " + _cIsCronJob);
-
+		System.out.println("initialize logback");
 		System.setProperty("feed_id", _feedId);
-		if (this._cIsCronJob == true)
-			System.setProperty("log_dir", _logDir);
-		else
-			System.setProperty("etl.command", "true");
-		if (this._cDebug == true)
-			System.setProperty("etl.debug", "true");
-
+		System.setProperty("log_dir", _logDir);
 		LoggerContext lc = (LoggerContext) LoggerFactory.getILoggerFactory();
 		ContextInitializer ci = new ContextInitializer(lc);
 		lc.reset();
 		ci.autoConfig();
-
-		// update log
 		log = this.getLogger();
+
 		log.info("feedId : " + _feedId);
 		log.info("[current dir] : " + userDir);
 		String classPathStr = System.getProperty("java.class.path");
 		log.info("[classpath] : " + classPathStr.replaceAll(";", "\n"));
+		log.info("logDir : " + _logDir);
 
-		if (_cDir != null)
-			_dataDir = _cDir;
-		else if (dataDir != null)
+		if (dataDir != null)
 			_dataDir = dataDir;
 		else
 			_dataDir = userDir + File.separator + "data";
 		log.info("dataDir - " + _dataDir);
 
 		this.loadProperties();
-
-		log.info("Leaving...");
 	}
 
-	public void parseArgs(String[] args) throws EtlException {
-		log.info("Entering... args : " + String.join("|", args));
-
-		Options options = new Options();
-		options.addOption(Option.builder("d").longOpt("directory").desc("output file location").hasArg()
-				.argName("OUTPUT DIR").build());
-		options.addOption(
-				Option.builder("i").longOpt("input").desc("input feed file").hasArg().argName("FEED FILE").build());
-		options.addOption(Option.builder("p").longOpt("parse").desc("download and parse feed file to SQL").build());
-		options.addOption(Option.builder("h").longOpt("help").desc("usage").build());
-		options.addOption(Option.builder("c").longOpt("cron").desc("run as cron job").build());
-		options.addOption(Option.builder().longOpt("debug").desc("debug mode").build());
-
-		log.info("parsing args");
-		CommandLineParser commandLineParser = new DefaultParser();
-		HelpFormatter helpFormatter = new HelpFormatter();
-		CommandLine cl = null;
+	public void doEtl() throws EtlException {
 		try {
-			cl = commandLineParser.parse(options, args);
-		} catch (ParseException e) {
-			helpFormatter.printHelp("utility-name", options);
-			throw new EtlException("command line incorrect.\n" + helpFormatter.toString());
-		}
-
-		if (cl.hasOption('h')) {
-			helpFormatter.printHelp("utility-name", options);
-			System.exit(0);
-		}
-
-		if (cl.hasOption('d')) {
-			_cDir = cl.getOptionValue('d');
-			log.info("_cDir : " + _cDir);
-		}
-
-		if (cl.hasOption('i')) {
-			_cInputFile = cl.getOptionValue('i');
-			log.info("_cInputFile : " + _cInputFile);
-		}
-
-		if (cl.hasOption('p'))
-			_cParseOnly = true;
-		log.info("_cParseOnly : " + _cParseOnly);
-
-		if (cl.hasOption('c'))
-			_cIsCronJob = true;
-		log.info("_cIsCronJob : " + _cIsCronJob);
-		
-		if (cl.hasOption("debug"))
-			this._cDebug = true;
-		log.info("_cDebug : " + _cDebug);
-
-		log.info("Leaving...");
-	}
-
-	public void doEtl(String[] args) throws EtlException {
-		try {
-			// get initial log
-			log = this.getLogger();
-
-			log.info("parse arguments");
-			this.parseArgs(args);
-
-			log.info("initialize feed etl");
 			init();
-
-			log.info("start etl process");
+			// loadProperties();
 			process();
 		} catch (FileNotFoundException e) {
 			throw new EtlException("file not found", e);
@@ -276,50 +180,40 @@ public class FeedBase {
 		{
 			Date date = new Date();
 			DateFormat dateFormat = new SimpleDateFormat("yyyyMM/dd");
-			if (_cDir != null)
-				targetDir = _cDir;
-			else
-				targetDir = _dataDir + File.separator + _feedDir + File.separator + dateFormat.format(date);
-			log.info("targetDir : " + targetDir);
-
+			targetDir = _dataDir + File.separator + _feedDir + File.separator + dateFormat.format(date);
 			dateFormat = new SimpleDateFormat("yyyyMMdd-HHmmss");
 			String fileName = String.format(_feedFile, dateFormat.format(date));
+			log.info("targetDir : " + targetDir);
 			log.info("fileName  : " + fileName);
 
-			if (_cInputFile != null)
-				_targetFile = _cInputFile;
-			else
-				_targetFile = targetDir + File.separator + fileName;
+			_targetFile = targetDir + File.separator + fileName;
 			log.info("targetFile  : " + _targetFile);
 		}
 
-		if (_cInputFile == null)
-			download(_feedUrl, _targetFile);
+		download(_feedUrl, _targetFile);
 
-		log.info("parsing feed into sql");
 		List<String> sqls = new ArrayList<String>();
 		{
 			_key = parseFeed(_targetFile, sqls);
 
 			_arcFile = targetDir + File.separator + String.format(_feedFile, _key);
-			log.info("_arcFile : " + _arcFile);
-
-			String sqlFile = null;
-			if (_cInputFile == null)
-				sqlFile = _arcFile + ".sql";
-			else
-				sqlFile = _cInputFile + ".sql";
+			String sqlFile = _arcFile + ".sql";
 			log.info("record sql to file : " + sqlFile);
 			FileUtils.writeStringToFile(new File(sqlFile), String.join(";\n", sqls), (String) null);
 
-			if (_cInputFile == null)
-				moveFile(_targetFile, _arcFile);
+			//			log.info("move file " + _targetFile + " to " + _arcFile);
+			//			File target = new File(_targetFile);
+			//			File arc = new File(_arcFile);
+			//			boolean rsl = arc.delete();
+			//			log.info("remove file : " + _arcFile + " : " + rsl);
+			//			rsl = target.renameTo(arc);
+			//			if (!rsl)
+			//				log.error("failed to rename file " + _targetFile + " to " + _arcFile);
+			moveFile(_targetFile, _arcFile);
 		}
 
-		if (this._cParseOnly != true) {
-			log.info("execute update sqls");
-			executeSql(sqls);
-		}
+		log.info("execute update sqls");
+		executeSql(sqls);
 
 		log.info("Leaving...");
 	}

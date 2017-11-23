@@ -1,6 +1,6 @@
-package gosigma.etl;
+package gosigma.etl_00;
 
-import static gosigma.etl.LogUtil.*;
+import static gosigma.etl_00.LogUtil.*;
 
 import java.io.File;
 import java.io.FileInputStream;
