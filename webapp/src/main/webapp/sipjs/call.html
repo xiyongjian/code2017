@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<p>CALL DEMO</p>
+	<video id="remoteVideo"></video>
+	<video id="localVideo" muted="muted"></video>
+	<button id="endCall">End Call</button>
+	<!-- sip.js is included by JsFiddle as External Resources -->
+
+	<!-- 
+	<script src="sip-0.7.1.min.js"></script>
+    -->
+	<script src="../js/sip-0.8.3.js"></script>
+
+	<script>
+		var session;
+
+		var endButton = document.getElementById('endCall');
+		endButton.addEventListener("click", function() {
+			session.bye();
+			alert("Call Ended");
+		}, false);
+
+		//Creates the anonymous user agent so that you can make calls
+		// var userAgent = new SIP.UA();
+		var userAgent = new SIP.UA({
+			uri : '1010@192.168.0.126',
+			// wsServers : [ 'wss://sip-ws.example.com' ],
+			wsServers : [ 'ws://192.168.0.126:5066' ],
+			authorizationUser : '1010',
+			password : '1234'
+		});
+		console.log("create user agent");
+
+		//here you determine whether the call has video and audio
+		var options = {
+			media : {
+				constraints : {
+					audio : true,
+					video : true
+				},
+				render : {
+					remote : document.getElementById('remoteVideo'),
+					local : document.getElementById('localVideo')
+				}
+			}
+		};
+
+		console.log("make a call");
+		session = userAgent.invite('sip:welcome@onsip.com', options);
+	</script>
+
+</body>
+</html>

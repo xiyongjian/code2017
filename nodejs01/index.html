@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hello world</title>
+</head>
+<body>
+	Hello world
+
+	<script>
+		var socket = io();
+		socket.on('message', function(data) {
+			document.write(data)
+		});
+	</script>
+</body>
+</html>

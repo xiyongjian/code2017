@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<p> Hello, world </p>
+<p id="message">original message</p>
+<pre id="message2">original message2</pre>
+<script>
+	document.getElementById('message').innerHTML = 'your tip has been submitted!';
+	setTimeout(
+			function() {
+				// document.getElementById('message2').innerHTML = "JSON.stringify(window.location).replace(/,/g, ',<br>\\n')";
+				console.log("window.location : " + JSON.stringify(window.location));
+				var str = JSON.stringify(window.location);
+				document.getElementById('message2').innerHTML = "window.location : " + str.length + " - " + str;
+			}, 1000);
+</script>
+
+</body>
+</html>

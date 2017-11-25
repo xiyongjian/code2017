@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>webrtc, take screenshot</title>
+</head>
+<body>
+	<h1 id="info">Please allow this page to access your camera.</h1>
+
+	<div id="notSupported">
+		<h1>Your browser does not support the Camera API.</h1>
+		<img src="images/screenshot.png" align="center" />
+	</div>
+
+	<pre id="ascii"></pre>
+	<button id="pause">pause / resume</button>
+
+	<a href="https://github.com/idevelop/ascii-camera" id="fork"
+		target="_blank">View on GitHub</a>
+	<a href="https://idevelop.ro/" id="idevelop" target="_blank">Made
+		by idevelop</a>
+
+
+	<pre id="msg">
+output : 
+
+	</pre>
+
+	<script>
+		function info(msg) {
+			document.getElementById("msg").innerHTML += msg + "\n";
+		}
+
+		// camera
+		var camera = (function() {
+			var options;
+			var video, canvas, context;
+			var renderTimer;
+
+			function initVideoStream() {
+				video = document.createElement("video");
+				video.setAttribute('width', options.width);
+				video.setAttribute('height', options.height);
+
+				navigator.getUserMedia = navigator.getUserMedia
+						|| navigator.webkitGetUserMedia
+						|| navigator.mozGetUserMedia
+						|| navigator.msGetUserMedia;
+				window.URL = window.URL || window.webkitURL || window.mozURL
+						|| window.msURL;
+
+				info("getUserMedia");
+				if (navigator.getUserMedia) {
+					navigator.getUserMedia({
+						video : true
+					}, function(stream) {
+						info("getUserMedia, success");
+						options.onSuccess();
+
+						if (video.mozSrcObject !== undefined) { // hack for Firefox < 19
+							video.mozSrcObject = stream;
+						} else {
+							video.src = (window.URL && window.URL
+									.createObjectURL(stream))
+									|| stream;
+							info("video src : " + video.src);
+						}
+
+						initCanvas();
+					}, options.onError);
+				} else {
+					options.onNotSupported();
+				}
+			}
+
+			function initCanvas() {
+				canvas = options.targetCanvas
+						|| document.createElement("canvas");
+				canvas.setAttribute('width', options.width);
+				canvas.setAttribute('height', options.height);
+
+				context = canvas.getContext('2d');
+
+				// mirror video
+				if (options.mirror) {
+					context.translate(canvas.width, 0);
+					context.scale(-1, 1);
+				}
+
+				startCapture();
+			}
+
+			function startCapture() {
+				video.play();
+
+				renderTimer = setInterval(function() {
+					try {
+						context.drawImage(video, 0, 0, video.width,
+								video.height);
+						options.onFrame(canvas);
+					} catch (e) {
+						// TODO
+					}
+				}, Math.round(1000 / options.fps));
+			}
+
+			function stopCapture() {
+				pauseCapture();
+
+				if (video.mozSrcObject !== undefined) {
+					video.mozSrcObject = null;
+				} else {
+					video.src = "";
+				}
+			}
+
+			function pauseCapture() {
+				if (renderTimer)
+					clearInterval(renderTimer);
+				video.pause();
+			}
+
+			return {
+				init : function(captureOptions) {
+					var doNothing = function() {
+					};
+
+					options = captureOptions || {};
+
+					options.fps = options.fps || 30;
+					options.width = options.width || 640;
+					options.height = options.height || 480;
+					options.mirror = options.mirror || false;
+					options.targetCanvas = options.targetCanvas || null; // TODO: is the element actually a <canvas> ?
+
+					options.onSuccess = options.onSuccess || doNothing;
+					options.onError = options.onError || doNothing;
+					options.onNotSupported = options.onNotSupported
+							|| doNothing;
+					options.onFrame = options.onFrame || doNothing;
+
+					initVideoStream();
+				},
+
+				start : startCapture,
+
+				pause : pauseCapture,
+
+				stop : stopCapture
+			};
+		})();
+
+		// ascii
+
+		var ascii = (function() {
+			function asciiFromCanvas(canvas, options) {
+				// Original code by Jacob Seidelin (http://www.nihilogic.dk/labs/jsascii/)
+				// Heavily modified by Andrei Gheorghe (http://github.com/idevelop)
+
+				var characters = (" .,:;i1tfLCG08@").split("");
+
+				var context = canvas.getContext("2d");
+				var canvasWidth = canvas.width;
+				var canvasHeight = canvas.height;
+
+				var asciiCharacters = "";
+
+				// calculate contrast factor
+				// http://www.dfstudios.co.uk/articles/image-processing-algorithms-part-5/
+				var contrastFactor = (259 * (options.contrast + 255))
+						/ (255 * (259 - options.contrast));
+
+				var imageData = context.getImageData(0, 0, canvasWidth,
+						canvasHeight);
+				for (var y = 0; y < canvasHeight; y += 2) { // every other row because letters are not square
+					for (var x = 0; x < canvasWidth; x++) {
+						// get each pixel's brightness and output corresponding character
+
+						var offset = (y * canvasWidth + x) * 4;
+
+						var color = getColorAtOffset(imageData.data, offset);
+
+						// increase the contrast of the image so that the ASCII representation looks better
+						// http://www.dfstudios.co.uk/articles/image-processing-algorithms-part-5/
+						var contrastedColor = {
+							red : bound(Math.floor((color.red - 128)
+									* contrastFactor) + 128, [ 0, 255 ]),
+							green : bound(Math.floor((color.green - 128)
+									* contrastFactor) + 128, [ 0, 255 ]),
+							blue : bound(Math.floor((color.blue - 128)
+									* contrastFactor) + 128, [ 0, 255 ]),
+							alpha : color.alpha
+						};
+
+						// calculate pixel brightness
+						// http://stackoverflow.com/questions/596216/formula-to-determine-brightness-of-rgb-color
+						var brightness = (0.299 * contrastedColor.red + 0.587
+								* contrastedColor.green + 0.114 * contrastedColor.blue) / 255;
+
+						var character = characters[(characters.length - 1)
+								- Math.round(brightness
+										* (characters.length - 1))];
+
+						asciiCharacters += character;
+					}
+
+					asciiCharacters += "\n";
+				}
+
+				options.callback(asciiCharacters);
+			}
+
+			function getColorAtOffset(data, offset) {
+				return {
+					red : data[offset],
+					green : data[offset + 1],
+					blue : data[offset + 2],
+					alpha : data[offset + 3]
+				};
+			}
+
+			function bound(value, interval) {
+				return Math.max(interval[0], Math.min(interval[1], value));
+			}
+
+			return {
+				fromCanvas : function(canvas, options) {
+					options = options || {};
+					options.contrast = (typeof options.contrast === "undefined" ? 128
+							: options.contrast);
+					options.callback = options.callback || doNothing;
+
+					return asciiFromCanvas(canvas, options);
+				}
+			};
+		})();
+
+		// main
+		(function() {
+			if (window.location.protocol != 'https:') {
+				window.location.href = 'https:'
+						+ window.location.href
+								.substring(window.location.protocol.length);
+				return;
+			}
+
+			info("is https");
+
+			var asciiContainer = document.getElementById("ascii");
+			var capturing = false;
+
+			camera
+					.init({
+						width : 160,
+						height : 120,
+						fps : 30,
+						mirror : true,
+
+						onFrame : function(canvas) {
+							ascii.fromCanvas(canvas, {
+								// contrast: 128,
+								callback : function(asciiString) {
+									asciiContainer.innerHTML = asciiString;
+								}
+							});
+						},
+
+						onSuccess : function() {
+							document.getElementById("info").style.display = "none";
+
+							capturing = true;
+							document.getElementById("pause").style.display = "block";
+							document.getElementById("pause").onclick = function() {
+								if (capturing) {
+									camera.pause();
+								} else {
+									camera.start();
+								}
+								capturing = !capturing;
+							};
+						},
+
+						onError : function(error) {
+							// TODO: log error
+						},
+
+						onNotSupported : function() {
+							document.getElementById("info").style.display = "none";
+							asciiContainer.style.display = "none";
+							document.getElementById("notSupported").style.display = "block";
+						}
+					});
+		})();
+	</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>webrtc, take screenshot</title>
+</head>
+<body>
+
+	<video autoplay></video>
+	<img src="">
+	<canvas style="display: none;"></canvas>
+	<p><button id="capture">capture image</button>
+
+	<pre id="msg">
+output : 
+
+	</pre>
+
+	<script>
+		function info(msg) {
+			document.getElementById("msg").innerHTML += msg + "\n";
+		}
+
+		var video = document.querySelector('video');
+		var canvas = document.querySelector('canvas');
+		var ctx = canvas.getContext('2d');
+		var localMediaStream = null;
+
+		function snapshot() {
+			if (localMediaStream) {
+				ctx.drawImage(video, 0, 0);
+				// "image/webp" works in Chrome.
+				// Other browsers will fall back to image/png.
+				document.querySelector('img').src = canvas
+						.toDataURL('image/webp');
+			}
+		}
+
+		document.getElementById("capture").addEventListener('click', snapshot, false);
+		// video.addEventListener('click', snapshot, false);
+
+		// Not showing vendor prefixes or code that works cross-browser.
+		info("getUserMedia");
+		navigator.getUserMedia({
+			video : true
+		}, function(stream) {
+			info("getUserMedia, stream : " + JSON.stringify(stream, null, 4));
+			video.src = window.URL.createObjectURL(stream);
+			info("getUserMedia, video src : " + JSON.stringify(video.src, null, 4));
+			localMediaStream = stream;
+		}, function(e) {
+			info("getUserMedia, error : " + JSON.stringify(e, null, 4));
+		});
+	</script>
+</body>
+</html>

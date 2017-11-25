@@ -1,0 +1,14 @@
+#!/bin/sh
+
+ME=`basename "$0"`;
+LCK="/tmp/${ME}.LCK";
+exec 8>$LCK;
+
+if flock -n -x 8; then
+        echo "I'm in ($$)";
+        sleep 20; # XXX: Do something interesting here.
+        # put ETL jobs/java app running here
+        echo "I'm done ($$)";
+else
+        echo "I'm rejected ($$)";
+fi

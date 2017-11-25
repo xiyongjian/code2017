@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 
+<script type="text/javascript" src="js/log4javascript_production.js"></script>
+ -->
+<script type="text/javascript" src="js/log4javascript_uncompressed.js"></script>
+</head>
+<body>
+
+	<h4>
+		<a href="http://log4javascript.org/">log4javascript</a> demo
+	</h4>
+
+	<div id="log"></div>
+
+	<script type="text/javascript">
+		var log = log4javascript.getLogger("main");
+		var appender = new log4javascript.InPageAppender("log");
+		log.addAppender(appender);
+		log
+				.debug("This is a debugging message from the log4javascript in-page page");
+		
+		for (var i =0; i<100; ++i)
+			log.info("i * i, i " + i + ", is " + i * i)
+	</script>
+
+
+
+</body>
+</html>

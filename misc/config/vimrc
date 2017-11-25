@@ -1,0 +1,511 @@
+" install plugin
+" a, mru, bufexplore, matchit
+" windows home : %HOME%/vimfiles/plugin/.....
+
+" matchit
+"  echo b:mat...
+"  set all
+"  setfiletype
+
+"       tab/space and indent
+set tabstop=4 expandtab
+" set ai
+set smarttab
+set si
+set nu
+" set list
+set shiftwidth=4
+
+" set shiftwidth=4
+" set nohlsearch
+set hlsearch
+" set incsearch
+set noincsearch
+" set showmatch
+" set autoindent
+set dictionary=~/.vim/CVIMSYN/engspchk.wordlist
+
+"       highlight current line
+set cursorline
+
+set history=500
+
+set backup
+set backupdir=~/tmp/vi,/tmp/vi/,~/tmp,/tmp,.
+
+set printoptions=paper:letter,duplex:off,syntax:n
+" set printoptions=paper:letter,duplex:off,left:0.5in,right:0.5in,top:0.5in,bottom:0.5in,syntax:n
+" set printmbcharset=GB_2312-80
+" set printmbfont=r:SimSun,b:SimSun,c:yes
+set printencoding=latin1
+
+"       allow backspacing over everything in insert mode
+set backspace=indent,eol,start
+
+"       spacebar for scrolling
+map <Space> <C-e>
+nmap <C-k> <C-e>
+
+"       change path to current file
+"       au = autocmd
+au BufEnter * lcd %:p:h
+
+"       for netrw
+set nocp
+filetype plugin on
+"       to avoid load netrw
+" let loaded_netrw = 1
+
+" set textwidth=0
+set textwidth=0
+" set wm=0
+
+"       change it for including path
+" set path+=~/working/src/lib/mgx0,~/working/src/app,~/working/src/lib
+set path+=.,~/work/coding/code/include,~/work/coding/code/src/lib/mgx0,/usr/include,/usr/X11R6/include,/usr/local/include,~/local/include,~/work/coding/code2/src/util,~/work/toolkit
+set path+=~/work/toolkit/glt/src
+set path+=~/work/coding/include,~/work/coding/include/glt
+set path+=/home/jxi01/work/dev/mugeo/ver1/work/code3/src/lib
+
+" <TAB> to list all possible match
+set wildmode=list:full
+
+" show matched [{(
+set showmatch
+
+" add <> as match pairs
+set matchpairs+=<:>
+
+" modify vim setting
+nmap ,s  :source ~/.vimrc<CR>
+" update vim setting
+nmap ,v  :e ~/.vimrc<CR>
+
+" map <CR> in normal mode to insert new line
+"nmap <CR> o<ESC>
+nmap <CR> i<CR><ESC>
+
+"       wipe out current buffer
+" nmap ,q  :bw<Bar>bn<CR> 
+"       see later ->
+
+" switch to most recent buffer
+nmap ,x  <C-^>
+
+nmap ,i :set ignorecase<CR>
+nmap ,I :set noignorecase<CR>
+
+"" align text, internal moving and change space in both side
+nmap ,` mzx0i<SPACE><ESC>`z
+nmap ,1 mzxbi<SPACE><ESC>`z
+nmap ,2 mzi<SPACE><ESC>0x`z
+nmap ,3 mzxea<SPACE><ESC>`z
+
+set nocompatible
+
+" exit vim
+nmap ,Q  :wa<Bar>q<CR>
+
+nmap ,L  :ls!<CR>
+" nmap ,,  :b 
+nmap ,.  :e.<CR>
+" nmap ,mm  :make<CR>
+nmap ,m  :make<CR>
+" nmap ,mr  :make run<CR>
+" build project
+nmap ,b   ,F,m
+
+" escape to shell, hang vim
+nmap ,z  <C-z>
+
+nmap ,F  :bf<CR>
+
+" enter new shell
+nmap ,a  :sh<CR>
+
+" write current buffer with safe backup in ~/tmp/vi
+"       no need of it, because already set backup
+" nmap ,w  :!(mkdir -p ~/tmp/vi)<CR>:w! ~/tmp/vi/%<CR>:!chmod a-w ~/tmp/vi/%<CR>:w<CR>:!sync<CR><CR>
+nmap ,w  :w<CR>
+
+" next position
+nmap ,cn :cn<CR>
+
+" page up/down
+"nmap ,b  <C-u>
+"nmap ,n  <C-d>
+nmap sk  <C-u>
+nmap sj  <C-d>
+
+nmap <C-x> <C-^>
+
+"       tab related, gt/T used for tab moving
+nmap gn :tabnew<CR>
+nmap gc :tabclose<CR>
+nmap gC :tabonly<CR>
+nmap th :tabfirst<CR>
+nmap tj :tabprevious<CR>
+nmap tk :tabnext<CR>
+nmap tl :tablast<CR>
+
+" save session
+nmap ,S   :wa<Bar>mksession! ~/Session.vim<CR>
+
+" insert mode cursor moving
+" imap <C-h> <ESC>i
+" imap <C-j> <C-o>j
+" imap <C-k> <C-o>k     " it confict with C-x C-k (dictionary completion)
+" imap <C-l> <C-o>a
+imap <C-d> <C-o>x
+" imap <C-b> <C-o>X
+
+"       search both tk and keywords in one line
+"       \c - ignorecase
+"       :/\c^tk\&.*keyword1\&.*keyword2
+nmap ,tk    ,kk^tk<C-k>
+nmap ,fk    ,kk^tk<C-k>
+"       conflict with minibuffer
+" nmap <C-k>  :/\c
+nmap ,kk    :/\c
+cmap <C-k>  \&.*
+
+"       s<x> serial command for setting
+"       e<x> serial for editing
+"       f<x> serial for finding
+
+function! TogglePaste()
+    if &paste == 1
+        let &paste = 0
+    else
+        let &paste = 1
+    endif
+    echo "paste is set to " &paste
+endfunction
+
+"       setting (how to toggle?)
+" nmap ,sp    :set invpaste<CR>
+nmap ,sp    :call TogglePaste()<CR>
+nmap ,se    :set tabstop=4 expandtab<CR>
+
+"       use <C-[> as escape
+imap <C-j> <ESC>
+map <C-j> <ESC>
+imap jj    <ESC>
+
+"       jj for escape or not
+nmap ,sj   :imap jj <ESC <BS>><CR>
+nmap ,sJ   :iunmap jj<CR>
+"       set tab width switch
+nmap ,s8   :set tabstop=8<CR>
+nmap ,s4   :set tabstop=4<CR>
+
+"       search notes/catelog
+cmap <C-g>  \| xargs -i,  egrep -iHn "" ",")<Left><Left><Left><Left><Left><Left>
+cmap <C-f>  <End><Left> \| egrep -i ""<Left>
+" nmap ,fn    :!( find ~/mnt/usb/flog/note* -type f <C-g>
+" nmap ,fm    :!( find ~/mnt/usb/flog/catalog/m -type f <C-g>
+" nmap ,fx    :!( find ~/mnt/usb/flog/catalog/x -type f <C-g>
+" nmap ,fd    :!( find ~/mnt/usb/flog/catalog/d -type f <C-g>
+" nmap ,fs    :!( find ~/mnt/usb/flog/catalog/s -type f <C-g>
+" nmap ,fn    :!( find ~/flog/note* -type f <C-g>
+nmap ,fn    :!( find /cygdrive/e/home/xyj.000/flog/note* -type f <C-g>
+nmap ,fm    :!( find ~/flog/catalog/m -type f <C-g>
+nmap ,fx    :!( find ~/flog/catalog/x -type f <C-g>
+nmap ,fd    :!( find ~/flog/catalog/d -type f <C-g>
+nmap ,fs    :!( find ~/flog/catalog/s -type f <C-g>
+nmap ,ff    :!( find . -type f <C-g>
+"       for syntax highlight correct ))))))
+
+" nmap ,ee    :e ~/mnt/usb/flog/note/<CR>
+" nmap ,en    :e ~/mnt/usb/flog/note/
+" nmap ,em    :e ~/mnt/usb/flog/catalog/m<CR>
+" nmap ,ex    :e ~/mnt/usb/flog/catalog/x.lst<CR>
+" nmap ,ed    :e ~/mnt/usb/flog/catalog/d/<CR>
+" nmap ,es    :e ~/mnt/usb/flog/catalog/s/<CR>
+"
+nmap ,ee    :e ~/flog/note/<CR>
+" nmap ,en    :e ~/flog/note/
+nmap ,en    :e /cygdrive/e/home/xyj.000/flog/note/
+nmap ,em    :e ~/flog/catalog/m.lst<CR>
+nmap ,ex    :e ~/flog/catalog/x.lst<CR>
+nmap ,ed    :e ~/flog/catalog/d/<CR>
+nmap ,es    :e ~/flog/catalog/s/<CR>
+
+"       insert output from shell command
+" nmap <C-i>  :r !
+nmap ,rd    <C-i>date +\%Y-\%m-\%d<CR>
+
+" make program
+set makeprg=make
+" nmap <C-m>  :w<CR>:make<CR>
+
+"       set folding way for c/cpp/h source code
+" au Filetype cpp  nmap ,F :syn region myFold start="{" end="}" transparent fold<CR>:syn sync fromstart<CR>:set foldmethod=syntax<CR>
+" au Filetype c  nmap ,F :syn region myFold start="{" end="}" transparent fold<CR>:syn sync fromstart<CR>:set foldmethod=syntax<CR>
+" au Filetype h  nmap ,F :syn region myFold start="{" end="}" transparent fold<CR>:syn sync fromstart<CR>:set foldmethod=syntax<CR>
+" nmap ,F :syn region myFold start="{" end="}" transparent fold<CR>:syn sync fromstart<CR>:set foldmethod=syntax<CR>
+
+" set foldmethod=indent
+
+"       MRU list
+nmap ,M :MRU<CR>
+let MRU_Max_Entries = 200
+
+" buffer explorer
+nmap ,l  \be
+" directory explorer
+" let g:netrw_keepdir=0
+" nmap ,d  :Opsplore<CR>
+nmap ,D  :NERDTree<CR>
+" vim commander (total command like)
+nmap ,C :call VimCommanderToggle()<CR>
+
+"       turn on last twe lines
+set laststatus=2
+
+"       status line format
+" set statusline=[%n]\ %F\ %(\ (%M%R%H)%)%=[%2c%V,%3l:%L]\ %p%%\ 
+set statusline=[%n]\ %F\ %(\ %m%r%h%w%y%)%=[%2c%V,%3l:%L]\ %p%%\ 
+
+"       show tab/trail space differently
+set list listchars=tab:>.,trail:.
+
+"       text formating for chinese chars
+set formatoptions+=mMro
+
+syntax on
+
+"       Doxygen config
+let g:DoxygenToolkit_briefTag_pre="@Synopsis  "
+let g:DoxygenToolkit_briefTag_pre="@brief  "
+" let g:DoxygenToolkit_briefTag_pre=""
+let g:DoxygenToolkit_paramTag_pre="@param  "
+let g:DoxygenToolkit_returnTag="@return  "
+let g:DoxygenToolkit_blockHeader=""
+let g:DoxygenToolkit_blockFooter=""
+" let g:DoxygenToolkit_blockHeader="--------------------------------------------------------------------------"
+" let g:DoxygenToolkit_blockFooter="----------------------------------------------------------------------------"
+let g:DoxygenToolkit_authorName="Yongjian Xi"
+let g:DoxygenToolkit_licenseTag="My own license\<enter>"
+
+nmap ,dd    :Dox<CR>
+nmap ,de    :Dox<CR><ESC>
+nmap ,dc    O/**<CR><CR><BS>/<ESC><UP>A<TAB>
+nmap ,dC    O/*************************************************<CR><CR><BS>/<ESC><UP>A<TAB>
+" nmap ,dC    i/*********************************************************************<CR><CR><BS>/<ESC><UP>A<TAB>
+
+"
+"       color scheme setting
+"
+"       ps_color
+" let psc_style='cool'
+" let psc_style='warm'
+" let psc_style='default'
+" let psc_style='defdark'
+" colorscheme ps_color
+
+"       default color
+" colorscheme greens
+colorscheme ron
+" colorscheme darktango
+
+"       setting for different version
+"       only for vim 5
+" if has("unix")
+"     if v:version<600
+"         highlight Normal  ctermfg=Grey      ctermbg=Black   cterm=NONE
+"     endif
+" endif
+
+"
+"       note, further expansion
+"
+" inoremap <C-D> <C-O>diw
+
+"
+"       file encoding
+"
+" " if v:lang =~ "utf8$" || v:lang =~ "UTF-8$"
+" "   set fileencodings=utf-8,latin1
+" set fileencodings=gbk,utf-8,latin1,cp936,gb18030,gb2312,euc-tw
+" "endif
+
+" function! SetLocale(locale)
+"     let &encoding=a:locale
+"     let &termencoding=a:locale
+"     let &fileencoding=a:locale
+" endfunction
+" 
+" if has("multi_byte")
+"   "     set bomb
+"   set fileencodings=prc,ucs-bom,utf-8,big5,euc-jp,euc-kr,latin1
+"   "     CJK environment detection and corresponding setting
+"   if v:lang =~ "^C$" || v:lang =~ "^$" || v:lang =~ "^zh_CN"
+"     call SetLocale("prc")
+"   elseif v:lang =~ "^zh_TW"
+"     call SetLocale("big5")
+"   elseif v:lang =~ "^ko"
+"     call SetLocale("euc-kr")
+"   elseif v:lang =~ "^ja_JP"
+"     call SetLocale("ja_JP")
+"   endif
+"   if v:lang =~ "utf8$" || v:lang =~ "UTF-8$"
+"     call SetLocale("utf-8")
+"   endif
+" else
+"   echoerr "Not multi_byte support compiled."
+" endif
+
+"       FencView plugin function
+" autocmd BufReadPost * FencAutoDetect
+
+"       quit vim anyway
+nmap ,qa :qa<CR>
+
+"       close buffer but keep the window!
+nmap ,q :Bclose<CR>
+command! Bclose call <SID>BufcloseCloseIt() 
+function! <SID>BufcloseCloseIt() 
+    let l:currentBufNum = bufnr("%") 
+    let l:alternateBufNum = bufnr("#") 
+
+    if buflisted(l:alternateBufNum) 
+        buffer # 
+    else 
+        bnext 
+    endif 
+
+    if bufnr("%") == l:currentBufNum 
+        new 
+    endif 
+
+    if buflisted(l:currentBufNum) 
+        execute("bdelete ".l:currentBufNum) 
+    endif 
+endfunction
+
+nmap ,cal   \cal
+
+"       cvim setting
+let g:C_AuthorName      = 'Yongjian Xi'
+let g:C_AuthorRef       = ''
+let g:C_Email           = 'yxry2@mizzou.edu'
+let g:C_Company         = 'Dept. of Computer Science, University of Missouri, Columbia, MO'
+
+"       for viki
+let g:netrw_browsex_viewer = 'opera'
+
+"       directory sorting
+let g:netrw_sort_sequence = '[\/]$,*'
+
+"       remember cursor position of last time
+":au BufReadPost * :if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
+    :au BufReadPost *
+    \ :if line("'\"") > 0 && line("'\"") <= line("$") | 
+    \ exe "normal g'\"" | endif
+
+"
+"       cscope support
+"
+if has("cscope")
+    set csprg=/usr/bin/cscope
+    set csto=0
+    set cst
+    set nocsverb
+    " add any database in current directory
+    if filereadable("cscope.out")
+        cs add cscope.out
+    elseif filereadable("~/work/coding/cscope.out")
+        cs add ~/work/coding/cscope.out
+    " else add database pointed to by environment
+    elseif $CSCOPE_DB != ""
+        cs add $CSCOPE_DB
+    endif
+    set csverb
+
+"   0 or s: Find this C symbol
+"   1 or g: Find this definition
+"   2 or d: Find functions called by this function
+"   3 or c: Find functions calling this function
+"   4 or t: Find this text string
+"   6 or e: Find this egrep pattern
+"   7 or f: Find this file
+"   8 or i: Find files #including this file
+    nmap <C-\>z :cs find 
+    nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>
+    nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
+    nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+    nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+
+    nmap ,c<Space> :cs find 
+    nmap ,cs :cs find s <C-R>=expand("<cword>")<CR><CR>
+    nmap ,cg :cs find g <C-R>=expand("<cword>")<CR><CR>
+    nmap ,cc :cs find c <C-R>=expand("<cword>")<CR><CR>
+    nmap ,ct :cs find t <C-R>=expand("<cword>")<CR><CR>
+    nmap ,ce :cs find e <C-R>=expand("<cword>")<CR><CR>
+    nmap ,cf :cs find f <C-R>=expand("<cfile>")<CR><CR>
+    nmap ,ci :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+    nmap ,cd :cs find d <C-R>=expand("<cword>")<CR><CR>
+
+    " map g<C-]> :cs find 3 <C-R>=expand("<cword>")<CR><CR>
+    " map g<C-\> :cs find 0 <C-R>=expand("<cword>")<CR><CR>
+    " nmap <C-_>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+    " nmap <C-_>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+    " nmap <C-_>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+    " nmap <C-_>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+    " nmap <C-_>e :cs find e <C-R>=expand("<cword>")<CR><CR>
+    " nmap <C-_>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
+    " nmap <C-_>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+    " nmap <C-_>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+endif
+
+"
+"       taglist shortcut key
+"
+nmap <C-\>a :TlistToggle<CR>
+nmap <Tab>l :TlistToggle<CR>
+nmap \tl :TlistToggle<CR>
+nmap ,tl :TlistToggle<CR>
+"       use 'q' to close taglist window, 'p' to preview source code,
+"       'pq' to locate source code and close taglist window
+nmap ,to  :TlistOpen<CR>
+" nmap ,tp  :TlistShowPrototype<CR>
+
+"
+"       global shortcut key C-\
+"
+nmap <C-\><Space>  :Gtags 
+nmap <C-\><C-\>  :GtagsCursor<CR>
+nmap ,gg :GtagsCursor<CR>
+nmap ,g<Space> :Gtags 
+au FileType qf setlocal nu
+
+" au BufEnter * 
+"             \ if !filereadable("alsjkdflsdf") | echo "yes"  |
+"             \ endif
+
+"       for qbuf
+"let g:qb_hotkey = ""
+let g:qb_hotseq = ",,"
+
+"
+" folding options
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set foldmethod=indent
+set foldlevel=20
+set fillchars=fold:\ 
+set foldtext=Myfoldtext()
+func! Myfoldtext()
+    let line = printf("%3d lines, %d-%d", v:foldend - v:foldstart + 1, v:foldstart, v:foldend)
+    return repeat(' ', v:foldlevel * &shiftwidth) . '+' . line
+endf
+
+" NERD tree setting
+let NERDTreeDirArrows=0
+nmap ,b :NERDTreeToggle<cr>
+
+let g:NERDTreeHijackNetrw = 0

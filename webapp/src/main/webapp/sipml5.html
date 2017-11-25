@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h4>
+		<a href="https://www.doubango.org/sipml5/docgen/index.html?svn=250">sipML
+			5</a> demo
+	</h4>
+
+	<div>
+		<p>video local</p>
+		<video id="video_local"></video>
+	</div>
+	<div>
+		<p>video remote</p>
+		<video id="video_remote"></video>
+	</div>
+	<div>
+		<p>audio remote</p>
+		<audio id="audio-remote"></audio>
+	</div>
+
+	<button onclick="call()">CALL</button>
+
+	<pre id="msg">
+	</pre>
+
+	<!--
+	-->
+	<script type="text/javascript" src="js/SIPml-api.js"></script>
+	<script>
+
+		function censor(censor) {
+			var i = 0;
+
+			var cache = [];
+			return function(key, value) {
+				if (typeof value === 'object' && value !== null) {
+					if (cache.indexOf(value) !== -1) {
+						// Circular reference found, discard key
+						return "[circular]";
+					}
+					// Store value in our collection
+					cache.push(value);
+				}
+				return value;
+			}
+		}
+
+		function info(msg) {
+			document.getElementById("msg").innerHTML += msg + "\n";
+		}
+
+		function call() {
+			SIPml
+					.init(function(e) {
+						var stack = new SIPml.Stack(
+								{
+									realm : 'webrtc-da3-1.ngdesk.com',
+									impi : '1001',
+									impu : 'sip:1001@webrtc-da3-1.ngdesk.com',
+									password : '1234',
+									websocket_proxy_url: 'wss://webrtc-da3-1.ngdesk.com:7443',
+									events_listener : {
+										events : 'started',
+										listener : function(e) {
+											info("listener func : "
+													+ JSON.stringify(e, censor,
+															4));
+											var callSession = stack
+													.newSession(
+															'call-audiovideo',
+															{
+																video_local : document
+																		.getElementById('video-local'), // <video id="video-local" .../>
+																video_remote : document
+																		.getElementById('video-remote'), // <video id="video-remote" .../>
+																audio_remote : document
+																		.getElementById('audio-remote')
+															// <audio id="audio-remote" .../>
+															});
+											callSession
+													.call('sip:1018@webrtc-da3-1.ngdesk.com');
+										}
+									}
+								});
+						stack.start();
+					});
+		}
+	</script>
+
+</body>
+</html>
