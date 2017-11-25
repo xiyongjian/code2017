@@ -22,7 +22,7 @@ public class LogbackApp {
 		bar.info("bar");
 
 		Logger logger = (Logger) LoggerFactory.getLogger(LogbackApp.class);
-		logger.info("logbackapp testing");
+		logger.info("logbackapp testing, should be in syslog@localhost");
 		
 	}
 

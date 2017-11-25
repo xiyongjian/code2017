@@ -76,8 +76,10 @@ public class FeedBase {
 	/**
 	 * parsing feed file, generate sql statements and timestamp key
 	 * 
-	 * @param targetFile - feed file to be parsed
-	 * @param sqls - store result sql statements
+	 * @param targetFile
+	 *            - feed file to be parsed
+	 * @param sqls
+	 *            - store result sql statements
 	 * @return - timestamp key
 	 * @throws EtlException
 	 * @throws IOException
@@ -128,7 +130,7 @@ public class FeedBase {
 
 		// update log
 		log = this.getLogger();
-		
+
 		if (this._cDebug == true) {
 			Utils.initLog(log);
 			log.info("command line : \n" + Utils.appCmdLine());
@@ -198,7 +200,7 @@ public class FeedBase {
 		if (cl.hasOption('c'))
 			_cIsCronJob = true;
 		log.info("_cIsCronJob : " + _cIsCronJob);
-		
+
 		if (cl.hasOption("debug"))
 			this._cDebug = true;
 		log.info("_cDebug : " + _cDebug);
@@ -362,7 +364,8 @@ public class FeedBase {
 					throw new EtlException("run [" + i + "] : " + sql, e);
 				}
 			}
-			
+
+			log.info("commit transaction");
 			conn.commit();
 		} finally {
 			if (conn != null)
