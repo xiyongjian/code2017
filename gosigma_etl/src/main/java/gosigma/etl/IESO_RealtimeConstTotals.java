@@ -91,6 +91,6 @@ public class IESO_RealtimeConstTotals extends FeedBase {
 
 	@Override
 	public String toString() {
-		return "IESO_RealtimeConstTotals []" + super.toString();
+		return ("IESO_RealtimeConstTotals [], " + super.toString()).replaceAll(",", ",\n");
 	}
 }

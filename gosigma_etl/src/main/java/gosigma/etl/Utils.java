@@ -117,7 +117,7 @@ public class Utils {
 			// program main is a jar
 			if (mainCommand[0].endsWith(".jar")) {
 				cp.add(new File(mainCommand[0]).getPath());
-				++ startIdx;
+				++startIdx;
 			}
 			cp.addAll(Arrays.asList(System.getProperty("java.class.path").split(File.pathSeparator)));
 
@@ -129,14 +129,21 @@ public class Utils {
 
 			log.info("final cmd : " + cmd.toString());
 			log.info("final cp : " + String.join("\n", cp));
-			
+
 			StringBuilder cpExport = new StringBuilder();
+			StringBuilder cpCopy = new StringBuilder();
+
+			cpExport.append("## setup/export CLASSPATH ##\n");
+			cpExport.append("export CLASSPATH=$CLASSPATH:.\n");
+			cpCopy.append("## copy jar file to . ##\n");
 			for (String jar : cp) {
-				cpExport.append("export CLASSPATH=$CLASSPATH:LIB/" + 
-				    jar.substring(jar.lastIndexOf('\\')+1, jar.length()) + "\n");
+				cpExport.append("export CLASSPATH=$CLASSPATH:lib/"
+						+ jar.substring(jar.lastIndexOf('\\') + 1, jar.length()) + "\n");
+
+				cpCopy.append("COPY " + jar + " .\n");
 			}
 
-			return cpExport.toString() + cmd.toString();
+			return cpCopy.toString() + cpExport.toString() + cmd.toString();
 		} catch (Exception e) {
 			// something went wrong
 			throw new IOException("Error while trying to restart the application", e);
@@ -148,7 +155,7 @@ public class Utils {
 	public static void initLog(Logger log) {
 		Utils.log = log;
 	}
-	
+
 	public static void initLog() throws JoranException {
 		LoggerContext context = (LoggerContext) LoggerFactory.getILoggerFactory();
 		JoranConfigurator jc = new JoranConfigurator();

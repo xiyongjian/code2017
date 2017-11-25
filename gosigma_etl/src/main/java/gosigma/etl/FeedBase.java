@@ -66,11 +66,11 @@ public class FeedBase {
 	@Override
 	public String toString() {
 		return "FeedBase [log=" + log + ", _cDir=" + _cDir + ", _cInputFile=" + _cInputFile + ", _cParseOnly="
-				+ _cParseOnly + ", _cIsCronJob=" + _cIsCronJob + ", _logDir=" + _logDir + ", _logToFile=" + _logToFile
-				+ ", _jdbcUrl=" + _jdbcUrl + ", _jdbcUser=" + _jdbcUser + ", _jdbcPassword=" + _jdbcPassword
-				+ ", _feedId=" + _feedId + ", _dataDir=" + _dataDir + ", _feedDir=" + _feedDir + ", _feedUrl="
-				+ _feedUrl + ", _feedFile=" + _feedFile + ", _cols=" + _cols + ", _table=" + _table + ", _targetFile="
-				+ _targetFile + ", _arcFile=" + _arcFile + ", _key=" + _key + "]";
+				+ _cParseOnly + ", _cIsCronJob=" + _cIsCronJob + ", _cDebug=" + _cDebug + ", _logDir=" + _logDir
+				+ ", _logToFile=" + _logToFile + ", _jdbcUrl=" + _jdbcUrl + ", _jdbcUser=" + _jdbcUser
+				+ ", _jdbcPassword=" + "xxxx" + ", _feedId=" + _feedId + ", _dataDir=" + _dataDir + ", _feedDir="
+				+ _feedDir + ", _feedUrl=" + _feedUrl + ", _feedFile=" + _feedFile + ", _cols=" + _cols + ", _table="
+				+ _table + ", _targetFile=" + _targetFile + ", _arcFile=" + _arcFile + ", _key=" + _key + "]";
 	}
 
 	/**
@@ -128,6 +128,12 @@ public class FeedBase {
 
 		// update log
 		log = this.getLogger();
+		
+		if (this._cDebug == true) {
+			Utils.initLog(log);
+			log.info("command line : \n" + Utils.appCmdLine());
+			log.info("shell/script : \n" + Utils.appShellScript());
+		}
 		log.info("feedId : " + _feedId);
 		log.info("[current dir] : " + userDir);
 		String classPathStr = System.getProperty("java.class.path");
@@ -154,7 +160,7 @@ public class FeedBase {
 				.argName("OUTPUT DIR").build());
 		options.addOption(
 				Option.builder("i").longOpt("input").desc("input feed file").hasArg().argName("FEED FILE").build());
-		options.addOption(Option.builder("p").longOpt("parse").desc("download and parse feed file to SQL").build());
+		options.addOption(Option.builder("p").longOpt("parse").desc("parse feed file to SQL only").build());
 		options.addOption(Option.builder("h").longOpt("help").desc("usage").build());
 		options.addOption(Option.builder("c").longOpt("cron").desc("run as cron job").build());
 		options.addOption(Option.builder().longOpt("debug").desc("debug mode").build());
@@ -166,12 +172,12 @@ public class FeedBase {
 		try {
 			cl = commandLineParser.parse(options, args);
 		} catch (ParseException e) {
-			helpFormatter.printHelp("utility-name", options);
+			helpFormatter.printHelp("etl application", options);
 			throw new EtlException("command line incorrect.\n" + helpFormatter.toString());
 		}
 
 		if (cl.hasOption('h')) {
-			helpFormatter.printHelp("utility-name", options);
+			helpFormatter.printHelp("elt application", options);
 			System.exit(0);
 		}
 
