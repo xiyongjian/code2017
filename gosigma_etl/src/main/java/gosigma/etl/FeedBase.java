@@ -349,6 +349,7 @@ public class FeedBase {
 		try {
 			log.info("create connection : " + _jdbcUrl + " with user/pass");
 			conn = DriverManager.getConnection(_jdbcUrl, _jdbcUser, _jdbcPassword);
+			conn.setAutoCommit(false);
 			Statement statement = conn.createStatement();
 
 			for (int i = 0; i < sqls.size(); ++i) {
@@ -361,6 +362,8 @@ public class FeedBase {
 					throw new EtlException("run [" + i + "] : " + sql, e);
 				}
 			}
+			
+			conn.commit();
 		} finally {
 			if (conn != null)
 				conn.close();
