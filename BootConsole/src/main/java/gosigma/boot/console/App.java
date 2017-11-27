@@ -9,10 +9,13 @@ import org.springframework.boot.Banner;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.annotation.Order;
 
 import static java.lang.System.exit;
+
+import java.util.Arrays;
 
 @SpringBootApplication
 public class App implements CommandLineRunner {
@@ -44,24 +47,29 @@ public class App implements CommandLineRunner {
 
 	@Bean
 	@Order(2)
-	public CommandLineRunner runner2() {
-		return new CommandLineRunner() {
-			public void run(String... args) throws Exception {
-				logger.info("---- runner2() ----", new Throwable("Cmd Line Runner"));
+	public CommandLineRunner cmdLineRunner2(ApplicationContext ctx) {
+		return args -> {
+			logger.info("---- cmdLineRunner2() ----", new Throwable("Cmd Line Runner"));
+
+			String[] beanNames = ctx.getBeanDefinitionNames();
+			Arrays.sort(beanNames);
+			for (String beanName : beanNames) {
+				logger.info(beanName);
 			}
+
 		};
 	}
 
 	@Bean
 	@Order(3)
-	public CommandLineRunner runner3() {
+	public CommandLineRunner cmdLineRunner3() {
 		return new CommandLineRunner() {
 			public void run(String... args) throws Exception {
-				logger.info("---- runner3() ----", new Throwable("Cmd Line Runner"));
+				logger.info("---- cmdLineRunner3() ----", new Throwable("Cmd Line Runner"));
 			}
 		};
 	}
-	
+
 	@Bean
 	@Order(1)
 	public ApplicationRunner appRunner1() {
