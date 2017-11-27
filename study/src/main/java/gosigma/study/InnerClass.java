@@ -2,7 +2,7 @@ package gosigma.study;
 
 import java.util.concurrent.Callable;
 
-public class AnonymousClass {
+public class InnerClass {
 
 	public interface HelloWorld {
 		public void greet();
@@ -16,7 +16,7 @@ public class AnonymousClass {
 	public String msg = "hello, world";
 
 	static public void main(String[] args) {
-		new AnonymousClass().test01();
+		new InnerClass().test01();
 	}
 
 	public void test01() {
@@ -24,7 +24,7 @@ public class AnonymousClass {
 
 		HelloWorld hw = new HelloWorld() {
 			public void greet() {
-				System.out.println(AnonymousClass.this.msg);
+				System.out.println(InnerClass.this.msg);
 				System.out.println(msg);
 			}
 		};
@@ -41,7 +41,7 @@ public class AnonymousClass {
 		
 		Runnable lambda = () -> {
 			System.out.println("lambda");
-			System.out.println(AnonymousClass.this.msg);
+			System.out.println(InnerClass.this.msg);
 		};
 		
 		lambda.run();
