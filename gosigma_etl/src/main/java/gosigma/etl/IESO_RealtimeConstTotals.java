@@ -83,9 +83,11 @@ public class IESO_RealtimeConstTotals extends FeedBase {
 		FeedBase feed = new IESO_RealtimeConstTotals("IESO_PUB_RealtimeConstTotals");
 		try {
 			feed.doEtl(args);
+			System.exit(0); // normal exit
 		} catch (EtlException e) {
 			feed.log.error("etl error", e);
 			feed.log.error(feed.toString());
+			System.exit(1); // something wrong, will record in cron log 
 		}
 	}
 
