@@ -15,12 +15,12 @@ import org.slf4j.LoggerFactory;
 
 public class IESO_RealtimeConstTotals extends FeedBase {
 
-	public IESO_RealtimeConstTotals(String feedId) {
-		super(feedId);
+	public IESO_RealtimeConstTotals() {
+		super("IESO_PUB_RealtimeConstTotals");
 	}
 
 	@Override
-	public Logger getLogger() throws EtlException {
+	public Logger getLogger() {
 		return LoggerFactory.getLogger(IESO_RealtimeConstTotals.class);
 	}
 
@@ -28,48 +28,50 @@ public class IESO_RealtimeConstTotals extends FeedBase {
 	@Override
 	public String parseFeed(String targetFile, List<String> sqls) throws IOException, EtlException {
 		log.info("#### parse csv file : " + targetFile);
-		Reader reader = new FileReader(targetFile);
-		Pattern regex = Pattern.compile("CREATED.*FOR (\\d{4}/\\d{2}/\\d{2})");
-		Iterable<CSVRecord> records = CSVFormat.EXCEL.parse(reader);
-		String date = null;
-		for (CSVRecord record : records) {
-			Matcher m = regex.matcher(record.get(0));
-			if (m.find()) {
-				log.info("record : " + record.toString());
-				log.info("Found match: " + m.group(0));
-				log.info("Found date: " + m.group(1));
-				date = m.group(1);
-				break;
-			}
-		}
-		if (date == null)
-			throw new EtlException("can't find date in file");
-
-		log.info("build sqls and key");
-		// List<String> sqls = new ArrayList<String>();
 		String key = null;
-		for (CSVRecord record : records) {
-			log.info("record, # of column : " + record.size() + " : " + record.toString());
-			String values = "\"" + date + "\"";
-			if (record.size() > 9) {
-				for (int i = 0; i < 9; ++i)
-					values += ", \"" + record.get(i).trim() + "\"";
+		// new style try-resource block
+		try (Reader reader = new FileReader(targetFile)) {
+			Pattern regex = Pattern.compile("CREATED.*FOR (\\d{4}/\\d{2}/\\d{2})");
+			Iterable<CSVRecord> records = CSVFormat.EXCEL.parse(reader);
+			String date = null;
+			for (CSVRecord record : records) {
+				Matcher m = regex.matcher(record.get(0));
+				if (m.find()) {
+					log.info("record : " + record.toString());
+					log.info("Found match: " + m.group(0));
+					log.info("Found date: " + m.group(1));
+					date = m.group(1);
+					break;
+				}
+			}
+			if (date == null)
+				throw new EtlException("can't find date in file");
 
-				key = date + '_' + StringUtils.leftPad(record.get(0).trim(), 2, "0")
-						+ StringUtils.leftPad(record.get(1).trim(), 2, "0");
+			log.info("build sqls and key");
+			// List<String> sqls = new ArrayList<String>();
+			for (CSVRecord record : records) {
+				log.info("record, # of column : " + record.size() + " : " + record.toString());
+				String values = "\"" + date + "\"";
+				if (record.size() > 9) {
+					for (int i = 0; i < 9; ++i)
+						values += ", \"" + record.get(i).trim() + "\"";
+
+					key = date + '_' + StringUtils.leftPad(record.get(0).trim(), 2, "0")
+							+ StringUtils.leftPad(record.get(1).trim(), 2, "0");
+				}
+				String sql = "insert into " + _table + " (" + _cols + ") values (" + values + ")";
+				if (sqls.size() == 0) {
+					String del = "delete from " + _table + " where DDATE = " + "\"" + date + "\"" + " AND HOUR = "
+							+ "\"" + record.get(0).trim() + "\"";
+					sqls.add(del);
+					log.info("sql/del : " + del);
+				}
+				log.info("sql : " + sql);
+				sqls.add(sql);
 			}
-			String sql = "insert into " + _table + " (" + _cols + ") values (" + values + ")";
-			if (sqls.size() == 0) {
-				String del = "delete from " + _table + " where DDATE = " + "\"" + date + "\"" + " AND HOUR = " + "\""
-						+ record.get(0).trim() + "\"";
-				sqls.add(del);
-				log.info("sql/del : " + del);
-			}
-			log.info("sql : " + sql);
-			sqls.add(sql);
 		}
+		// reader.close();
 
-		reader.close();
 		if (key == null)
 			throw new EtlException("not record, can't build key, targetFile : " + targetFile);
 
@@ -78,17 +80,17 @@ public class IESO_RealtimeConstTotals extends FeedBase {
 		return key;
 	}
 
-
 	public static void main(String[] args) {
-		FeedBase feed = new IESO_RealtimeConstTotals("IESO_PUB_RealtimeConstTotals");
-		try {
-			feed.doEtl(args);
-			System.exit(0); // normal exit
-		} catch (EtlException e) {
-			feed.log.error("etl error", e);
-			feed.log.error(feed.toString());
-			System.exit(1); // something wrong, will record in cron log 
-		}
+		FeedBase feed = new IESO_RealtimeConstTotals();
+		feed.doEtl(args);
+		// try {
+		// feed.doEtl(args);
+		// System.exit(0); // normal exit
+		// } catch (EtlException e) {
+		// feed.log.error("etl error", e);
+		// feed.log.error(feed.toString());
+		// System.exit(1); // something wrong, will record in cron log
+		// }
 	}
 
 	@Override

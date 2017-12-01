@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Properties;
+import java.util.stream.Collectors;
 
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
@@ -31,7 +32,7 @@ import ch.qos.logback.classic.LoggerContext;
 import ch.qos.logback.classic.util.ContextInitializer;
 import ch.qos.logback.core.joran.spi.JoranException;
 
-public class FeedBase {
+public abstract class FeedBase {
 	public Logger log = null;
 
 	// section for command line argument/control, _cXXX
@@ -84,15 +85,17 @@ public class FeedBase {
 	 * @throws EtlException
 	 * @throws IOException
 	 */
-	public String parseFeed(String targetFile, List<String> sqls) throws EtlException, IOException {
-		throw new EtlException("base parseFeed should never been called");
-	}
+	abstract public String parseFeed(String targetFile, List<String> sqls) throws EtlException, IOException;
+	// {
+	// throw new EtlException("base parseFeed should never been called");
+	// }
 
 	// derived class must implement following method
-	public Logger getLogger() throws EtlException {
-		// log = LoggerFactory.getLogger(<derived>.class);
-		throw new EtlException("Should implement getLogger in derived class");
-	}
+	abstract public Logger getLogger();
+	// {
+	// // log = LoggerFactory.getLogger(<derived>.class);
+	// throw new EtlException("Should implement getLogger in derived class");
+	// }
 
 	public void init() throws JoranException, EtlException, IOException {
 		init(null, null);
@@ -208,7 +211,7 @@ public class FeedBase {
 		log.info("Leaving...");
 	}
 
-	public void doEtl(String[] args) throws EtlException {
+	public void doEtl(String[] args) {
 		try {
 			// get initial log
 			log = this.getLogger();
@@ -221,14 +224,10 @@ public class FeedBase {
 
 			log.info("start etl process");
 			process();
-		} catch (FileNotFoundException e) {
-			throw new EtlException("file not found", e);
-		} catch (IOException e) {
-			throw new EtlException("io issue", e);
-		} catch (JoranException e) {
-			throw new EtlException("Joran(logback.xml parsing) issue", e);
-		} catch (SQLException e) {
-			throw new EtlException("sql error", e);
+		} catch (JoranException | IOException | SQLException | EtlException e) {
+			this.log.error("etl error", e);
+			this.log.error(this.toString());
+			System.exit(1); // something wrong, will record in cron log
 		}
 	}
 
@@ -372,4 +371,39 @@ public class FeedBase {
 				conn.close();
 		}
 	}
+
+	/**
+	 * parse 'cols' string for insert SQL
+	 * 
+	 * @param cols
+	 *            cols string from properties file
+	 * @param idxs
+	 *            return indexes of columns for values
+	 * @return string xxx used in 'insert <tbl> ( xxx ) .....
+	 */
+	public String parseCols(String cols, List<Integer> indexes) {
+		log.info("Entering...  cols : " + cols);
+		String[] cl = cols.split(",");
+
+		indexes.clear();
+		// String insCols = "";
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < cl.length; ++i) {
+			String s = cl[i].trim();
+			if (s.equals(""))
+				continue;
+			if (!indexes.isEmpty())
+				sb.append(",");
+			sb.append(s);
+			indexes.add(i);
+		}
+		// ensure
+		assert sb.toString().split(",").length == indexes.size();
+
+		log.info("indexes : " + String.join(",", indexes.stream().map(Object::toString).collect(Collectors.toList())));
+		log.info("Leaving...  ret : " + sb.toString());
+
+		return sb.toString();
+	}
+
 }

@@ -22,7 +22,7 @@
 				<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 					<!-- daily rollover -->
 					<!-- <fileNamePattern>${log_dir}/arc/etc_${feed_id}.%d{yyyyMMdd.HHmm}.log -->
-					<fileNamePattern>${log_dir}/arc/etc_${feed_id}.%d{yyyyMMdd}.log
+					<fileNamePattern>${log_dir}/arc/etl_${feed_id}.%d{yyyyMMdd}.log
 					</fileNamePattern>
 					<maxHistory>30</maxHistory>
 				</rollingPolicy>

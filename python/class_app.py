@@ -24,6 +24,7 @@ class Employee:
 
 
 def use_obj():
+    print ("\n-- use_obj() --")
     a = 40  # Create object <40>
     b = a  # Increase ref. count  of <40> 
     c = [b]  # Increase ref. count  of <40> 
@@ -93,8 +94,8 @@ def use_inheritence():
     print ("Child.__bases__:", Child.__bases__)
     print ("Child.__dict__:", str(Child.__dict__).replace(",", ",\n"))
     
-
-if __name__ == '__main__':
+def use_emp():
+    print ("\n-- use_emp() --")
     # This would create first object of Employee class"
     emp1 = Employee("Zara", 2000)
     # This would create second object of Employee class"
@@ -111,10 +112,8 @@ if __name__ == '__main__':
     print ("Employee.__bases__:", Employee.__bases__)
     print ("Employee.__dict__:", str(Employee.__dict__).replace(",", ",\n"))
 
-    use_obj()
-    use_point()
-    use_inheritence()
-    
+def use_object():
+    print ("\n-- use_object() --")
     print ("object.__doc__:", object.__doc__)
     print ("object.__name__:", object.__name__)
     print ("object.__module__:", object.__module__)
@@ -122,5 +121,28 @@ if __name__ == '__main__':
     print ("object.__dict__:", str(object.__dict__).replace(",", ",\n"))
     
     print("type of object.__dict__:", type(object.__dict__))
+    
+def use_attr():
+    print ("\n-- use_attr() --")
+    emp1 = Employee("Zara", 2000)
+    print ("emp1.__dict__:", str(emp1.__dict__).replace(",", ",\n"))
+    print ("dir(emp1) :", str(dir(emp1)).replace(",", ",\n"))
+    print ("dir(Employee) :", str(dir(Employee)).replace(",", ",\n"))
+    print ("class travesal");
+    print (emp1.__class__);
+    print (emp1.__class__.__base__);
+    print("mro(method resolution order) : ", Employee.mro());
+    
+#     obj = object();
+#     print ("obj.__dict__:", str(obj.__dict__).replace(",", ",\n"))
+#     print ("dir(obj) :", str(dir(obj)).replace(",", ",\n"))
+
+if __name__ == '__main__':
+#     use_emp()
+#     use_obj()
+#     use_point()
+#     use_inheritence()
+#     use_object()
+    use_attr()
     
 
