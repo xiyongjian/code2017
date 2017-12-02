@@ -58,6 +58,7 @@ public class IESO_RealtimeConstTotals extends FeedBase {
 
 					key = date + '_' + StringUtils.leftPad(record.get(0).trim(), 2, "0")
 							+ StringUtils.leftPad(record.get(1).trim(), 2, "0");
+					key = key.replaceAll("/", "");
 				}
 				String sql = "insert into " + _table + " (" + _cols + ") values (" + values + ")";
 				if (sqls.size() == 0) {
@@ -75,7 +76,6 @@ public class IESO_RealtimeConstTotals extends FeedBase {
 		if (key == null)
 			throw new EtlException("not record, can't build key, targetFile : " + targetFile);
 
-		key = key.replaceAll("/", "");
 		log.info("key : " + key);
 		return key;
 	}

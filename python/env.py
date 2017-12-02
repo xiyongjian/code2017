@@ -13,3 +13,5 @@ if __name__ == '__main__':
     pass
 
     use_path()
+    
+    print (sys.argv)

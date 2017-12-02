@@ -317,7 +317,7 @@ public abstract class FeedBase {
 			else
 				sqlFile = _cInputFile + ".sql";
 			log.info("record sql to file : " + sqlFile);
-			FileUtils.writeStringToFile(new File(sqlFile), String.join(";\n", sqls), (String) null);
+			FileUtils.writeStringToFile(new File(sqlFile), String.join(";\n", sqls) + ";", (String) null);
 
 			if (_cInputFile == null)
 				moveFile(_targetFile, _arcFile);

@@ -1,11 +1,17 @@
 #!/usr/bin/env python3
 
 import speech_recognition as sr
-
-# load audio file from same directory
+import sys
 from os import path
-AUDIO_FILE = path.join(path.dirname(path.realpath(__file__)), "english.wav")
-# AUDIO_FILE = path.join(path.dirname(path.realpath(__file__)), "xyj01x.wav")
+
+if len(sys.argv) <= 1 :
+    # load audio file from same directory
+    AUDIO_FILE = path.join(path.dirname(path.realpath(__file__)), "english.wav")
+    # AUDIO_FILE = path.join(path.dirname(path.realpath(__file__)), "xyj01x.wav")
+else :
+    AUDIO_FILE = sys.argv[1]
+    
+print ('recog audio file : ', AUDIO_FILE)
 
 # use audio file as input
 r = sr.Recognizer()

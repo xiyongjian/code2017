@@ -1,6 +1,7 @@
 # copy content, and must use dos2unix convert the format (CR/LF)
 # cron job setting:
 #       */2 * * * * /var/etl/etl.sh m02_IESO_RealtimeConstTotals 2>&1 | /usr/bin/logger -t ETL -p cron.info
+#       */2 * * * * /var/etl/etl.sh m02_NYISO_5_Minute_Price 2>&1 | /usr/bin/logger -t ETL -p cron.info
 
 cd /var/etl
 
