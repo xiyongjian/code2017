@@ -1,94 +1,56 @@
 <html>
 <head>
 <title>Reading List</title>
-<link rel="stylesheet" th:href="@{/style.css}"></link>
+<link rel="stylesheet" th:href="@{style.css}"></link>
 </head>
 
+<style type="text/css">
+table tr:nth-child(odd) td {
+	background: #ccc;
+}
+
+table tr:nth-child(even) td {
+	background: #fff;
+}
+</style>
+
 <body>
-	<h2>Your Reading List</h2>
-	<p th:text="${target}"></p>
+	<h2>
+		<!-- 		<dt th:if="${is_root}">ETL File Explorer : /</dt> -->
+		<!-- 		<dt th:unless="${is_root}" -->
+		<!-- 			th:text="@{'ETL File Explorer : ' + ${etl_dir} + '/' + ${target}}"></dt> -->
+		<dt th:text="@{'ETL File Explorer : ' + ${etl_dir} + '/' + ${target}}"></dt>
+	</h2>
 
-<!-- 	<div> -->
-<!-- 		<label>Dirs List: </label> -->
-<!-- 		<ul> -->
-<!-- 			<dl th:each="dir : ${dirs}"> -->
-<!-- 				<dt> -->
-<!-- 					<li><a th:href="@{'./' + ${dir}}"><span th:text="${dir}">dir</span></a></li> -->
-<!-- 				</dt> -->
-<!-- 			</dl> -->
-<!-- 		</ul> -->
-<!-- 	</div> -->
-	<div>
-		<label>Dirs List2: </label>
-		<ul>
-			<dl th:each="dir : ${fdirs}">
-				<dt>
-					<li><a th:href="@{'./' + ${dir.name}} + '/'"><span th:text="${dir.name}">dir</span></a></li>
-				</dt>
-			</dl>
-		</ul>
-	</div>
-<!-- 	<div> -->
-<!-- 		<label>Files List: </label> -->
-<!-- 		<ul> -->
-<!-- 			<dl th:each="file : ${files}"> -->
-<!-- 				<dt> -->
-<!-- 										<li><a th:href="@{'./' + ${file}}"><span th:text="${file}">file</span></a></li> -->
-<!-- 					<li><a th:href="@{'/get_file?file=' + ${target} + '/' + ${file}}"><span th:text="${file}">file</span></a></li> -->
-<!-- 				</dt> -->
-<!-- 			</dl> -->
-<!-- 		</ul> -->
-<!-- 	</div> -->
-	<div>
-		<label>Files List2: </label>
-		<ul>
-			<dl th:each="file : ${ffiles}">
-				<dt>
-					<!-- 					<li><a th:href="@{'./' + ${file}}"><span th:text="${file}">file</span></a></li> -->
-					<li><a th:href="@{'/get_file?file=' + ${target} + '/' + ${file.name}}"><span th:text="${file.name}">file</span>
-					
-					<span th:text="${file.length()}">size</span>
-					</a></li>
-				</dt>
-			</dl>
-		</ul>
-	</div>
+	<h3>directories :</h3>
+	<table style="width: 80%;">
+		<dt th:unless="${is_root}">
+		<tr>
+			<td><a href="../">- Parent -</a></td>
+			<!-- 			<td></td> -->
+		</tr>
+		</dt>
+		<dl th:each="dir : ${fdirs}">
+			<tr>
+				<td width="80%"><a th:href="@{'./' + ${dir.name}} + '/'"><span
+						th:text="${dir.name}">dir</span></a></td>
+				<!-- 				<td></td> -->
+			</tr>
+		</dl>
+	</table>
 
-	<p>another style? -- ${target}</p>
-	<!--     <div th:unless="${#lists.isEmpty(books)}"> -->
-	<!--       <dl th:each="book : ${books}"> -->
-	<!--         <dt class="bookHeadline"> -->
-	<!--           <span th:text="${book.title}">Title</span> by  -->
-	<!--           <span th:text="${book.author}">Author</span> -->
-	<!--           (ISBN: <span th:text="${book.isbn}">ISBN</span>) -->
-	<!--         </dt> -->
-	<!--         <dd class="bookDescription"> -->
-	<!--           <span th:if="${book.description}"  -->
-	<!--                 th:text="${book.description}">Description</span> -->
-	<!--           <span th:if="${book.description eq null}"> -->
-	<!--                 No description available</span> -->
-	<!--         </dd> -->
-	<!--       </dl> -->
-	<!--     </div> -->
-	<!--     <div th:if="${#lists.isEmpty(books)}"> -->
-	<!--       <p>You have no books in your book list</p> -->
-	<!--     </div> -->
-
-
-	<!--     <hr/> -->
-
-	<!--     <h3>Add a book</h3> -->
-	<!--     <form method="POST"> -->
-	<!--       <label for="title">Title:</label> -->
-	<!--         <input type="text" name="title" size="50"></input><br/> -->
-	<!--       <label for="author">Author:</label> -->
-	<!--         <input type="text" name="author" size="50"></input><br/> -->
-	<!--       <label for="isbn">ISBN:</label> -->
-	<!--         <input type="text" name="isbn" size="15"></input><br/> -->
-	<!--       <label for="description">Description:</label><br/> -->
-	<!--         <textarea name="description" cols="80" rows="5"></textarea><br/> -->
-	<!--       <input type="submit"></input> -->
-	<!--     </form> -->
+	<h3>files :</h3>
+	<table style="width: 100%;">
+		<dl th:each="file : ${ffiles}">
+			<tr>
+				<td width="80%"><a
+					th:href="@{'/get_file?file=' + ${target} + '/' + ${file.name}}">
+						<span th:text="${file.name}">file</span>
+				</a></td>
+				<td><span th:text="${file.length()}">size</span></td>
+			</tr>
+		</dl>
+	</table>
 
 </body>
 </html>

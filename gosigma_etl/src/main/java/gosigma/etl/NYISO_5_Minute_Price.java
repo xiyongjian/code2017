@@ -54,7 +54,8 @@ public class NYISO_5_Minute_Price extends FeedBase {
 				String date = YYYY + "/" + MM + "/" + DD;
 
 				if (key == null) {
-					key = (date + "_" + m.group(4) + m.group(5)).replaceAll("/", "");
+					// key = (date + "_" + m.group(4) + m.group(5)).replaceAll("/", "");
+					key = String.format("%8s_%02d%02d", date, hour, dinterval).replaceAll("/", "");
 					String del = "delete from " + this._table + " where " + " ddate = " + "\"" + date + "\""
 							+ " and hour = " + hour + " and dinterval = " + dinterval;
 					log.info("sql/delete : " + del);

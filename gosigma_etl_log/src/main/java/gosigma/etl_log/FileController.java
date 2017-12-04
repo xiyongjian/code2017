@@ -79,60 +79,77 @@ public class FileController {
 
 	// @RequestMapping("/etl/")
 	@RequestMapping(value = "/etl/", method = RequestMethod.GET)
-	public String get(Model model) {
+	public String get(Model model) throws Exception {
 		log.info("get /etl");
 		return doGet("", model);
 
 	}
 
 	@RequestMapping(value = "/etl/**", method = RequestMethod.GET)
-	public String get(Model model, HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public String get(Model model, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String target = (String) request.getAttribute(HandlerMapping.PATH_WITHIN_HANDLER_MAPPING_ATTRIBUTE);
 		target = target.substring(5);
 		log.info("get /etl/" + target);
 		String rsl = doGet(target, model);
-		if (rsl.equals("file")) { // it's file
-			log.info("get file : /etl_files/" + target);
-			response.sendRedirect("/etl_files/" + target);
-			return null;
-		}
+		// if (rsl.equals("file")) { // it's file
+		// log.info("get file : /etl_files/" + target);
+		// response.sendRedirect("/etl_files/" + target);
+		// return null;
+		// }
 		return rsl;
 	}
 
-	public String doGet(String target, Model model) {
+	public String doGet(String target, Model model) throws Exception {
 		log.info("target : " + target);
 
 		String baseDir = _etlDir + File.separator + target;
 		log.info("baseDir : " + baseDir);
 		File base = new File(baseDir);
 		if (!base.exists()) {
-			model.addAttribute("errorMsg", baseDir + " not exists or not a directory");
+			model.addAttribute("error_message", baseDir + " not exists or not a directory");
 			return "error";
 		}
 		if (!base.isDirectory()) {
-			return "file";
+			model.addAttribute("error_message", baseDir + " is not file");
+			return "error";
 		}
 
-		List<String> dirs = new ArrayList<>();
-		List<String> files = new ArrayList<>();
-		getList(baseDir, dirs, files);
+		boolean isRoot = false;
+		{
+			File etl = new File(_etlDir);
+			log.info("etl  path : " + etl.getAbsolutePath());
+			log.info("base path : " + base.getAbsolutePath());
+			if (!base.getAbsolutePath().startsWith(etl.getAbsolutePath())) {
+				log.info("base path outside of etl path");
+				model.addAttribute("error_message", "base path run outside of etl path");
+				return "error";
+			}
+			if (base.getAbsolutePath().equals(etl.getAbsolutePath())) {
+				isRoot = true;
+			}
+		}
 
-		log.info("base : " + base);
-		log.info("dirs  list : " + String.join("\n", dirs));
-		log.info("files list : " + String.join("\n", files));
+		// List<String> dirs = new ArrayList<>();
+		// List<String> files = new ArrayList<>();
+		// getList(baseDir, dirs, files);
+		// log.info("base : " + base);
+		// log.info("dirs list : " + String.join("\n", dirs));
+		// log.info("files list : " + String.join("\n", files));
 
 		List<File> fDirs = new ArrayList<>();
 		List<File> fFiles = new ArrayList<>();
 		getList(new File(baseDir), fDirs, fFiles);
 		log.info("get fDirs : " + fDirs.size() + ", fFiles : " + fFiles.size());
-		Collections.sort(fDirs,  (a,b) -> a.getName().compareTo(b.getName()));
-		Collections.sort(fFiles,  (a,b) -> a.getName().compareTo(b.getName()));
+		Collections.sort(fDirs, (a, b) -> a.getName().compareTo(b.getName()));
+		Collections.sort(fFiles, (a, b) -> a.getName().compareTo(b.getName()));
 
+		model.addAttribute("etl_dir", _etlDir);
 		model.addAttribute("target", target);
-		model.addAttribute("files", files);
-		model.addAttribute("dirs", dirs);
+		// model.addAttribute("files", files);
+		// model.addAttribute("dirs", dirs);
 		model.addAttribute("ffiles", fFiles);
 		model.addAttribute("fdirs", fDirs);
+		model.addAttribute("is_root", isRoot);
 		return "list";
 	}
 
@@ -148,10 +165,11 @@ public class FileController {
 		File file = new File(_etlDir + File.separator + fileName);
 		log.info("get file : " + file.getAbsolutePath());
 		// response.getWriter().println("get file : " + file.getAbsolutePath());
-		
+
 		// set file name
 		// force download
-		// response.setHeader("Content-Disposition", "attachment; filename=" + file.getName());
+		// response.setHeader("Content-Disposition", "attachment; filename=" +
+		// file.getName());
 		// try browser open it
 		response.setHeader("Content-Disposition", "inline; filename=" + file.getName());
 
