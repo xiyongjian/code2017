@@ -15,6 +15,7 @@ class Controller {
 	@Autowired
 	public Controller( IService service ){
 		this.service = service;
+		Utils.log.info("service hierarchy :\n" + Utils.getSupers(service.getClass()));
 	}
 	
 	@RequestMapping(value="/records",method=RequestMethod.GET)

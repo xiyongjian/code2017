@@ -19,6 +19,7 @@ public class ServiceImpl implements IService {
 	@Autowired
 	public ServiceImpl(Repository repository) {
 		this.repository = repository;
+		Utils.log.info("repository hierarchy :\n" + Utils.getSupers(repository.getClass()));
 	}
 
 	// note: in rest api, set order by parameter,
