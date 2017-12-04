@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -50,6 +51,14 @@ public class FileController {
 			list = Arrays.asList(base.list());
 
 		return list;
+	}
+
+	public static void getList(File base, List<File> dirs, List<File> files) {
+		for (File f : base.listFiles())
+			if (f.isDirectory())
+				dirs.add(f);
+			else
+				files.add(f);
 	}
 
 	public static void getList(String baseDir, List<String> dirs, List<String> files) {
@@ -112,9 +121,18 @@ public class FileController {
 		log.info("dirs  list : " + String.join("\n", dirs));
 		log.info("files list : " + String.join("\n", files));
 
+		List<File> fDirs = new ArrayList<>();
+		List<File> fFiles = new ArrayList<>();
+		getList(new File(baseDir), fDirs, fFiles);
+		log.info("get fDirs : " + fDirs.size() + ", fFiles : " + fFiles.size());
+		Collections.sort(fDirs,  (a,b) -> a.getName().compareTo(b.getName()));
+		Collections.sort(fFiles,  (a,b) -> a.getName().compareTo(b.getName()));
+
 		model.addAttribute("target", target);
 		model.addAttribute("files", files);
 		model.addAttribute("dirs", dirs);
+		model.addAttribute("ffiles", fFiles);
+		model.addAttribute("fdirs", fDirs);
 		return "list";
 	}
 

@@ -8,23 +8,47 @@
 	<h2>Your Reading List</h2>
 	<p th:text="${target}"></p>
 
+<!-- 	<div> -->
+<!-- 		<label>Dirs List: </label> -->
+<!-- 		<ul> -->
+<!-- 			<dl th:each="dir : ${dirs}"> -->
+<!-- 				<dt> -->
+<!-- 					<li><a th:href="@{'./' + ${dir}}"><span th:text="${dir}">dir</span></a></li> -->
+<!-- 				</dt> -->
+<!-- 			</dl> -->
+<!-- 		</ul> -->
+<!-- 	</div> -->
 	<div>
-		<label>Dirs List: </label>
+		<label>Dirs List2: </label>
 		<ul>
-			<dl th:each="dir : ${dirs}">
+			<dl th:each="dir : ${fdirs}">
 				<dt>
-					<li><a th:href="@{'./' + ${dir}}"><span th:text="${dir}">dir</span></a></li>
+					<li><a th:href="@{'./' + ${dir.name}} + '/'"><span th:text="${dir.name}">dir</span></a></li>
 				</dt>
 			</dl>
 		</ul>
 	</div>
+<!-- 	<div> -->
+<!-- 		<label>Files List: </label> -->
+<!-- 		<ul> -->
+<!-- 			<dl th:each="file : ${files}"> -->
+<!-- 				<dt> -->
+<!-- 										<li><a th:href="@{'./' + ${file}}"><span th:text="${file}">file</span></a></li> -->
+<!-- 					<li><a th:href="@{'/get_file?file=' + ${target} + '/' + ${file}}"><span th:text="${file}">file</span></a></li> -->
+<!-- 				</dt> -->
+<!-- 			</dl> -->
+<!-- 		</ul> -->
+<!-- 	</div> -->
 	<div>
-		<label>Files List: </label>
+		<label>Files List2: </label>
 		<ul>
-			<dl th:each="file : ${files}">
+			<dl th:each="file : ${ffiles}">
 				<dt>
 					<!-- 					<li><a th:href="@{'./' + ${file}}"><span th:text="${file}">file</span></a></li> -->
-					<li><a th:href="@{'/get_file?file=' + ${target} + '/' + ${file}}"><span th:text="${file}">file</span></a></li>
+					<li><a th:href="@{'/get_file?file=' + ${target} + '/' + ${file.name}}"><span th:text="${file.name}">file</span>
+					
+					<span th:text="${file.length()}">size</span>
+					</a></li>
 				</dt>
 			</dl>
 		</ul>
