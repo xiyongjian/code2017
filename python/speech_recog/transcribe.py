@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+# from https://pythonprogramminglanguage.com/speech-recognition/
+
 import speech_recognition as sr
 import sys
 from os import path
