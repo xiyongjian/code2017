@@ -41,7 +41,10 @@ public class SecConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		log.info("Entering...");
+		http.authorizeRequests().antMatchers("/test/**").permitAll();
 		super.configure(http);
+		http.headers().frameOptions().disable();
+		http.csrf().disable();
 		http.logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login").permitAll();
 	}
 
