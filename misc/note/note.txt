@@ -26,3 +26,21 @@ CPU  intel x86, support virtualization
 HD   SSD + HD
 RAID RAID 5
 
+
+
+tk X xorg startx x11vnc
+windows manager setup, via xinit
+~/.xinit
+#!/bin/sh
+exec startkde  (or other...)
+
+x11vnc
+x11vnc -display :2 -auth guess -no6 -forever -nolookup -passwd xxxx -ping 60
+:2 connect to X:2
+x11vnc always use :0 as VNC port. 
+
+connect display by ssh tunnel
+local:5900 ---- ssh tunnel ---- sshd --- localhost:5900
+
+tk  maven kotlin
+https://kotlinlang.org/docs/reference/using-maven.html

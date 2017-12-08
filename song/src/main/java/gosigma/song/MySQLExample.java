@@ -30,18 +30,21 @@ public class MySQLExample {
 			// no need to register this one
 			// Class.forName("com.mysql.cj.jdbc.Driver");
 
-			// conn = DriverManager.getConnection("jdbc:mysql://192.168.0.185:13306/test", "jxi", "password");
-			
+			// conn = DriverManager.getConnection("jdbc:mysql://192.168.0.185:13306/test",
+			// "jxi", "password");
+
 			// to remove ssl warning, the simple way
-			conn = DriverManager.getConnection("jdbc:mysql://192.168.0.185:13306/test?autoReconnect=true&useSSL=false", "jxi", "password");
-			
+			conn = DriverManager.getConnection("jdbc:mysql://192.168.0.185:13306/test?autoReconnect=true&useSSL=false",
+					"jxi", "password");
+
 			// another way
-			//			Properties properties = new Properties();
-			//			properties.setProperty("user", "jxi");
-			//			properties.setProperty("password", "password");
-			//			properties.setProperty("useSSL", "false");
-			//			properties.setProperty("autoReconnect", "true");
-			//			conn = DriverManager.getConnection("jdbc:mysql://192.168.0.185:13306/test", properties);
+			// Properties properties = new Properties();
+			// properties.setProperty("user", "jxi");
+			// properties.setProperty("password", "password");
+			// properties.setProperty("useSSL", "false");
+			// properties.setProperty("autoReconnect", "true");
+			// conn = DriverManager.getConnection("jdbc:mysql://192.168.0.185:13306/test",
+			// properties);
 
 			String originalURL = conn.getMetaData().getURL();
 			logger.info("original driver URL : " + originalURL);
@@ -78,6 +81,8 @@ public class MySQLExample {
 				logger.info(sb.toString());
 			}
 
+			testing(conn);
+
 			conn.close();
 			// } catch (ClassNotFoundException e) {
 			// // TODO Auto-generated catch block
@@ -100,4 +105,63 @@ public class MySQLExample {
 		logger.info("Leaving...");
 	}
 
+	public static void testing(Connection conn) {
+		logger.info("Entering...");
+		try {
+			testInsert(conn);
+			testSelect(conn);
+			testDelete(conn);
+		} catch (SQLException e) {
+			logger.warn("", e);
+		}
+		logger.info("Leaving...");
+	}
+
+	public static void testSelect(Connection conn) throws SQLException {
+		logger.info("Entering...");
+		String sql = "select id, name from test";
+		logger.info(sql);
+		PreparedStatement st = conn.prepareStatement(sql);
+		ResultSet rs = st.executeQuery();
+		ResultSetMetaData meta = rs.getMetaData();
+		logger.info("first column : " + meta.getColumnName(1));
+		int c = meta.getColumnCount();
+		StringBuilder sb = new StringBuilder();
+		for (int i = 1; i <= c; ++i)
+			sb.append(String.format("%10s |", meta.getColumnName(i)));
+		logger.info(sb.toString());
+		while (rs.next()) {
+			sb.setLength(0);
+			for (int i = 1; i <= c; ++i)
+				sb.append(String.format("%10s |", rs.getString(i)));
+			logger.info(sb.toString());
+		}
+
+		logger.info("Leaving...");
+	}
+
+	public static void testInsert(Connection conn) throws SQLException {
+		logger.info("Entering...");
+		String sql = "insert into test (id, name) values (?, ?)";
+		logger.info(sql);
+		PreparedStatement st = conn.prepareStatement(sql);
+		st.setString(1, "4");
+		st.setString(2, "shan");
+		int rs = st.executeUpdate();
+		logger.info("return : " + rs);
+
+		logger.info("Leaving...");
+	}
+
+	public static void testDelete(Connection conn) throws SQLException {
+		logger.info("Entering...");
+		String sql = "delete from test where id = ?";
+		logger.info(sql);
+		PreparedStatement st = conn.prepareStatement(sql);
+		st.setString(1, "4");
+		int rs = st.executeUpdate();
+		logger.info("return : " + rs);
+
+		logger.info("Leaving...");
+	}
 }

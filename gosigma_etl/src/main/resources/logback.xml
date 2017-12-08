@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- for debug, using jvm option : -Dlogback.debug=true -->
+<configuration>
+	<!-- system property : log_dir, feed_id -->
+
+	<property name="defaultPattern"
+		value="%d{yyyyMMdd HHmmss.SSS}|%thread|%-5level|%C{15}|%M#%L| %msg%n" />
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern> ${defaultPattern} </pattern>
+		</encoder>
+	</appender>
+
+	<!-- define cron job logging (log_dir defined) -->
+	<if condition='isDefined("log_dir")'>
+		<then>
+			<appender name="TIME_BASED_LOG"
+				class="ch.qos.logback.core.rolling.RollingFileAppender">
+				<file>${log_dir}/etl_${feed_id}.log</file>
+				<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+					<!-- daily rollover -->
+					<!-- <fileNamePattern>${log_dir}/arc/etc_${feed_id}.%d{yyyyMMdd.HHmm}.log -->
+					<fileNamePattern>${log_dir}/arc/etl_${feed_id}.%d{yyyyMMdd}.log
+					</fileNamePattern>
+					<maxHistory>30</maxHistory>
+				</rollingPolicy>
+
+				<encoder>
+					<pattern> ${defaultPattern} </pattern>
+				</encoder>
+			</appender>
+
+			<appender name="TIME_BASED_ERROR_LOG"
+				class="ch.qos.logback.core.rolling.RollingFileAppender">
+				<file>${log_dir}/error_${feed_id}.log</file>
+				<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+					<!-- daily rollover -->
+					<fileNamePattern>${log_dir}/arc/error_${feed_id}.%d{yyyyMMdd}.log
+					</fileNamePattern>
+					<maxHistory>30</maxHistory>
+				</rollingPolicy>
+
+				<encoder>
+					<pattern> ${defaultPattern} </pattern>
+				</encoder>
+				<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+					<level>ERROR</level>
+				</filter>
+			</appender>
+		</then>
+	</if>
+
+	<!-- <logger name="gosigma" level="INFO"> -->
+	<!-- <appender-ref ref="TIME_BASED_LOG" /> -->
+	<!-- <appender-ref ref="STDOUT" /> -->
+	<!-- </logger> -->
+
+	<root level="TRACE">
+		<!-- for cron job -->
+		<if condition='isDefined("log_dir")'>
+			<then>
+				<appender-ref ref="TIME_BASED_LOG" />
+				<appender-ref ref="TIME_BASED_ERROR_LOG" />
+			</then>
+		</if>
+
+		<!-- for logback debug -->
+		<if condition='p("logback.debug").equals("true")'>
+			<then>
+				<appender-ref ref="STDOUT" />
+			</then>
+		</if>
+
+		<!-- for etl debug -->
+		<if condition='p("etl.debug").equals("true")'>
+			<then>
+				<appender-ref ref="STDOUT" />
+			</then>
+		</if>
+
+		<!-- for command line launching -->
+		<if condition='p("etl.command").equals("true")'>
+			<then>
+				<appender-ref ref="STDOUT" />
+			</then>
+		</if>
+
+	</root>
+</configuration>

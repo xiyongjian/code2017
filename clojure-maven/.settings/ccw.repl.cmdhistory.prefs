@@ -1,0 +1,2 @@
+cmdhistory=["(main)" "(-main)" "(query)" "(exclaim)" "(db-spec)" "(1)" "(+ 1)" "(query)" "(refer gosigma.clojure.mysql-example)" "(gosigma.cloure.mysql-example.query)" "(exclaim)" "(*ns)" "(str *ns*)" "(exit)" "(System.exit 0)" "(str *ns*)" "(query)" "(str *ns*)" "(query)" "(-main)" "(db-spec)" "(query)"]
+eclipse.preferences.version=1

@@ -20,6 +20,9 @@ public class LogbackApp {
 		Logger bar = createLoggerFor("bar", "c:/tmp/logback.log");
 		foo.info("test");
 		bar.info("bar");
+
+		Logger logger = (Logger) LoggerFactory.getLogger(LogbackApp.class);
+		logger.info("logbackapp testing, should be in syslog@localhost");
 		
 	}
 

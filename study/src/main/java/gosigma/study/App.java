@@ -14,6 +14,7 @@ public class App
 		System.out.println(msg);
 		return msg;
 	}
+
     public static void main( String[] args )
     {
         System.out.println( "Hello World!" );
@@ -22,8 +23,10 @@ public class App
         Random rand = new Random();
         p("random : " + String.format("OAUTH-%08d",  rand.nextInt(1000 * 1000)));
         
-        doTest();
-        showSystemInfo();
+        //        doTest();
+        //        showSystemInfo();
+        
+        stringFormat();
     }
     
     static class AppI {
@@ -51,5 +54,12 @@ public class App
 		}
 		
 		System.out.println("get current PID : " + ManagementFactory.getRuntimeMXBean().getName());
+    }
+    
+    static public void stringFormat() {
+    	p("stringFormat");
+    	
+    	p("%02d, %8s   : " + String.format("%02d:%8s",  1, "hello"));
+    	
     }
 }

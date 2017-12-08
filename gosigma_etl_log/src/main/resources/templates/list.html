@@ -1,0 +1,56 @@
+<html>
+<head>
+<title>Reading List</title>
+<link rel="stylesheet" th:href="@{style.css}"></link>
+</head>
+
+<style type="text/css">
+table tr:nth-child(odd) td {
+	background: #ccc;
+}
+
+table tr:nth-child(even) td {
+	background: #fff;
+}
+</style>
+
+<body>
+	<h2>
+		<!-- 		<dt th:if="${is_root}">ETL File Explorer : /</dt> -->
+		<!-- 		<dt th:unless="${is_root}" -->
+		<!-- 			th:text="@{'ETL File Explorer : ' + ${etl_dir} + '/' + ${target}}"></dt> -->
+		<dt th:text="@{'ETL File Explorer : ' + ${etl_dir} + '/' + ${target}}"></dt>
+	</h2>
+
+	<h3>directories :</h3>
+	<table style="width: 80%;">
+		<dt th:unless="${is_root}">
+		<tr>
+			<td><a href="../">- Parent -</a></td>
+			<!-- 			<td></td> -->
+		</tr>
+		</dt>
+		<dl th:each="dir : ${fdirs}">
+			<tr>
+				<td width="80%"><a th:href="@{'./' + ${dir.name}} + '/'"><span
+						th:text="${dir.name}">dir</span></a></td>
+				<!-- 				<td></td> -->
+			</tr>
+		</dl>
+	</table>
+
+	<h3>files :</h3>
+	<table style="width: 100%;">
+		<dl th:each="file : ${ffiles}">
+			<tr>
+				<td width="80%"><a
+					th:href="@{'/get_file?file=' + ${target} + '/' + ${file.name}}">
+						<span th:text="${file.name}">file</span>
+				</a></td>
+				<td><span th:text="${file.length()}">size</span></td>
+			</tr>
+		</dl>
+	</table>
+
+</body>
+</html>

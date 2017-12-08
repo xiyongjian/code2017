@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- for debug, using jvm option : -Dlogback.debug=true -->
+<configuration>
+	<property name="defaultPattern"
+		value="${application-name} : %d{yyyyMMdd HHmmss.SSS}|%thread|%-5level|%C{15}|%M#%L| %msg%n" />
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern> ${defaultPattern} </pattern>
+		</encoder>
+	</appender>
+
+	<root level="TRACE">
+		<appender-ref ref="STDOUT" />
+	</root>
+</configuration>
