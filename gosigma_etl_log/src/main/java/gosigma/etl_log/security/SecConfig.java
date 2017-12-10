@@ -34,25 +34,26 @@ public class SecConfig extends WebSecurityConfigurerAdapter {
 		auth.inMemoryAuthentication().withUser("admin").password("password").roles("ADMIN");
 	}
 
-	//	// -------------------------- default login out of box
-	//	// -----------------------------
-	//	// redirect to login page /login
-	//	// to logout, goto /logout
-	//	@Override
-	//	protected void configure(HttpSecurity http) throws Exception {
-	//		log.info("Entering...");
-	//		http.authorizeRequests().antMatchers("/test/**").permitAll(); // allow all at the front of filters?
-	//		// http.authorizeRequests().anyRequest().authenticated();
-	//		super.configure(http);
+	// // -------------------------- default login out of box
+	// // -----------------------------
+	// // redirect to login page /login
+	// // to logout, goto /logout
+	// @Override
+	// protected void configure(HttpSecurity http) throws Exception {
+	// log.info("Entering...");
+	// http.authorizeRequests().antMatchers("/test/**").permitAll(); // allow all at
+	// the front of filters?
+	// // http.authorizeRequests().anyRequest().authenticated();
+	// super.configure(http);
 	//
-	//		// for /h2-console
-	//		http.headers().frameOptions().disable();
-	//		http.csrf().disable();
+	// // for /h2-console
+	// http.headers().frameOptions().disable();
+	// http.csrf().disable();
 	//
-	//		// for logout, not neccessary
-	//		// http.logout().logoutRequestMatcher(new
-	//		// AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login").permitAll();
-	//	}
+	// // for logout, not neccessary
+	// // http.logout().logoutRequestMatcher(new
+	// // AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login").permitAll();
+	// }
 
 	// -------------------------- customized login -----------------------------
 	// // must setup /login controller and view
@@ -67,15 +68,18 @@ public class SecConfig extends WebSecurityConfigurerAdapter {
 		http.headers().frameOptions().disable();
 		http.csrf().disable();
 
-		http.authorizeRequests().antMatchers("/login", "/test/**").permitAll();
+		http.authorizeRequests().antMatchers("/login/**", "/test/**").permitAll();
 		http.authorizeRequests().anyRequest().authenticated();
 
 		// for customized login page works, may set /login controller and view
 		// (login.html with thymeleaf)
 		// http.loginPage("/login").permitAll()
 		// login/logout setup
-		http.formLogin().failureUrl("/login?error").defaultSuccessUrl("/").permitAll().and().logout()
-				.logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login").permitAll();
+		http.formLogin().failureUrl("/login?error").defaultSuccessUrl("/").permitAll();
+		//				.and().logout()
+		//				.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+		//				// .clearAuthentication(true).invalidateHttpSession(true)	// clean up login info
+		//				.logoutSuccessUrl("/login").permitAll();
 	}
 
 	// @Autowired
