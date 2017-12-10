@@ -34,46 +34,49 @@ public class SecConfig extends WebSecurityConfigurerAdapter {
 		auth.inMemoryAuthentication().withUser("admin").password("password").roles("ADMIN");
 	}
 
-	// -------------------------- default login out of box
-	// -----------------------------
-	// redirect to login page /login
-	// to logout, goto /logout
-	@Override
-	protected void configure(HttpSecurity http) throws Exception {
-		log.info("Entering...");
-		http.authorizeRequests().antMatchers("/test/**").permitAll();
-		super.configure(http);
-		http.headers().frameOptions().disable();
-		http.csrf().disable();
-		http.logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login").permitAll();
-	}
+	//	// -------------------------- default login out of box
+	//	// -----------------------------
+	//	// redirect to login page /login
+	//	// to logout, goto /logout
+	//	@Override
+	//	protected void configure(HttpSecurity http) throws Exception {
+	//		log.info("Entering...");
+	//		http.authorizeRequests().antMatchers("/test/**").permitAll(); // allow all at the front of filters?
+	//		// http.authorizeRequests().anyRequest().authenticated();
+	//		super.configure(http);
+	//
+	//		// for /h2-console
+	//		http.headers().frameOptions().disable();
+	//		http.csrf().disable();
+	//
+	//		// for logout, not neccessary
+	//		// http.logout().logoutRequestMatcher(new
+	//		// AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login").permitAll();
+	//	}
 
 	// -------------------------- customized login -----------------------------
 	// // must setup /login controller and view
 	// // redirect to login page /login
 	// // to logout, goto /logout
-	// @Override
-	// protected void configure(HttpSecurity http) throws Exception {
-	// log.info("Entering...");
-	// // super.configure(http);
-	// http.headers().frameOptions().disable();
-	// http.csrf().disable();
-	// http.authorizeRequests().antMatchers("/login").permitAll();
-	// http.authorizeRequests().anyRequest().authenticated();
-	// // http.formLogin().loginPage("/login").and().httpBasic();
-	//
-	// // for this one works, must set /login controller and view (login.html with
-	// thymeleaf)
-	// http
-	// .formLogin().failureUrl("/login?error")
-	// .defaultSuccessUrl("/")
-	// .loginPage("/login")
-	// .permitAll()
-	// .and()
-	// .logout().logoutRequestMatcher(new
-	// AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login")
-	// .permitAll();
-	// }
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		log.info("Entering...");
+		http.httpBasic();
+
+		// for /h2-console
+		http.headers().frameOptions().disable();
+		http.csrf().disable();
+
+		http.authorizeRequests().antMatchers("/login", "/test/**").permitAll();
+		http.authorizeRequests().anyRequest().authenticated();
+
+		// for customized login page works, may set /login controller and view
+		// (login.html with thymeleaf)
+		// http.loginPage("/login").permitAll()
+		// login/logout setup
+		http.formLogin().failureUrl("/login?error").defaultSuccessUrl("/").permitAll().and().logout()
+				.logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login").permitAll();
+	}
 
 	// @Autowired
 	// private FilterChainProxy filterChainProxy;
@@ -101,7 +104,7 @@ public class SecConfig extends WebSecurityConfigurerAdapter {
 				}
 			}
 		}
-		
+
 		if (filterChainProxy != null) {
 			List<SecurityFilterChain> filterChains = filterChainProxy.getFilterChains();
 			for (SecurityFilterChain c : filterChains) {

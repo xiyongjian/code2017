@@ -45,7 +45,8 @@ public class EtlLogApplication implements ApplicationRunner {
 	private ApplicationContext applicationContext;
 
 	private void internalBeans() {
-		log.info("Debugging...", new Throwable("stack"));
+		// log.info("Debugging...", new Throwable("stack"));
+		log.info("Entering...");
 		log.info("appliation context, class : " + applicationContext.getClass().getName());
 
 		Set<String> ids = new HashSet<>();

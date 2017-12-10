@@ -39,7 +39,7 @@ public class SecDbConfig {
 	@ConfigurationProperties(prefix = "gosec.datasource")
 	public DataSource dataSource() {
 		log.info("Entering...");
-		log.info("Debugging...", new Throwable("Stack"));
+		// log.info("Debugging...", new Throwable("Stack"));
 		return DataSourceBuilder.create().build();
 
 		// scripts added to datasource
@@ -71,7 +71,7 @@ public class SecDbConfig {
 	@PostConstruct
 	public void initInnerDb() throws ScriptException, SQLException {
 		log.info("Entering...");
-		log.info("Debugging...", new Throwable("Stack"));
+		// log.info("Debugging...", new Throwable("Stack"));
 		Resource resource = applicationContext.getResource(init_sql);
 		ScriptUtils.executeSqlScript(dataSource().getConnection(), resource);
 	}
@@ -80,7 +80,7 @@ public class SecDbConfig {
 	public LocalContainerEntityManagerFactoryBean secEntityManagerFactory(EntityManagerFactoryBuilder builder,
 			@Qualifier("secDataSource") DataSource dataSource) {
 		log.info("Entering...");
-		log.info("Debugging...", new Throwable("Stack"));
+		// log.info("Debugging...", new Throwable("Stack"));
 		return builder.dataSource(dataSource).packages("gosigma.etl_log.security").persistenceUnit("sec").build();
 	}
 
@@ -88,7 +88,7 @@ public class SecDbConfig {
 	public PlatformTransactionManager secTransactionManager(
 			@Qualifier("secEntityManagerFactory") EntityManagerFactory secEntityManagerFactory) {
 		log.info("Entering...");
-		log.info("Debugging...", new Throwable("Stack"));
+		// log.info("Debugging...", new Throwable("Stack"));
 		return new JpaTransactionManager(secEntityManagerFactory);
 	}
 

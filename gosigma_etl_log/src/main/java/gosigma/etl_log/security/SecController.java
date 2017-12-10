@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class SecController {
 	public static Logger log = LoggerFactory.getLogger(SecController.class);
 
-	// must set it up for customized user login page
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String login(Model model) throws Exception {
-		log.info("Entering...");
-		return "login";
-
-	}
+	//	// must set it up for customized user login page
+	//	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	//	public String login(Model model) throws Exception {
+	//		log.info("Entering...");
+	//		return "login";
+	//
+	//	}
 }

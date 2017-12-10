@@ -14,7 +14,8 @@ public class TestRestController {
 
 	@RequestMapping(value= {"/01"}, method = RequestMethod.POST)
 	public String post01(@RequestBody String body) {
-		log.info("Entering...", new Throwable("Debugging..."));
+		// log.info("Entering...", new Throwable("Debugging..."));
+		log.info("Entering...");
 		log.info("get body : " + body);
 		return body;
 	}
