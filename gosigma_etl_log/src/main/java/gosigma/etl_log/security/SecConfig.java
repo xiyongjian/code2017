@@ -84,13 +84,13 @@ public class SecConfig extends WebSecurityConfigurerAdapter {
 		//				// .clearAuthentication(true).invalidateHttpSession(true)	// clean up login info
 		//				.logoutSuccessUrl("/login").permitAll();
 
-		// testing for JWT 
-		log.info("setup JwtLoginFilter's authenticationManager as : "
-				+ authenticationManager().toString());
-		http.addFilterBefore(new JwtLoginFilter("/api/authentication", authenticationManager()),
-				UsernamePasswordAuthenticationFilter.class);
-		http.addFilterBefore(new JwtAuthenticationFilter(),
-				UsernamePasswordAuthenticationFilter.class);
+		//		// uncomment them to enable JWT auth
+		//		log.info("setup JwtLoginFilter's authenticationManager as : "
+		//				+ authenticationManager().toString());
+		//		http.addFilterBefore(new JwtLoginFilter("/api/authentication", authenticationManager()),
+		//				UsernamePasswordAuthenticationFilter.class);
+		//		http.addFilterBefore(new JwtAuthenticationFilter(),
+		//				UsernamePasswordAuthenticationFilter.class);
 
 		{
 			log.info("testing, authenticationManager as : "

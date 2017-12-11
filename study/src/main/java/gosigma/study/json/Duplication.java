@@ -88,6 +88,13 @@ public class Duplication {
 			e.printStackTrace();
 		}
 
+		try {
+			dup.test03();
+		} catch (Exception e) {
+			System.out.println(e.toString());
+			e.printStackTrace();
+		}
+
 	}
 
 	public void test01() {
@@ -103,6 +110,16 @@ public class Duplication {
 		JSONObject json = new JSONObject(jsonStr);
 
 		System.out.println("JSON : " + json.toString());
+
+	}
+
+	public void test03() {
+		System.out.println("\ntest03, double put");
+		JSONObjectIgnoreDuplicates json = new JSONObjectIgnoreDuplicates("{'NONE':'yes'}");
+		json.put("KEY",  "yes");
+		json.put("KEY",  "no");
+
+		System.out.println("JSON : " + json.toString(4));
 
 	}
 }
