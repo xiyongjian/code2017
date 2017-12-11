@@ -30,8 +30,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(entityManagerFactoryRef = "secEntityManagerFactory", transactionManagerRef = "secTransactionManager", basePackages = {
-		"gosigma.etl_log.security" })
+@EnableJpaRepositories(entityManagerFactoryRef = "secEntityManagerFactory",
+		transactionManagerRef = "secTransactionManager",
+		basePackages = { "gosigma.etl_log.security" })
 public class SecDbConfig {
 	public static Logger log = LoggerFactory.getLogger(SecDbConfig.class);
 
@@ -46,7 +47,7 @@ public class SecDbConfig {
 		// EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
 		// return builder.addScripts("sec-init.sql").build();
 	}
-	
+
 	//	// another way to initialize datasource by hand
 	//	@Autowired
 	//	private Environment env;
@@ -77,11 +78,13 @@ public class SecDbConfig {
 	}
 
 	@Bean(name = "secEntityManagerFactory")
-	public LocalContainerEntityManagerFactoryBean secEntityManagerFactory(EntityManagerFactoryBuilder builder,
+	public LocalContainerEntityManagerFactoryBean secEntityManagerFactory(
+			EntityManagerFactoryBuilder builder,
 			@Qualifier("secDataSource") DataSource dataSource) {
 		log.info("Entering...");
 		// log.info("Debugging...", new Throwable("Stack"));
-		return builder.dataSource(dataSource).packages("gosigma.etl_log.security").persistenceUnit("sec").build();
+		return builder.dataSource(dataSource).packages("gosigma.etl_log.security")
+				.persistenceUnit("sec").build();
 	}
 
 	@Bean(name = "secTransactionManager")

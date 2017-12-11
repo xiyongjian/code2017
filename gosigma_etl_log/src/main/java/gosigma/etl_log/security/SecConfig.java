@@ -11,12 +11,15 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.web.FilterChainProxy;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.debug.DebugFilter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
@@ -80,6 +83,23 @@ public class SecConfig extends WebSecurityConfigurerAdapter {
 		//				.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
 		//				// .clearAuthentication(true).invalidateHttpSession(true)	// clean up login info
 		//				.logoutSuccessUrl("/login").permitAll();
+
+		// testing for JWT 
+		log.info("setup JwtLoginFilter's authenticationManager as : "
+				+ authenticationManager().toString());
+		http.addFilterBefore(new JwtLoginFilter("/api/authentication", authenticationManager()),
+				UsernamePasswordAuthenticationFilter.class);
+		http.addFilterBefore(new JwtAuthenticationFilter(),
+				UsernamePasswordAuthenticationFilter.class);
+
+		{
+			log.info("testing, authenticationManager as : "
+					+ this.authenticationManager().toString());
+			UsernamePasswordAuthenticationToken authRequest = new UsernamePasswordAuthenticationToken(
+					"admin", "password");
+			Authentication auth = this.authenticationManager().authenticate(authRequest);
+			log.info("admin/password result : " + auth.toString());
+		}
 	}
 
 	// @Autowired

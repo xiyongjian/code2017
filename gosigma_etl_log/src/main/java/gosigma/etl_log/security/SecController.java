@@ -43,4 +43,8 @@ public class SecController {
 	//
 	//		return "logout";
 	//	}
+
+	@RequestMapping(value = { "/sec/user" }, method = RequestMethod.GET)
+	public void secUserDo(HttpServletRequest request, HttpServletResponse response) {
+	}
 }
