@@ -104,12 +104,20 @@ def use_file():
     print ("Read String is : ", str)
     fo.close()
     
+def use_array() :
+    users = [];
+    users.append("1")
+    users.append(2)
+    print(" users array : ", str(users))
+    
 if __name__ == '__main__':
-    use_tuple()
-    use_map()
-    use_time()
-    use_function()
-    use_lambda()
-    use_global()
-    use_dir()
-    use_file();
+#     use_tuple()
+#     use_map()
+#     use_time()
+#     use_function()
+#     use_lambda()
+#     use_global()
+#     use_dir()
+#     use_file();
+    use_array()
+
