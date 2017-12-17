@@ -42,6 +42,8 @@ object class_app extends App {
     println("x : " + x.toString());
 
     funcCompose()
+
+    testPartial()
   }
 
   def funcCompose() = {
@@ -53,5 +55,27 @@ object class_app extends App {
     //relfect to
     println("lift(_) type : " + getTypeTag(lift(_)).tpe.toString());
 
+    println("List type : " + getTypeTag(List).tpe.toString());
+    //  println("List[_] type : " + getTypeTag(List[_]).tpe.toString());
+
+  }
+
+    def getTypeTag[T: ru.TypeTag](obj: T) = ru.typeTag[T]
+  def testPartial() = {
+    val divide: PartialFunction[Int, Int] = {
+      case d: Int if d != 0 => 42 / d
+    }
+    val receive: PartialFunction[Any, Unit] = {
+      case i: Int => println("get Int : " + i)
+      case s: String => println("get String : " + s)
+      // case a: Any => println("unsupported : " + getTypeTag(a).tpe.toString());
+      // case _ => println("unsupported")
+      case other => println("unsupported : " + other.toString() + ", " + other.getClass().getName)
+    }
+    
+    receive(1)
+    receive("hello")
+    receive(divide)
+    receive(receive)
   }
 }

@@ -58,4 +58,17 @@ public class FeedBaseTest {
 		log.info("Leaving...");
 	}
 
+	@Test
+	public void testParseArgs() {
+		String[] args = new String[1];
+		args[0] = "-lsdfs";
+		try {
+			System.out.println("args : " + args);
+			System.out.println(args.length);
+			_fb.parseArgs(args);
+		} catch (EtlException e) {
+			_fb.log.error("etl error", e);
+			_fb.log.error(_fb.toString());
+		}
+	}
 }

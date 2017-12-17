@@ -32,6 +32,10 @@ import ch.qos.logback.classic.LoggerContext;
 import ch.qos.logback.classic.util.ContextInitializer;
 import ch.qos.logback.core.joran.spi.JoranException;
 
+/**
+ * @author xyj
+ *
+ */
 public abstract class FeedBase {
 	public Logger log = null;
 
@@ -161,7 +165,7 @@ public abstract class FeedBase {
 		log.info("Entering... args : " + String.join("|", args));
 
 		Options options = new Options();
-		options.addOption(Option.builder("d").longOpt("directory").desc("output file location").hasArg()
+		options.addOption(Option.builder("d").longOpt("directory").desc("output directory").hasArg()
 				.argName("OUTPUT DIR").build());
 		options.addOption(
 				Option.builder("i").longOpt("input").desc("input feed file").hasArg().argName("FEED FILE").build());
@@ -236,6 +240,20 @@ public abstract class FeedBase {
 		InputStream inProp = FeedBase.class.getClassLoader().getResourceAsStream("etl.properties");
 		Properties prop = new Properties();
 		prop.load(inProp);
+		loadProperties(prop);
+	}
+
+	/**
+	 * derived class may override this function for additional properties
+	 * @param prop
+	 * @throws IOException
+	 * @throws EtlException
+	 */
+	public void loadProperties(Properties prop) throws IOException, EtlException {
+		//		log.info("#### load properties");
+		//		InputStream inProp = FeedBase.class.getClassLoader().getResourceAsStream("etl.properties");
+		//		Properties prop = new Properties();
+		//		prop.load(inProp);
 
 		_jdbcUrl = prop.getProperty("jdbc.url");
 		_jdbcUser = prop.getProperty("jdbc.user");
