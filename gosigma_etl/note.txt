@@ -1,3 +1,7 @@
 consider using this one for windows syslog server, for debugging/testing
 
 Syslog for windows
+
+
+for feed PJM_DA_Prices
+?? Hour_End from row 7

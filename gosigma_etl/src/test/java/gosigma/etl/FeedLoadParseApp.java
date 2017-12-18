@@ -13,6 +13,7 @@ import org.jsoup.select.Elements;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+
 public class FeedLoadParseApp {
 	final static Logger logger = LoggerFactory.getLogger(FeedLoadParseApp.class);
 
@@ -81,9 +82,12 @@ public class FeedLoadParseApp {
 		String title = doc.title();
 		logger.info(title);
 
-		logger.info("---- all children ----");
-		// listELementByPath(doc.select(":root").get(0), ":root");
+		logger.info("---- list elements by path ----");
+		listELementByPath(doc.select(":root").get(0), ":root");
+		logger.info("---- list csv style ----");
 		listCsvStyle(doc.select(":root").get(0));
+		logger.info("---- list csv style via Ele2Csv ----");
+		logger.info(new Utils.Ele2Csv().proc(doc.select(":root").get(0)));
 
 		//		logger.info("---- doc html ----");
 		//		logger.info(doc.html());
@@ -115,8 +119,8 @@ public class FeedLoadParseApp {
 	public static void listCsvStyle(Element e) {
 		// td tag for continue lines
 		if (e.tagName().equalsIgnoreCase("td")) {
-			if (!e.text().isEmpty())
-				System.out.print(e.text() + ',');
+			// if (!e.text().isEmpty())
+			System.out.print(e.text() + ',');
 		} else {
 			System.out.println(e.ownText());
 			for (Element c : e.children()) {

@@ -1,7 +1,1852 @@
-20171216 224307.052|main|INFO |g.e.FeedLoadParseApp|main#20| Entering...
-20171216 224307.058|main|INFO |g.e.FeedLoadParseApp|load_lmppost_static#76| Entering...
-20171216 224307.268|main|INFO |g.e.FeedLoadParseApp|load_lmppost_static#82| LMP Oasis posting
-20171216 224307.268|main|INFO |g.e.FeedLoadParseApp|load_lmppost_static#84| ---- all children ----
+20171217 114158.066|main|INFO |g.e.FeedLoadParseApp|main#20| Entering...
+20171217 114158.072|main|INFO |g.e.FeedLoadParseApp|load_lmppost_static#76| Entering...
+20171217 114158.287|main|INFO |g.e.FeedLoadParseApp|load_lmppost_static#82| LMP Oasis posting
+20171217 114158.287|main|INFO |g.e.FeedLoadParseApp|load_lmppost_static#84| ---- list elements by path ----
+:root>html - 
+:root>html{0}>head - 
+:root>html{0}>head{0}>title - LMP Oasis posting
+:root>html{0}>head{0}>meta - 
+:root>html{0}>body - 
+:root>html{0}>body{0}>br - 
+:root>html{0}>body{1}>br - 
+:root>html{0}>body{0}>h1 - 
+:root>html{0}>body{0}>h1{0}>center - PJM Operational Data
+:root>html{0}>body{0}>h2 - 
+:root>html{0}>body{0}>h2{0}>center - This is provided for informational purposes ONLY and should
+:root>html{0}>body{1}>h2 - 
+:root>html{0}>body{1}>h2{0}>center - not be relied upon by any party for the actual billing values.
+:root>html{0}>body{2}>br - 
+:root>html{0}>body{3}>br - 
+:root>html{0}>body{4}>br - 
+:root>html{0}>body{5}>br - 
+:root>html{0}>body{0}>center - 
+:root>html{0}>body{0}>center{0}>h2 - Data Last Updated
+:root>html{0}>body{1}>center - 
+:root>html{0}>body{1}>center{0}>table - 
+:root>html{0}>body{1}>center{0}>table{0}>tbody - 
+:root>html{0}>body{1}>center{0}>table{0}>tbody{0}>tr - 
+:root>html{0}>body{1}>center{0}>table{0}>tbody{0}>tr{0}>td - 
+:root>html{0}>body{1}>center{0}>table{0}>tbody{0}>tr{0}>td{0}>font - 
+:root>html{0}>body{1}>center{0}>table{0}>tbody{0}>tr{0}>td{0}>font{0}>b - Sat Dec 16 19:40:00 EST 2017
+:root>html{0}>body{6}>br - 
+:root>html{0}>body{7}>br - 
+:root>html{0}>body{8}>br - 
+:root>html{0}>body{2}>center - 
+:root>html{0}>body{2}>center{0}>h2 - Aggregate Locational Marginal Prices (LMP)
+:root>html{0}>body{3}>center - 
+:root>html{0}>body{3}>center{0}>table - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{0}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{0}>tr{0}>td - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{0}>tr{0}>td{0}>b - Name
+:root>html{0}>body{3}>center{0}>table{0}>tbody{0}>tr{1}>td - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{0}>tr{1}>td{0}>b - Type
+:root>html{0}>body{3}>center{0}>table{0}>tbody{0}>tr{2}>td - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{0}>tr{2}>td{0}>b - 5 Minute Weighted Avg. LMP
+:root>html{0}>body{3}>center{0}>table{0}>tbody{0}>tr{3}>td - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{0}>tr{3}>td{0}>b - Hourly Integrated LMP for Hour Ending 19
+:root>html{0}>body{3}>center{0}>table{0}>tbody{1}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{1}>tr{0}>td - AECO
+:root>html{0}>body{3}>center{0}>table{0}>tbody{1}>tr{1}>td - ZONE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{1}>tr{2}>td - 33.9
+:root>html{0}>body{3}>center{0}>table{0}>tbody{1}>tr{3}>td - 35.6
+:root>html{0}>body{3}>center{0}>table{0}>tbody{2}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{2}>tr{0}>td - AEP
+:root>html{0}>body{3}>center{0}>table{0}>tbody{2}>tr{1}>td - ZONE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{2}>tr{2}>td - 31.4
+:root>html{0}>body{3}>center{0}>table{0}>tbody{2}>tr{3}>td - 33.2
+:root>html{0}>body{3}>center{0}>table{0}>tbody{3}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{3}>tr{0}>td - APS
+:root>html{0}>body{3}>center{0}>table{0}>tbody{3}>tr{1}>td - ZONE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{3}>tr{2}>td - 32.8
+:root>html{0}>body{3}>center{0}>table{0}>tbody{3}>tr{3}>td - 34.6
+:root>html{0}>body{3}>center{0}>table{0}>tbody{4}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{4}>tr{0}>td - ATSI
+:root>html{0}>body{3}>center{0}>table{0}>tbody{4}>tr{1}>td - ZONE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{4}>tr{2}>td - 33.1
+:root>html{0}>body{3}>center{0}>table{0}>tbody{4}>tr{3}>td - 35.0
+:root>html{0}>body{3}>center{0}>table{0}>tbody{5}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{5}>tr{0}>td - BGE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{5}>tr{1}>td - ZONE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{5}>tr{2}>td - 34.2
+:root>html{0}>body{3}>center{0}>table{0}>tbody{5}>tr{3}>td - 36.1
+:root>html{0}>body{3}>center{0}>table{0}>tbody{6}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{6}>tr{0}>td - COMED
+:root>html{0}>body{3}>center{0}>table{0}>tbody{6}>tr{1}>td - ZONE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{6}>tr{2}>td - 28.6
+:root>html{0}>body{3}>center{0}>table{0}>tbody{6}>tr{3}>td - 31.7
+:root>html{0}>body{3}>center{0}>table{0}>tbody{7}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{7}>tr{0}>td - DAY
+:root>html{0}>body{3}>center{0}>table{0}>tbody{7}>tr{1}>td - ZONE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{7}>tr{2}>td - 33.8
+:root>html{0}>body{3}>center{0}>table{0}>tbody{7}>tr{3}>td - 34.2
+:root>html{0}>body{3}>center{0}>table{0}>tbody{8}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{8}>tr{0}>td - DEOK
+:root>html{0}>body{3}>center{0}>table{0}>tbody{8}>tr{1}>td - ZONE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{8}>tr{2}>td - 36.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{8}>tr{3}>td - 33.2
+:root>html{0}>body{3}>center{0}>table{0}>tbody{9}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{9}>tr{0}>td - DOM
+:root>html{0}>body{3}>center{0}>table{0}>tbody{9}>tr{1}>td - ZONE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{9}>tr{2}>td - 33.4
+:root>html{0}>body{3}>center{0}>table{0}>tbody{9}>tr{3}>td - 35.2
+:root>html{0}>body{3}>center{0}>table{0}>tbody{10}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{10}>tr{0}>td - DPL
+:root>html{0}>body{3}>center{0}>table{0}>tbody{10}>tr{1}>td - ZONE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{10}>tr{2}>td - 34.5
+:root>html{0}>body{3}>center{0}>table{0}>tbody{10}>tr{3}>td - 36.5
+:root>html{0}>body{3}>center{0}>table{0}>tbody{11}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{11}>tr{0}>td - DUQ
+:root>html{0}>body{3}>center{0}>table{0}>tbody{11}>tr{1}>td - ZONE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{11}>tr{2}>td - 32.5
+:root>html{0}>body{3}>center{0}>table{0}>tbody{11}>tr{3}>td - 34.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{12}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{12}>tr{0}>td - EKPC
+:root>html{0}>body{3}>center{0}>table{0}>tbody{12}>tr{1}>td - ZONE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{12}>tr{2}>td - 31.6
+:root>html{0}>body{3}>center{0}>table{0}>tbody{12}>tr{3}>td - 32.4
+:root>html{0}>body{3}>center{0}>table{0}>tbody{13}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{13}>tr{0}>td - JCPL
+:root>html{0}>body{3}>center{0}>table{0}>tbody{13}>tr{1}>td - ZONE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{13}>tr{2}>td - 33.9
+:root>html{0}>body{3}>center{0}>table{0}>tbody{13}>tr{3}>td - 35.9
+:root>html{0}>body{3}>center{0}>table{0}>tbody{14}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{14}>tr{0}>td - METED
+:root>html{0}>body{3}>center{0}>table{0}>tbody{14}>tr{1}>td - ZONE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{14}>tr{2}>td - 33.5
+:root>html{0}>body{3}>center{0}>table{0}>tbody{14}>tr{3}>td - 35.5
+:root>html{0}>body{3}>center{0}>table{0}>tbody{15}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{15}>tr{0}>td - PECO
+:root>html{0}>body{3}>center{0}>table{0}>tbody{15}>tr{1}>td - ZONE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{15}>tr{2}>td - 33.5
+:root>html{0}>body{3}>center{0}>table{0}>tbody{15}>tr{3}>td - 35.4
+:root>html{0}>body{3}>center{0}>table{0}>tbody{16}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{16}>tr{0}>td - PENELEC
+:root>html{0}>body{3}>center{0}>table{0}>tbody{16}>tr{1}>td - ZONE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{16}>tr{2}>td - 33.1
+:root>html{0}>body{3}>center{0}>table{0}>tbody{16}>tr{3}>td - 35.1
+:root>html{0}>body{3}>center{0}>table{0}>tbody{17}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{17}>tr{0}>td - PEPCO
+:root>html{0}>body{3}>center{0}>table{0}>tbody{17}>tr{1}>td - ZONE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{17}>tr{2}>td - 33.8
+:root>html{0}>body{3}>center{0}>table{0}>tbody{17}>tr{3}>td - 35.6
+:root>html{0}>body{3}>center{0}>table{0}>tbody{18}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{18}>tr{0}>td - PPL
+:root>html{0}>body{3}>center{0}>table{0}>tbody{18}>tr{1}>td - ZONE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{18}>tr{2}>td - 33.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{18}>tr{3}>td - 35.2
+:root>html{0}>body{3}>center{0}>table{0}>tbody{19}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{19}>tr{0}>td - PSEG
+:root>html{0}>body{3}>center{0}>table{0}>tbody{19}>tr{1}>td - ZONE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{19}>tr{2}>td - 34.0
+:root>html{0}>body{3}>center{0}>table{0}>tbody{19}>tr{3}>td - 35.9
+:root>html{0}>body{3}>center{0}>table{0}>tbody{20}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{20}>tr{0}>td - RECO
+:root>html{0}>body{3}>center{0}>table{0}>tbody{20}>tr{1}>td - ZONE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{20}>tr{2}>td - 34.0
+:root>html{0}>body{3}>center{0}>table{0}>tbody{20}>tr{3}>td - 36.0
+:root>html{0}>body{3}>center{0}>table{0}>tbody{21}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{21}>tr{0}>td - CPLEEXP
+:root>html{0}>body{3}>center{0}>table{0}>tbody{21}>tr{1}>td - INTERFACE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{21}>tr{2}>td - 31.9
+:root>html{0}>body{3}>center{0}>table{0}>tbody{21}>tr{3}>td - 33.5
+:root>html{0}>body{3}>center{0}>table{0}>tbody{22}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{22}>tr{0}>td - CPLEIMP
+:root>html{0}>body{3}>center{0}>table{0}>tbody{22}>tr{1}>td - INTERFACE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{22}>tr{2}>td - 31.4
+:root>html{0}>body{3}>center{0}>table{0}>tbody{22}>tr{3}>td - 33.1
+:root>html{0}>body{3}>center{0}>table{0}>tbody{23}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{23}>tr{0}>td - DUKEXP
+:root>html{0}>body{3}>center{0}>table{0}>tbody{23}>tr{1}>td - INTERFACE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{23}>tr{2}>td - 31.5
+:root>html{0}>body{3}>center{0}>table{0}>tbody{23}>tr{3}>td - 33.1
+:root>html{0}>body{3}>center{0}>table{0}>tbody{24}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{24}>tr{0}>td - DUKIMP
+:root>html{0}>body{3}>center{0}>table{0}>tbody{24}>tr{1}>td - INTERFACE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{24}>tr{2}>td - 31.2
+:root>html{0}>body{3}>center{0}>table{0}>tbody{24}>tr{3}>td - 32.9
+:root>html{0}>body{3}>center{0}>table{0}>tbody{25}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{25}>tr{0}>td - HUDSONTP
+:root>html{0}>body{3}>center{0}>table{0}>tbody{25}>tr{1}>td - INTERFACE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{25}>tr{2}>td - 35.4
+:root>html{0}>body{3}>center{0}>table{0}>tbody{25}>tr{3}>td - 37.4
+:root>html{0}>body{3}>center{0}>table{0}>tbody{26}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{26}>tr{0}>td - IMO
+:root>html{0}>body{3}>center{0}>table{0}>tbody{26}>tr{1}>td - INTERFACE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{26}>tr{2}>td - 31.0
+:root>html{0}>body{3}>center{0}>table{0}>tbody{26}>tr{3}>td - 34.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{27}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{27}>tr{0}>td - LINDENVFT
+:root>html{0}>body{3}>center{0}>table{0}>tbody{27}>tr{1}>td - INTERFACE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{27}>tr{2}>td - 34.0
+:root>html{0}>body{3}>center{0}>table{0}>tbody{27}>tr{3}>td - 36.0
+:root>html{0}>body{3}>center{0}>table{0}>tbody{28}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{28}>tr{0}>td - MISO
+:root>html{0}>body{3}>center{0}>table{0}>tbody{28}>tr{1}>td - INTERFACE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{28}>tr{2}>td - 27.6
+:root>html{0}>body{3}>center{0}>table{0}>tbody{28}>tr{3}>td - 31.5
+:root>html{0}>body{3}>center{0}>table{0}>tbody{29}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{29}>tr{0}>td - NCMPAEXP
+:root>html{0}>body{3}>center{0}>table{0}>tbody{29}>tr{1}>td - INTERFACE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{29}>tr{2}>td - 31.4
+:root>html{0}>body{3}>center{0}>table{0}>tbody{29}>tr{3}>td - 33.0
+:root>html{0}>body{3}>center{0}>table{0}>tbody{30}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{30}>tr{0}>td - NCMPAIMP
+:root>html{0}>body{3}>center{0}>table{0}>tbody{30}>tr{1}>td - INTERFACE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{30}>tr{2}>td - 31.4
+:root>html{0}>body{3}>center{0}>table{0}>tbody{30}>tr{3}>td - 33.0
+:root>html{0}>body{3}>center{0}>table{0}>tbody{31}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{31}>tr{0}>td - NEPTUNE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{31}>tr{1}>td - INTERFACE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{31}>tr{2}>td - 33.8
+:root>html{0}>body{3}>center{0}>table{0}>tbody{31}>tr{3}>td - 35.7
+:root>html{0}>body{3}>center{0}>table{0}>tbody{32}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{32}>tr{0}>td - NIPSCO
+:root>html{0}>body{3}>center{0}>table{0}>tbody{32}>tr{1}>td - INTERFACE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{32}>tr{2}>td - 28.8
+:root>html{0}>body{3}>center{0}>table{0}>tbody{32}>tr{3}>td - 31.8
+:root>html{0}>body{3}>center{0}>table{0}>tbody{33}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{33}>tr{0}>td - NORTHWEST
+:root>html{0}>body{3}>center{0}>table{0}>tbody{33}>tr{1}>td - INTERFACE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{33}>tr{2}>td - 27.9
+:root>html{0}>body{3}>center{0}>table{0}>tbody{33}>tr{3}>td - 31.0
+:root>html{0}>body{3}>center{0}>table{0}>tbody{34}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{34}>tr{0}>td - NYIS
+:root>html{0}>body{3}>center{0}>table{0}>tbody{34}>tr{1}>td - INTERFACE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{34}>tr{2}>td - 33.7
+:root>html{0}>body{3}>center{0}>table{0}>tbody{34}>tr{3}>td - 35.7
+:root>html{0}>body{3}>center{0}>table{0}>tbody{35}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{35}>tr{0}>td - OVEC
+:root>html{0}>body{3}>center{0}>table{0}>tbody{35}>tr{1}>td - INTERFACE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{35}>tr{2}>td - 30.4
+:root>html{0}>body{3}>center{0}>table{0}>tbody{35}>tr{3}>td - 32.0
+:root>html{0}>body{3}>center{0}>table{0}>tbody{36}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{36}>tr{0}>td - SOUTHEXP
+:root>html{0}>body{3}>center{0}>table{0}>tbody{36}>tr{1}>td - INTERFACE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{36}>tr{2}>td - 29.8
+:root>html{0}>body{3}>center{0}>table{0}>tbody{36}>tr{3}>td - 32.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{37}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{37}>tr{0}>td - SOUTHIMP
+:root>html{0}>body{3}>center{0}>table{0}>tbody{37}>tr{1}>td - INTERFACE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{37}>tr{2}>td - 29.8
+:root>html{0}>body{3}>center{0}>table{0}>tbody{37}>tr{3}>td - 32.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{38}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{38}>tr{0}>td - AEC - AP
+:root>html{0}>body{3}>center{0}>table{0}>tbody{38}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{38}>tr{2}>td - 32.6
+:root>html{0}>body{3}>center{0}>table{0}>tbody{38}>tr{3}>td - 34.4
+:root>html{0}>body{3}>center{0}>table{0}>tbody{39}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{39}>tr{0}>td - AEC - JC
+:root>html{0}>body{3}>center{0}>table{0}>tbody{39}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{39}>tr{2}>td - 35.1
+:root>html{0}>body{3}>center{0}>table{0}>tbody{39}>tr{3}>td - 37.2
+:root>html{0}>body{3}>center{0}>table{0}>tbody{40}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{40}>tr{0}>td - AEC - ME
+:root>html{0}>body{3}>center{0}>table{0}>tbody{40}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{40}>tr{2}>td - 33.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{40}>tr{3}>td - 35.2
+:root>html{0}>body{3}>center{0}>table{0}>tbody{41}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{41}>tr{0}>td - AEC - PN
+:root>html{0}>body{3}>center{0}>table{0}>tbody{41}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{41}>tr{2}>td - 33.2
+:root>html{0}>body{3}>center{0}>table{0}>tbody{41}>tr{3}>td - 35.2
+:root>html{0}>body{3}>center{0}>table{0}>tbody{42}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{42}>tr{0}>td - AELC
+:root>html{0}>body{3}>center{0}>table{0}>tbody{42}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{42}>tr{2}>td - 28.4
+:root>html{0}>body{3}>center{0}>table{0}>tbody{42}>tr{3}>td - 31.4
+:root>html{0}>body{3}>center{0}>table{0}>tbody{43}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{43}>tr{0}>td - AEP W.O. MON POWER
+:root>html{0}>body{3}>center{0}>table{0}>tbody{43}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{43}>tr{2}>td - 31.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{43}>tr{3}>td - 33.1
+:root>html{0}>body{3}>center{0}>table{0}>tbody{44}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{44}>tr{0}>td - AEPOHIO W.O. MON POWER
+:root>html{0}>body{3}>center{0}>table{0}>tbody{44}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{44}>tr{2}>td - 32.1
+:root>html{0}>body{3}>center{0}>table{0}>tbody{44}>tr{3}>td - 33.5
+:root>html{0}>body{3}>center{0}>table{0}>tbody{45}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{45}>tr{0}>td - AK STEEL
+:root>html{0}>body{3}>center{0}>table{0}>tbody{45}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{45}>tr{2}>td - 28.1
+:root>html{0}>body{3}>center{0}>table{0}>tbody{45}>tr{3}>td - 31.2
+:root>html{0}>body{3}>center{0}>table{0}>tbody{46}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{46}>tr{0}>td - AMP-ATSI
+:root>html{0}>body{3}>center{0}>table{0}>tbody{46}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{46}>tr{2}>td - 32.9
+:root>html{0}>body{3}>center{0}>table{0}>tbody{46}>tr{3}>td - 34.8
+:root>html{0}>body{3}>center{0}>table{0}>tbody{47}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{47}>tr{0}>td - AMP-ATSI OH
+:root>html{0}>body{3}>center{0}>table{0}>tbody{47}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{47}>tr{2}>td - 32.9
+:root>html{0}>body{3}>center{0}>table{0}>tbody{47}>tr{3}>td - 34.8
+:root>html{0}>body{3}>center{0}>table{0}>tbody{48}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{48}>tr{0}>td - AMP-ATSI PA
+:root>html{0}>body{3}>center{0}>table{0}>tbody{48}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{48}>tr{2}>td - 32.8
+:root>html{0}>body{3}>center{0}>table{0}>tbody{48}>tr{3}>td - 34.7
+:root>html{0}>body{3}>center{0}>table{0}>tbody{49}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{49}>tr{0}>td - AMP-METED
+:root>html{0}>body{3}>center{0}>table{0}>tbody{49}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{49}>tr{2}>td - 33.5
+:root>html{0}>body{3}>center{0}>table{0}>tbody{49}>tr{3}>td - 35.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{50}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{50}>tr{0}>td - AMP-OHIO
+:root>html{0}>body{3}>center{0}>table{0}>tbody{50}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{50}>tr{2}>td - 31.8
+:root>html{0}>body{3}>center{0}>table{0}>tbody{50}>tr{3}>td - 33.4
+:root>html{0}>body{3}>center{0}>table{0}>tbody{51}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{51}>tr{0}>td - AURORA CT 1-4
+:root>html{0}>body{3}>center{0}>table{0}>tbody{51}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{51}>tr{2}>td - 28.4
+:root>html{0}>body{3}>center{0}>table{0}>tbody{51}>tr{3}>td - 31.5
+:root>html{0}>body{3}>center{0}>table{0}>tbody{52}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{52}>tr{0}>td - BATAVIA
+:root>html{0}>body{3}>center{0}>table{0}>tbody{52}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{52}>tr{2}>td - 28.4
+:root>html{0}>body{3}>center{0}>table{0}>tbody{52}>tr{3}>td - 31.5
+:root>html{0}>body{3}>center{0}>table{0}>tbody{53}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{53}>tr{0}>td - BATH COUNTY GEN
+:root>html{0}>body{3}>center{0}>table{0}>tbody{53}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{53}>tr{2}>td - 31.7
+:root>html{0}>body{3}>center{0}>table{0}>tbody{53}>tr{3}>td - 33.2
+:root>html{0}>body{3}>center{0}>table{0}>tbody{54}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{54}>tr{0}>td - BAYONNE TECH
+:root>html{0}>body{3}>center{0}>table{0}>tbody{54}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{54}>tr{2}>td - 34.4
+:root>html{0}>body{3}>center{0}>table{0}>tbody{54}>tr{3}>td - 36.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{55}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{55}>tr{0}>td - BAYVIEW
+:root>html{0}>body{3}>center{0}>table{0}>tbody{55}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{55}>tr{2}>td - 39.8
+:root>html{0}>body{3}>center{0}>table{0}>tbody{55}>tr{3}>td - 42.0
+:root>html{0}>body{3}>center{0}>table{0}>tbody{56}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{56}>tr{0}>td - BERLIN DPL
+:root>html{0}>body{3}>center{0}>table{0}>tbody{56}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{56}>tr{2}>td - 35.8
+:root>html{0}>body{3}>center{0}>table{0}>tbody{56}>tr{3}>td - 37.8
+:root>html{0}>body{3}>center{0}>table{0}>tbody{57}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{57}>tr{0}>td - BLAKELY BORO
+:root>html{0}>body{3}>center{0}>table{0}>tbody{57}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{57}>tr{2}>td - 33.5
+:root>html{0}>body{3}>center{0}>table{0}>tbody{57}>tr{3}>td - 35.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{58}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{58}>tr{0}>td - BLUE RIDGE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{58}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{58}>tr{2}>td - 32.1
+:root>html{0}>body{3}>center{0}>table{0}>tbody{58}>tr{3}>td - 33.6
+:root>html{0}>body{3}>center{0}>table{0}>tbody{59}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{59}>tr{0}>td - BRANDONSH
+:root>html{0}>body{3}>center{0}>table{0}>tbody{59}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{59}>tr{2}>td - 33.9
+:root>html{0}>body{3}>center{0}>table{0}>tbody{59}>tr{3}>td - 35.8
+:root>html{0}>body{3}>center{0}>table{0}>tbody{60}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{60}>tr{0}>td - BRUNSWICK
+:root>html{0}>body{3}>center{0}>table{0}>tbody{60}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{60}>tr{2}>td - 33.7
+:root>html{0}>body{3}>center{0}>table{0}>tbody{60}>tr{3}>td - 35.7
+:root>html{0}>body{3}>center{0}>table{0}>tbody{61}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{61}>tr{0}>td - BUCK-CIN
+:root>html{0}>body{3}>center{0}>table{0}>tbody{61}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{61}>tr{2}>td - 35.7
+:root>html{0}>body{3}>center{0}>table{0}>tbody{61}>tr{3}>td - 33.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{62}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{62}>tr{0}>td - BUCK-FE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{62}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{62}>tr{2}>td - 33.0
+:root>html{0}>body{3}>center{0}>table{0}>tbody{62}>tr{3}>td - 35.0
+:root>html{0}>body{3}>center{0}>table{0}>tbody{63}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{63}>tr{0}>td - BUCKEYE - AEP
+:root>html{0}>body{3}>center{0}>table{0}>tbody{63}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{63}>tr{2}>td - 32.1
+:root>html{0}>body{3}>center{0}>table{0}>tbody{63}>tr{3}>td - 33.5
+:root>html{0}>body{3}>center{0}>table{0}>tbody{64}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{64}>tr{0}>td - BUCKEYE - DPL
+:root>html{0}>body{3}>center{0}>table{0}>tbody{64}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{64}>tr{2}>td - 33.8
+:root>html{0}>body{3}>center{0}>table{0}>tbody{64}>tr{3}>td - 34.7
+:root>html{0}>body{3}>center{0}>table{0}>tbody{65}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{65}>tr{0}>td - BUCKEYE - WEC
+:root>html{0}>body{3}>center{0}>table{0}>tbody{65}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{65}>tr{2}>td - 31.1
+:root>html{0}>body{3}>center{0}>table{0}>tbody{65}>tr{3}>td - 32.6
+:root>html{0}>body{3}>center{0}>table{0}>tbody{66}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{66}>tr{0}>td - CAMDEN TECH
+:root>html{0}>body{3}>center{0}>table{0}>tbody{66}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{66}>tr{2}>td - 33.4
+:root>html{0}>body{3}>center{0}>table{0}>tbody{66}>tr{3}>td - 35.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{67}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{67}>tr{0}>td - CATAWISSA
+:root>html{0}>body{3}>center{0}>table{0}>tbody{67}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{67}>tr{2}>td - 31.9
+:root>html{0}>body{3}>center{0}>table{0}>tbody{67}>tr{3}>td - 33.8
+:root>html{0}>body{3}>center{0}>table{0}>tbody{68}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{68}>tr{0}>td - CHAMBERS CCLP
+:root>html{0}>body{3}>center{0}>table{0}>tbody{68}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{68}>tr{2}>td - 33.2
+:root>html{0}>body{3}>center{0}>table{0}>tbody{68}>tr{3}>td - 35.0
+:root>html{0}>body{3}>center{0}>table{0}>tbody{69}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{69}>tr{0}>td - CITIZENS
+:root>html{0}>body{3}>center{0}>table{0}>tbody{69}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{69}>tr{2}>td - 32.6
+:root>html{0}>body{3}>center{0}>table{0}>tbody{69}>tr{3}>td - 34.5
+:root>html{0}>body{3}>center{0}>table{0}>tbody{70}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{70}>tr{0}>td - CLINCH RIVER 1-3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{70}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{70}>tr{2}>td - 30.5
+:root>html{0}>body{3}>center{0}>table{0}>tbody{70}>tr{3}>td - 31.9
+:root>html{0}>body{3}>center{0}>table{0}>tbody{71}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{71}>tr{0}>td - CONOWINGO GEN 1-11
+:root>html{0}>body{3}>center{0}>table{0}>tbody{71}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{71}>tr{2}>td - 33.4
+:root>html{0}>body{3}>center{0}>table{0}>tbody{71}>tr{3}>td - 35.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{72}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{72}>tr{0}>td - COOKSTOWN
+:root>html{0}>body{3}>center{0}>table{0}>tbody{72}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{72}>tr{2}>td - 33.6
+:root>html{0}>body{3}>center{0}>table{0}>tbody{72}>tr{3}>td - 35.6
+:root>html{0}>body{3}>center{0}>table{0}>tbody{73}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{73}>tr{0}>td - CORDOVA
+:root>html{0}>body{3}>center{0}>table{0}>tbody{73}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{73}>tr{2}>td - 27.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{73}>tr{3}>td - 30.4
+:root>html{0}>body{3}>center{0}>table{0}>tbody{74}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{74}>tr{0}>td - CPP
+:root>html{0}>body{3}>center{0}>table{0}>tbody{74}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{74}>tr{2}>td - 33.4
+:root>html{0}>body{3}>center{0}>table{0}>tbody{74}>tr{3}>td - 35.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{75}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{75}>tr{0}>td - CRISFIELD
+:root>html{0}>body{3}>center{0}>table{0}>tbody{75}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{75}>tr{2}>td - 37.0
+:root>html{0}>body{3}>center{0}>table{0}>tbody{75}>tr{3}>td - 39.1
+:root>html{0}>body{3}>center{0}>table{0}>tbody{76}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{76}>tr{0}>td - DECAM COAL GEN
+:root>html{0}>body{3}>center{0}>table{0}>tbody{76}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{76}>tr{2}>td - 33.4
+:root>html{0}>body{3}>center{0}>table{0}>tbody{76}>tr{3}>td - 32.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{77}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{77}>tr{0}>td - DECAM GAS GEN
+:root>html{0}>body{3}>center{0}>table{0}>tbody{77}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{77}>tr{2}>td - 30.9
+:root>html{0}>body{3}>center{0}>table{0}>tbody{77}>tr{3}>td - 32.5
+:root>html{0}>body{3}>center{0}>table{0}>tbody{78}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{78}>tr{0}>td - DEK
+:root>html{0}>body{3}>center{0}>table{0}>tbody{78}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{78}>tr{2}>td - 36.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{78}>tr{3}>td - 33.0
+:root>html{0}>body{3}>center{0}>table{0}>tbody{79}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{79}>tr{0}>td - DELI
+:root>html{0}>body{3}>center{0}>table{0}>tbody{79}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{79}>tr{2}>td - 27.5
+:root>html{0}>body{3}>center{0}>table{0}>tbody{79}>tr{3}>td - 30.6
+:root>html{0}>body{3}>center{0}>table{0}>tbody{80}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{80}>tr{0}>td - DEMEC
+:root>html{0}>body{3}>center{0}>table{0}>tbody{80}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{80}>tr{2}>td - 33.8
+:root>html{0}>body{3}>center{0}>table{0}>tbody{80}>tr{3}>td - 35.7
+:root>html{0}>body{3}>center{0}>table{0}>tbody{81}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{81}>tr{0}>td - DENAWASH
+:root>html{0}>body{3}>center{0}>table{0}>tbody{81}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{81}>tr{2}>td - 30.9
+:root>html{0}>body{3}>center{0}>table{0}>tbody{81}>tr{3}>td - 32.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{82}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{82}>tr{0}>td - DOVER
+:root>html{0}>body{3}>center{0}>table{0}>tbody{82}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{82}>tr{2}>td - 33.6
+:root>html{0}>body{3}>center{0}>table{0}>tbody{82}>tr{3}>td - 35.5
+:root>html{0}>body{3}>center{0}>table{0}>tbody{83}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{83}>tr{0}>td - DPL NORTH
+:root>html{0}>body{3}>center{0}>table{0}>tbody{83}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{83}>tr{2}>td - 33.2
+:root>html{0}>body{3}>center{0}>table{0}>tbody{83}>tr{3}>td - 35.1
+:root>html{0}>body{3}>center{0}>table{0}>tbody{84}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{84}>tr{0}>td - DPL SOUTH
+:root>html{0}>body{3}>center{0}>table{0}>tbody{84}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{84}>tr{2}>td - 35.6
+:root>html{0}>body{3}>center{0}>table{0}>tbody{84}>tr{3}>td - 37.6
+:root>html{0}>body{3}>center{0}>table{0}>tbody{85}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{85}>tr{0}>td - DPL_ODEC
+:root>html{0}>body{3}>center{0}>table{0}>tbody{85}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{85}>tr{2}>td - 35.8
+:root>html{0}>body{3}>center{0}>table{0}>tbody{85}>tr{3}>td - 37.9
+:root>html{0}>body{3}>center{0}>table{0}>tbody{86}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{86}>tr{0}>td - DRESDEN CC
+:root>html{0}>body{3}>center{0}>table{0}>tbody{86}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{86}>tr{2}>td - 30.7
+:root>html{0}>body{3}>center{0}>table{0}>tbody{86}>tr{3}>td - 32.0
+:root>html{0}>body{3}>center{0}>table{0}>tbody{87}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{87}>tr{0}>td - DUNCANNON
+:root>html{0}>body{3}>center{0}>table{0}>tbody{87}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{87}>tr{2}>td - 32.6
+:root>html{0}>body{3}>center{0}>table{0}>tbody{87}>tr{3}>td - 34.5
+:root>html{0}>body{3}>center{0}>table{0}>tbody{88}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{88}>tr{0}>td - EAGLE POINT
+:root>html{0}>body{3}>center{0}>table{0}>tbody{88}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{88}>tr{2}>td - 33.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{88}>tr{3}>td - 35.2
+:root>html{0}>body{3}>center{0}>table{0}>tbody{89}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{89}>tr{0}>td - EAST BEND 2
+:root>html{0}>body{3}>center{0}>table{0}>tbody{89}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{89}>tr{2}>td - 18.6
+:root>html{0}>body{3}>center{0}>table{0}>tbody{89}>tr{3}>td - 30.4
+:root>html{0}>body{3}>center{0}>table{0}>tbody{90}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{90}>tr{0}>td - EASTON
+:root>html{0}>body{3}>center{0}>table{0}>tbody{90}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{90}>tr{2}>td - 34.9
+:root>html{0}>body{3}>center{0}>table{0}>tbody{90}>tr{3}>td - 36.9
+:root>html{0}>body{3}>center{0}>table{0}>tbody{91}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{91}>tr{0}>td - ECRRF
+:root>html{0}>body{3}>center{0}>table{0}>tbody{91}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{91}>tr{2}>td - 34.2
+:root>html{0}>body{3}>center{0}>table{0}>tbody{91}>tr{3}>td - 36.1
+:root>html{0}>body{3}>center{0}>table{0}>tbody{92}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{92}>tr{0}>td - EKPC-DEOK LOAD
+:root>html{0}>body{3}>center{0}>table{0}>tbody{92}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{92}>tr{2}>td - 38.9
+:root>html{0}>body{3}>center{0}>table{0}>tbody{92}>tr{3}>td - 33.1
+:root>html{0}>body{3}>center{0}>table{0}>tbody{93}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{93}>tr{0}>td - ELGIN EC3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{93}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{93}>tr{2}>td - 28.5
+:root>html{0}>body{3}>center{0}>table{0}>tbody{93}>tr{3}>td - 31.5
+:root>html{0}>body{3}>center{0}>table{0}>tbody{94}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{94}>tr{0}>td - ELIZABETHTOWN
+:root>html{0}>body{3}>center{0}>table{0}>tbody{94}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{94}>tr{2}>td - 31.6
+:root>html{0}>body{3}>center{0}>table{0}>tbody{94}>tr{3}>td - 33.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{95}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{95}>tr{0}>td - EPHRATA
+:root>html{0}>body{3}>center{0}>table{0}>tbody{95}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{95}>tr{2}>td - 33.6
+:root>html{0}>body{3}>center{0}>table{0}>tbody{95}>tr{3}>td - 35.6
+:root>html{0}>body{3}>center{0}>table{0}>tbody{96}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{96}>tr{0}>td - FAIRLAWN
+:root>html{0}>body{3}>center{0}>table{0}>tbody{96}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{96}>tr{2}>td - 34.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{96}>tr{3}>td - 36.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{97}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{97}>tr{0}>td - FE GEN
+:root>html{0}>body{3}>center{0}>table{0}>tbody{97}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{97}>tr{2}>td - 32.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{97}>tr{3}>td - 34.1
+:root>html{0}>body{3}>center{0}>table{0}>tbody{98}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{98}>tr{0}>td - FE OHIO
+:root>html{0}>body{3}>center{0}>table{0}>tbody{98}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{98}>tr{2}>td - 33.0
+:root>html{0}>body{3}>center{0}>table{0}>tbody{98}>tr{3}>td - 34.9
+:root>html{0}>body{3}>center{0}>table{0}>tbody{99}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{99}>tr{0}>td - FRONT ROYAL - AP
+:root>html{0}>body{3}>center{0}>table{0}>tbody{99}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{99}>tr{2}>td - 32.8
+:root>html{0}>body{3}>center{0}>table{0}>tbody{99}>tr{3}>td - 34.5
+:root>html{0}>body{3}>center{0}>table{0}>tbody{100}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{100}>tr{0}>td - GENEVA
+:root>html{0}>body{3}>center{0}>table{0}>tbody{100}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{100}>tr{2}>td - 28.5
+:root>html{0}>body{3}>center{0}>table{0}>tbody{100}>tr{3}>td - 31.5
+:root>html{0}>body{3}>center{0}>table{0}>tbody{101}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{101}>tr{0}>td - GIRARD
+:root>html{0}>body{3}>center{0}>table{0}>tbody{101}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{101}>tr{2}>td - 33.4
+:root>html{0}>body{3}>center{0}>table{0}>tbody{101}>tr{3}>td - 35.4
+:root>html{0}>body{3}>center{0}>table{0}>tbody{102}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{102}>tr{0}>td - GOLDSBORO
+:root>html{0}>body{3}>center{0}>table{0}>tbody{102}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{102}>tr{2}>td - 33.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{102}>tr{3}>td - 35.0
+:root>html{0}>body{3}>center{0}>table{0}>tbody{103}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{103}>tr{0}>td - GORSUCH
+:root>html{0}>body{3}>center{0}>table{0}>tbody{103}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{103}>tr{2}>td - 31.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{103}>tr{3}>td - 33.0
+:root>html{0}>body{3}>center{0}>table{0}>tbody{104}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{104}>tr{0}>td - GRAND POINT
+:root>html{0}>body{3}>center{0}>table{0}>tbody{104}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{104}>tr{2}>td - 34.6
+:root>html{0}>body{3}>center{0}>table{0}>tbody{104}>tr{3}>td - 36.4
+:root>html{0}>body{3}>center{0}>table{0}>tbody{105}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{105}>tr{0}>td - GRANDPOINT T1
+:root>html{0}>body{3}>center{0}>table{0}>tbody{105}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{105}>tr{2}>td - 34.6
+:root>html{0}>body{3}>center{0}>table{0}>tbody{105}>tr{3}>td - 36.4
+:root>html{0}>body{3}>center{0}>table{0}>tbody{106}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{106}>tr{0}>td - GREENUP
+:root>html{0}>body{3}>center{0}>table{0}>tbody{106}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{106}>tr{2}>td - 31.6
+:root>html{0}>body{3}>center{0}>table{0}>tbody{106}>tr{3}>td - 32.5
+:root>html{0}>body{3}>center{0}>table{0}>tbody{107}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{107}>tr{0}>td - HAGERSTOWN - AP
+:root>html{0}>body{3}>center{0}>table{0}>tbody{107}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{107}>tr{2}>td - 33.8
+:root>html{0}>body{3}>center{0}>table{0}>tbody{107}>tr{3}>td - 35.7
+:root>html{0}>body{3}>center{0}>table{0}>tbody{108}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{108}>tr{0}>td - HANDSOME LAKE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{108}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{108}>tr{2}>td - 32.8
+:root>html{0}>body{3}>center{0}>table{0}>tbody{108}>tr{3}>td - 34.7
+:root>html{0}>body{3}>center{0}>table{0}>tbody{109}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{109}>tr{0}>td - HATFIELD - PL
+:root>html{0}>body{3}>center{0}>table{0}>tbody{109}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{109}>tr{2}>td - 33.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{109}>tr{3}>td - 35.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{110}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{110}>tr{0}>td - HAZLETON 1-4
+:root>html{0}>body{3}>center{0}>table{0}>tbody{110}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{110}>tr{2}>td - 32.9
+:root>html{0}>body{3}>center{0}>table{0}>tbody{110}>tr{3}>td - 34.8
+:root>html{0}>body{3}>center{0}>table{0}>tbody{111}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{111}>tr{0}>td - HAZLETON 2-3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{111}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{111}>tr{2}>td - 32.9
+:root>html{0}>body{3}>center{0}>table{0}>tbody{111}>tr{3}>td - 34.8
+:root>html{0}>body{3}>center{0}>table{0}>tbody{112}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{112}>tr{0}>td - HAZLETON 3-4
+:root>html{0}>body{3}>center{0}>table{0}>tbody{112}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{112}>tr{2}>td - 32.9
+:root>html{0}>body{3}>center{0}>table{0}>tbody{112}>tr{3}>td - 34.8
+:root>html{0}>body{3}>center{0}>table{0}>tbody{113}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{113}>tr{0}>td - HILLSDALE_PARKRIDGE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{113}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{113}>tr{2}>td - 34.1
+:root>html{0}>body{3}>center{0}>table{0}>tbody{113}>tr{3}>td - 36.1
+:root>html{0}>body{3}>center{0}>table{0}>tbody{114}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{114}>tr{0}>td - HOMERCIT
+:root>html{0}>body{3}>center{0}>table{0}>tbody{114}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{114}>tr{2}>td - 32.1
+:root>html{0}>body{3}>center{0}>table{0}>tbody{114}>tr{3}>td - 33.8
+:root>html{0}>body{3}>center{0}>table{0}>tbody{115}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{115}>tr{0}>td - HOMERCIT UNIT1
+:root>html{0}>body{3}>center{0}>table{0}>tbody{115}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{115}>tr{2}>td - 32.1
+:root>html{0}>body{3}>center{0}>table{0}>tbody{115}>tr{3}>td - 33.8
+:root>html{0}>body{3}>center{0}>table{0}>tbody{116}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{116}>tr{0}>td - HOMERCIT UNIT2
+:root>html{0}>body{3}>center{0}>table{0}>tbody{116}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{116}>tr{2}>td - 32.2
+:root>html{0}>body{3}>center{0}>table{0}>tbody{116}>tr{3}>td - 33.9
+:root>html{0}>body{3}>center{0}>table{0}>tbody{117}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{117}>tr{0}>td - HOMERCIT UNIT3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{117}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{117}>tr{2}>td - 32.2
+:root>html{0}>body{3}>center{0}>table{0}>tbody{117}>tr{3}>td - 33.9
+:root>html{0}>body{3}>center{0}>table{0}>tbody{118}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{118}>tr{0}>td - HREA - AP
+:root>html{0}>body{3}>center{0}>table{0}>tbody{118}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{118}>tr{2}>td - 32.5
+:root>html{0}>body{3}>center{0}>table{0}>tbody{118}>tr{3}>td - 34.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{119}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{119}>tr{0}>td - HUDSON BC
+:root>html{0}>body{3}>center{0}>table{0}>tbody{119}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{119}>tr{2}>td - 34.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{119}>tr{3}>td - 36.2
+:root>html{0}>body{3}>center{0}>table{0}>tbody{120}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{120}>tr{0}>td - HUDSON-LINDEN ABC
+:root>html{0}>body{3}>center{0}>table{0}>tbody{120}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{120}>tr{2}>td - 34.1
+:root>html{0}>body{3}>center{0}>table{0}>tbody{120}>tr{3}>td - 36.1
+:root>html{0}>body{3}>center{0}>table{0}>tbody{121}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{121}>tr{0}>td - IRONWOOD
+:root>html{0}>body{3}>center{0}>table{0}>tbody{121}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{121}>tr{2}>td - 32.4
+:root>html{0}>body{3}>center{0}>table{0}>tbody{121}>tr{3}>td - 34.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{122}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{122}>tr{0}>td - JOLIET 7
+:root>html{0}>body{3}>center{0}>table{0}>tbody{122}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{122}>tr{2}>td - 28.6
+:root>html{0}>body{3}>center{0}>table{0}>tbody{122}>tr{3}>td - 31.6
+:root>html{0}>body{3}>center{0}>table{0}>tbody{123}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{123}>tr{0}>td - KENDALL 1-2
+:root>html{0}>body{3}>center{0}>table{0}>tbody{123}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{123}>tr{2}>td - 28.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{123}>tr{3}>td - 31.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{124}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{124}>tr{0}>td - KENDALL 3 CC
+:root>html{0}>body{3}>center{0}>table{0}>tbody{124}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{124}>tr{2}>td - 28.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{124}>tr{3}>td - 31.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{125}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{125}>tr{0}>td - KENDALL CT3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{125}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{125}>tr{2}>td - 28.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{125}>tr{3}>td - 31.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{126}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{126}>tr{0}>td - KITTATNY 230
+:root>html{0}>body{3}>center{0}>table{0}>tbody{126}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{126}>tr{2}>td - 33.9
+:root>html{0}>body{3}>center{0}>table{0}>tbody{126}>tr{3}>td - 35.9
+:root>html{0}>body{3}>center{0}>table{0}>tbody{127}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{127}>tr{0}>td - LANSDALE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{127}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{127}>tr{2}>td - 33.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{127}>tr{3}>td - 35.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{128}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{128}>tr{0}>td - LEHIGHTON
+:root>html{0}>body{3}>center{0}>table{0}>tbody{128}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{128}>tr{2}>td - 33.1
+:root>html{0}>body{3}>center{0}>table{0}>tbody{128}>tr{3}>td - 35.0
+:root>html{0}>body{3}>center{0}>table{0}>tbody{129}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{129}>tr{0}>td - LEWES DPL
+:root>html{0}>body{3}>center{0}>table{0}>tbody{129}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{129}>tr{2}>td - 35.5
+:root>html{0}>body{3}>center{0}>table{0}>tbody{129}>tr{3}>td - 37.6
+:root>html{0}>body{3}>center{0}>table{0}>tbody{130}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{130}>tr{0}>td - LIBERTY
+:root>html{0}>body{3}>center{0}>table{0}>tbody{130}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{130}>tr{2}>td - 33.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{130}>tr{3}>td - 35.2
+:root>html{0}>body{3}>center{0}>table{0}>tbody{131}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{131}>tr{0}>td - LIDA - AP
+:root>html{0}>body{3}>center{0}>table{0}>tbody{131}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{131}>tr{2}>td - 34.6
+:root>html{0}>body{3}>center{0}>table{0}>tbody{131}>tr{3}>td - 36.5
+:root>html{0}>body{3}>center{0}>table{0}>tbody{132}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{132}>tr{0}>td - LINDEN A
+:root>html{0}>body{3}>center{0}>table{0}>tbody{132}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{132}>tr{2}>td - 33.9
+:root>html{0}>body{3}>center{0}>table{0}>tbody{132}>tr{3}>td - 35.9
+:root>html{0}>body{3}>center{0}>table{0}>tbody{133}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{133}>tr{0}>td - LUMBERTON
+:root>html{0}>body{3}>center{0}>table{0}>tbody{133}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{133}>tr{2}>td - 31.6
+:root>html{0}>body{3}>center{0}>table{0}>tbody{133}>tr{3}>td - 33.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{134}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{134}>tr{0}>td - MADISON
+:root>html{0}>body{3}>center{0}>table{0}>tbody{134}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{134}>tr{2}>td - 34.1
+:root>html{0}>body{3}>center{0}>table{0}>tbody{134}>tr{3}>td - 32.7
+:root>html{0}>body{3}>center{0}>table{0}>tbody{135}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{135}>tr{0}>td - MANITOU
+:root>html{0}>body{3}>center{0}>table{0}>tbody{135}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{135}>tr{2}>td - 33.7
+:root>html{0}>body{3}>center{0}>table{0}>tbody{135}>tr{3}>td - 35.6
+:root>html{0}>body{3}>center{0}>table{0}>tbody{136}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{136}>tr{0}>td - MARION
+:root>html{0}>body{3}>center{0}>table{0}>tbody{136}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{136}>tr{2}>td - 34.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{136}>tr{3}>td - 36.2
+:root>html{0}>body{3}>center{0}>table{0}>tbody{137}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{137}>tr{0}>td - MERIDIAN EWHITLEY
+:root>html{0}>body{3}>center{0}>table{0}>tbody{137}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{137}>tr{2}>td - 28.7
+:root>html{0}>body{3}>center{0}>table{0}>tbody{137}>tr{3}>td - 32.2
+:root>html{0}>body{3}>center{0}>table{0}>tbody{138}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{138}>tr{0}>td - MEYERSDALE WF
+:root>html{0}>body{3}>center{0}>table{0}>tbody{138}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{138}>tr{2}>td - 31.7
+:root>html{0}>body{3}>center{0}>table{0}>tbody{138}>tr{3}>td - 33.4
+:root>html{0}>body{3}>center{0}>table{0}>tbody{139}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{139}>tr{0}>td - MICHFE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{139}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{139}>tr{2}>td - 31.6
+:root>html{0}>body{3}>center{0}>table{0}>tbody{139}>tr{3}>td - 33.6
+:root>html{0}>body{3}>center{0}>table{0}>tbody{140}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{140}>tr{0}>td - MIFFLINBURG
+:root>html{0}>body{3}>center{0}>table{0}>tbody{140}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{140}>tr{2}>td - 32.6
+:root>html{0}>body{3}>center{0}>table{0}>tbody{140}>tr{3}>td - 34.5
+:root>html{0}>body{3}>center{0}>table{0}>tbody{141}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{141}>tr{0}>td - MISO (PRE-ATSI)
+:root>html{0}>body{3}>center{0}>table{0}>tbody{141}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{141}>tr{2}>td - 29.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{141}>tr{3}>td - 32.1
+:root>html{0}>body{3}>center{0}>table{0}>tbody{142}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{142}>tr{0}>td - MITCHELL 1
+:root>html{0}>body{3}>center{0}>table{0}>tbody{142}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{142}>tr{2}>td - 31.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{142}>tr{3}>td - 32.9
+:root>html{0}>body{3}>center{0}>table{0}>tbody{143}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{143}>tr{0}>td - MON POWER
+:root>html{0}>body{3}>center{0}>table{0}>tbody{143}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{143}>tr{2}>td - 31.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{143}>tr{3}>td - 32.9
+:root>html{0}>body{3}>center{0}>table{0}>tbody{144}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{144}>tr{0}>td - MONT ALTO - AP
+:root>html{0}>body{3}>center{0}>table{0}>tbody{144}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{144}>tr{2}>td - 34.2
+:root>html{0}>body{3}>center{0}>table{0}>tbody{144}>tr{3}>td - 36.0
+:root>html{0}>body{3}>center{0}>table{0}>tbody{145}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{145}>tr{0}>td - MONTVILLE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{145}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{145}>tr{2}>td - 34.1
+:root>html{0}>body{3}>center{0}>table{0}>tbody{145}>tr{3}>td - 36.0
+:root>html{0}>body{3}>center{0}>table{0}>tbody{146}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{146}>tr{0}>td - MOTIVA
+:root>html{0}>body{3}>center{0}>table{0}>tbody{146}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{146}>tr{2}>td - 32.8
+:root>html{0}>body{3}>center{0}>table{0}>tbody{146}>tr{3}>td - 34.7
+:root>html{0}>body{3}>center{0}>table{0}>tbody{147}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{147}>tr{0}>td - MUDDY RUN
+:root>html{0}>body{3}>center{0}>table{0}>tbody{147}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{147}>tr{2}>td - 32.6
+:root>html{0}>body{3}>center{0}>table{0}>tbody{147}>tr{3}>td - 34.5
+:root>html{0}>body{3}>center{0}>table{0}>tbody{148}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{148}>tr{0}>td - NAAMANS
+:root>html{0}>body{3}>center{0}>table{0}>tbody{148}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{148}>tr{2}>td - 33.2
+:root>html{0}>body{3}>center{0}>table{0}>tbody{148}>tr{3}>td - 35.1
+:root>html{0}>body{3}>center{0}>table{0}>tbody{149}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{149}>tr{0}>td - NAPERVILLE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{149}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{149}>tr{2}>td - 28.5
+:root>html{0}>body{3}>center{0}>table{0}>tbody{149}>tr{3}>td - 31.6
+:root>html{0}>body{3}>center{0}>table{0}>tbody{150}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{150}>tr{0}>td - NEW CASTLE DIESEL
+:root>html{0}>body{3}>center{0}>table{0}>tbody{150}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{150}>tr{2}>td - 32.8
+:root>html{0}>body{3}>center{0}>table{0}>tbody{150}>tr{3}>td - 34.7
+:root>html{0}>body{3}>center{0}>table{0}>tbody{151}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{151}>tr{0}>td - NEWARK BAY
+:root>html{0}>body{3}>center{0}>table{0}>tbody{151}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{151}>tr{2}>td - 34.2
+:root>html{0}>body{3}>center{0}>table{0}>tbody{151}>tr{3}>td - 36.1
+:root>html{0}>body{3}>center{0}>table{0}>tbody{152}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{152}>tr{0}>td - NEWCHURCH CT1-2
+:root>html{0}>body{3}>center{0}>table{0}>tbody{152}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{152}>tr{2}>td - 36.5
+:root>html{0}>body{3}>center{0}>table{0}>tbody{152}>tr{3}>td - 38.6
+:root>html{0}>body{3}>center{0}>table{0}>tbody{153}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{153}>tr{0}>td - NEWMARTINSVILLE-AP
+:root>html{0}>body{3}>center{0}>table{0}>tbody{153}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{153}>tr{2}>td - 31.6
+:root>html{0}>body{3}>center{0}>table{0}>tbody{153}>tr{3}>td - 33.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{154}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{154}>tr{0}>td - NLEBNON
+:root>html{0}>body{3}>center{0}>table{0}>tbody{154}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{154}>tr{2}>td - 33.0
+:root>html{0}>body{3}>center{0}>table{0}>tbody{154}>tr{3}>td - 34.9
+:root>html{0}>body{3}>center{0}>table{0}>tbody{155}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{155}>tr{0}>td - OCCIDENTAL
+:root>html{0}>body{3}>center{0}>table{0}>tbody{155}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{155}>tr{2}>td - 32.8
+:root>html{0}>body{3}>center{0}>table{0}>tbody{155}>tr{3}>td - 34.7
+:root>html{0}>body{3}>center{0}>table{0}>tbody{156}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{156}>tr{0}>td - OLYPHANT
+:root>html{0}>body{3}>center{0}>table{0}>tbody{156}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{156}>tr{2}>td - 33.5
+:root>html{0}>body{3}>center{0}>table{0}>tbody{156}>tr{3}>td - 35.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{157}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{157}>tr{0}>td - ONTARIO
+:root>html{0}>body{3}>center{0}>table{0}>tbody{157}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{157}>tr{2}>td - 32.0
+:root>html{0}>body{3}>center{0}>table{0}>tbody{157}>tr{3}>td - 34.2
+:root>html{0}>body{3}>center{0}>table{0}>tbody{158}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{158}>tr{0}>td - ONTELAUNEE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{158}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{158}>tr{2}>td - 32.7
+:root>html{0}>body{3}>center{0}>table{0}>tbody{158}>tr{3}>td - 34.7
+:root>html{0}>body{3}>center{0}>table{0}>tbody{159}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{159}>tr{0}>td - PAINESVILLE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{159}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{159}>tr{2}>td - 33.1
+:root>html{0}>body{3}>center{0}>table{0}>tbody{159}>tr{3}>td - 35.0
+:root>html{0}>body{3}>center{0}>table{0}>tbody{160}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{160}>tr{0}>td - PENN POWER
+:root>html{0}>body{3}>center{0}>table{0}>tbody{160}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{160}>tr{2}>td - 32.8
+:root>html{0}>body{3}>center{0}>table{0}>tbody{160}>tr{3}>td - 34.7
+:root>html{0}>body{3}>center{0}>table{0}>tbody{161}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{161}>tr{0}>td - PENNTECH
+:root>html{0}>body{3}>center{0}>table{0}>tbody{161}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{161}>tr{2}>td - 33.0
+:root>html{0}>body{3}>center{0}>table{0}>tbody{161}>tr{3}>td - 35.2
+:root>html{0}>body{3}>center{0}>table{0}>tbody{162}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{162}>tr{0}>td - PEPCO DC
+:root>html{0}>body{3}>center{0}>table{0}>tbody{162}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{162}>tr{2}>td - 33.8
+:root>html{0}>body{3}>center{0}>table{0}>tbody{162}>tr{3}>td - 35.7
+:root>html{0}>body{3}>center{0}>table{0}>tbody{163}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{163}>tr{0}>td - PEPCO MD
+:root>html{0}>body{3}>center{0}>table{0}>tbody{163}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{163}>tr{2}>td - 33.8
+:root>html{0}>body{3}>center{0}>table{0}>tbody{163}>tr{3}>td - 35.6
+:root>html{0}>body{3}>center{0}>table{0}>tbody{164}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{164}>tr{0}>td - PEPCO SMECO
+:root>html{0}>body{3}>center{0}>table{0}>tbody{164}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{164}>tr{2}>td - 33.4
+:root>html{0}>body{3}>center{0}>table{0}>tbody{164}>tr{3}>td - 35.2
+:root>html{0}>body{3}>center{0}>table{0}>tbody{165}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{165}>tr{0}>td - PERKASIE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{165}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{165}>tr{2}>td - 33.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{165}>tr{3}>td - 35.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{166}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{166}>tr{0}>td - PERRYMAN 1-2
+:root>html{0}>body{3}>center{0}>table{0}>tbody{166}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{166}>tr{2}>td - 34.0
+:root>html{0}>body{3}>center{0}>table{0}>tbody{166}>tr{3}>td - 35.9
+:root>html{0}>body{3}>center{0}>table{0}>tbody{167}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{167}>tr{0}>td - PERRYMAN 3-4
+:root>html{0}>body{3}>center{0}>table{0}>tbody{167}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{167}>tr{2}>td - 34.0
+:root>html{0}>body{3}>center{0}>table{0}>tbody{167}>tr{3}>td - 35.9
+:root>html{0}>body{3}>center{0}>table{0}>tbody{168}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{168}>tr{0}>td - PHILIPPI - AP
+:root>html{0}>body{3}>center{0}>table{0}>tbody{168}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{168}>tr{2}>td - 32.0
+:root>html{0}>body{3}>center{0}>table{0}>tbody{168}>tr{3}>td - 33.8
+:root>html{0}>body{3}>center{0}>table{0}>tbody{169}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{169}>tr{0}>td - POTTSTOWN NUG
+:root>html{0}>body{3}>center{0}>table{0}>tbody{169}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{169}>tr{2}>td - 34.4
+:root>html{0}>body{3}>center{0}>table{0}>tbody{169}>tr{3}>td - 36.5
+:root>html{0}>body{3}>center{0}>table{0}>tbody{170}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{170}>tr{0}>td - PPL_ALLUGI
+:root>html{0}>body{3}>center{0}>table{0}>tbody{170}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{170}>tr{2}>td - 33.4
+:root>html{0}>body{3}>center{0}>table{0}>tbody{170}>tr{3}>td - 35.4
+:root>html{0}>body{3}>center{0}>table{0}>tbody{171}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{171}>tr{0}>td - QUAKERTOWN
+:root>html{0}>body{3}>center{0}>table{0}>tbody{171}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{171}>tr{2}>td - 33.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{171}>tr{3}>td - 35.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{172}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{172}>tr{0}>td - REDOAK CC
+:root>html{0}>body{3}>center{0}>table{0}>tbody{172}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{172}>tr{2}>td - 33.7
+:root>html{0}>body{3}>center{0}>table{0}>tbody{172}>tr{3}>td - 35.6
+:root>html{0}>body{3}>center{0}>table{0}>tbody{173}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{173}>tr{0}>td - RICHMOND
+:root>html{0}>body{3}>center{0}>table{0}>tbody{173}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{173}>tr{2}>td - 28.2
+:root>html{0}>body{3}>center{0}>table{0}>tbody{173}>tr{3}>td - 32.2
+:root>html{0}>body{3}>center{0}>table{0}>tbody{174}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{174}>tr{0}>td - RIVER
+:root>html{0}>body{3}>center{0}>table{0}>tbody{174}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{174}>tr{2}>td - 28.9
+:root>html{0}>body{3}>center{0}>table{0}>tbody{174}>tr{3}>td - 31.9
+:root>html{0}>body{3}>center{0}>table{0}>tbody{175}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{175}>tr{0}>td - ROCHELLE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{175}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{175}>tr{2}>td - 28.6
+:root>html{0}>body{3}>center{0}>table{0}>tbody{175}>tr{3}>td - 31.8
+:root>html{0}>body{3}>center{0}>table{0}>tbody{176}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{176}>tr{0}>td - ROCK FALLS
+:root>html{0}>body{3}>center{0}>table{0}>tbody{176}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{176}>tr{2}>td - 27.4
+:root>html{0}>body{3}>center{0}>table{0}>tbody{176}>tr{3}>td - 30.6
+:root>html{0}>body{3}>center{0}>table{0}>tbody{177}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{177}>tr{0}>td - ROCKFORD
+:root>html{0}>body{3}>center{0}>table{0}>tbody{177}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{177}>tr{2}>td - 27.9
+:root>html{0}>body{3}>center{0}>table{0}>tbody{177}>tr{3}>td - 31.0
+:root>html{0}>body{3}>center{0}>table{0}>tbody{178}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{178}>tr{0}>td - RTEP B0287 SOURCE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{178}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{178}>tr{2}>td - 32.6
+:root>html{0}>body{3}>center{0}>table{0}>tbody{178}>tr{3}>td - 34.5
+:root>html{0}>body{3}>center{0}>table{0}>tbody{179}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{179}>tr{0}>td - RTEP B0328 SOURCE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{179}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{179}>tr{2}>td - 31.9
+:root>html{0}>body{3}>center{0}>table{0}>tbody{179}>tr{3}>td - 33.6
+:root>html{0}>body{3}>center{0}>table{0}>tbody{180}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{180}>tr{0}>td - RTEP B0329 SOURCE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{180}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{180}>tr{2}>td - 33.1
+:root>html{0}>body{3}>center{0}>table{0}>tbody{180}>tr{3}>td - 34.7
+:root>html{0}>body{3}>center{0}>table{0}>tbody{181}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{181}>tr{0}>td - SCHUYLKILL HAVEN
+:root>html{0}>body{3}>center{0}>table{0}>tbody{181}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{181}>tr{2}>td - 32.2
+:root>html{0}>body{3}>center{0}>table{0}>tbody{181}>tr{3}>td - 34.0
+:root>html{0}>body{3}>center{0}>table{0}>tbody{182}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{182}>tr{0}>td - SENECA
+:root>html{0}>body{3}>center{0}>table{0}>tbody{182}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{182}>tr{2}>td - 32.5
+:root>html{0}>body{3}>center{0}>table{0}>tbody{182}>tr{3}>td - 35.0
+:root>html{0}>body{3}>center{0}>table{0}>tbody{183}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{183}>tr{0}>td - SOUTH BEND 1-4
+:root>html{0}>body{3}>center{0}>table{0}>tbody{183}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{183}>tr{2}>td - 31.9
+:root>html{0}>body{3}>center{0}>table{0}>tbody{183}>tr{3}>td - 33.7
+:root>html{0}>body{3}>center{0}>table{0}>tbody{184}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{184}>tr{0}>td - SOUTHEAST
+:root>html{0}>body{3}>center{0}>table{0}>tbody{184}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{184}>tr{2}>td - 31.8
+:root>html{0}>body{3}>center{0}>table{0}>tbody{184}>tr{3}>td - 33.4
+:root>html{0}>body{3}>center{0}>table{0}>tbody{185}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{185}>tr{0}>td - SOUTHEAST (PRE-DOM)
+:root>html{0}>body{3}>center{0}>table{0}>tbody{185}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{185}>tr{2}>td - 32.1
+:root>html{0}>body{3}>center{0}>table{0}>tbody{185}>tr{3}>td - 33.7
+:root>html{0}>body{3}>center{0}>table{0}>tbody{186}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{186}>tr{0}>td - SOUTHRIV 230
+:root>html{0}>body{3}>center{0}>table{0}>tbody{186}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{186}>tr{2}>td - 33.7
+:root>html{0}>body{3}>center{0}>table{0}>tbody{186}>tr{3}>td - 35.7
+:root>html{0}>body{3}>center{0}>table{0}>tbody{187}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{187}>tr{0}>td - SOUTHWEST
+:root>html{0}>body{3}>center{0}>table{0}>tbody{187}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{187}>tr{2}>td - 30.8
+:root>html{0}>body{3}>center{0}>table{0}>tbody{187}>tr{3}>td - 31.9
+:root>html{0}>body{3}>center{0}>table{0}>tbody{188}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{188}>tr{0}>td - ST CLAIR
+:root>html{0}>body{3}>center{0}>table{0}>tbody{188}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{188}>tr{2}>td - 32.2
+:root>html{0}>body{3}>center{0}>table{0}>tbody{188}>tr{3}>td - 34.0
+:root>html{0}>body{3}>center{0}>table{0}>tbody{189}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{189}>tr{0}>td - ST. CHARLES
+:root>html{0}>body{3}>center{0}>table{0}>tbody{189}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{189}>tr{2}>td - 28.5
+:root>html{0}>body{3}>center{0}>table{0}>tbody{189}>tr{3}>td - 31.5
+:root>html{0}>body{3}>center{0}>table{0}>tbody{190}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{190}>tr{0}>td - SULLIVAN
+:root>html{0}>body{3}>center{0}>table{0}>tbody{190}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{190}>tr{2}>td - 32.2
+:root>html{0}>body{3}>center{0}>table{0}>tbody{190}>tr{3}>td - 34.0
+:root>html{0}>body{3}>center{0}>table{0}>tbody{191}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{191}>tr{0}>td - SUNBURY BUS1E
+:root>html{0}>body{3}>center{0}>table{0}>tbody{191}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{191}>tr{2}>td - 32.6
+:root>html{0}>body{3}>center{0}>table{0}>tbody{191}>tr{3}>td - 34.5
+:root>html{0}>body{3}>center{0}>table{0}>tbody{192}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{192}>tr{0}>td - SUNBURY BUS1W
+:root>html{0}>body{3}>center{0}>table{0}>tbody{192}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{192}>tr{2}>td - 32.6
+:root>html{0}>body{3}>center{0}>table{0}>tbody{192}>tr{3}>td - 34.5
+:root>html{0}>body{3}>center{0}>table{0}>tbody{193}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{193}>tr{0}>td - SUNBURY BUS2E
+:root>html{0}>body{3}>center{0}>table{0}>tbody{193}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{193}>tr{2}>td - 32.6
+:root>html{0}>body{3}>center{0}>table{0}>tbody{193}>tr{3}>td - 34.5
+:root>html{0}>body{3}>center{0}>table{0}>tbody{194}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{194}>tr{0}>td - SUNBURY BUS2W
+:root>html{0}>body{3}>center{0}>table{0}>tbody{194}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{194}>tr{2}>td - 32.6
+:root>html{0}>body{3}>center{0}>table{0}>tbody{194}>tr{3}>td - 34.5
+:root>html{0}>body{3}>center{0}>table{0}>tbody{195}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{195}>tr{0}>td - SUNBURY LBRG
+:root>html{0}>body{3}>center{0}>table{0}>tbody{195}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{195}>tr{2}>td - 32.6
+:root>html{0}>body{3}>center{0}>table{0}>tbody{195}>tr{3}>td - 34.5
+:root>html{0}>body{3}>center{0}>table{0}>tbody{196}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{196}>tr{0}>td - SUNOIL
+:root>html{0}>body{3}>center{0}>table{0}>tbody{196}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{196}>tr{2}>td - 33.4
+:root>html{0}>body{3}>center{0}>table{0}>tbody{196}>tr{3}>td - 35.4
+:root>html{0}>body{3}>center{0}>table{0}>tbody{197}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{197}>tr{0}>td - TANSBORO AE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{197}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{197}>tr{2}>td - 33.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{197}>tr{3}>td - 35.2
+:root>html{0}>body{3}>center{0}>table{0}>tbody{198}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{198}>tr{0}>td - TARENTUM - AP
+:root>html{0}>body{3}>center{0}>table{0}>tbody{198}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{198}>tr{2}>td - 31.8
+:root>html{0}>body{3}>center{0}>table{0}>tbody{198}>tr{3}>td - 33.6
+:root>html{0}>body{3}>center{0}>table{0}>tbody{199}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{199}>tr{0}>td - TEMPLEU
+:root>html{0}>body{3}>center{0}>table{0}>tbody{199}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{199}>tr{2}>td - 33.8
+:root>html{0}>body{3}>center{0}>table{0}>tbody{199}>tr{3}>td - 35.8
+:root>html{0}>body{3}>center{0}>table{0}>tbody{200}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{200}>tr{0}>td - THURMONT - AP
+:root>html{0}>body{3}>center{0}>table{0}>tbody{200}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{200}>tr{2}>td - 34.0
+:root>html{0}>body{3}>center{0}>table{0}>tbody{200}>tr{3}>td - 35.8
+:root>html{0}>body{3}>center{0}>table{0}>tbody{201}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{201}>tr{0}>td - TOSCO LOAD BUS
+:root>html{0}>body{3}>center{0}>table{0}>tbody{201}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{201}>tr{2}>td - 33.9
+:root>html{0}>body{3}>center{0}>table{0}>tbody{201}>tr{3}>td - 35.9
+:root>html{0}>body{3}>center{0}>table{0}>tbody{202}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{202}>tr{0}>td - TRAYNOR
+:root>html{0}>body{3}>center{0}>table{0}>tbody{202}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{202}>tr{2}>td - 34.0
+:root>html{0}>body{3}>center{0}>table{0}>tbody{202}>tr{3}>td - 36.0
+:root>html{0}>body{3}>center{0}>table{0}>tbody{203}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{203}>tr{0}>td - TRI-COUNTY
+:root>html{0}>body{3}>center{0}>table{0}>tbody{203}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{203}>tr{2}>td - 34.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{203}>tr{3}>td - 36.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{204}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{204}>tr{0}>td - UGI
+:root>html{0}>body{3}>center{0}>table{0}>tbody{204}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{204}>tr{2}>td - 33.4
+:root>html{0}>body{3}>center{0}>table{0}>tbody{204}>tr{3}>td - 35.4
+:root>html{0}>body{3}>center{0}>table{0}>tbody{205}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{205}>tr{0}>td - VINELAND
+:root>html{0}>body{3}>center{0}>table{0}>tbody{205}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{205}>tr{2}>td - 33.9
+:root>html{0}>body{3}>center{0}>table{0}>tbody{205}>tr{3}>td - 35.1
+:root>html{0}>body{3}>center{0}>table{0}>tbody{206}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{206}>tr{0}>td - VP KERR DAM 1-7
+:root>html{0}>body{3}>center{0}>table{0}>tbody{206}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{206}>tr{2}>td - 32.9
+:root>html{0}>body{3}>center{0}>table{0}>tbody{206}>tr{3}>td - 34.5
+:root>html{0}>body{3}>center{0}>table{0}>tbody{207}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{207}>tr{0}>td - WALDWICK JK
+:root>html{0}>body{3}>center{0}>table{0}>tbody{207}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{207}>tr{2}>td - 33.9
+:root>html{0}>body{3}>center{0}>table{0}>tbody{207}>tr{3}>td - 35.9
+:root>html{0}>body{3}>center{0}>table{0}>tbody{208}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{208}>tr{0}>td - WARREN COUNTY CC
+:root>html{0}>body{3}>center{0}>table{0}>tbody{208}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{208}>tr{2}>td - 32.6
+:root>html{0}>body{3}>center{0}>table{0}>tbody{208}>tr{3}>td - 34.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{209}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{209}>tr{0}>td - WATERFORD CC
+:root>html{0}>body{3}>center{0}>table{0}>tbody{209}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{209}>tr{2}>td - 30.8
+:root>html{0}>body{3}>center{0}>table{0}>tbody{209}>tr{3}>td - 32.2
+:root>html{0}>body{3}>center{0}>table{0}>tbody{210}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{210}>tr{0}>td - WATSONTOWN
+:root>html{0}>body{3}>center{0}>table{0}>tbody{210}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{210}>tr{2}>td - 32.2
+:root>html{0}>body{3}>center{0}>table{0}>tbody{210}>tr{3}>td - 34.0
+:root>html{0}>body{3}>center{0}>table{0}>tbody{211}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{211}>tr{0}>td - WEATHERLY
+:root>html{0}>body{3}>center{0}>table{0}>tbody{211}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{211}>tr{2}>td - 32.9
+:root>html{0}>body{3}>center{0}>table{0}>tbody{211}>tr{3}>td - 34.8
+:root>html{0}>body{3}>center{0}>table{0}>tbody{212}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{212}>tr{0}>td - WELLSBORO
+:root>html{0}>body{3}>center{0}>table{0}>tbody{212}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{212}>tr{2}>td - 33.4
+:root>html{0}>body{3}>center{0}>table{0}>tbody{212}>tr{3}>td - 35.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{213}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{213}>tr{0}>td - WESTVACO
+:root>html{0}>body{3}>center{0}>table{0}>tbody{213}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{213}>tr{2}>td - 32.4
+:root>html{0}>body{3}>center{0}>table{0}>tbody{213}>tr{3}>td - 34.2
+:root>html{0}>body{3}>center{0}>table{0}>tbody{214}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{214}>tr{0}>td - WILLIAMSPORT - AP
+:root>html{0}>body{3}>center{0}>table{0}>tbody{214}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{214}>tr{2}>td - 33.7
+:root>html{0}>body{3}>center{0}>table{0}>tbody{214}>tr{3}>td - 35.5
+:root>html{0}>body{3}>center{0}>table{0}>tbody{215}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{215}>tr{0}>td - WILLIAMSTOWN
+:root>html{0}>body{3}>center{0}>table{0}>tbody{215}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{215}>tr{2}>td - 32.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{215}>tr{3}>td - 32.1
+:root>html{0}>body{3}>center{0}>table{0}>tbody{216}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{216}>tr{0}>td - WINNETKA
+:root>html{0}>body{3}>center{0}>table{0}>tbody{216}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{216}>tr{2}>td - 28.7
+:root>html{0}>body{3}>center{0}>table{0}>tbody{216}>tr{3}>td - 31.8
+:root>html{0}>body{3}>center{0}>table{0}>tbody{217}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{217}>tr{0}>td - ZION 1
+:root>html{0}>body{3}>center{0}>table{0}>tbody{217}>tr{1}>td - AGGREGATE
+:root>html{0}>body{3}>center{0}>table{0}>tbody{217}>tr{2}>td - 28.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{217}>tr{3}>td - 31.5
+:root>html{0}>body{3}>center{0}>table{0}>tbody{218}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{218}>tr{0}>td - AEP GEN HUB
+:root>html{0}>body{3}>center{0}>table{0}>tbody{218}>tr{1}>td - HUB
+:root>html{0}>body{3}>center{0}>table{0}>tbody{218}>tr{2}>td - 29.6
+:root>html{0}>body{3}>center{0}>table{0}>tbody{218}>tr{3}>td - 32.1
+:root>html{0}>body{3}>center{0}>table{0}>tbody{219}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{219}>tr{0}>td - AEP-DAYTON HUB
+:root>html{0}>body{3}>center{0}>table{0}>tbody{219}>tr{1}>td - HUB
+:root>html{0}>body{3}>center{0}>table{0}>tbody{219}>tr{2}>td - 31.1
+:root>html{0}>body{3}>center{0}>table{0}>tbody{219}>tr{3}>td - 33.0
+:root>html{0}>body{3}>center{0}>table{0}>tbody{220}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{220}>tr{0}>td - ATSI GEN HUB
+:root>html{0}>body{3}>center{0}>table{0}>tbody{220}>tr{1}>td - HUB
+:root>html{0}>body{3}>center{0}>table{0}>tbody{220}>tr{2}>td - 32.6
+:root>html{0}>body{3}>center{0}>table{0}>tbody{220}>tr{3}>td - 34.5
+:root>html{0}>body{3}>center{0}>table{0}>tbody{221}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{221}>tr{0}>td - CHICAGO GEN HUB
+:root>html{0}>body{3}>center{0}>table{0}>tbody{221}>tr{1}>td - HUB
+:root>html{0}>body{3}>center{0}>table{0}>tbody{221}>tr{2}>td - 28.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{221}>tr{3}>td - 31.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{222}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{222}>tr{0}>td - CHICAGO HUB
+:root>html{0}>body{3}>center{0}>table{0}>tbody{222}>tr{1}>td - HUB
+:root>html{0}>body{3}>center{0}>table{0}>tbody{222}>tr{2}>td - 28.7
+:root>html{0}>body{3}>center{0}>table{0}>tbody{222}>tr{3}>td - 31.8
+:root>html{0}>body{3}>center{0}>table{0}>tbody{223}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{223}>tr{0}>td - DOMINION HUB
+:root>html{0}>body{3}>center{0}>table{0}>tbody{223}>tr{1}>td - HUB
+:root>html{0}>body{3}>center{0}>table{0}>tbody{223}>tr{2}>td - 33.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{223}>tr{3}>td - 34.9
+:root>html{0}>body{3}>center{0}>table{0}>tbody{224}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{224}>tr{0}>td - EASTERN HUB
+:root>html{0}>body{3}>center{0}>table{0}>tbody{224}>tr{1}>td - HUB
+:root>html{0}>body{3}>center{0}>table{0}>tbody{224}>tr{2}>td - 34.6
+:root>html{0}>body{3}>center{0}>table{0}>tbody{224}>tr{3}>td - 36.6
+:root>html{0}>body{3}>center{0}>table{0}>tbody{225}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{225}>tr{0}>td - N ILLINOIS HUB
+:root>html{0}>body{3}>center{0}>table{0}>tbody{225}>tr{1}>td - HUB
+:root>html{0}>body{3}>center{0}>table{0}>tbody{225}>tr{2}>td - 28.6
+:root>html{0}>body{3}>center{0}>table{0}>tbody{225}>tr{3}>td - 31.6
+:root>html{0}>body{3}>center{0}>table{0}>tbody{226}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{226}>tr{0}>td - NEW JERSEY HUB
+:root>html{0}>body{3}>center{0}>table{0}>tbody{226}>tr{1}>td - HUB
+:root>html{0}>body{3}>center{0}>table{0}>tbody{226}>tr{2}>td - 33.9
+:root>html{0}>body{3}>center{0}>table{0}>tbody{226}>tr{3}>td - 35.8
+:root>html{0}>body{3}>center{0}>table{0}>tbody{227}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{227}>tr{0}>td - OHIO HUB
+:root>html{0}>body{3}>center{0}>table{0}>tbody{227}>tr{1}>td - HUB
+:root>html{0}>body{3}>center{0}>table{0}>tbody{227}>tr{2}>td - 30.9
+:root>html{0}>body{3}>center{0}>table{0}>tbody{227}>tr{3}>td - 33.0
+:root>html{0}>body{3}>center{0}>table{0}>tbody{228}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{228}>tr{0}>td - WEST INT HUB
+:root>html{0}>body{3}>center{0}>table{0}>tbody{228}>tr{1}>td - HUB
+:root>html{0}>body{3}>center{0}>table{0}>tbody{228}>tr{2}>td - 32.3
+:root>html{0}>body{3}>center{0}>table{0}>tbody{228}>tr{3}>td - 34.1
+:root>html{0}>body{3}>center{0}>table{0}>tbody{229}>tr - 
+:root>html{0}>body{3}>center{0}>table{0}>tbody{229}>tr{0}>td - WESTERN HUB
+:root>html{0}>body{3}>center{0}>table{0}>tbody{229}>tr{1}>td - HUB
+:root>html{0}>body{3}>center{0}>table{0}>tbody{229}>tr{2}>td - 33.1
+:root>html{0}>body{3}>center{0}>table{0}>tbody{229}>tr{3}>td - 35.0
+:root>html{0}>body{9}>br - 
+:root>html{0}>body{10}>br - 
+:root>html{0}>body{11}>br - 
+:root>html{0}>body{12}>br - 
+:root>html{0}>body{13}>br - 
+:root>html{0}>body{14}>br - 
+:root>html{0}>body{15}>br - 
+:root>html{0}>body{16}>br - 
+:root>html{0}>body{17}>br - 
+:root>html{0}>body{4}>center - 
+:root>html{0}>body{4}>center{0}>h2 - 500 KV Bus Locational Marginal Prices (LMP)
+:root>html{0}>body{5}>center - 
+:root>html{0}>body{5}>center{0}>table - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{0}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{0}>tr{0}>td - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{0}>tr{0}>td{0}>b - Bus Name
+:root>html{0}>body{5}>center{0}>table{0}>tbody{0}>tr{1}>td - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{0}>tr{1}>td{0}>b - 5 Minute LMP
+:root>html{0}>body{5}>center{0}>table{0}>tbody{0}>tr{2}>td - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{0}>tr{2}>td{0}>b - Hourly Integrated LMP for Hour Ending 19
+:root>html{0}>body{5}>center{0}>table{0}>tbody{1}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{1}>tr{0}>td - 112 WILTON
+:root>html{0}>body{5}>center{0}>table{0}>tbody{1}>tr{1}>td - 28.4
+:root>html{0}>body{5}>center{0}>table{0}>tbody{1}>tr{2}>td - 31.4
+:root>html{0}>body{5}>center{0}>table{0}>tbody{2}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{2}>tr{0}>td - 167 PLANO
+:root>html{0}>body{5}>center{0}>table{0}>tbody{2}>tr{1}>td - 28.3
+:root>html{0}>body{5}>center{0}>table{0}>tbody{2}>tr{2}>td - 31.3
+:root>html{0}>body{5}>center{0}>table{0}>tbody{3}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{3}>tr{0}>td - 23 COLLINS
+:root>html{0}>body{5}>center{0}>table{0}>tbody{3}>tr{1}>td - 28.4
+:root>html{0}>body{5}>center{0}>table{0}>tbody{3}>tr{2}>td - 31.3
+:root>html{0}>body{5}>center{0}>table{0}>tbody{4}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{4}>tr{0}>td - 502JCT
+:root>html{0}>body{5}>center{0}>table{0}>tbody{4}>tr{1}>td - 31.7
+:root>html{0}>body{5}>center{0}>table{0}>tbody{4}>tr{2}>td - 33.4
+:root>html{0}>body{5}>center{0}>table{0}>tbody{5}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{5}>tr{0}>td - ALBURTIS
+:root>html{0}>body{5}>center{0}>table{0}>tbody{5}>tr{1}>td - 33.1
+:root>html{0}>body{5}>center{0}>table{0}>tbody{5}>tr{2}>td - 35.0
+:root>html{0}>body{5}>center{0}>table{0}>tbody{6}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{6}>tr{0}>td - AMOS
+:root>html{0}>body{5}>center{0}>table{0}>tbody{6}>tr{1}>td - 30.6
+:root>html{0}>body{5}>center{0}>table{0}>tbody{6}>tr{2}>td - 32.1
+:root>html{0}>body{5}>center{0}>table{0}>tbody{7}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{7}>tr{0}>td - AXTON
+:root>html{0}>body{5}>center{0}>table{0}>tbody{7}>tr{1}>td - 31.2
+:root>html{0}>body{5}>center{0}>table{0}>tbody{7}>tr{2}>td - 32.7
+:root>html{0}>body{5}>center{0}>table{0}>tbody{8}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{8}>tr{0}>td - BAKER
+:root>html{0}>body{5}>center{0}>table{0}>tbody{8}>tr{1}>td - 30.7
+:root>html{0}>body{5}>center{0}>table{0}>tbody{8}>tr{2}>td - 32.2
+:root>html{0}>body{5}>center{0}>table{0}>tbody{9}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{9}>tr{0}>td - BATH COUNTY
+:root>html{0}>body{5}>center{0}>table{0}>tbody{9}>tr{1}>td - 31.7
+:root>html{0}>body{5}>center{0}>table{0}>tbody{9}>tr{2}>td - 33.2
+:root>html{0}>body{5}>center{0}>table{0}>tbody{10}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{10}>tr{0}>td - BEDINGTON
+:root>html{0}>body{5}>center{0}>table{0}>tbody{10}>tr{1}>td - 33.0
+:root>html{0}>body{5}>center{0}>table{0}>tbody{10}>tr{2}>td - 34.8
+:root>html{0}>body{5}>center{0}>table{0}>tbody{11}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{11}>tr{0}>td - BELMONT
+:root>html{0}>body{5}>center{0}>table{0}>tbody{11}>tr{1}>td - 31.1
+:root>html{0}>body{5}>center{0}>table{0}>tbody{11}>tr{2}>td - 32.7
+:root>html{0}>body{5}>center{0}>table{0}>tbody{12}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{12}>tr{0}>td - BLACKOAK
+:root>html{0}>body{5}>center{0}>table{0}>tbody{12}>tr{1}>td - 32.4
+:root>html{0}>body{5}>center{0}>table{0}>tbody{12}>tr{2}>td - 34.2
+:root>html{0}>body{5}>center{0}>table{0}>tbody{13}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{13}>tr{0}>td - BRAMBLET
+:root>html{0}>body{5}>center{0}>table{0}>tbody{13}>tr{1}>td - 33.2
+:root>html{0}>body{5}>center{0}>table{0}>tbody{13}>tr{2}>td - 35.0
+:root>html{0}>body{5}>center{0}>table{0}>tbody{14}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{14}>tr{0}>td - BRANCHBURG
+:root>html{0}>body{5}>center{0}>table{0}>tbody{14}>tr{1}>td - 33.5
+:root>html{0}>body{5}>center{0}>table{0}>tbody{14}>tr{2}>td - 35.4
+:root>html{0}>body{5}>center{0}>table{0}>tbody{15}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{15}>tr{0}>td - BRIGHTON
+:root>html{0}>body{5}>center{0}>table{0}>tbody{15}>tr{1}>td - 33.4
+:root>html{0}>body{5}>center{0}>table{0}>tbody{15}>tr{2}>td - 35.2
+:root>html{0}>body{5}>center{0}>table{0}>tbody{16}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{16}>tr{0}>td - BRISTERS
+:root>html{0}>body{5}>center{0}>table{0}>tbody{16}>tr{1}>td - 33.1
+:root>html{0}>body{5}>center{0}>table{0}>tbody{16}>tr{2}>td - 34.9
+:root>html{0}>body{5}>center{0}>table{0}>tbody{17}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{17}>tr{0}>td - BRNGSVIL
+:root>html{0}>body{5}>center{0}>table{0}>tbody{17}>tr{1}>td - 33.0
+:root>html{0}>body{5}>center{0}>table{0}>tbody{17}>tr{2}>td - 34.9
+:root>html{0}>body{5}>center{0}>table{0}>tbody{18}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{18}>tr{0}>td - BROADFORD
+:root>html{0}>body{5}>center{0}>table{0}>tbody{18}>tr{1}>td - 31.0
+:root>html{0}>body{5}>center{0}>table{0}>tbody{18}>tr{2}>td - 32.5
+:root>html{0}>body{5}>center{0}>table{0}>tbody{19}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{19}>tr{0}>td - BRUNSSWY
+:root>html{0}>body{5}>center{0}>table{0}>tbody{19}>tr{1}>td - 32.4
+:root>html{0}>body{5}>center{0}>table{0}>tbody{19}>tr{2}>td - 34.0
+:root>html{0}>body{5}>center{0}>table{0}>tbody{20}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{20}>tr{0}>td - BURCHESHILL
+:root>html{0}>body{5}>center{0}>table{0}>tbody{20}>tr{1}>td - 33.4
+:root>html{0}>body{5}>center{0}>table{0}>tbody{20}>tr{2}>td - 35.2
+:root>html{0}>body{5}>center{0}>table{0}>tbody{21}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{21}>tr{0}>td - CABOT
+:root>html{0}>body{5}>center{0}>table{0}>tbody{21}>tr{1}>td - 32.0
+:root>html{0}>body{5}>center{0}>table{0}>tbody{21}>tr{2}>td - 33.7
+:root>html{0}>body{5}>center{0}>table{0}>tbody{22}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{22}>tr{0}>td - CALVERTC
+:root>html{0}>body{5}>center{0}>table{0}>tbody{22}>tr{1}>td - 33.3
+:root>html{0}>body{5}>center{0}>table{0}>tbody{22}>tr{2}>td - 35.1
+:root>html{0}>body{5}>center{0}>table{0}>tbody{23}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{23}>tr{0}>td - CARSON
+:root>html{0}>body{5}>center{0}>table{0}>tbody{23}>tr{1}>td - 32.9
+:root>html{0}>body{5}>center{0}>table{0}>tbody{23}>tr{2}>td - 34.5
+:root>html{0}>body{5}>center{0}>table{0}>tbody{24}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{24}>tr{0}>td - CENTERPT
+:root>html{0}>body{5}>center{0}>table{0}>tbody{24}>tr{1}>td - 33.2
+:root>html{0}>body{5}>center{0}>table{0}>tbody{24}>tr{2}>td - 35.1
+:root>html{0}>body{5}>center{0}>table{0}>tbody{25}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{25}>tr{0}>td - CHALKPT
+:root>html{0}>body{5}>center{0}>table{0}>tbody{25}>tr{1}>td - 33.4
+:root>html{0}>body{5}>center{0}>table{0}>tbody{25}>tr{2}>td - 35.2
+:root>html{0}>body{5}>center{0}>table{0}>tbody{26}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{26}>tr{0}>td - CHANCELLOR
+:root>html{0}>body{5}>center{0}>table{0}>tbody{26}>tr{1}>td - 33.1
+:root>html{0}>body{5}>center{0}>table{0}>tbody{26}>tr{2}>td - 34.9
+:root>html{0}>body{5}>center{0}>table{0}>tbody{27}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{27}>tr{0}>td - CHELTENH
+:root>html{0}>body{5}>center{0}>table{0}>tbody{27}>tr{1}>td - 33.4
+:root>html{0}>body{5}>center{0}>table{0}>tbody{27}>tr{2}>td - 35.2
+:root>html{0}>body{5}>center{0}>table{0}>tbody{28}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{28}>tr{0}>td - CHICKAHOMINY
+:root>html{0}>body{5}>center{0}>table{0}>tbody{28}>tr{1}>td - 33.3
+:root>html{0}>body{5}>center{0}>table{0}>tbody{28}>tr{2}>td - 35.1
+:root>html{0}>body{5}>center{0}>table{0}>tbody{29}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{29}>tr{0}>td - CLIFTON
+:root>html{0}>body{5}>center{0}>table{0}>tbody{29}>tr{1}>td - 33.2
+:root>html{0}>body{5}>center{0}>table{0}>tbody{29}>tr{2}>td - 35.0
+:root>html{0}>body{5}>center{0}>table{0}>tbody{30}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{30}>tr{0}>td - CLOVER
+:root>html{0}>body{5}>center{0}>table{0}>tbody{30}>tr{1}>td - 32.4
+:root>html{0}>body{5}>center{0}>table{0}>tbody{30}>tr{2}>td - 33.9
+:root>html{0}>body{5}>center{0}>table{0}>tbody{31}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{31}>tr{0}>td - CLOVERDALE
+:root>html{0}>body{5}>center{0}>table{0}>tbody{31}>tr{1}>td - 31.5
+:root>html{0}>body{5}>center{0}>table{0}>tbody{31}>tr{2}>td - 33.0
+:root>html{0}>body{5}>center{0}>table{0}>tbody{32}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{32}>tr{0}>td - CONASTONE
+:root>html{0}>body{5}>center{0}>table{0}>tbody{32}>tr{1}>td - 32.9
+:root>html{0}>body{5}>center{0}>table{0}>tbody{32}>tr{2}>td - 34.7
+:root>html{0}>body{5}>center{0}>table{0}>tbody{33}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{33}>tr{0}>td - CONEMAUGH
+:root>html{0}>body{5}>center{0}>table{0}>tbody{33}>tr{1}>td - 32.0
+:root>html{0}>body{5}>center{0}>table{0}>tbody{33}>tr{2}>td - 33.7
+:root>html{0}>body{5}>center{0}>table{0}>tbody{34}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{34}>tr{0}>td - COOK
+:root>html{0}>body{5}>center{0}>table{0}>tbody{34}>tr{1}>td - 28.8
+:root>html{0}>body{5}>center{0}>table{0}>tbody{34}>tr{2}>td - 31.7
+:root>html{0}>body{5}>center{0}>table{0}>tbody{35}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{35}>tr{0}>td - CRANBERRY
+:root>html{0}>body{5}>center{0}>table{0}>tbody{35}>tr{1}>td - 32.0
+:root>html{0}>body{5}>center{0}>table{0}>tbody{35}>tr{2}>td - 33.7
+:root>html{0}>body{5}>center{0}>table{0}>tbody{36}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{36}>tr{0}>td - CULLODEN
+:root>html{0}>body{5}>center{0}>table{0}>tbody{36}>tr{1}>td - 30.7
+:root>html{0}>body{5}>center{0}>table{0}>tbody{36}>tr{2}>td - 32.2
+:root>html{0}>body{5}>center{0}>table{0}>tbody{37}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{37}>tr{0}>td - CUNNINGHAM
+:root>html{0}>body{5}>center{0}>table{0}>tbody{37}>tr{1}>td - 31.5
+:root>html{0}>body{5}>center{0}>table{0}>tbody{37}>tr{2}>td - 33.0
+:root>html{0}>body{5}>center{0}>table{0}>tbody{38}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{38}>tr{0}>td - DEANS
+:root>html{0}>body{5}>center{0}>table{0}>tbody{38}>tr{1}>td - 33.5
+:root>html{0}>body{5}>center{0}>table{0}>tbody{38}>tr{2}>td - 35.5
+:root>html{0}>body{5}>center{0}>table{0}>tbody{39}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{39}>tr{0}>td - DLTAPLNT
+:root>html{0}>body{5}>center{0}>table{0}>tbody{39}>tr{1}>td - 32.7
+:root>html{0}>body{5}>center{0}>table{0}>tbody{39}>tr{2}>td - 34.6
+:root>html{0}>body{5}>center{0}>table{0}>tbody{40}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{40}>tr{0}>td - DOOMS
+:root>html{0}>body{5}>center{0}>table{0}>tbody{40}>tr{1}>td - 31.7
+:root>html{0}>body{5}>center{0}>table{0}>tbody{40}>tr{2}>td - 33.2
+:root>html{0}>body{5}>center{0}>table{0}>tbody{41}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{41}>tr{0}>td - DOUBS
+:root>html{0}>body{5}>center{0}>table{0}>tbody{41}>tr{1}>td - 33.2
+:root>html{0}>body{5}>center{0}>table{0}>tbody{41}>tr{2}>td - 35.0
+:root>html{0}>body{5}>center{0}>table{0}>tbody{42}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{42}>tr{0}>td - DUMONT
+:root>html{0}>body{5}>center{0}>table{0}>tbody{42}>tr{1}>td - 28.8
+:root>html{0}>body{5}>center{0}>table{0}>tbody{42}>tr{2}>td - 31.8
+:root>html{0}>body{5}>center{0}>table{0}>tbody{43}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{43}>tr{0}>td - ELMONT
+:root>html{0}>body{5}>center{0}>table{0}>tbody{43}>tr{1}>td - 33.3
+:root>html{0}>body{5}>center{0}>table{0}>tbody{43}>tr{2}>td - 35.0
+:root>html{0}>body{5}>center{0}>table{0}>tbody{44}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{44}>tr{0}>td - ELROY
+:root>html{0}>body{5}>center{0}>table{0}>tbody{44}>tr{1}>td - 33.2
+:root>html{0}>body{5}>center{0}>table{0}>tbody{44}>tr{2}>td - 35.2
+:root>html{0}>body{5}>center{0}>table{0}>tbody{45}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{45}>tr{0}>td - ELROYPL
+:root>html{0}>body{5}>center{0}>table{0}>tbody{45}>tr{1}>td - 33.2
+:root>html{0}>body{5}>center{0}>table{0}>tbody{45}>tr{2}>td - 35.2
+:root>html{0}>body{5}>center{0}>table{0}>tbody{46}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{46}>tr{0}>td - EWINDSOR
+:root>html{0}>body{5}>center{0}>table{0}>tbody{46}>tr{1}>td - 33.5
+:root>html{0}>body{5}>center{0}>table{0}>tbody{46}>tr{2}>td - 35.5
+:root>html{0}>body{5}>center{0}>table{0}>tbody{47}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{47}>tr{0}>td - FENTRESS
+:root>html{0}>body{5}>center{0}>table{0}>tbody{47}>tr{1}>td - 33.2
+:root>html{0}>body{5}>center{0}>table{0}>tbody{47}>tr{2}>td - 34.8
+:root>html{0}>body{5}>center{0}>table{0}>tbody{48}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{48}>tr{0}>td - FLATLICK
+:root>html{0}>body{5}>center{0}>table{0}>tbody{48}>tr{1}>td - 30.7
+:root>html{0}>body{5}>center{0}>table{0}>tbody{48}>tr{2}>td - 32.2
+:root>html{0}>body{5}>center{0}>table{0}>tbody{49}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{49}>tr{0}>td - FLUVANNA
+:root>html{0}>body{5}>center{0}>table{0}>tbody{49}>tr{1}>td - 31.4
+:root>html{0}>body{5}>center{0}>table{0}>tbody{49}>tr{2}>td - 33.0
+:root>html{0}>body{5}>center{0}>table{0}>tbody{50}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{50}>tr{0}>td - FORTMARTIN
+:root>html{0}>body{5}>center{0}>table{0}>tbody{50}>tr{1}>td - 31.7
+:root>html{0}>body{5}>center{0}>table{0}>tbody{50}>tr{2}>td - 33.4
+:root>html{0}>body{5}>center{0}>table{0}>tbody{51}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{51}>tr{0}>td - FREEDOM2
+:root>html{0}>body{5}>center{0}>table{0}>tbody{51}>tr{1}>td - 32.7
+:root>html{0}>body{5}>center{0}>table{0}>tbody{51}>tr{2}>td - 34.6
+:root>html{0}>body{5}>center{0}>table{0}>tbody{52}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{52}>tr{0}>td - FRONT ROYAL
+:root>html{0}>body{5}>center{0}>table{0}>tbody{52}>tr{1}>td - 32.6
+:root>html{0}>body{5}>center{0}>table{0}>tbody{52}>tr{2}>td - 34.4
+:root>html{0}>body{5}>center{0}>table{0}>tbody{53}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{53}>tr{0}>td - GAVIN
+:root>html{0}>body{5}>center{0}>table{0}>tbody{53}>tr{1}>td - 30.6
+:root>html{0}>body{5}>center{0}>table{0}>tbody{53}>tr{2}>td - 32.2
+:root>html{0}>body{5}>center{0}>table{0}>tbody{54}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{54}>tr{0}>td - GOOSECRE
+:root>html{0}>body{5}>center{0}>table{0}>tbody{54}>tr{1}>td - 33.2
+:root>html{0}>body{5}>center{0}>table{0}>tbody{54}>tr{2}>td - 35.0
+:root>html{0}>body{5}>center{0}>table{0}>tbody{55}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{55}>tr{0}>td - GREENLAND GAP
+:root>html{0}>body{5}>center{0}>table{0}>tbody{55}>tr{1}>td - 32.2
+:root>html{0}>body{5}>center{0}>table{0}>tbody{55}>tr{2}>td - 33.9
+:root>html{0}>body{5}>center{0}>table{0}>tbody{56}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{56}>tr{0}>td - GRNSVIL
+:root>html{0}>body{5}>center{0}>table{0}>tbody{56}>tr{1}>td - 32.4
+:root>html{0}>body{5}>center{0}>table{0}>tbody{56}>tr{2}>td - 34.0
+:root>html{0}>body{5}>center{0}>table{0}>tbody{57}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{57}>tr{0}>td - HANGING ROCK
+:root>html{0}>body{5}>center{0}>table{0}>tbody{57}>tr{1}>td - 30.5
+:root>html{0}>body{5}>center{0}>table{0}>tbody{57}>tr{2}>td - 32.1
+:root>html{0}>body{5}>center{0}>table{0}>tbody{58}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{58}>tr{0}>td - HARRISON
+:root>html{0}>body{5}>center{0}>table{0}>tbody{58}>tr{1}>td - 31.6
+:root>html{0}>body{5}>center{0}>table{0}>tbody{58}>tr{2}>td - 33.3
+:root>html{0}>body{5}>center{0}>table{0}>tbody{59}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{59}>tr{0}>td - HATFIELD
+:root>html{0}>body{5}>center{0}>table{0}>tbody{59}>tr{1}>td - 31.8
+:root>html{0}>body{5}>center{0}>table{0}>tbody{59}>tr{2}>td - 33.6
+:root>html{0}>body{5}>center{0}>table{0}>tbody{60}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{60}>tr{0}>td - HOPATCON
+:root>html{0}>body{5}>center{0}>table{0}>tbody{60}>tr{1}>td - 33.8
+:root>html{0}>body{5}>center{0}>table{0}>tbody{60}>tr{2}>td - 35.7
+:root>html{0}>body{5}>center{0}>table{0}>tbody{61}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{61}>tr{0}>td - HOPECREEK
+:root>html{0}>body{5}>center{0}>table{0}>tbody{61}>tr{1}>td - 32.8
+:root>html{0}>body{5}>center{0}>table{0}>tbody{61}>tr{2}>td - 34.7
+:root>html{0}>body{5}>center{0}>table{0}>tbody{62}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{62}>tr{0}>td - HOSENSACK
+:root>html{0}>body{5}>center{0}>table{0}>tbody{62}>tr{1}>td - 33.1
+:root>html{0}>body{5}>center{0}>table{0}>tbody{62}>tr{2}>td - 35.0
+:root>html{0}>body{5}>center{0}>table{0}>tbody{63}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{63}>tr{0}>td - HUNTERSTOWN
+:root>html{0}>body{5}>center{0}>table{0}>tbody{63}>tr{1}>td - 32.6
+:root>html{0}>body{5}>center{0}>table{0}>tbody{63}>tr{2}>td - 34.4
+:root>html{0}>body{5}>center{0}>table{0}>tbody{64}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{64}>tr{0}>td - JACKSONS FERRY
+:root>html{0}>body{5}>center{0}>table{0}>tbody{64}>tr{1}>td - 31.2
+:root>html{0}>body{5}>center{0}>table{0}>tbody{64}>tr{2}>td - 32.7
+:root>html{0}>body{5}>center{0}>table{0}>tbody{65}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{65}>tr{0}>td - JEFFERSON
+:root>html{0}>body{5}>center{0}>table{0}>tbody{65}>tr{1}>td - 28.7
+:root>html{0}>body{5}>center{0}>table{0}>tbody{65}>tr{2}>td - 31.6
+:root>html{0}>body{5}>center{0}>table{0}>tbody{66}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{66}>tr{0}>td - JOSHUA FALLS
+:root>html{0}>body{5}>center{0}>table{0}>tbody{66}>tr{1}>td - 31.5
+:root>html{0}>body{5}>center{0}>table{0}>tbody{66}>tr{2}>td - 33.1
+:root>html{0}>body{5}>center{0}>table{0}>tbody{67}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{67}>tr{0}>td - JUNIATA
+:root>html{0}>body{5}>center{0}>table{0}>tbody{67}>tr{1}>td - 32.6
+:root>html{0}>body{5}>center{0}>table{0}>tbody{67}>tr{2}>td - 34.4
+:root>html{0}>body{5}>center{0}>table{0}>tbody{68}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{68}>tr{0}>td - KAMMER
+:root>html{0}>body{5}>center{0}>table{0}>tbody{68}>tr{1}>td - 31.4
+:root>html{0}>body{5}>center{0}>table{0}>tbody{68}>tr{2}>td - 33.0
+:root>html{0}>body{5}>center{0}>table{0}>tbody{69}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{69}>tr{0}>td - KEENEY
+:root>html{0}>body{5}>center{0}>table{0}>tbody{69}>tr{1}>td - 32.9
+:root>html{0}>body{5}>center{0}>table{0}>tbody{69}>tr{2}>td - 34.7
+:root>html{0}>body{5}>center{0}>table{0}>tbody{70}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{70}>tr{0}>td - KEYSTONE
+:root>html{0}>body{5}>center{0}>table{0}>tbody{70}>tr{1}>td - 31.9
+:root>html{0}>body{5}>center{0}>table{0}>tbody{70}>tr{2}>td - 33.7
+:root>html{0}>body{5}>center{0}>table{0}>tbody{71}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{71}>tr{0}>td - LACKAWAN
+:root>html{0}>body{5}>center{0}>table{0}>tbody{71}>tr{1}>td - 33.2
+:root>html{0}>body{5}>center{0}>table{0}>tbody{71}>tr{2}>td - 35.1
+:root>html{0}>body{5}>center{0}>table{0}>tbody{72}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{72}>tr{0}>td - LADYSMITH
+:root>html{0}>body{5}>center{0}>table{0}>tbody{72}>tr{1}>td - 33.1
+:root>html{0}>body{5}>center{0}>table{0}>tbody{72}>tr{2}>td - 34.9
+:root>html{0}>body{5}>center{0}>table{0}>tbody{73}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{73}>tr{0}>td - LAUSCHTO
+:root>html{0}>body{5}>center{0}>table{0}>tbody{73}>tr{1}>td - 32.9
+:root>html{0}>body{5}>center{0}>table{0}>tbody{73}>tr{2}>td - 34.8
+:root>html{0}>body{5}>center{0}>table{0}>tbody{74}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{74}>tr{0}>td - LEXINGTON
+:root>html{0}>body{5}>center{0}>table{0}>tbody{74}>tr{1}>td - 31.6
+:root>html{0}>body{5}>center{0}>table{0}>tbody{74}>tr{2}>td - 33.1
+:root>html{0}>body{5}>center{0}>table{0}>tbody{75}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{75}>tr{0}>td - LIMERICK
+:root>html{0}>body{5}>center{0}>table{0}>tbody{75}>tr{1}>td - 33.1
+:root>html{0}>body{5}>center{0}>table{0}>tbody{75}>tr{2}>td - 35.0
+:root>html{0}>body{5}>center{0}>table{0}>tbody{76}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{76}>tr{0}>td - LOUDOUN
+:root>html{0}>body{5}>center{0}>table{0}>tbody{76}>tr{1}>td - 33.2
+:root>html{0}>body{5}>center{0}>table{0}>tbody{76}>tr{2}>td - 35.0
+:root>html{0}>body{5}>center{0}>table{0}>tbody{77}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{77}>tr{0}>td - MALISZEWSKI
+:root>html{0}>body{5}>center{0}>table{0}>tbody{77}>tr{1}>td - 31.0
+:root>html{0}>body{5}>center{0}>table{0}>tbody{77}>tr{2}>td - 32.7
+:root>html{0}>body{5}>center{0}>table{0}>tbody{78}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{78}>tr{0}>td - MARQUIS
+:root>html{0}>body{5}>center{0}>table{0}>tbody{78}>tr{1}>td - 30.8
+:root>html{0}>body{5}>center{0}>table{0}>tbody{78}>tr{2}>td - 32.1
+:root>html{0}>body{5}>center{0}>table{0}>tbody{79}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{79}>tr{0}>td - MARYSVILLE
+:root>html{0}>body{5}>center{0}>table{0}>tbody{79}>tr{1}>td - 30.8
+:root>html{0}>body{5}>center{0}>table{0}>tbody{79}>tr{2}>td - 32.6
+:root>html{0}>body{5}>center{0}>table{0}>tbody{80}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{80}>tr{0}>td - MEADOWBROOK
+:root>html{0}>body{5}>center{0}>table{0}>tbody{80}>tr{1}>td - 32.6
+:root>html{0}>body{5}>center{0}>table{0}>tbody{80}>tr{2}>td - 34.3
+:root>html{0}>body{5}>center{0}>table{0}>tbody{81}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{81}>tr{0}>td - MIDLOTHIAN
+:root>html{0}>body{5}>center{0}>table{0}>tbody{81}>tr{1}>td - 33.0
+:root>html{0}>body{5}>center{0}>table{0}>tbody{81}>tr{2}>td - 34.6
+:root>html{0}>body{5}>center{0}>table{0}>tbody{82}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{82}>tr{0}>td - MORRISVILLE
+:root>html{0}>body{5}>center{0}>table{0}>tbody{82}>tr{1}>td - 33.1
+:root>html{0}>body{5}>center{0}>table{0}>tbody{82}>tr{2}>td - 34.8
+:root>html{0}>body{5}>center{0}>table{0}>tbody{83}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{83}>tr{0}>td - MOSBY
+:root>html{0}>body{5}>center{0}>table{0}>tbody{83}>tr{1}>td - 33.2
+:root>html{0}>body{5}>center{0}>table{0}>tbody{83}>tr{2}>td - 35.0
+:root>html{0}>body{5}>center{0}>table{0}>tbody{84}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{84}>tr{0}>td - MOUNTAINEER
+:root>html{0}>body{5}>center{0}>table{0}>tbody{84}>tr{1}>td - 30.7
+:root>html{0}>body{5}>center{0}>table{0}>tbody{84}>tr{2}>td - 32.2
+:root>html{0}>body{5}>center{0}>table{0}>tbody{85}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{85}>tr{0}>td - MT STORM
+:root>html{0}>body{5}>center{0}>table{0}>tbody{85}>tr{1}>td - 32.2
+:root>html{0}>body{5}>center{0}>table{0}>tbody{85}>tr{2}>td - 33.8
+:root>html{0}>body{5}>center{0}>table{0}>tbody{86}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{86}>tr{0}>td - NAGELAEP
+:root>html{0}>body{5}>center{0}>table{0}>tbody{86}>tr{1}>td - 30.7
+:root>html{0}>body{5}>center{0}>table{0}>tbody{86}>tr{2}>td - 32.3
+:root>html{0}>body{5}>center{0}>table{0}>tbody{87}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{87}>tr{0}>td - NEWFREEDOM
+:root>html{0}>body{5}>center{0}>table{0}>tbody{87}>tr{1}>td - 33.0
+:root>html{0}>body{5}>center{0}>table{0}>tbody{87}>tr{2}>td - 34.9
+:root>html{0}>body{5}>center{0}>table{0}>tbody{88}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{88}>tr{0}>td - NORTH ANNA
+:root>html{0}>body{5}>center{0}>table{0}>tbody{88}>tr{1}>td - 33.0
+:root>html{0}>body{5}>center{0}>table{0}>tbody{88}>tr{2}>td - 34.7
+:root>html{0}>body{5}>center{0}>table{0}>tbody{89}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{89}>tr{0}>td - NORTH LONGVIEW
+:root>html{0}>body{5}>center{0}>table{0}>tbody{89}>tr{1}>td - 31.7
+:root>html{0}>body{5}>center{0}>table{0}>tbody{89}>tr{2}>td - 33.4
+:root>html{0}>body{5}>center{0}>table{0}>tbody{90}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{90}>tr{0}>td - NORTH PROCTORVILLE
+:root>html{0}>body{5}>center{0}>table{0}>tbody{90}>tr{1}>td - 30.6
+:root>html{0}>body{5}>center{0}>table{0}>tbody{90}>tr{2}>td - 32.1
+:root>html{0}>body{5}>center{0}>table{0}>tbody{91}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{91}>tr{0}>td - ORCHARD
+:root>html{0}>body{5}>center{0}>table{0}>tbody{91}>tr{1}>td - 32.9
+:root>html{0}>body{5}>center{0}>table{0}>tbody{91}>tr{2}>td - 34.8
+:root>html{0}>body{5}>center{0}>table{0}>tbody{92}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{92}>tr{0}>td - OX
+:root>html{0}>body{5}>center{0}>table{0}>tbody{92}>tr{1}>td - 33.2
+:root>html{0}>body{5}>center{0}>table{0}>tbody{92}>tr{2}>td - 35.0
+:root>html{0}>body{5}>center{0}>table{0}>tbody{93}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{93}>tr{0}>td - PEACHBOTTOM
+:root>html{0}>body{5}>center{0}>table{0}>tbody{93}>tr{1}>td - 32.7
+:root>html{0}>body{5}>center{0}>table{0}>tbody{93}>tr{2}>td - 34.6
+:root>html{0}>body{5}>center{0}>table{0}>tbody{94}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{94}>tr{0}>td - PLEASANT VIEW
+:root>html{0}>body{5}>center{0}>table{0}>tbody{94}>tr{1}>td - 33.2
+:root>html{0}>body{5}>center{0}>table{0}>tbody{94}>tr{2}>td - 35.0
+:root>html{0}>body{5}>center{0}>table{0}>tbody{95}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{95}>tr{0}>td - PLEASANTS
+:root>html{0}>body{5}>center{0}>table{0}>tbody{95}>tr{1}>td - 31.1
+:root>html{0}>body{5}>center{0}>table{0}>tbody{95}>tr{2}>td - 32.7
+:root>html{0}>body{5}>center{0}>table{0}>tbody{96}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{96}>tr{0}>td - POSSUM POINT
+:root>html{0}>body{5}>center{0}>table{0}>tbody{96}>tr{1}>td - 33.3
+:root>html{0}>body{5}>center{0}>table{0}>tbody{96}>tr{2}>td - 35.0
+:root>html{0}>body{5}>center{0}>table{0}>tbody{97}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{97}>tr{0}>td - PRUNTYTOWN
+:root>html{0}>body{5}>center{0}>table{0}>tbody{97}>tr{1}>td - 31.8
+:root>html{0}>body{5}>center{0}>table{0}>tbody{97}>tr{2}>td - 33.4
+:root>html{0}>body{5}>center{0}>table{0}>tbody{98}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{98}>tr{0}>td - RAWLINGS
+:root>html{0}>body{5}>center{0}>table{0}>tbody{98}>tr{1}>td - 32.6
+:root>html{0}>body{5}>center{0}>table{0}>tbody{98}>tr{2}>td - 34.2
+:root>html{0}>body{5}>center{0}>table{0}>tbody{99}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{99}>tr{0}>td - REDLION
+:root>html{0}>body{5}>center{0}>table{0}>tbody{99}>tr{1}>td - 32.9
+:root>html{0}>body{5}>center{0}>table{0}>tbody{99}>tr{2}>td - 34.7
+:root>html{0}>body{5}>center{0}>table{0}>tbody{100}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{100}>tr{0}>td - REYNOLD2
+:root>html{0}>body{5}>center{0}>table{0}>tbody{100}>tr{1}>td - 28.4
+:root>html{0}>body{5}>center{0}>table{0}>tbody{100}>tr{2}>td - 31.7
+:root>html{0}>body{5}>center{0}>table{0}>tbody{101}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{101}>tr{0}>td - RHODESLN
+:root>html{0}>body{5}>center{0}>table{0}>tbody{101}>tr{1}>td - 32.0
+:root>html{0}>body{5}>center{0}>table{0}>tbody{101}>tr{2}>td - 33.7
+:root>html{0}>body{5}>center{0}>table{0}>tbody{102}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{102}>tr{0}>td - ROCKPORT
+:root>html{0}>body{5}>center{0}>table{0}>tbody{102}>tr{1}>td - 28.1
+:root>html{0}>body{5}>center{0}>table{0}>tbody{102}>tr{2}>td - 31.2
+:root>html{0}>body{5}>center{0}>table{0}>tbody{103}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{103}>tr{0}>td - ROCKSPRINGS
+:root>html{0}>body{5}>center{0}>table{0}>tbody{103}>tr{1}>td - 32.8
+:root>html{0}>body{5}>center{0}>table{0}>tbody{103}>tr{2}>td - 34.6
+:root>html{0}>body{5}>center{0}>table{0}>tbody{104}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{104}>tr{0}>td - ROGERSRD
+:root>html{0}>body{5}>center{0}>table{0}>tbody{104}>tr{1}>td - 32.4
+:root>html{0}>body{5}>center{0}>table{0}>tbody{104}>tr{2}>td - 34.0
+:root>html{0}>body{5}>center{0}>table{0}>tbody{105}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{105}>tr{0}>td - RONCO
+:root>html{0}>body{5}>center{0}>table{0}>tbody{105}>tr{1}>td - 31.8
+:root>html{0}>body{5}>center{0}>table{0}>tbody{105}>tr{2}>td - 33.5
+:root>html{0}>body{5}>center{0}>table{0}>tbody{106}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{106}>tr{0}>td - ROSELAND
+:root>html{0}>body{5}>center{0}>table{0}>tbody{106}>tr{1}>td - 33.9
+:root>html{0}>body{5}>center{0}>table{0}>tbody{106}>tr{2}>td - 35.9
+:root>html{0}>body{5}>center{0}>table{0}>tbody{107}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{107}>tr{0}>td - SALEM
+:root>html{0}>body{5}>center{0}>table{0}>tbody{107}>tr{1}>td - 32.8
+:root>html{0}>body{5}>center{0}>table{0}>tbody{107}>tr{2}>td - 34.6
+:root>html{0}>body{5}>center{0}>table{0}>tbody{108}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{108}>tr{0}>td - SEPTA
+:root>html{0}>body{5}>center{0}>table{0}>tbody{108}>tr{1}>td - 33.0
+:root>html{0}>body{5}>center{0}>table{0}>tbody{108}>tr{2}>td - 34.6
+:root>html{0}>body{5}>center{0}>table{0}>tbody{109}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{109}>tr{0}>td - SHICKSHI
+:root>html{0}>body{5}>center{0}>table{0}>tbody{109}>tr{1}>td - 32.7
+:root>html{0}>body{5}>center{0}>table{0}>tbody{109}>tr{2}>td - 34.6
+:root>html{0}>body{5}>center{0}>table{0}>tbody{110}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{110}>tr{0}>td - SKFFSCRK
+:root>html{0}>body{5}>center{0}>table{0}>tbody{110}>tr{1}>td - 34.2
+:root>html{0}>body{5}>center{0}>table{0}>tbody{110}>tr{2}>td - 36.0
+:root>html{0}>body{5}>center{0}>table{0}>tbody{111}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{111}>tr{0}>td - SMITHBURG
+:root>html{0}>body{5}>center{0}>table{0}>tbody{111}>tr{1}>td - 33.6
+:root>html{0}>body{5}>center{0}>table{0}>tbody{111}>tr{2}>td - 35.5
+:root>html{0}>body{5}>center{0}>table{0}>tbody{112}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{112}>tr{0}>td - SORENSON
+:root>html{0}>body{5}>center{0}>table{0}>tbody{112}>tr{1}>td - 28.6
+:root>html{0}>body{5}>center{0}>table{0}>tbody{112}>tr{2}>td - 32.1
+:root>html{0}>body{5}>center{0}>table{0}>tbody{113}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{113}>tr{0}>td - SOUTH CANTON
+:root>html{0}>body{5}>center{0}>table{0}>tbody{113}>tr{1}>td - 31.8
+:root>html{0}>body{5}>center{0}>table{0}>tbody{113}>tr{2}>td - 33.5
+:root>html{0}>body{5}>center{0}>table{0}>tbody{114}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{114}>tr{0}>td - SOUTHBEND
+:root>html{0}>body{5}>center{0}>table{0}>tbody{114}>tr{1}>td - 31.9
+:root>html{0}>body{5}>center{0}>table{0}>tbody{114}>tr{2}>td - 33.7
+:root>html{0}>body{5}>center{0}>table{0}>tbody{115}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{115}>tr{0}>td - SPOTSLV
+:root>html{0}>body{5}>center{0}>table{0}>tbody{115}>tr{1}>td - 33.0
+:root>html{0}>body{5}>center{0}>table{0}>tbody{115}>tr{2}>td - 34.8
+:root>html{0}>body{5}>center{0}>table{0}>tbody{116}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{116}>tr{0}>td - STEELCITY
+:root>html{0}>body{5}>center{0}>table{0}>tbody{116}>tr{1}>td - 33.0
+:root>html{0}>body{5}>center{0}>table{0}>tbody{116}>tr{2}>td - 35.0
+:root>html{0}>body{5}>center{0}>table{0}>tbody{117}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{117}>tr{0}>td - SUFFOLK
+:root>html{0}>body{5}>center{0}>table{0}>tbody{117}>tr{1}>td - 33.1
+:root>html{0}>body{5}>center{0}>table{0}>tbody{117}>tr{2}>td - 34.7
+:root>html{0}>body{5}>center{0}>table{0}>tbody{118}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{118}>tr{0}>td - SULLIVAN-AEP
+:root>html{0}>body{5}>center{0}>table{0}>tbody{118}>tr{1}>td - 27.9
+:root>html{0}>body{5}>center{0}>table{0}>tbody{118}>tr{2}>td - 31.2
+:root>html{0}>body{5}>center{0}>table{0}>tbody{119}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{119}>tr{0}>td - SUNBURY
+:root>html{0}>body{5}>center{0}>table{0}>tbody{119}>tr{1}>td - 32.6
+:root>html{0}>body{5}>center{0}>table{0}>tbody{119}>tr{2}>td - 34.4
+:root>html{0}>body{5}>center{0}>table{0}>tbody{120}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{120}>tr{0}>td - SURRY
+:root>html{0}>body{5}>center{0}>table{0}>tbody{120}>tr{1}>td - 33.0
+:root>html{0}>body{5}>center{0}>table{0}>tbody{120}>tr{2}>td - 34.6
+:root>html{0}>body{5}>center{0}>table{0}>tbody{121}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{121}>tr{0}>td - SUSQUEHANNA
+:root>html{0}>body{5}>center{0}>table{0}>tbody{121}>tr{1}>td - 32.6
+:root>html{0}>body{5}>center{0}>table{0}>tbody{121}>tr{2}>td - 34.5
+:root>html{0}>body{5}>center{0}>table{0}>tbody{122}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{122}>tr{0}>td - TMI
+:root>html{0}>body{5}>center{0}>table{0}>tbody{122}>tr{1}>td - 32.7
+:root>html{0}>body{5}>center{0}>table{0}>tbody{122}>tr{2}>td - 34.6
+:root>html{0}>body{5}>center{0}>table{0}>tbody{123}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{123}>tr{0}>td - VALLEY
+:root>html{0}>body{5}>center{0}>table{0}>tbody{123}>tr{1}>td - 31.8
+:root>html{0}>body{5}>center{0}>table{0}>tbody{123}>tr{2}>td - 33.3
+:root>html{0}>body{5}>center{0}>table{0}>tbody{124}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{124}>tr{0}>td - VASSELL
+:root>html{0}>body{5}>center{0}>table{0}>tbody{124}>tr{1}>td - 31.1
+:root>html{0}>body{5}>center{0}>table{0}>tbody{124}>tr{2}>td - 32.8
+:root>html{0}>body{5}>center{0}>table{0}>tbody{125}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{125}>tr{0}>td - WAUGHCHAPEL
+:root>html{0}>body{5}>center{0}>table{0}>tbody{125}>tr{1}>td - 33.5
+:root>html{0}>body{5}>center{0}>table{0}>tbody{125}>tr{2}>td - 35.3
+:root>html{0}>body{5}>center{0}>table{0}>tbody{126}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{126}>tr{0}>td - WESCOSVL
+:root>html{0}>body{5}>center{0}>table{0}>tbody{126}>tr{1}>td - 33.0
+:root>html{0}>body{5}>center{0}>table{0}>tbody{126}>tr{2}>td - 34.9
+:root>html{0}>body{5}>center{0}>table{0}>tbody{127}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{127}>tr{0}>td - WHITPAIN
+:root>html{0}>body{5}>center{0}>table{0}>tbody{127}>tr{1}>td - 33.2
+:root>html{0}>body{5}>center{0}>table{0}>tbody{127}>tr{2}>td - 35.1
+:root>html{0}>body{5}>center{0}>table{0}>tbody{128}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{128}>tr{0}>td - WMORELND
+:root>html{0}>body{5}>center{0}>table{0}>tbody{128}>tr{1}>td - 32.0
+:root>html{0}>body{5}>center{0}>table{0}>tbody{128}>tr{2}>td - 33.7
+:root>html{0}>body{5}>center{0}>table{0}>tbody{129}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{129}>tr{0}>td - WYLIERIDGE
+:root>html{0}>body{5}>center{0}>table{0}>tbody{129}>tr{1}>td - 31.9
+:root>html{0}>body{5}>center{0}>table{0}>tbody{129}>tr{2}>td - 33.7
+:root>html{0}>body{5}>center{0}>table{0}>tbody{130}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{130}>tr{0}>td - WYOMING
+:root>html{0}>body{5}>center{0}>table{0}>tbody{130}>tr{1}>td - 30.9
+:root>html{0}>body{5}>center{0}>table{0}>tbody{130}>tr{2}>td - 32.4
+:root>html{0}>body{5}>center{0}>table{0}>tbody{131}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{131}>tr{0}>td - YADKIN
+:root>html{0}>body{5}>center{0}>table{0}>tbody{131}>tr{1}>td - 33.2
+:root>html{0}>body{5}>center{0}>table{0}>tbody{131}>tr{2}>td - 34.8
+:root>html{0}>body{5}>center{0}>table{0}>tbody{132}>tr - 
+:root>html{0}>body{5}>center{0}>table{0}>tbody{132}>tr{0}>td - YUKON
+:root>html{0}>body{5}>center{0}>table{0}>tbody{132}>tr{1}>td - 32.0
+:root>html{0}>body{5}>center{0}>table{0}>tbody{132}>tr{2}>td - 33.7
+:root>html{0}>body{18}>br - 
+:root>html{0}>body{19}>br - 
+:root>html{0}>body{20}>br - 
+:root>html{0}>body{6}>center - 
+:root>html{0}>body{6}>center{0}>h2 - PJM Transfer Interface Information (MW)
+:root>html{0}>body{6}>center{0}>table - 
+:root>html{0}>body{6}>center{0}>table{0}>tbody - 
+:root>html{0}>body{6}>center{0}>table{0}>tbody{0}>tr - 
+:root>html{0}>body{6}>center{0}>table{0}>tbody{0}>tr{0}>td - 
+:root>html{0}>body{6}>center{0}>table{0}>tbody{0}>tr{0}>td{0}>b - Interface
+:root>html{0}>body{6}>center{0}>table{0}>tbody{0}>tr{1}>td - 
+:root>html{0}>body{6}>center{0}>table{0}>tbody{0}>tr{1}>td{0}>b - Actual flow
+:root>html{0}>body{6}>center{0}>table{0}>tbody{0}>tr{2}>td - 
+:root>html{0}>body{6}>center{0}>table{0}>tbody{0}>tr{2}>td{0}>b - Warning Level
+:root>html{0}>body{6}>center{0}>table{0}>tbody{0}>tr{3}>td - 
+:root>html{0}>body{6}>center{0}>table{0}>tbody{0}>tr{3}>td{0}>b - Transfer Limit
+:root>html{0}>body{6}>center{0}>table{0}>tbody{1}>tr - 
+:root>html{0}>body{6}>center{0}>table{0}>tbody{1}>tr{0}>td - 50045005
+:root>html{0}>body{6}>center{0}>table{0}>tbody{1}>tr{1}>td - 2407
+:root>html{0}>body{6}>center{0}>table{0}>tbody{1}>tr{2}>td - 3447
+:root>html{0}>body{6}>center{0}>table{0}>tbody{1}>tr{3}>td - 4028
+:root>html{0}>body{6}>center{0}>table{0}>tbody{2}>tr - 
+:root>html{0}>body{6}>center{0}>table{0}>tbody{2}>tr{0}>td - AEP/DOM
+:root>html{0}>body{6}>center{0}>table{0}>tbody{2}>tr{1}>td - 2188
+:root>html{0}>body{6}>center{0}>table{0}>tbody{2}>tr{2}>td - 3238
+:root>html{0}>body{6}>center{0}>table{0}>tbody{2}>tr{3}>td - 3409
+:root>html{0}>body{6}>center{0}>table{0}>tbody{3}>tr - 
+:root>html{0}>body{6}>center{0}>table{0}>tbody{3}>tr{0}>td - APSOUTH
+:root>html{0}>body{6}>center{0}>table{0}>tbody{3}>tr{1}>td - 3544
+:root>html{0}>body{6}>center{0}>table{0}>tbody{3}>tr{2}>td - 4144
+:root>html{0}>body{6}>center{0}>table{0}>tbody{3}>tr{3}>td - 4362
+:root>html{0}>body{6}>center{0}>table{0}>tbody{4}>tr - 
+:root>html{0}>body{6}>center{0}>table{0}>tbody{4}>tr{0}>td - BED-BLA
+:root>html{0}>body{6}>center{0}>table{0}>tbody{4}>tr{1}>td - 1522
+:root>html{0}>body{6}>center{0}>table{0}>tbody{4}>tr{2}>td - 1808
+:root>html{0}>body{6}>center{0}>table{0}>tbody{4}>tr{3}>td - 1903
+:root>html{0}>body{6}>center{0}>table{0}>tbody{5}>tr - 
+:root>html{0}>body{6}>center{0}>table{0}>tbody{5}>tr{0}>td - CENTRAL
+:root>html{0}>body{6}>center{0}>table{0}>tbody{5}>tr{1}>td - 790
+:root>html{0}>body{6}>center{0}>table{0}>tbody{5}>tr{2}>td - 3799
+:root>html{0}>body{6}>center{0}>table{0}>tbody{5}>tr{3}>td - 3999
+:root>html{0}>body{6}>center{0}>table{0}>tbody{6}>tr - 
+:root>html{0}>body{6}>center{0}>table{0}>tbody{6}>tr{0}>td - CLVLND
+:root>html{0}>body{6}>center{0}>table{0}>tbody{6}>tr{1}>td - 1401
+:root>html{0}>body{6}>center{0}>table{0}>tbody{6}>tr{2}>td - 2619
+:root>html{0}>body{6}>center{0}>table{0}>tbody{6}>tr{3}>td - 2757
+:root>html{0}>body{6}>center{0}>table{0}>tbody{7}>tr - 
+:root>html{0}>body{6}>center{0}>table{0}>tbody{7}>tr{0}>td - COMED
+:root>html{0}>body{6}>center{0}>table{0}>tbody{7}>tr{1}>td - -3084
+:root>html{0}>body{6}>center{0}>table{0}>tbody{7}>tr{2}>td - 2430
+:root>html{0}>body{6}>center{0}>table{0}>tbody{7}>tr{3}>td - 2558
+:root>html{0}>body{6}>center{0}>table{0}>tbody{8}>tr - 
+:root>html{0}>body{6}>center{0}>table{0}>tbody{8}>tr{0}>td - EAST
+:root>html{0}>body{6}>center{0}>table{0}>tbody{8}>tr{1}>td - 3792
+:root>html{0}>body{6}>center{0}>table{0}>tbody{8}>tr{2}>td - 6047
+:root>html{0}>body{6}>center{0}>table{0}>tbody{8}>tr{3}>td - 6366
+:root>html{0}>body{6}>center{0}>table{0}>tbody{9}>tr - 
+:root>html{0}>body{6}>center{0}>table{0}>tbody{9}>tr{0}>td - WEST
+:root>html{0}>body{6}>center{0}>table{0}>tbody{9}>tr{1}>td - 3264
+:root>html{0}>body{6}>center{0}>table{0}>tbody{9}>tr{2}>td - 5341
+:root>html{0}>body{6}>center{0}>table{0}>tbody{9}>tr{3}>td - 5943
+:root>html{0}>body{0}>p - 
+:root>html{0}>body{7}>center - Name does not indicate direction.
+:root>html{0}>body{21}>br - 
+:root>html{0}>body{22}>br - 
+:root>html{0}>body{23}>br - 
+:root>html{0}>body{8}>center - 
+:root>html{0}>body{8}>center{0}>h2 - PJM Instantaneous Dispatch Rates
+:root>html{0}>body{0}>a - 
+:root>html{0}>body{0}>a{0}>center - PJM Dispatch Rates
+:root>html{0}>body{24}>br - 
+:root>html{0}>body{25}>br - 
+:root>html{0}>body{26}>br - 
+:root>html{0}>body{9}>center - 
+:root>html{0}>body{9}>center{0}>h2 - PJM Instantaneous Load (MW)
+:root>html{0}>body{10}>center - 
+:root>html{0}>body{10}>center{0}>table - 
+:root>html{0}>body{10}>center{0}>table{0}>tbody - 
+:root>html{0}>body{10}>center{0}>table{0}>tbody{0}>tr - 
+:root>html{0}>body{10}>center{0}>table{0}>tbody{0}>tr{0}>td - 
+:root>html{0}>body{10}>center{0}>table{0}>tbody{0}>tr{0}>td{0}>b - Area
+:root>html{0}>body{10}>center{0}>table{0}>tbody{0}>tr{1}>td - 
+:root>html{0}>body{10}>center{0}>table{0}>tbody{0}>tr{1}>td{0}>b - Instantaneous Load
+:root>html{0}>body{10}>center{0}>table{0}>tbody{1}>tr - 
+:root>html{0}>body{10}>center{0}>table{0}>tbody{1}>tr{0}>td - PJM RTO
+:root>html{0}>body{10}>center{0}>table{0}>tbody{1}>tr{1}>td - 100392
+:root>html{0}>body{10}>center{0}>table{0}>tbody{2}>tr - 
+:root>html{0}>body{10}>center{0}>table{0}>tbody{2}>tr{0}>td - PJM MID ATLANTIC REGION
+:root>html{0}>body{10}>center{0}>table{0}>tbody{2}>tr{1}>td - 35829
+:root>html{0}>body{10}>center{0}>table{0}>tbody{3}>tr - 
+:root>html{0}>body{10}>center{0}>table{0}>tbody{3}>tr{0}>td - PJM SOUTHERN REGION
+:root>html{0}>body{10}>center{0}>table{0}>tbody{3}>tr{1}>td - 13175
+:root>html{0}>body{10}>center{0}>table{0}>tbody{4}>tr - 
+:root>html{0}>body{10}>center{0}>table{0}>tbody{4}>tr{0}>td - PJM WESTERN REGION
+:root>html{0}>body{10}>center{0}>table{0}>tbody{4}>tr{1}>td - 51389
+:root>html{0}>body{1}>p - 
+:root>html{0}>body{11}>center - Loads are calculated from raw telemetry data and are approximate.
+:root>html{0}>body{12}>center - The displayed values are NOT official PJM Loads.
+:root>html{0}>body{27}>br - 
+:root>html{0}>body{28}>br - 
+:root>html{0}>body{29}>br - 
+:root>html{0}>body{2}>p - 
+:root>html{0}>body{13}>center - 
+:root>html{0}>body{13}>center{0}>h2 - Current PJM Transmission Limits
+:root>html{0}>body{3}>p - Contingency EBEND 345 KV EBEND 1579 CB EBEND 345 KV EBEND 1583 CB LINE 345 KV EBEND-TERMINAL 4516 TERMINAL 345 KV TERMINAL 1301 CB TERMINAL 345 KV TERMINAL 1307 CB Monitor TANNERSC-MIAMIFOR 4504 B 345 KV -> Redispatch
+:root>html{0}>body{3}>p{0}>br - 
+:root>html{0}>body{3}>p{1}>br - 
+20171217 114158.375|main|INFO |g.e.FeedLoadParseApp|load_lmppost_static#86| ---- list csv style ----
 
 
 LMP Oasis posting
@@ -461,9 +2306,470 @@ Current PJM Transmission Limits
 Contingency EBEND 345 KV EBEND 1579 CB EBEND 345 KV EBEND 1583 CB LINE 345 KV EBEND-TERMINAL 4516 TERMINAL 345 KV TERMINAL 1301 CB TERMINAL 345 KV TERMINAL 1307 CB Monitor TANNERSC-MIAMIFOR 4504 B 345 KV -> Redispatch
 
 
-20171216 224307.341|main|INFO |g.e.FeedLoadParseApp|select#109| select : :root html head title
-20171216 224307.341|main|INFO |g.e.FeedLoadParseApp|select#111| nodes : :root|html|head|title
-20171216 224307.345|main|INFO |g.e.FeedLoadParseApp|load_lmppost_static#99| b[0] : <b>Sat Dec 16 19:40:00 EST 2017</b>
-20171216 224307.349|main|INFO |g.e.FeedLoadParseApp|load_lmppost_static#103| title[0] : LMP Oasis posting
-20171216 224307.350|main|INFO |g.e.FeedLoadParseApp|load_lmppost_static#105| Leaving...
-20171216 224307.350|main|INFO |g.e.FeedLoadParseApp|main#27| Leaving...
+20171217 114158.418|main|INFO |g.e.FeedLoadParseApp|load_lmppost_static#88| ---- list csv style via Ele2Csv ----
+20171217 114158.444|main|INFO |g.e.FeedLoadParseApp|load_lmppost_static#89| 
+
+LMP Oasis posting
+
+
+
+
+
+PJM Operational Data
+
+This is provided for informational purposes ONLY and should
+
+not be relied upon by any party for the actual billing values.
+
+
+
+
+
+Data Last Updated
+
+
+
+Sat Dec 16 19:40:00 EST 2017
+
+
+
+
+Aggregate Locational Marginal Prices (LMP)
+
+
+
+Name,Type,5 Minute Weighted Avg. LMP,Hourly Integrated LMP for Hour Ending 19
+AECO,ZONE,33.9,35.6
+AEP,ZONE,31.4,33.2
+APS,ZONE,32.8,34.6
+ATSI,ZONE,33.1,35.0
+BGE,ZONE,34.2,36.1
+COMED,ZONE,28.6,31.7
+DAY,ZONE,33.8,34.2
+DEOK,ZONE,36.3,33.2
+DOM,ZONE,33.4,35.2
+DPL,ZONE,34.5,36.5
+DUQ,ZONE,32.5,34.3
+EKPC,ZONE,31.6,32.4
+JCPL,ZONE,33.9,35.9
+METED,ZONE,33.5,35.5
+PECO,ZONE,33.5,35.4
+PENELEC,ZONE,33.1,35.1
+PEPCO,ZONE,33.8,35.6
+PPL,ZONE,33.3,35.2
+PSEG,ZONE,34.0,35.9
+RECO,ZONE,34.0,36.0
+CPLEEXP,INTERFACE,31.9,33.5
+CPLEIMP,INTERFACE,31.4,33.1
+DUKEXP,INTERFACE,31.5,33.1
+DUKIMP,INTERFACE,31.2,32.9
+HUDSONTP,INTERFACE,35.4,37.4
+IMO,INTERFACE,31.0,34.3
+LINDENVFT,INTERFACE,34.0,36.0
+MISO,INTERFACE,27.6,31.5
+NCMPAEXP,INTERFACE,31.4,33.0
+NCMPAIMP,INTERFACE,31.4,33.0
+NEPTUNE,INTERFACE,33.8,35.7
+NIPSCO,INTERFACE,28.8,31.8
+NORTHWEST,INTERFACE,27.9,31.0
+NYIS,INTERFACE,33.7,35.7
+OVEC,INTERFACE,30.4,32.0
+SOUTHEXP,INTERFACE,29.8,32.3
+SOUTHIMP,INTERFACE,29.8,32.3
+AEC - AP,AGGREGATE,32.6,34.4
+AEC - JC,AGGREGATE,35.1,37.2
+AEC - ME,AGGREGATE,33.3,35.2
+AEC - PN,AGGREGATE,33.2,35.2
+AELC,AGGREGATE,28.4,31.4
+AEP W.O. MON POWER,AGGREGATE,31.3,33.1
+AEPOHIO W.O. MON POWER,AGGREGATE,32.1,33.5
+AK STEEL,AGGREGATE,28.1,31.2
+AMP-ATSI,AGGREGATE,32.9,34.8
+AMP-ATSI OH,AGGREGATE,32.9,34.8
+AMP-ATSI PA,AGGREGATE,32.8,34.7
+AMP-METED,AGGREGATE,33.5,35.3
+AMP-OHIO,AGGREGATE,31.8,33.4
+AURORA CT 1-4,AGGREGATE,28.4,31.5
+BATAVIA,AGGREGATE,28.4,31.5
+BATH COUNTY GEN,AGGREGATE,31.7,33.2
+BAYONNE TECH,AGGREGATE,34.4,36.3
+BAYVIEW,AGGREGATE,39.8,42.0
+BERLIN DPL,AGGREGATE,35.8,37.8
+BLAKELY BORO,AGGREGATE,33.5,35.3
+BLUE RIDGE,AGGREGATE,32.1,33.6
+BRANDONSH,AGGREGATE,33.9,35.8
+BRUNSWICK,AGGREGATE,33.7,35.7
+BUCK-CIN,AGGREGATE,35.7,33.3
+BUCK-FE,AGGREGATE,33.0,35.0
+BUCKEYE - AEP,AGGREGATE,32.1,33.5
+BUCKEYE - DPL,AGGREGATE,33.8,34.7
+BUCKEYE - WEC,AGGREGATE,31.1,32.6
+CAMDEN TECH,AGGREGATE,33.4,35.3
+CATAWISSA,AGGREGATE,31.9,33.8
+CHAMBERS CCLP,AGGREGATE,33.2,35.0
+CITIZENS,AGGREGATE,32.6,34.5
+CLINCH RIVER 1-3,AGGREGATE,30.5,31.9
+CONOWINGO GEN 1-11,AGGREGATE,33.4,35.3
+COOKSTOWN,AGGREGATE,33.6,35.6
+CORDOVA,AGGREGATE,27.3,30.4
+CPP,AGGREGATE,33.4,35.3
+CRISFIELD,AGGREGATE,37.0,39.1
+DECAM COAL GEN,AGGREGATE,33.4,32.3
+DECAM GAS GEN,AGGREGATE,30.9,32.5
+DEK,AGGREGATE,36.3,33.0
+DELI,AGGREGATE,27.5,30.6
+DEMEC,AGGREGATE,33.8,35.7
+DENAWASH,AGGREGATE,30.9,32.3
+DOVER,AGGREGATE,33.6,35.5
+DPL NORTH,AGGREGATE,33.2,35.1
+DPL SOUTH,AGGREGATE,35.6,37.6
+DPL_ODEC,AGGREGATE,35.8,37.9
+DRESDEN CC,AGGREGATE,30.7,32.0
+DUNCANNON,AGGREGATE,32.6,34.5
+EAGLE POINT,AGGREGATE,33.3,35.2
+EAST BEND 2,AGGREGATE,18.6,30.4
+EASTON,AGGREGATE,34.9,36.9
+ECRRF,AGGREGATE,34.2,36.1
+EKPC-DEOK LOAD,AGGREGATE,38.9,33.1
+ELGIN EC3,AGGREGATE,28.5,31.5
+ELIZABETHTOWN,AGGREGATE,31.6,33.3
+EPHRATA,AGGREGATE,33.6,35.6
+FAIRLAWN,AGGREGATE,34.3,36.3
+FE GEN,AGGREGATE,32.3,34.1
+FE OHIO,AGGREGATE,33.0,34.9
+FRONT ROYAL - AP,AGGREGATE,32.8,34.5
+GENEVA,AGGREGATE,28.5,31.5
+GIRARD,AGGREGATE,33.4,35.4
+GOLDSBORO,AGGREGATE,33.3,35.0
+GORSUCH,AGGREGATE,31.3,33.0
+GRAND POINT,AGGREGATE,34.6,36.4
+GRANDPOINT T1,AGGREGATE,34.6,36.4
+GREENUP,AGGREGATE,31.6,32.5
+HAGERSTOWN - AP,AGGREGATE,33.8,35.7
+HANDSOME LAKE,AGGREGATE,32.8,34.7
+HATFIELD - PL,AGGREGATE,33.3,35.3
+HAZLETON 1-4,AGGREGATE,32.9,34.8
+HAZLETON 2-3,AGGREGATE,32.9,34.8
+HAZLETON 3-4,AGGREGATE,32.9,34.8
+HILLSDALE_PARKRIDGE,AGGREGATE,34.1,36.1
+HOMERCIT,AGGREGATE,32.1,33.8
+HOMERCIT UNIT1,AGGREGATE,32.1,33.8
+HOMERCIT UNIT2,AGGREGATE,32.2,33.9
+HOMERCIT UNIT3,AGGREGATE,32.2,33.9
+HREA - AP,AGGREGATE,32.5,34.3
+HUDSON BC,AGGREGATE,34.3,36.2
+HUDSON-LINDEN ABC,AGGREGATE,34.1,36.1
+IRONWOOD,AGGREGATE,32.4,34.3
+JOLIET 7,AGGREGATE,28.6,31.6
+KENDALL 1-2,AGGREGATE,28.3,31.3
+KENDALL 3 CC,AGGREGATE,28.3,31.3
+KENDALL CT3,AGGREGATE,28.3,31.3
+KITTATNY 230,AGGREGATE,33.9,35.9
+LANSDALE,AGGREGATE,33.3,35.3
+LEHIGHTON,AGGREGATE,33.1,35.0
+LEWES DPL,AGGREGATE,35.5,37.6
+LIBERTY,AGGREGATE,33.3,35.2
+LIDA - AP,AGGREGATE,34.6,36.5
+LINDEN A,AGGREGATE,33.9,35.9
+LUMBERTON,AGGREGATE,31.6,33.3
+MADISON,AGGREGATE,34.1,32.7
+MANITOU,AGGREGATE,33.7,35.6
+MARION,AGGREGATE,34.3,36.2
+MERIDIAN EWHITLEY,AGGREGATE,28.7,32.2
+MEYERSDALE WF,AGGREGATE,31.7,33.4
+MICHFE,AGGREGATE,31.6,33.6
+MIFFLINBURG,AGGREGATE,32.6,34.5
+MISO (PRE-ATSI),AGGREGATE,29.3,32.1
+MITCHELL 1,AGGREGATE,31.3,32.9
+MON POWER,AGGREGATE,31.3,32.9
+MONT ALTO - AP,AGGREGATE,34.2,36.0
+MONTVILLE,AGGREGATE,34.1,36.0
+MOTIVA,AGGREGATE,32.8,34.7
+MUDDY RUN,AGGREGATE,32.6,34.5
+NAAMANS,AGGREGATE,33.2,35.1
+NAPERVILLE,AGGREGATE,28.5,31.6
+NEW CASTLE DIESEL,AGGREGATE,32.8,34.7
+NEWARK BAY,AGGREGATE,34.2,36.1
+NEWCHURCH CT1-2,AGGREGATE,36.5,38.6
+NEWMARTINSVILLE-AP,AGGREGATE,31.6,33.3
+NLEBNON,AGGREGATE,33.0,34.9
+OCCIDENTAL,AGGREGATE,32.8,34.7
+OLYPHANT,AGGREGATE,33.5,35.3
+ONTARIO,AGGREGATE,32.0,34.2
+ONTELAUNEE,AGGREGATE,32.7,34.7
+PAINESVILLE,AGGREGATE,33.1,35.0
+PENN POWER,AGGREGATE,32.8,34.7
+PENNTECH,AGGREGATE,33.0,35.2
+PEPCO DC,AGGREGATE,33.8,35.7
+PEPCO MD,AGGREGATE,33.8,35.6
+PEPCO SMECO,AGGREGATE,33.4,35.2
+PERKASIE,AGGREGATE,33.3,35.3
+PERRYMAN 1-2,AGGREGATE,34.0,35.9
+PERRYMAN 3-4,AGGREGATE,34.0,35.9
+PHILIPPI - AP,AGGREGATE,32.0,33.8
+POTTSTOWN NUG,AGGREGATE,34.4,36.5
+PPL_ALLUGI,AGGREGATE,33.4,35.4
+QUAKERTOWN,AGGREGATE,33.3,35.3
+REDOAK CC,AGGREGATE,33.7,35.6
+RICHMOND,AGGREGATE,28.2,32.2
+RIVER,AGGREGATE,28.9,31.9
+ROCHELLE,AGGREGATE,28.6,31.8
+ROCK FALLS,AGGREGATE,27.4,30.6
+ROCKFORD,AGGREGATE,27.9,31.0
+RTEP B0287 SOURCE,AGGREGATE,32.6,34.5
+RTEP B0328 SOURCE,AGGREGATE,31.9,33.6
+RTEP B0329 SOURCE,AGGREGATE,33.1,34.7
+SCHUYLKILL HAVEN,AGGREGATE,32.2,34.0
+SENECA,AGGREGATE,32.5,35.0
+SOUTH BEND 1-4,AGGREGATE,31.9,33.7
+SOUTHEAST,AGGREGATE,31.8,33.4
+SOUTHEAST (PRE-DOM),AGGREGATE,32.1,33.7
+SOUTHRIV 230,AGGREGATE,33.7,35.7
+SOUTHWEST,AGGREGATE,30.8,31.9
+ST CLAIR,AGGREGATE,32.2,34.0
+ST. CHARLES,AGGREGATE,28.5,31.5
+SULLIVAN,AGGREGATE,32.2,34.0
+SUNBURY BUS1E,AGGREGATE,32.6,34.5
+SUNBURY BUS1W,AGGREGATE,32.6,34.5
+SUNBURY BUS2E,AGGREGATE,32.6,34.5
+SUNBURY BUS2W,AGGREGATE,32.6,34.5
+SUNBURY LBRG,AGGREGATE,32.6,34.5
+SUNOIL,AGGREGATE,33.4,35.4
+TANSBORO AE,AGGREGATE,33.3,35.2
+TARENTUM - AP,AGGREGATE,31.8,33.6
+TEMPLEU,AGGREGATE,33.8,35.8
+THURMONT - AP,AGGREGATE,34.0,35.8
+TOSCO LOAD BUS,AGGREGATE,33.9,35.9
+TRAYNOR,AGGREGATE,34.0,36.0
+TRI-COUNTY,AGGREGATE,34.3,36.3
+UGI,AGGREGATE,33.4,35.4
+VINELAND,AGGREGATE,33.9,35.1
+VP KERR DAM 1-7,AGGREGATE,32.9,34.5
+WALDWICK JK,AGGREGATE,33.9,35.9
+WARREN COUNTY CC,AGGREGATE,32.6,34.3
+WATERFORD CC,AGGREGATE,30.8,32.2
+WATSONTOWN,AGGREGATE,32.2,34.0
+WEATHERLY,AGGREGATE,32.9,34.8
+WELLSBORO,AGGREGATE,33.4,35.3
+WESTVACO,AGGREGATE,32.4,34.2
+WILLIAMSPORT - AP,AGGREGATE,33.7,35.5
+WILLIAMSTOWN,AGGREGATE,32.3,32.1
+WINNETKA,AGGREGATE,28.7,31.8
+ZION 1,AGGREGATE,28.3,31.5
+AEP GEN HUB,HUB,29.6,32.1
+AEP-DAYTON HUB,HUB,31.1,33.0
+ATSI GEN HUB,HUB,32.6,34.5
+CHICAGO GEN HUB,HUB,28.3,31.3
+CHICAGO HUB,HUB,28.7,31.8
+DOMINION HUB,HUB,33.3,34.9
+EASTERN HUB,HUB,34.6,36.6
+N ILLINOIS HUB,HUB,28.6,31.6
+NEW JERSEY HUB,HUB,33.9,35.8
+OHIO HUB,HUB,30.9,33.0
+WEST INT HUB,HUB,32.3,34.1
+WESTERN HUB,HUB,33.1,35.0
+
+
+
+
+
+
+
+
+
+
+500 KV Bus Locational Marginal Prices (LMP)
+
+
+
+Bus Name,5 Minute LMP,Hourly Integrated LMP for Hour Ending 19
+112 WILTON,28.4,31.4
+167 PLANO,28.3,31.3
+23 COLLINS,28.4,31.3
+502JCT,31.7,33.4
+ALBURTIS,33.1,35.0
+AMOS,30.6,32.1
+AXTON,31.2,32.7
+BAKER,30.7,32.2
+BATH COUNTY,31.7,33.2
+BEDINGTON,33.0,34.8
+BELMONT,31.1,32.7
+BLACKOAK,32.4,34.2
+BRAMBLET,33.2,35.0
+BRANCHBURG,33.5,35.4
+BRIGHTON,33.4,35.2
+BRISTERS,33.1,34.9
+BRNGSVIL,33.0,34.9
+BROADFORD,31.0,32.5
+BRUNSSWY,32.4,34.0
+BURCHESHILL,33.4,35.2
+CABOT,32.0,33.7
+CALVERTC,33.3,35.1
+CARSON,32.9,34.5
+CENTERPT,33.2,35.1
+CHALKPT,33.4,35.2
+CHANCELLOR,33.1,34.9
+CHELTENH,33.4,35.2
+CHICKAHOMINY,33.3,35.1
+CLIFTON,33.2,35.0
+CLOVER,32.4,33.9
+CLOVERDALE,31.5,33.0
+CONASTONE,32.9,34.7
+CONEMAUGH,32.0,33.7
+COOK,28.8,31.7
+CRANBERRY,32.0,33.7
+CULLODEN,30.7,32.2
+CUNNINGHAM,31.5,33.0
+DEANS,33.5,35.5
+DLTAPLNT,32.7,34.6
+DOOMS,31.7,33.2
+DOUBS,33.2,35.0
+DUMONT,28.8,31.8
+ELMONT,33.3,35.0
+ELROY,33.2,35.2
+ELROYPL,33.2,35.2
+EWINDSOR,33.5,35.5
+FENTRESS,33.2,34.8
+FLATLICK,30.7,32.2
+FLUVANNA,31.4,33.0
+FORTMARTIN,31.7,33.4
+FREEDOM2,32.7,34.6
+FRONT ROYAL,32.6,34.4
+GAVIN,30.6,32.2
+GOOSECRE,33.2,35.0
+GREENLAND GAP,32.2,33.9
+GRNSVIL,32.4,34.0
+HANGING ROCK,30.5,32.1
+HARRISON,31.6,33.3
+HATFIELD,31.8,33.6
+HOPATCON,33.8,35.7
+HOPECREEK,32.8,34.7
+HOSENSACK,33.1,35.0
+HUNTERSTOWN,32.6,34.4
+JACKSONS FERRY,31.2,32.7
+JEFFERSON,28.7,31.6
+JOSHUA FALLS,31.5,33.1
+JUNIATA,32.6,34.4
+KAMMER,31.4,33.0
+KEENEY,32.9,34.7
+KEYSTONE,31.9,33.7
+LACKAWAN,33.2,35.1
+LADYSMITH,33.1,34.9
+LAUSCHTO,32.9,34.8
+LEXINGTON,31.6,33.1
+LIMERICK,33.1,35.0
+LOUDOUN,33.2,35.0
+MALISZEWSKI,31.0,32.7
+MARQUIS,30.8,32.1
+MARYSVILLE,30.8,32.6
+MEADOWBROOK,32.6,34.3
+MIDLOTHIAN,33.0,34.6
+MORRISVILLE,33.1,34.8
+MOSBY,33.2,35.0
+MOUNTAINEER,30.7,32.2
+MT STORM,32.2,33.8
+NAGELAEP,30.7,32.3
+NEWFREEDOM,33.0,34.9
+NORTH ANNA,33.0,34.7
+NORTH LONGVIEW,31.7,33.4
+NORTH PROCTORVILLE,30.6,32.1
+ORCHARD,32.9,34.8
+OX,33.2,35.0
+PEACHBOTTOM,32.7,34.6
+PLEASANT VIEW,33.2,35.0
+PLEASANTS,31.1,32.7
+POSSUM POINT,33.3,35.0
+PRUNTYTOWN,31.8,33.4
+RAWLINGS,32.6,34.2
+REDLION,32.9,34.7
+REYNOLD2,28.4,31.7
+RHODESLN,32.0,33.7
+ROCKPORT,28.1,31.2
+ROCKSPRINGS,32.8,34.6
+ROGERSRD,32.4,34.0
+RONCO,31.8,33.5
+ROSELAND,33.9,35.9
+SALEM,32.8,34.6
+SEPTA,33.0,34.6
+SHICKSHI,32.7,34.6
+SKFFSCRK,34.2,36.0
+SMITHBURG,33.6,35.5
+SORENSON,28.6,32.1
+SOUTH CANTON,31.8,33.5
+SOUTHBEND,31.9,33.7
+SPOTSLV,33.0,34.8
+STEELCITY,33.0,35.0
+SUFFOLK,33.1,34.7
+SULLIVAN-AEP,27.9,31.2
+SUNBURY,32.6,34.4
+SURRY,33.0,34.6
+SUSQUEHANNA,32.6,34.5
+TMI,32.7,34.6
+VALLEY,31.8,33.3
+VASSELL,31.1,32.8
+WAUGHCHAPEL,33.5,35.3
+WESCOSVL,33.0,34.9
+WHITPAIN,33.2,35.1
+WMORELND,32.0,33.7
+WYLIERIDGE,31.9,33.7
+WYOMING,30.9,32.4
+YADKIN,33.2,34.8
+YUKON,32.0,33.7
+
+
+
+
+PJM Transfer Interface Information (MW)
+
+
+Interface,Actual flow,Warning Level,Transfer Limit
+50045005,2407,3447,4028
+AEP/DOM,2188,3238,3409
+APSOUTH,3544,4144,4362
+BED-BLA,1522,1808,1903
+CENTRAL,790,3799,3999
+CLVLND,1401,2619,2757
+COMED,-3084,2430,2558
+EAST,3792,6047,6366
+WEST,3264,5341,5943
+
+Name does not indicate direction.
+
+
+
+
+PJM Instantaneous Dispatch Rates
+
+PJM Dispatch Rates
+
+
+
+
+PJM Instantaneous Load (MW)
+
+
+
+Area,Instantaneous Load
+PJM RTO,100392
+PJM MID ATLANTIC REGION,35829
+PJM SOUTHERN REGION,13175
+PJM WESTERN REGION,51389
+
+Loads are calculated from raw telemetry data and are approximate.
+The displayed values are NOT official PJM Loads.
+
+
+
+
+
+Current PJM Transmission Limits
+Contingency EBEND 345 KV EBEND 1579 CB EBEND 345 KV EBEND 1583 CB LINE 345 KV EBEND-TERMINAL 4516 TERMINAL 345 KV TERMINAL 1301 CB TERMINAL 345 KV TERMINAL 1307 CB Monitor TANNERSC-MIAMIFOR 4504 B 345 KV -> Redispatch
+
+
+
+20171217 114158.445|main|INFO |g.e.FeedLoadParseApp|select#112| select : :root html head title
+20171217 114158.446|main|INFO |g.e.FeedLoadParseApp|select#114| nodes : :root|html|head|title
+20171217 114158.450|main|INFO |g.e.FeedLoadParseApp|load_lmppost_static#102| b[0] : <b>Sat Dec 16 19:40:00 EST 2017</b>
+20171217 114158.454|main|INFO |g.e.FeedLoadParseApp|load_lmppost_static#106| title[0] : LMP Oasis posting
+20171217 114158.455|main|INFO |g.e.FeedLoadParseApp|load_lmppost_static#108| Leaving...
+20171217 114158.455|main|INFO |g.e.FeedLoadParseApp|main#27| Leaving...

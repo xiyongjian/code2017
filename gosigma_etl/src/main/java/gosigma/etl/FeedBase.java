@@ -36,6 +36,10 @@ import ch.qos.logback.core.joran.spi.JoranException;
  * @author xyj
  *
  */
+/**
+ * @author xyj
+ *
+ */
 public abstract class FeedBase {
 	public Logger log = null;
 
@@ -129,6 +133,9 @@ public abstract class FeedBase {
 			System.setProperty("etl.command", "true");
 		if (this._cDebug == true)
 			System.setProperty("etl.debug", "true");
+		// add and check, commandline/enviornment control debug
+		if ("true".equals(System.getProperty("etl.debug")))
+			this._cDebug = true;
 
 		LoggerContext lc = (LoggerContext) LoggerFactory.getILoggerFactory();
 		ContextInitializer ci = new ContextInitializer(lc);
@@ -373,10 +380,10 @@ public abstract class FeedBase {
 
 			for (int i = 0; i < sqls.size(); ++i) {
 				String sql = sqls.get(i);
-				log.info("run sql : " + sql);
+				if (Utils.shouldDump(i)) log.info("run sql " + i + " : " + sql);
 				try {
 					int ret = statement.executeUpdate(sql);
-					log.info("return : " + ret);
+					if (Utils.shouldDump(i)) log.info("return : " + ret);
 				} catch (SQLException e) {
 					throw new EtlException("run [" + i + "] : " + sql, e);
 				}
@@ -422,6 +429,23 @@ public abstract class FeedBase {
 		log.info("Leaving...  ret : " + sb.toString());
 
 		return sb.toString();
+	}
+
+	/**
+	 * load key from propertie, and check not null if needed
+	 * @param prop
+	 * @param key
+	 * @param notNull
+	 * @return
+	 * @throws EtlException
+	 */
+	public String getProperty(Properties prop, String key, boolean notNull) throws EtlException {
+		String val = prop.getProperty(key);
+		log.info(key + " : " + val);
+		if (notNull == true && val == null)
+			throw new EtlException("property " + key + " not defined!");
+
+		return val;
 	}
 
 }

@@ -10,9 +10,11 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
+import org.jsoup.nodes.Element;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -209,94 +211,123 @@ public class Utils {
 
 	/************* section : parsing util ******************/
 	public static String csvString = "\r\n" +
-			"Data Last Updated\r\n" +
 			"\r\n" +
-			"\r\n" +
-			"\r\n" +
-			"\r\n" +
-			"Sat Dec 16 19:40:00 EST 2017,\r\n" +
 			"\r\n" +
 			"\r\n" +
 			"PJM Transfer Interface Information (MW)\r\n" +
 			"\r\n" +
 			"\r\n" +
+			"Interface,Actual flow,Warning Level,Transfer Limit\r\n" +
+			"50045005,2407,3447,4028\r\n" +
+			"AEP/DOM,2188,3238,3409\r\n" +
+			"APSOUTH,3544,4144,4362\r\n" +
+			"BED-BLA,1522,1808,1903\r\n" +
+			"CENTRAL,790,3799,3999\r\n" +
+			"CLVLND,1401,2619,2757\r\n" +
+			"COMED,-3084,2430,2558\r\n" +
+			"EAST,3792,6047,6366\r\n" +
+			"WEST,3264,5341,5943\r\n" +
 			"\r\n" +
-			"Interface,Actual flow,Warning Level,Transfer Limit,\r\n" +
-			"50045005,2407,3447,4028,\r\n" +
-			"AEP/DOM,2188,3238,3409,\r\n" +
-			"APSOUTH,3544,4144,4362,\r\n" +
-			"BED-BLA,1522,1808,1903,\r\n" +
-			"CENTRAL,790,3799,3999,\r\n" +
-			"CLVLND,1401,2619,2757,\r\n" +
-			"COMED,-3084,2430,2558,\r\n" +
-			"EAST,3792,6047,6366,\r\n" +
-			"WEST,3264,5341,5943,\r\n" +
-			"Name does not indicate direction.\r\n" +
-			"\r\n" +
-			"\r\n" +
-			"\r\n" +
-			"\r\n" +
-			"PJM Instantaneous Dispatch Rates\r\n" +
-			"\r\n" +
-			"PJM Dispatch Rates\r\n" +
+			"Name does not indicate direction." +
 			"\r\n" +
 			"\r\n" +
 			"\r\n" +
+			"Data Last Updated\r\n" +
 			"\r\n" +
-			"PJM Instantaneous Load (MW)\r\n" +
+			"\r\n" +
+			"\r\n" +
+			"Sat Dec 16 19:40:00 EST 2017\r\n" +
 			"\r\n" +
 			"\r\n" +
 			"\r\n" +
 			"\r\n" +
-			"Area,Instantaneous Load,\r\n" +
-			"PJM RTO,100392,\r\n" +
-			"PJM MID ATLANTIC REGION,35829,\r\n" +
-			"PJM SOUTHERN REGION,13175,\r\n" +
-			"PJM WESTERN REGION,51389,\r\n" +
-			"Loads are calculated from raw telemetry data and are approximate.\r\n" +
-			"The displayed values are NOT official PJM Loads.\r\n" +
+			"Aggregate Locational Marginal Prices (LMP)\r\n" +
 			"\r\n" +
-			"";
+			"\r\n" +
+			"\r\n" +
+			"Name,Type,5 Minute Weighted Avg. LMP,Hourly Integrated LMP for Hour Ending 19\r\n" +
+			"AECO,ZONE,33.9,35.6\r\n" +
+			"AEP,ZONE,31.4,33.2\r\n" +
+			"APS,ZONE,32.8,34.6\r\n" +
+			"ATSI,ZONE,33.1,35.0\r\n" +
+			"BGE,ZONE,34.2,36.1";
 
 	/**
-	 * find record at 'offset' after record which 'col' column contains 'match'
-	 * 
-	 * pass all empty line/record
+	 * find record at 'offset' after record which contains 'match' and with
+	 * totalCols pass all empty line/record /**
 	 * 
 	 * @param records
-	 * @param col
-	 * @param start
+	 * @param match
 	 * @param offset
+	 * @param totalCols
 	 * @return
+	 * @throws EtlException 
 	 */
-	public static CSVRecord findRecord(List<CSVRecord> records, int col, String match, int offset) {
-		log.info("Entering... col : " + col + ", match : " + match + " , offset : " + offset);
-		Pattern regex = Pattern.compile(match);
+	public static List<CSVRecord> findCsvRecords(List<CSVRecord> records, String match, String args) throws EtlException {
+		log.info("Entering...  match : " + match + " , args : " + args);
+		List<Integer> ints = Arrays.asList(args.split(",")).stream().map(s -> Integer.parseInt(s))
+				.collect(Collectors.toList());
+		if (ints.size() < 2)
+			throw new EtlException("args have less than 2 values");
+		return findCsvRecords(records, match, ints.get(0), ints.get(1));
+	}
+
+	public static List<CSVRecord> findCsvRecords(List<CSVRecord> records, String match, int offset, int totalCols) {
+		log.info("Entering... match : " + match + " , offset : " + offset + " , totalCols : " + totalCols);
+
+		String regex = regexAll(match);
+		// String regexS = regexAll(match.replace("\\s", "")); // without space, dangerous
 		boolean found = false;
 		int pass = 0;
-		CSVRecord ret = null;
+		List<CSVRecord> ret = new ArrayList<CSVRecord>();
+
 		for (int i = 0; i < records.size(); ++i) {
 			CSVRecord record = records.get(i);
-			if (record.size() < 2 && (record.size() == 1 && record.get(0).trim().isEmpty()))
+			String recordString = recordString(record);
+			if (recordString.isEmpty())
 				continue;
 			if (found == false) {
-				if (record.size() > col && regex.matcher(record.get(col).trim()).find()) {
-					log.info("found record : " + record.toString());
+				// if (recordString.matches(regex) || recordString.matches(regexS))
+				if (Utils.doubleMatch(recordString, regex)) {
+					log.info("found record : " + recordString);
 					found = true;
 				} else
 					continue;
 			}
 
-			if (pass == offset) {
-				ret = record;
-				log.info("get record at offset : " + ret.toString());
-				break;
+			if (pass >= offset) {
+				if (record.size() == totalCols) {
+					ret.add(record);
+					if (Utils.shouldDump(pass - offset)) log.info("get record at offset : " + pass + ", record : " + recordString);
+				} else {
+					log.info("cols size mismatch : " + record.size() + " vs " + totalCols);
+					break;
+				}
 			}
 			++pass;
 		}
 
 		log.info("Leaving...");
 		return ret;
+
+	}
+
+	public static boolean doubleMatch(String s, String regex) {
+		return s.matches(regex) || s.replaceAll("\\s", "").matches(regex); // ignore space
+	}
+
+	public static String regexAll(String str) {
+		return ".*(?i)" + str + ".*"; // ignore case
+	}
+
+	public static String recordString(CSVRecord rec) {
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < rec.size(); ++i) {
+			if (i > 0)
+				sb.append(',');
+			sb.append(rec.get(i));
+		}
+		return sb.toString();
 	}
 
 	public static void testParse() {
@@ -307,12 +338,22 @@ public class Utils {
 			List<CSVRecord> records = CSVFormat.EXCEL.parse(in).getRecords();
 
 			{
-				String start = "Data Last Updated";
-				CSVRecord rec = findRecord(records, 0, start, 1);
-				if (rec != null) {
-					log.info("found : " + rec.toString());
-					log.info("get data : " + rec.get(0));
-				}
+				// String start = "Data Last Updated";
+				String start = "Last Updated";
+				List<CSVRecord> recs = null;
+
+				recs = findCsvRecords(records, start, 0, 1);
+				log.info("find record with : " + start);
+				log.info("return rows : " + recs.size());
+				for (CSVRecord r : recs)
+					log.info("record : " + recordString(r));
+
+				start = "Interface,Actual flow,Warning Level,Transfer Limi";
+				log.info("find records follow : " + start);
+				recs = findCsvRecords(records, start, 0, 4);
+				log.info("return rows : " + recs.size());
+				for (CSVRecord r : recs)
+					log.info("record : " + recordString(r));
 			}
 			for (CSVRecord record : records) {
 
@@ -323,6 +364,99 @@ public class Utils {
 		}
 	}
 
+	/*************
+	 * section : parse html element to csv style string
+	 ******************/
+	public static class Ele2Csv {
+		private boolean rowLine = false;
+		private StringBuilder sb = null;
+
+		public String proc(Element e) {
+			rowLine = false;
+			sb = new StringBuilder();
+			return conv(e);
+		}
+
+		private String conv(Element e) {
+			// td tag for continue lines
+			if (e.tagName().equalsIgnoreCase("td")) {
+				if (rowLine == true)
+					sb.append(',');
+				sb.append(e.text());
+				rowLine = true;
+			} else {
+				if (rowLine == true)
+					sb.append('\n');
+				rowLine = false;
+				// if (!e.ownText().isEmpty())
+				sb.append(e.ownText());
+				if (!e.tagName().equalsIgnoreCase(("tr"))) // shrink tr's new line
+					sb.append('\n');
+				for (Element c : e.children()) {
+					conv(c);
+				}
+			}
+			return sb.toString();
+		}
+	}
+
+	/**
+	 * parse 'cols' string for insert SQL
+	 * 
+	 * @param cols
+	 *            cols string from properties file
+	 * @param idxs
+	 *            return indexes of columns for values
+	 * @return string xxx used in 'insert <tbl> ( xxx ) .....
+	 */
+	public String parseCols(String cols, List<Integer> indexes) {
+		log.info("Entering...  cols : " + cols);
+		String[] cl = cols.split(",");
+
+		indexes.clear();
+		// String insCols = "";
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < cl.length; ++i) {
+			String s = cl[i].trim();
+			if (s.equals(""))
+				continue;
+			if (!indexes.isEmpty())
+				sb.append(",");
+			sb.append(s);
+			indexes.add(i);
+		}
+		// ensure
+		assert sb.toString().split(",").length == indexes.size();
+
+		log.info("indexes : " + String.join(",", indexes.stream().map(Object::toString).collect(Collectors.toList())));
+		log.info("Leaving...  ret : " + sb.toString());
+
+		return sb.toString();
+	}
+
+	public static String getValueFromCsvRecord(CSVRecord record, List<Integer> indexes) {
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < indexes.size(); ++i) {
+			if (i > 0)
+				sb.append(',');
+			sb.append("\"" + record.get(indexes.get(i)) + "\"");
+		}
+		return sb.toString();
+	}
+
+
+	/************* sequence dump control ******************/
+	private static int _dumpFactor = 1;
+	public static boolean shouldDump(int i) {
+		if (_dumpFactor < 1)
+			return true;
+		return (i%_dumpFactor) == 0;
+	}
+	public static void setDumpFactor(int f) {
+		log.info("set dump factor : " + f);
+		_dumpFactor = f;
+		
+	}
 	/************* section : main() for testing ******************/
 	public static void main(String[] args) {
 		testInit();

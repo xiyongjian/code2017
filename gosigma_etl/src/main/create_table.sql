@@ -1,5 +1,4 @@
-
-USE SONG;
+USE <DBNAME>
 
 -- DROP TABLE IESO_REALTIMECONSTTOTALS;
 CREATE TABLE IF NOT EXISTS IESO_RealtimeConstTotals (
@@ -30,4 +29,115 @@ CREATE TABLE IF NOT EXISTS NYISO_5_Minute_Price (
     PRIMARY KEY (DDATE, HOUR, DINTERVAL, PTID)
     );
 
+DROP TABLE PJM_5_minute_Prices;
+CREATE TABLE IF NOT EXISTS PJM_5_minute_Prices (
+    DDATE DATE,
+    HOUR INT,
+    DINTERVAL INT,
+    NAME VARCHAR(64),
+    DTYPE VARCHAR(64),
+    PRICE FLOAT,
+    PRIMARY KEY (DDATE, HOUR, DINTERVAL, NAME, DTYPE)
+);
 
+DROP TABLE PJM_Hourly_Price;
+CREATE TABLE IF NOT EXISTS PJM_Hourly_Price (
+    DDATE DATE,
+    HOUR INT,
+    NAME VARCHAR(64),
+    DTYPE VARCHAR(64),
+    PRICE FLOAT,
+    PRIMARY KEY (DDATE, HOUR, NAME, DTYPE)
+);
+
+DROP TABLE PJM_5_Minute_Actual_Load;
+CREATE TABLE IF NOT EXISTS PJM_5_Minute_Actual_Load (
+    DDATE DATE,
+    HOUR INT,
+    DINTERVAL INT,
+    AREA VARCHAR(64),
+    DLOAD FLOAT,
+    PRIMARY KEY (DDATE, HOUR, DINTERVAL, AREA)
+);
+
+DROP TABLE PJM_DA_Prices;
+CREATE TABLE PJM_DA_Prices (
+    DDate DATE,
+    Hour_End INT,
+    PnodeID INT,
+    Name VARCHAR(64),
+    DType VARCHAR(64),
+    TotalLMP_100 FLOAT,
+    CongestionPrice_100 FLOAT,
+    MarginalLossPrice_100 FLOAT,
+    TotalLMP_200 FLOAT,
+    CongestionPrice_200 FLOAT,
+    MarginalLossPrice_200 FLOAT,
+    TotalLMP_300 FLOAT,
+    CongestionPrice_300 FLOAT,
+    MarginalLossPrice_300 FLOAT,
+    TotalLMP_400 FLOAT,
+    CongestionPrice_400 FLOAT,
+    MarginalLossPrice_400 FLOAT,
+    TotalLMP_500 FLOAT,
+    CongestionPrice_500 FLOAT,
+    MarginalLossPrice_500 FLOAT,
+    TotalLMP_600 FLOAT,
+    CongestionPrice_600 FLOAT,
+    MarginalLossPrice_600 FLOAT,
+    TotalLMP_700 FLOAT,
+    CongestionPrice_700 FLOAT,
+    MarginalLossPrice_700 FLOAT,
+    TotalLMP_800 FLOAT,
+    CongestionPrice_800 FLOAT,
+    MarginalLossPrice_800 FLOAT,
+    TotalLMP_900 FLOAT,
+    CongestionPrice_900 FLOAT,
+    MarginalLossPrice_900 FLOAT,
+    TotalLMP_1000 FLOAT,
+    CongestionPrice_1000 FLOAT,
+    MarginalLossPrice_1000 FLOAT,
+    TotalLMP_1100 FLOAT,
+    CongestionPrice_1100 FLOAT,
+    MarginalLossPrice_1100 FLOAT,
+    TotalLMP_1200 FLOAT,
+    CongestionPrice_1200 FLOAT,
+    MarginalLossPrice_1200 FLOAT,
+    TotalLMP_1300 FLOAT,
+    CongestionPrice_1300 FLOAT,
+    MarginalLossPrice_1300 FLOAT,
+    TotalLMP_1400 FLOAT,
+    CongestionPrice_1400 FLOAT,
+    MarginalLossPrice_1400 FLOAT,
+    TotalLMP_1500 FLOAT,
+    CongestionPrice_1500 FLOAT,
+    MarginalLossPrice_1500 FLOAT,
+    TotalLMP_1600 FLOAT,
+    CongestionPrice_1600 FLOAT,
+    MarginalLossPrice_1600 FLOAT,
+    TotalLMP_1700 FLOAT,
+    CongestionPrice_1700 FLOAT,
+    MarginalLossPrice_1700 FLOAT,
+    TotalLMP_1800 FLOAT,
+    CongestionPrice_1800 FLOAT,
+    MarginalLossPrice_1800 FLOAT,
+    TotalLMP_1900 FLOAT,
+    CongestionPrice_1900 FLOAT,
+    MarginalLossPrice_1900 FLOAT,
+    TotalLMP_2000 FLOAT,
+    CongestionPrice_2000 FLOAT,
+    MarginalLossPrice_2000 FLOAT,
+    TotalLMP_2100 FLOAT,
+    CongestionPrice_2100 FLOAT,
+    MarginalLossPrice_2100 FLOAT,
+    TotalLMP_2200 FLOAT,
+    CongestionPrice_2200 FLOAT,
+    MarginalLossPrice_2200 FLOAT,
+    TotalLMP_2300 FLOAT,
+    CongestionPrice_2300 FLOAT,
+    MarginalLossPrice_2300 FLOAT,
+    TotalLMP_2400 FLOAT,
+    CongestionPrice_2400 FLOAT,
+    MarginalLossPrice_2400 FLOAT,
+    PRIMARY KEY (DDATE, PnodeID, Name)
+);
