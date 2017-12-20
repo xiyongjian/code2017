@@ -4,12 +4,16 @@ import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
 import java.lang.management.ManagementFactory;
+import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLClassLoader;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
-import java.util.regex.Pattern;
+import java.util.Properties;
+import java.util.Set;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 
 import org.apache.commons.csv.CSVFormat;
@@ -23,7 +27,7 @@ import ch.qos.logback.classic.joran.JoranConfigurator;
 import ch.qos.logback.core.joran.spi.JoranException;
 
 public class Utils {
-	public static Logger log = LoggerFactory.getLogger(Utils.class);
+	public static Logger log = UtilsLog.getLogger(Utils.class);
 
 	public static void p(String s) {
 		System.out.println(s);
@@ -261,9 +265,10 @@ public class Utils {
 	 * @param offset
 	 * @param totalCols
 	 * @return
-	 * @throws EtlException 
+	 * @throws EtlException
 	 */
-	public static List<CSVRecord> findCsvRecords(List<CSVRecord> records, String match, String args) throws EtlException {
+	public static List<CSVRecord> findCsvRecords(List<CSVRecord> records, String match, String args)
+			throws EtlException {
 		log.info("Entering...  match : " + match + " , args : " + args);
 		List<Integer> ints = Arrays.asList(args.split(",")).stream().map(s -> Integer.parseInt(s))
 				.collect(Collectors.toList());
@@ -298,7 +303,8 @@ public class Utils {
 			if (pass >= offset) {
 				if (record.size() == totalCols) {
 					ret.add(record);
-					if (Utils.shouldDump(pass - offset)) log.info("get record at offset : " + pass + ", record : " + recordString);
+					if (Utils.shouldDump(pass - offset))
+						log.info("get record at offset : " + pass + ", record : " + recordString);
 				} else {
 					log.info("cols size mismatch : " + record.size() + " vs " + totalCols);
 					break;
@@ -434,32 +440,86 @@ public class Utils {
 		return sb.toString();
 	}
 
-	public static String getValueFromCsvRecord(CSVRecord record, List<Integer> indexes) {
+	// will insert 'null' when string is empty
+	public static String getValueStringFromCsvRecord(CSVRecord record, List<Integer> indexes) {
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < indexes.size(); ++i) {
 			if (i > 0)
 				sb.append(',');
-			sb.append("\"" + record.get(indexes.get(i)) + "\"");
+			String s = record.get(indexes.get(i));
+			if (s.isEmpty())
+				sb.append("null");
+			else
+				sb.append("\"" + s + "\"");
 		}
 		return sb.toString();
 	}
 
-
 	/************* sequence dump control ******************/
 	private static int _dumpFactor = 1;
+
 	public static boolean shouldDump(int i) {
 		if (_dumpFactor < 1)
 			return true;
-		return (i%_dumpFactor) == 0;
+		return (i % _dumpFactor) == 0;
 	}
+
 	public static void setDumpFactor(int f) {
 		log.info("set dump factor : " + f);
 		_dumpFactor = f;
-		
+
 	}
+
+	/************* sequence dump control ******************/
+	public static void listSystemProperties() {
+		log.info("Entering....");
+		Properties props = System.getProperties();
+		Set<Object> keys = new TreeSet(props.keySet());
+		for (Object key : keys) {
+			Object value = props.get(key);
+			log.info("property " + key + " : " + value);
+		}
+	}
+
+	public static URL fileUrl(String file) {
+		try {
+			return new File(file).toURI().toURL();
+		} catch (MalformedURLException e) {
+			log.info("file to url failed : " + file);
+			return null;
+		}
+	}
+
+	public static void testClassPath() throws MalformedURLException {
+
+		File file = new File("test.txt");
+		log.info("file test.txt, path : " + file.getAbsolutePath());
+		log.info("file test.txt, path : " + file.getPath());
+		log.info("file test.txt, URI : " + file.toURI());
+		log.info("file test.txt, URL : " + file.toURI().toURL());
+		log.info("current directory : " + System.getProperty("user.dir"));
+		File path = new File(System.getProperty("user.dir"));
+
+		log.info("---- before add URL ----");
+		log.info("x() URLs : " + XConfLoader.x().toString());
+		log.info("x() add current  URLs : " + XConfLoader.x().pre(Utils.fileUrl(System.getProperty("user.dir"))));
+	}
+
+	/************* section : main() for testing ******************/
+	/************* section : main() for testing ******************/
+	/************* section : main() for testing ******************/
+	/************* section : main() for testing ******************/
+	/************* section : main() for testing ******************/
+	/************* section : main() for testing ******************/
 	/************* section : main() for testing ******************/
 	public static void main(String[] args) {
-		testInit();
-		testParse();
+		try {
+			testInit();
+			testParse();
+			testClassPath();
+		} catch (MalformedURLException e) {
+			log.info("", e);
+		}
 	}
+
 }

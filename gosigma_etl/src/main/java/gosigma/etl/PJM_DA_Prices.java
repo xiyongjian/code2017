@@ -69,7 +69,7 @@ public class PJM_DA_Prices extends FeedBase {
 					break;
 				}
 				sql = String.format("insert into %s (DDATE, DTYPE, %s) values (\"%s\", \"%s\", %s)",
-						this._table, insCols, date, record.get(5), Utils.getValueFromCsvRecord(record, indexes));
+						this._table, insCols, date, record.get(5), Utils.getValueStringFromCsvRecord(record, indexes));
 				if (Utils.shouldDump(i))
 					log.info("insert sql " + i + " : " + sql);
 				sqls.add(sql);
@@ -96,7 +96,7 @@ public class PJM_DA_Prices extends FeedBase {
 		Date date = new Date();
 		Calendar calendar = GregorianCalendar.getInstance(); // creates a new calendar instance
 		calendar.setTime(date); // assigns calendar to given date 
-		calendar.add(Calendar.DATE, 1);	// plus one day for this feed
+		// calendar.add(Calendar.DATE, 1);	// plus one day for this feed
 		date = calendar.getTime();
 		log.info("  get +l date : " + date.toString());
 		this._feedUrl = String.format(this._feedUrl, new SimpleDateFormat(_urlPattern).format(date));
@@ -124,5 +124,14 @@ public class PJM_DA_Prices extends FeedBase {
 
 		log.info("Leaving...");
 	}
+
+	@Override
+	public String toString() {
+		return (
+				"PJM_DA_Prices [_urlPattern=" + _urlPattern + ", _flagString=" + _flagString + ", _flagArgs=" + _flagArgs
+				+ "]"
+				+ super.toString()).replaceAll(",", ",\n");
+	}
+
 
 }

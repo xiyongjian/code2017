@@ -71,32 +71,40 @@ public class PJM_lmppost extends FeedBase {
 		String dateString = recFounds.get(0).get(0);
 		log.info("dateString : " + dateString);
 
+		//		Date date = null;
+		//		int year, month, day, hour, minute;
+		//		try {
+		//			Locale locale = new Locale("en", "CA");
+		//			DateFormatSymbols dateFormatSymbols = new DateFormatSymbols(locale);
+		//			DateFormat df = new SimpleDateFormat("EEE MMM dd HH:mm:ss 'EST' yyyy", dateFormatSymbols);
+		//			date = df.parse(dateString);
+		//
+		//			Calendar calendar = GregorianCalendar.getInstance(); // creates a new calendar instance
+		//			calendar.setTime(date); // assigns calendar to given date 
+		//			year = calendar.get(Calendar.YEAR);
+		//			month = calendar.get(Calendar.MONTH) + 1; // gets month number, NOTE this is zero based!
+		//			day = calendar.get(Calendar.DAY_OF_MONTH);
+		//			hour = calendar.get(Calendar.HOUR_OF_DAY); // gets hour in 24h format
+		//			// calendar.get(Calendar.HOUR);        // gets hour in 12h format
+		//			minute = calendar.get(Calendar.MINUTE);
+		//
+		//			log.info(String.format("data yyyymmdd-hhmm : %04d%02d%02d-%02d%02d", year, month, day, hour, minute));
+		//		} catch (ParseException e) {
+		//			throw new EtlException("parsing date string", e);
+		//		}
+
 		Date date = null;
-		int year, month, day, hour, minute;
+		DateKey dateKey;
 		try {
-			Locale locale = new Locale("en", "CA");
-			DateFormatSymbols dateFormatSymbols = new DateFormatSymbols(locale);
-			DateFormat df = new SimpleDateFormat("EEE MMM dd HH:mm:ss 'EST' yyyy", dateFormatSymbols);
-			date = df.parse(dateString);
-
-			Calendar calendar = GregorianCalendar.getInstance(); // creates a new calendar instance
-			calendar.setTime(date); // assigns calendar to given date 
-			year = calendar.get(Calendar.YEAR);
-			month = calendar.get(Calendar.MONTH); // gets month number, NOTE this is zero based!
-			day = calendar.get(Calendar.DAY_OF_MONTH);
-			hour = calendar.get(Calendar.HOUR_OF_DAY); // gets hour in 24h format
-			// calendar.get(Calendar.HOUR);        // gets hour in 12h format
-			minute = calendar.get(Calendar.MINUTE);
-
-			log.info(String.format("data yyyymmdd-hhmm : %04d%02d%02d-%02d%02d", year, month, day, hour, minute));
+			dateKey = DateKey.build(dateString, "EEE MMM dd HH:mm:ss 'EST' yyyy");
 		} catch (ParseException e) {
 			throw new EtlException("parsing date string", e);
 		}
-
-		int interval = minute / 5 + 1;
-		String key = String.format("%04d%02d%02d_%02d%02d", year, month, day, hour, interval);
+		String sDate = dateKey.getKeyDate();
+		int hour = dateKey.getKeyHour();
+		int interval = dateKey.getKeyInterval();
+		String key = String.format("%s_%02d%02d", sDate, hour, interval);
 		log.info("key : " + key);
-		String sDate = String.format("%04d/%02d/%02d", year, month, day);
 
 		//PJM_lmppost.table=PJM_5_minute_Prices
 		//PJM_lmppost.cols=Name,Type,Price
@@ -219,6 +227,6 @@ public class PJM_lmppost extends FeedBase {
 				+ ", _dateFlagString=" + _dateFlagString + ", _dateFlagArgs=" + _dateFlagArgs + ", _flagString="
 				+ _flagString + ", _flagArgs=" + _flagArgs + ", _flag3String=" + _flag3String + ", _flag3Args="
 				+ _flag3Args + "]"
-				+ super.toString()).replaceAll(",",  ",\n");
+				+ super.toString()).replaceAll(",", ",\n");
 	}
 }

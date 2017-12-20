@@ -141,3 +141,45 @@ CREATE TABLE PJM_DA_Prices (
     MarginalLossPrice_2400 FLOAT,
     PRIMARY KEY (DDATE, PnodeID, Name)
 );
+
+-------------------------- e05 ----------------------------
+DROP TABLE PJM_Hourly_Load ;
+CREATE TABLE PJM_Hourly_Load (
+	DDate DATE NOT NULL,
+	HourEnd INT NOT NULL,
+	MIDATL FLOAT,
+	AP FLOAT,
+	NI FLOAT,
+	AEP FLOAT,
+	DAY FLOAT,
+	DUQ FLOAT,
+	DOM FLOAT,
+	ATSI FLOAT,
+	DEOK FLOAT,
+	EKPC FLOAT,
+	PRIMARY KEY (DDate, HourEnd)
+);
+
+-------------------------- e06 MISO_prices ----------------------------
+DROP TABLE MISO_5_minute_prices ;
+CREATE TABLE MISO_5_minute_prices (
+  DDATE DATE,
+  HOUR INT,
+  DINTERVAL INT,
+  NAME VARCHAR(64),
+  LMP FLOAT,
+  MLC FLOAT,
+  MCC FLOAT,
+  PRIMARY KEY (DDATE, HOUR, DINTERVAL, NAME)
+  );
+
+DROP TABLE MISO_hourly_prices ;
+CREATE TABLE MISO_hourly_prices (
+  DDATE DATE,
+  HOUR INT,
+  NAME VARCHAR(64),
+  LMP FLOAT,
+  MLC FLOAT,
+  MCC FLOAT,
+  PRIMARY KEY (DDATE, HOUR, NAME)
+  );
