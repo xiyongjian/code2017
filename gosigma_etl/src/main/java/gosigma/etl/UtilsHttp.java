@@ -10,6 +10,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.UnrecoverableKeyException;
 import java.security.cert.CertificateException;
 import java.util.List;
+import java.util.Properties;
 import java.util.Scanner;
 import java.util.zip.GZIPInputStream;
 
@@ -40,6 +41,81 @@ import ch.qos.logback.core.joran.spi.JoranException;
 public class UtilsHttp {
 	public static Logger log = UtilsLog.getLogger(UtilsHttp.class);
 
+	// setup keyStorePwd clientStore keyStoreFile from the following source
+	// 1) system properties, must define three
+	//			etl.dss.keystore.file
+	//			etl.dss.keystore.password
+	//			etl.dss.keystore.type		PKCS12
+	// 2) property file (default name : dss.properties), 
+	//    override by system property :  etl.dss.property.file, 
+	//    within file defined :
+	//			etl.dss.keystore.file
+	//			etl.dss.keystore.password
+	//			etl.dss.keystore.type		PKCS12
+	// 3) otherwise, using hard coded
+	final static int FILE = 0;
+	final static int PASSWORD = 1;
+	final static int TYPE = 2;
+
+	private static String[] getDssKeyStore() throws IOException {
+		log.info("Entering...");
+		String[] ret = new String[3];
+
+		do {
+			log.info("try to use system properties");
+			if ((ret[FILE] = getProperty(System.getProperties(), "etl.dss.keystore.file")) == null)
+				continue;
+			if ((ret[PASSWORD] = getProperty(System.getProperties(), "etl.dss.keystore.password")) == null)
+				continue;
+			if ((ret[TYPE] = getProperty(System.getProperties(), "etl.dss.keystore.type")) == null)
+				continue;
+			return ret;
+		} while (false);
+
+		do {
+			log.info("try to use property file");
+			String propFile = getProperty(System.getProperties(), "etl.dss.property.file");
+			if (propFile == null)
+				continue;
+			Properties props = new Properties();
+			props.load(XResLoader.x().getResourceAsStream(propFile));
+			if ((ret[FILE] = getProperty(props, "etl.dss.keystore.file")) == null)
+				continue;
+			if ((ret[PASSWORD] = getProperty(props, "etl.dss.keystore.password")) == null)
+				continue;
+			if ((ret[TYPE] = getProperty(props, "etl.dss.keystore.type")) == null)
+				continue;
+			return ret;
+
+		} while (false);
+
+		log.info("try to use hard code value");
+		ret[FILE] = "e:\\tmp\\001\\NYSIO\\NexusEnergy Aug 12, 2017.pfx";
+		ret[PASSWORD] = "t$Ft2017tyNexus";
+		ret[TYPE] = "PKCS12";
+		return ret;
+	}
+
+	private static String logCredential = null;
+
+	private static String getProperty(Properties props, String key) {
+		if (logCredential == null) {
+			logCredential = getPropertyX(props, key);
+			if (!"true".equalsIgnoreCase(logCredential))
+				logCredential = "false";
+		}
+		String val = props.getProperty(key);
+		if (logCredential.equals("false") || key.contains("password"))
+			log.info("system property, " + key + " : " + val);
+		else
+			log.info("system property, " + key + " : " + "xxxx");
+		return val;
+	}
+
+	private static String getPropertyX(Properties props, String key) {
+		return props.getProperty(key);
+	}
+
 	public static CloseableHttpClient createDssHttpClient() throws EtlException {
 		try {
 			//			listSystemProperties();
@@ -47,10 +123,15 @@ public class UtilsHttp {
 			//			System.setProperty("javax.net.ssl.keyStorePassword", "t$Ft2017tyNexus");
 			//			System.setProperty("javax.net.ssl.keyStoreType", "PKCS12");
 			//			listSystemProperties();
+			
+			//			String keyStoreFile = "e:\\tmp\\001\\NYSIO\\NexusEnergy Aug 12, 2017.pfx";
+			//			String keyStorePwd = "t$Ft2017tyNexus";
+			//			KeyStore clientStore = KeyStore.getInstance("PKCS12");
 
-			String keyStorePwd = "t$Ft2017tyNexus";
-			KeyStore clientStore = KeyStore.getInstance("PKCS12");
-			String keyStoreFile = "e:\\tmp\\001\\NYSIO\\NexusEnergy Aug 12, 2017.pfx";
+			String[] ks = getDssKeyStore();
+			String keyStoreFile = ks[FILE];
+			String keyStorePwd = ks[PASSWORD];
+			KeyStore clientStore = KeyStore.getInstance(ks[TYPE]);
 			//			InputStream instream = Thread.currentThread().getContextClassLoader()
 			//					.getResourceAsStream(keystoreName);
 			try (InputStream instream = new FileInputStream(keyStoreFile)) {
