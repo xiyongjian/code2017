@@ -22,7 +22,7 @@ import org.apache.commons.csv.CSVRecord;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class MISO_prices extends FeedBase {
+public class MISO_Consolidated extends FeedBase {
 	public String _dateFlagString = null;
 	public String _dateFlagArgs = null;
 	public String _flagString = null;
@@ -30,8 +30,8 @@ public class MISO_prices extends FeedBase {
 	public String _table2 = null;
 	public String _cols2 = null;
 
-	public MISO_prices() {
-		super("MISO_prices");
+	public MISO_Consolidated() {
+		super("MISO_Consolidated");
 	}
 
 	@Override
@@ -163,11 +163,11 @@ public class MISO_prices extends FeedBase {
 
 	@Override
 	public Logger getLogger() {
-		return LoggerFactory.getLogger(MISO_prices.class);
+		return LoggerFactory.getLogger(MISO_Consolidated.class);
 	}
 
 	public static void main(String[] args) {
-		FeedBase feed = new MISO_prices();
+		FeedBase feed = new MISO_Consolidated();
 		feed.doEtl(args);
 	}
 

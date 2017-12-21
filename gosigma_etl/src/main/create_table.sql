@@ -160,7 +160,7 @@ CREATE TABLE PJM_Hourly_Load (
 	PRIMARY KEY (DDate, HourEnd)
 );
 
--------------------------- e06 MISO_prices ----------------------------
+-------------------------- e06 MISO_Consolidated ----------------------------
 DROP TABLE MISO_5_minute_prices ;
 CREATE TABLE MISO_5_minute_prices (
   DDATE DATE,
@@ -183,3 +183,31 @@ CREATE TABLE MISO_hourly_prices (
   MCC FLOAT,
   PRIMARY KEY (DDATE, HOUR, NAME)
   );
+
+-------------------------- e07 MISO_TotalLoad ----------------------------
+DROP TABLE MISO_DA_Cleared_Load ;
+CREATE TABLE MISO_DA_Cleared_Load (
+  DDate DATE,
+  Hour INT,
+  DLoad FLOAT,
+  PRIMARY KEY (DDate, Hour)
+  );
+
+DROP TABLE MISO_Load_Forecast ;
+CREATE TABLE MISO_Load_Forecast (
+  DDate DATE,
+  Hour INT,
+  Load_Forecast FLOAT,
+  PRIMARY KEY (DDate, Hour)
+  );
+
+DROP TABLE MISO5_minute_Load ;
+CREATE TABLE MISO5_minute_Load (
+  DDate DATE,
+  Hour INT,
+  DInterval INT,
+  DLoad FLOAT,
+  PRIMARY KEY (DDate, Hour, DInterval)
+  );
+
+

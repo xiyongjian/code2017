@@ -90,7 +90,7 @@ public class UtilsProp {
 	
 	// --------------- object intenal implement -------------------
 
-	private List<Properties> _propsList = new ArrayList<>();
+	private Properties _properties = new Properties();
 	private boolean _hidePassword = true;
 
 	private UtilsProp() {
@@ -105,18 +105,11 @@ public class UtilsProp {
 
 	private void append_(Properties props) {
 		log.info("append properties at the end");
-		_propsList.add(props);
+		_properties.putAll(props);
 	}
 
 	private String getProperty_(String key, String defaultVal) {
-		String val = null;
-		for (int i = this._propsList.size() - 1; i >= 0; --i) {
-			val = _propsList.get(i).getProperty(key);
-			if (val == null)
-				continue;
-		}
-		if (val == null)
-			val = defaultVal;
+		String val = _properties.getProperty(key, defaultVal);
 
 		String show = val;
 		String show2 = defaultVal;
@@ -132,21 +125,18 @@ public class UtilsProp {
 	}
 
 	private void setProperty_(String key, String val) {
-		_propsList.get(_propsList.size() - 1).setProperty(key, val);
+		_properties.setProperty(key, val);
 	}
 
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		for (int i = 0; i < this._propsList.size(); ++i) {
-			Properties props = _propsList.get(i);
-			Set<Object> keys = new TreeSet(props.keySet());
+			Set<Object> keys = new TreeSet(_properties.keySet());
 			for (Object key : keys) {
-				Object value = props.get(key);
+				Object value = _properties.get(key);
 				if (sb.length() > 0)
 					sb.append('\n');
-				sb.append("[" + i + "] property " + key + " : " + value);
+				sb.append("property " + key + " : " + value);
 			}
-		}
 		return sb.toString();
 	}
 
@@ -163,6 +153,12 @@ public class UtilsProp {
 		UtilsProp.x().hidePassword(true);
 		log.info("final : " + UtilsProp.x().toString());
 		UtilsProp.dumpRecord();
+		
+		Properties props = new Properties();
+		props.setProperty("hello",  "world");
+		log.info("prop hello : " + props.getProperty("hello"));
+		props.load(XResLoader.x().getResourceAsStream("etl.properties"));
+		log.info("after load, prop hello : " + props.getProperty("hello"));
 	}
 
 }

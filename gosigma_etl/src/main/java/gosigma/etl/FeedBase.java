@@ -163,6 +163,13 @@ public abstract class FeedBase {
 			_dataDir = userDir + File.separator + "data";
 		log.info("dataDir - " + _dataDir);
 
+		log.info("before load properties, setup resource loader");
+		{
+			String s = System.getProperty("etl.resource.path", ". conf");
+			XResLoader.x().head(s);
+			log.info("resource loader path : " + XResLoader.x());
+		}
+
 		this.loadProperties();
 
 		log.info("Leaving...");
@@ -244,7 +251,10 @@ public abstract class FeedBase {
 
 	public void loadProperties() throws IOException, EtlException {
 		log.info("#### load properties");
-		InputStream inProp = FeedBase.class.getClassLoader().getResourceAsStream("etl.properties");
+		// InputStream inProp = FeedBase.class.getClassLoader().getResourceAsStream("etl.properties");
+		URL url = XResLoader.x().getResource("etl.properties");
+		log.info("properties resource : " + url.toString());
+		InputStream inProp = XResLoader.x().getResourceAsStream("etl.properties");
 		Properties prop = new Properties();
 		prop.load(inProp);
 		loadProperties(prop);

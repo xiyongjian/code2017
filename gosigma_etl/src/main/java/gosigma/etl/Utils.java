@@ -502,7 +502,7 @@ public class Utils {
 
 		log.info("---- before add URL ----");
 		log.info("x() URLs : " + XResLoader.x().toString());
-		log.info("x() add current  URLs : " + XResLoader.x().pre(Utils.fileUrl(System.getProperty("user.dir"))));
+		log.info("x() add current  URLs : " + XResLoader.x().head(Utils.fileUrl(System.getProperty("user.dir"))));
 	}
 
 	/************* section : main() for testing ******************/
