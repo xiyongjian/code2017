@@ -38,11 +38,6 @@ public class InheritenceApp {
 		}
 	}
 
-	public static void main(String[] args) {
-		p("InheritenceApp class base classes & interface : \n", getSupers(InheritenceApp.class));
-		p("Inner class base classes & interface : \n", getSupers(Inner.class));
-	}
-
 	public static String getSupers(Class c) {
 		StringBuilder sb = new StringBuilder();
 		sb.append(c.getName()).append("\n");
@@ -91,4 +86,23 @@ public class InheritenceApp {
 			getSupers(sb, s, prefix + "    ");
 		}
 	}
+
+	public static class Base {
+		public void p() { System.out.println("it's Base"); }
+	}
+	public static class Derived extends Base {
+		public void p() { System.out.println("it's Derived"); }
+	}
+	public static void test01() {
+		Derived d = new Derived();
+		d.p();
+		((Base)d).p();
+	}
+
+	public static void main(String[] args) {
+		p("InheritenceApp class base classes & interface : \n", getSupers(InheritenceApp.class));
+		p("Inner class base classes & interface : \n", getSupers(Inner.class));
+		test01();
+	}
+
 }

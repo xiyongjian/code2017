@@ -135,8 +135,12 @@ public class StringApp {
 		{
 			String s = " 12,	,		,as";
 			p("replace \\s as : " + s.replaceAll("\\s",  "x"));
-			p("replace \\s as : " + s.replaceAll("\\S",  "x"));
+			p("replace \\S as : " + s.replaceAll("\\S",  "x"));
 			p("-1 is :" + -1);
+			String[] words = s.split("\\,", -1);
+			for (String string : words) {
+				System.out.println("#" + string + "<");
+			}
 		}
 	}
 }

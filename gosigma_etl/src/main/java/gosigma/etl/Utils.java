@@ -295,7 +295,7 @@ public class Utils {
 	public static List<CSVRecord> findCsvRecords(List<CSVRecord> records, String match, int offset, int totalCols,
 			String stop) {
 		log.info("Entering... match : " + match + " , offset : " + offset + " , totalCols : " + totalCols);
-		log.info("stop : " + stop);
+		log.info("stop : [" + stop + "]");
 		if (stop != null)
 			stop = stop.replaceAll("\\s", "");
 

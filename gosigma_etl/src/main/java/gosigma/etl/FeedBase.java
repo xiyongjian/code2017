@@ -1,10 +1,16 @@
 package gosigma.etl;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.nio.charset.Charset;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -24,6 +30,7 @@ import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -66,9 +73,11 @@ public abstract class FeedBase {
 	public String _table = null;
 	public String _targetFile = null;
 	public String _arcFile = null;
+	public String _sqlFile = null;
 	public String _key = null;
-	
-	public Date _processingDate = new Date();	// date of this one created
+
+	public Date _processingDate = new Date(); // date of this one created
+
 	public Date getProcessingDate() {
 		return _processingDate;
 	}
@@ -268,6 +277,7 @@ public abstract class FeedBase {
 
 	/**
 	 * derived class may override this function for additional properties
+	 * 
 	 * @param prop
 	 * @throws IOException
 	 * @throws EtlException
@@ -347,43 +357,95 @@ public abstract class FeedBase {
 
 		log.info("parsing feed into sql");
 		List<String> sqls = new ArrayList<String>();
+
+		log.info("write sqls to file and execute them");
 		{
 			_key = parseFeed(_targetFile, sqls);
 
+			// setup archive file
 			_arcFile = targetDir + File.separator + String.format(_feedFile, _key);
 			log.info("_arcFile : " + _arcFile);
-
-			String sqlFile = null;
+			_sqlFile = null;
 			if (_cInputFile == null)
-				sqlFile = _arcFile + ".sql";
+				_sqlFile = _arcFile + ".sql";
 			else
-				sqlFile = _cInputFile + ".sql";
-			log.info("record sql to file : " + sqlFile);
-			FileUtils.writeStringToFile(new File(sqlFile), String.join(";\n", sqls) + ";", (String) null);
+				_sqlFile = _cInputFile + ".sql";
+			log.info("_sqlFile : " + _sqlFile);
 
-			if (_cInputFile == null)
+			String sqlTempFile = _arcFile + ".temp";
+			log.info("record sql to temp file : " + sqlTempFile);
+			FileUtils.writeStringToFile(new File(sqlTempFile), String.join(";\n", sqls) + ";", (String) null);
+
+			// FileUtils.writeStringToFile(new File(_sqlFile), String.join(";\n", sqls) + ";", (String) null);
+			if (_cInputFile == null) {
 				moveFile(_targetFile, _arcFile);
-		}
+				moveFile(sqlTempFile, _sqlFile);
+			}
 
-		if (this._cParseOnly != true) {
-			log.info("execute update sqls");
-			executeSql(sqls);
+			log.info("check wether need to run sql");
+			String sqlRunFile = _sqlFile + ".run";
+
+			String newRunMd5sum = DigestUtils.md2Hex(new FileInputStream(_sqlFile));
+			log.info("new sql run md5sum : [" + newRunMd5sum + "]");
+			String oldRunMd5sum = "";
+			try {
+				oldRunMd5sum = FileUtils.readFileToString(new File(sqlRunFile), Charset.defaultCharset());
+			} catch (Exception e) {
+				log.info("cant read from : " + sqlRunFile);
+			}
+			log.info("old sql run md5sum : [" + oldRunMd5sum + "]");
+			log.info("_cParseOnly : " + _cParseOnly);
+			if (this._cParseOnly == true
+					|| newRunMd5sum.replaceAll("\\s", "").equalsIgnoreCase(oldRunMd5sum.replaceAll("\\s", ""))) {
+				log.info("skip executing update sqls");
+			}
+			else {
+				log.info("execute update sqls");
+				executeSql(sqls);
+				log.info("write new md5sum to " + sqlRunFile);
+				FileUtils.writeStringToFile(new File(sqlRunFile),  newRunMd5sum, Charset.defaultCharset());
+			}
+
 		}
 
 		log.info("Leaving...");
 	}
 
-	public void moveFile(String src, String dst) {
-		log.info("move file " + src + " to " + dst);
-		File target = new File(src);
-		File arc = new File(dst);
-		boolean rsl = arc.delete();
-		log.info("remove file : " + dst + " : " + rsl);
-		rsl = target.renameTo(arc);
-		if (!rsl)
-			log.error("failed to rename file " + src + " to " + dst);
+	public void moveFile(String src, String dst) throws EtlException {
+		log.info("move file, source : " + src);
+		log.info("move file, destination : " + dst);
+		File srcFile = new File(src);
+		File dstFile = new File(dst);
+
+		boolean isIdentical = false;
+		try {
+			isIdentical = FileUtils.contentEquals(srcFile, dstFile);
+		} catch (IOException e) {
+			log.info("content compare exception", e);
+		}
+
+		boolean rsl = false;
+		if (isIdentical) {
+			log.info("two file identical, remove source");
+			rsl = srcFile.delete();
+			log.info("result : " + rsl);
+		} else {
+			Path srcPath = FileSystems.getDefault().getPath(src);
+			Path dstPath = FileSystems.getDefault().getPath(dst);
+			try {
+				log.info("moving");
+				Files.move(srcPath, dstPath, StandardCopyOption.REPLACE_EXISTING);
+				rsl = true;
+			} catch (IOException e) {
+				log.warn("moving failed", e);
+				rsl = false;
+			}
+		}
+
+		if (rsl)
+			log.info("moving done");
 		else
-			log.info("succeed to rename file " + src + " to " + dst);
+			log.error("moving failed, src : " + src + ", dst : " + dst);
 	}
 
 	public void executeSql(List<String> sqls) throws SQLException, EtlException {
@@ -397,10 +459,12 @@ public abstract class FeedBase {
 
 			for (int i = 0; i < sqls.size(); ++i) {
 				String sql = sqls.get(i);
-				if (Utils.shouldDump(i)) log.info("run sql " + i + " : " + sql);
+				if (Utils.shouldDump(i))
+					log.info("run sql " + i + " : " + sql);
 				try {
 					int ret = statement.executeUpdate(sql);
-					if (Utils.shouldDump(i)) log.info("return : " + ret);
+					if (Utils.shouldDump(i))
+						log.info("return : " + ret);
 				} catch (SQLException e) {
 					throw new EtlException("run [" + i + "] : " + sql, e);
 				}
@@ -450,6 +514,7 @@ public abstract class FeedBase {
 
 	/**
 	 * load key from propertie, and check not null if needed
+	 * 
 	 * @param prop
 	 * @param key
 	 * @param notNull

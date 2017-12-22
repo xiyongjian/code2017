@@ -211,3 +211,69 @@ CREATE TABLE MISO5_minute_Load (
   );
 
 
+-------------------------- e08 MISO_DA_Prices ----------------------------
+DROP TABLE MISO_DA_Prices ;
+CREATE TABLE MISO_DA_Prices (
+	DDate DATE,
+	Node VARCHAR(64),
+	DType VARCHAR(64),
+	Value VARCHAR(64),
+	HE_1 FLOAT,
+	HE_2 FLOAT,
+	HE_3 FLOAT,
+	HE_4 FLOAT,
+	HE_5 FLOAT,
+	HE_6 FLOAT,
+	HE_7 FLOAT,
+	HE_8 FLOAT,
+	HE_9 FLOAT,
+	HE_10 FLOAT,
+	HE_11 FLOAT,
+	HE_12 FLOAT,
+	HE_13 FLOAT,
+	HE_14 FLOAT,
+	HE_15 FLOAT,
+	HE_16 FLOAT,
+	HE_17 FLOAT,
+	HE_18 FLOAT,
+	HE_19 FLOAT,
+	HE_20 FLOAT,
+	HE_21 FLOAT,
+	HE_22 FLOAT,
+	HE_23 FLOAT,
+	HE_24 FLOAT,
+	PRIMARY KEY (DDate, Node, DType, Value)
+	);
+-------------------------- e09 MISO_Final_Real_Time_Hourly_Prices ----------------------------
+DROP TABLE MISO_Final_Real_Time_Hourly_Prices ;
+CREATE TABLE MISO_Final_Real_Time_Hourly_Prices (
+	DDate DATE,
+	Node VARCHAR(64),
+	DType VARCHAR(64),
+	Value VARCHAR(64),
+	HE_1 FLOAT,
+	HE_2 FLOAT,
+	HE_3 FLOAT,
+	HE_4 FLOAT,
+	HE_5 FLOAT,
+	HE_6 FLOAT,
+	HE_7 FLOAT,
+	HE_8 FLOAT,
+	HE_9 FLOAT,
+	HE_10 FLOAT,
+	HE_11 FLOAT,
+	HE_12 FLOAT,
+	HE_13 FLOAT,
+	HE_14 FLOAT,
+	HE_15 FLOAT,
+	HE_16 FLOAT,
+	HE_17 FLOAT,
+	HE_18 FLOAT,
+	HE_19 FLOAT,
+	HE_20 FLOAT,
+	HE_21 FLOAT,
+	HE_22 FLOAT,
+	HE_23 FLOAT,
+	HE_24 FLOAT,
+	PRIMARY KEY (DDate, Node, DType, Value)
+	);
