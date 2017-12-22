@@ -17,7 +17,8 @@ public class StringApp {
 	public static void main(String[] args) {
 		// test01();
 		// regexMatch();
-		regexSearch();
+		// regexSearch();
+		testNumParsing();
 	}
 
 	public static void test01() {
@@ -68,6 +69,74 @@ public class StringApp {
 		Matcher m = regex.matcher(str);
 		if (m.find()) {
 			p("found : " + m.group(0) + ", " + m.group(1));
+		}
+	}
+
+	public static void testNumParsing() {
+		p("00 to int : " + Integer.parseInt("00"));
+		p("01 to int : " + Integer.parseInt("01"));
+
+		{
+			// sample record : 00:05,72067
+			String s = "01:25";
+			p(s + " first part : " + Integer.parseInt(s.substring(0, 2)));
+			p(s + " second part : " + Integer.parseInt(s.substring(3, 5)));
+
+			String n = null;
+			p("null plus something : " + n + "yes");
+		}
+
+		{
+			String s = "|A|BB|CCC||||";
+			p("string to split : " + s);
+			
+			p("normal split");
+			String[] words = s.split("|");
+			for (String string : words) {
+				System.out.println(">" + string + "<");
+			}
+
+			p("normal split with -1");
+			words = s.split("|", -1);
+			for (String string : words) {
+				System.out.println(">" + string + "<");
+			}
+
+			p("\\\\ split with -1");
+			words = s.split("\\|", -1);
+			for (String string : words) {
+				System.out.println("#" + string + "<");
+			}
+		}
+
+		{
+			String s = ",A,BB,CCC,,,,";
+			p("string to split : " + s);
+			
+			p("normal split");
+			String[] words = s.split(",");
+			for (String string : words) {
+				System.out.println(">" + string + "<");
+			}
+
+			p("normal split with -1");
+			words = s.split(",", -1);
+			for (String string : words) {
+				System.out.println(">" + string + "<");
+			}
+
+			p("\\\\ split with -1");
+			words = s.split("\\,", -1);
+			for (String string : words) {
+				System.out.println("#" + string + "<");
+			}
+		}
+		
+		{
+			String s = " 12,	,		,as";
+			p("replace \\s as : " + s.replaceAll("\\s",  "x"));
+			p("replace \\s as : " + s.replaceAll("\\S",  "x"));
+			p("-1 is :" + -1);
 		}
 	}
 }

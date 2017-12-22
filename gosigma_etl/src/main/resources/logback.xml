@@ -67,14 +67,21 @@
 		</if>
 
 		<!-- for logback debug -->
-		<if condition='p("logback.debug").equals("true")'>
+		<!-- <if condition='p("logback.debug").equals("true")'> -->
+		<!-- <then> -->
+		<!-- <appender-ref ref="STDOUT" /> -->
+		<!-- </then> -->
+		<!-- </if> -->
+
+		<!-- for etl debug from JVM system property -->
+		<if condition='p("etl.debug").equals("true")'>
 			<then>
 				<appender-ref ref="STDOUT" />
 			</then>
 		</if>
 
-		<!-- for etl debug -->
-		<if condition='p("etl.debug").equals("true")'>
+		<!-- for etl debug from OS environment -->
+		<if condition='p("ETLDEBUG").equals("true")'>
 			<then>
 				<appender-ref ref="STDOUT" />
 			</then>

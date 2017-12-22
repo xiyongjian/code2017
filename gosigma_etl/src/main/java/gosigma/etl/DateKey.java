@@ -9,6 +9,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Locale;
 
+import org.apache.commons.logging.Log;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,10 +17,10 @@ import ch.qos.logback.core.joran.spi.JoranException;
 
 public class DateKey {
 	public Logger log = LoggerFactory.getLogger(DateKey.class);
-	public DateFormatSymbols _dfs = null;
-	public Date _date = null;
-	public boolean _zeroBasedHour = false;
-	public boolean _zeroBasedInterval = false;
+	private DateFormatSymbols _dfs = null;
+	private Date _date = null;
+	private boolean _zeroBasedHour = false;
+	private boolean _zeroBasedInterval = false;
 
 	private String _keyDate = null;
 	private int _keyHour = 0;
@@ -31,6 +32,15 @@ public class DateKey {
 
 	public int getKeyHour() {
 		return _keyHour;
+	}
+
+	public void setKeyHour(int h) {
+		log.info("Entering...  hour : " + h + ", zeror based? : " + this.isZeroBasedHour());
+		Date date = this.getDate();
+		Calendar c = GregorianCalendar.getInstance(); // creates a new calendar instance
+		c.setTime(date);
+		c.set(Calendar.HOUR_OF_DAY, h - (this.isZeroBasedHour() ? 0 : 1));
+		this.setDate(c.getTime());
 	}
 
 	public int getKeyInterval() {
@@ -64,6 +74,12 @@ public class DateKey {
 		this._keyInterval = c.get(Calendar.MINUTE) / 5 + (this.isZeroBasedInterval() ? 0 : 1);
 	}
 
+	public void setDate(String dateString, String fmt) throws ParseException {
+		log.info("Entering... str : " + dateString + ", format : " + fmt);
+		DateFormat df = new SimpleDateFormat(fmt, this.getDfs());
+		this.setDate(df.parse(dateString));
+	}
+
 	public boolean isZeroBasedHour() {
 		return _zeroBasedHour;
 	}
@@ -78,12 +94,6 @@ public class DateKey {
 
 	public void setZeroBasedInterval(boolean zeroBasedInterval) {
 		_zeroBasedInterval = zeroBasedInterval;
-	}
-
-	public void init(String dateString, String fmt) throws ParseException {
-		log.info("Entering... str : " + dateString + ", format : " + fmt);
-		DateFormat df = new SimpleDateFormat(fmt, this.getDfs());
-		this.setDate(df.parse(dateString));
 	}
 
 	public void addHours(int hours) {
@@ -122,35 +132,67 @@ public class DateKey {
 
 	public static DateKey build(String str, String fmt) throws ParseException {
 		DateKey dk = new DateKey();
-		dk.init(str, fmt);
+		dk.setDate(str, fmt);
 		return dk;
 	}
 
 	public static void main(String[] args) throws JoranException, ParseException {
-		Utils.initLog();
-		String str = "18-Dec-2017 12:20";
-		String fmt = "dd-MMM-yyyy HH:mm";
 		DateKey dk = new DateKey();
-		dk.log.info("DateKey initial is : " + dk.toString());
+		{
+			Utils.initLog();
+			String str = "18-Dec-2017 12:20";
+			String fmt = "dd-MMM-yyyy HH:mm";
+			dk.log.info("DateKey initial is : " + dk.toString());
 
-		dk.init(str, fmt);
-		dk.log.info("Date key set : " + dk.getDate().toString());
-		dk.log.info("key date : " + dk.getKeyDate());
-		dk.log.info("key hour : " + dk.getKeyHour());
-		dk.log.info("key interval : " + dk.getKeyInterval());
-		dk.log.info(
-				"key : " + String.format("%s_%02d%02d", dk.format("yyyyMMdd"), dk.getKeyHour(), dk.getKeyInterval()));
+			dk.setDate(str, fmt);
+			dk.log.info("Date key set : " + dk.getDate().toString());
+			dk.log.info("key date : " + dk.getKeyDate());
+			dk.log.info("key hour : " + dk.getKeyHour());
+			dk.log.info("key interval : " + dk.getKeyInterval());
+			dk.log.info(
+					"key : " + String.format("%s_%02d%02d", dk.format("yyyyMMdd"), dk.getKeyHour(),
+							dk.getKeyInterval()));
 
-		fmt = "dd-MMM-yyyy hh:mm"; // HH vs hh
-		dk.init(str, fmt);
-		dk.log.info("Date key set : " + dk.toString());
-		dk.log.info("Date key set : " + dk.getDate().toString());
-		dk.log.info("key date : " + dk.getKeyDate());
-		dk.log.info("key hour : " + dk.getKeyHour());
-		dk.log.info("key interval : " + dk.getKeyInterval());
+			fmt = "dd-MMM-yyyy hh:mm"; // HH vs hh
+			dk.setDate(str, fmt);
+			dk.log.info("Date key set : " + dk.toString());
+			dk.log.info("Date key set : " + dk.getDate().toString());
+			dk.log.info("key date : " + dk.getKeyDate());
+			dk.log.info("key hour : " + dk.getKeyHour());
+			dk.log.info("key interval : " + dk.getKeyInterval());
 
-		dk.log.info(
-				"key : " + String.format("%s_%02d%02d", dk.format("yyyyMMdd"), dk.getKeyHour(), dk.getKeyInterval()));
+			dk.log.info(
+					"key : " + String.format("%s_%02d%02d", dk.format("yyyyMMdd"), dk.getKeyHour(),
+							dk.getKeyInterval()));
+		}
+
+		{
+			Calendar c = GregorianCalendar.getInstance(); // creates a new calendar instance
+			c.setTime(new Date());
+			dk.log.info("initial date : " + c.getTime().toString());
+
+			c.add(Calendar.DAY_OF_MONTH, -1);
+			dk.log.info("initial date : " + c.getTime().toString());
+
+			c.set(Calendar.HOUR_OF_DAY, 23);
+			dk.log.info("initial date : " + c.getTime().toString());
+
+//			Date date = c.getTime();
+//			dk.log.info("initial date : " + c.getTime().toString());
+		}
+		
+		{
+			dk.log.info("current dk : " + dk.getDate().toString());
+			dk.setKeyHour(24);
+			Calendar c = GregorianCalendar.getInstance();
+			c.setTime(dk.getDate());
+			
+			dk.log.info("calender, hour : " + c.get(Calendar.HOUR));
+			dk.log.info("calender, hour of day : " + c.get(Calendar.HOUR_OF_DAY));
+			dk.log.info("calender, minute : " + c.get(Calendar.MINUTE));
+			dk.log.info("calender, day : " + c.get(Calendar.DAY_OF_MONTH));
+
+		}
 	}
 
 }

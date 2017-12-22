@@ -2,7 +2,27 @@ consider using this one for windows syslog server, for debugging/testing
 
 Syslog for windows
 
+---------------------------------------------------------------------------------
+logback output control
 
+logback itself debug info out
+    -Dlogback.debug=true
+
+enable console log output (one of them)
+    JVM system property
+        -Detl.debug=true
+    OS environment variable  
+        ETLDEBUG=true
+    command line option
+        console mode, command line without --cron
+        (if with --cron, it's daemon mode, only log to file
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
 
 ------------------------- ???? ------------------------- 
 for feed PJM_DA_Prices
@@ -11,3 +31,5 @@ for feed PJM_DA_Prices
 primary key for each table
 
 not null to primary key
+
+ptpTotalLoad, the 24 data iterms

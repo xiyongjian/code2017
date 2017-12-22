@@ -4,7 +4,7 @@
 	<property name="DEV_HOME" value="e:/tmp/logs" />
 
 	<property name="defaultPattern"
-		value="%d{yyyyMMdd HHmmss.SSS}|%thread|%-5level|%C{15}|%M#%L| %msg%n" />
+		value="${COMPUTERNAME} - %d{yyyyMMdd HHmmss.SSS}|%thread|%-5level|%C{15}|%M#%L| %msg%n" />
 
 	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
 		<layout class="ch.qos.logback.classic.PatternLayout">

@@ -270,15 +270,34 @@ public class Utils {
 	public static List<CSVRecord> findCsvRecords(List<CSVRecord> records, String match, String args)
 			throws EtlException {
 		log.info("Entering...  match : " + match + " , args : " + args);
-		List<Integer> ints = Arrays.asList(args.split(",")).stream().map(s -> Integer.parseInt(s))
-				.collect(Collectors.toList());
-		if (ints.size() < 2)
+		List<String> as = Arrays.asList(args.split(",", -1));
+		if (as.size() < 2)
 			throw new EtlException("args have less than 2 values");
-		return findCsvRecords(records, match, ints.get(0), ints.get(1));
+		String stop = null;
+
+		for (int i = 2; i < as.size(); ++i) {
+			if (stop == null)
+				stop = as.get(i);
+			else
+				stop = stop + "," + as.get(i);
+		}
+		if (stop != null)
+			stop = stop.replaceAll("\\s", "");
+		// stop is flag of end of records (pass 1)
+
+		return findCsvRecords(records, match, Integer.parseInt(as.get(0)), Integer.parseInt(as.get(1)), stop);
 	}
 
 	public static List<CSVRecord> findCsvRecords(List<CSVRecord> records, String match, int offset, int totalCols) {
+		return findCsvRecords(records, match, offset, totalCols, null);
+	}
+
+	public static List<CSVRecord> findCsvRecords(List<CSVRecord> records, String match, int offset, int totalCols,
+			String stop) {
 		log.info("Entering... match : " + match + " , offset : " + offset + " , totalCols : " + totalCols);
+		log.info("stop : " + stop);
+		if (stop != null)
+			stop = stop.replaceAll("\\s", "");
 
 		String regex = regexAll(match);
 		// String regexS = regexAll(match.replace("\\s", "")); // without space, dangerous
@@ -301,6 +320,14 @@ public class Utils {
 			}
 
 			if (pass >= offset) {
+				// stop condition
+				if (stop != null
+						&& Utils.recordString(record).replaceAll("\\s", "").toLowerCase()
+								.contains(stop.toLowerCase())) {
+					log.info("stop hit , break : " + Utils.recordString(record));
+					break;
+				}
+
 				if (record.size() == totalCols) {
 					ret.add(record);
 					if (Utils.shouldDump(pass - offset))

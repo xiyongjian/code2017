@@ -67,6 +67,11 @@ public abstract class FeedBase {
 	public String _targetFile = null;
 	public String _arcFile = null;
 	public String _key = null;
+	
+	public Date _processingDate = new Date();	// date of this one created
+	public Date getProcessingDate() {
+		return _processingDate;
+	}
 
 	public FeedBase(String feedId) {
 		_feedId = feedId;
@@ -79,7 +84,8 @@ public abstract class FeedBase {
 				+ ", _logToFile=" + _logToFile + ", _jdbcUrl=" + _jdbcUrl + ", _jdbcUser=" + _jdbcUser
 				+ ", _jdbcPassword=" + "xxxx" + ", _feedId=" + _feedId + ", _dataDir=" + _dataDir + ", _feedDir="
 				+ _feedDir + ", _feedUrl=" + _feedUrl + ", _feedFile=" + _feedFile + ", _cols=" + _cols + ", _table="
-				+ _table + ", _targetFile=" + _targetFile + ", _arcFile=" + _arcFile + ", _key=" + _key + "]";
+				+ _table + ", _targetFile=" + _targetFile + ", _arcFile=" + _arcFile + ", _key=" + _key
+				+ ", _processingDate=" + _processingDate + "]";
 	}
 
 	/**
@@ -316,7 +322,8 @@ public abstract class FeedBase {
 		log.info("#### construct targetFile name");
 		String targetDir = null;
 		{
-			Date date = new Date();
+			// Date date = new Date();
+			Date date = this.getProcessingDate();
 			DateFormat dateFormat = new SimpleDateFormat("yyyyMM/dd");
 			if (_cDir != null)
 				targetDir = _cDir;
