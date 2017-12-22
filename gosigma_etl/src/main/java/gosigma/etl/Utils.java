@@ -299,7 +299,7 @@ public class Utils {
 		if (stop != null)
 			stop = stop.replaceAll("\\s", "");
 
-		String regex = regexAll(match);
+		String regexAll = regexAll(match);
 		// String regexS = regexAll(match.replace("\\s", "")); // without space, dangerous
 		boolean found = false;
 		int pass = 0;
@@ -311,8 +311,8 @@ public class Utils {
 			if (recordString.isEmpty())
 				continue;
 			if (found == false) {
-				// if (recordString.matches(regex) || recordString.matches(regexS))
-				if (Utils.doubleMatch(recordString, regex)) {
+				// if (recordString.matches(regexAll) || recordString.matches(regexS))
+				if (Utils.doubleMatch(recordString, regexAll)) {
 					log.info("found record : " + recordString);
 					found = true;
 				} else
@@ -333,7 +333,7 @@ public class Utils {
 					if (Utils.shouldDump(pass - offset))
 						log.info("get record at offset : " + pass + ", record : " + recordString);
 				} else {
-					log.info("cols size mismatch : " + record.size() + " vs " + totalCols);
+					log.info("end of finding due to cols size mismatch : " + record.size() + " vs " + totalCols);
 					break;
 				}
 			}
@@ -469,11 +469,17 @@ public class Utils {
 
 	// will insert 'null' when string is empty
 	public static String getValueStringFromCsvRecord(CSVRecord record, List<Integer> indexes) {
+		return getValueStringFromCsvRecord(record, indexes, false);
+	}
+
+	public static String getValueStringFromCsvRecord(CSVRecord record, List<Integer> indexes, boolean trimSpace) {
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < indexes.size(); ++i) {
 			if (i > 0)
 				sb.append(',');
 			String s = record.get(indexes.get(i));
+			if (trimSpace)
+				s = s.trim();
 			if (s.isEmpty())
 				sb.append("null");
 			else

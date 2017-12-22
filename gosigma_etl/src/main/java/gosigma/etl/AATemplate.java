@@ -98,24 +98,24 @@ public class AATemplate extends FeedBase {
 			String endPnodeID = Utils.regexAll("End of Day Ahead LMP Data");
 			log.info("setup end of record : " + endPnodeID);
 
-			String date = null;
+			String dateString = null;
 			for (int i = 0; i < recFounds.size(); ++i) {
 				CSVRecord record = recFounds.get(i);
-				if (i == 0) { // first one get date
-					date = record.get(0);
-					sql = String.format("delete from %s where DDATE = \"%s\"", this._table, date);
+				if (i == 0) { // first one get dateString
+					dateString = record.get(0);
+					sql = String.format("delete from %s where DDATE = \"%s\"", this._table, dateString);
 					if (Utils.shouldDump(i))
 						log.info("del sql " + i + " : " + sql);
 					sqls.add(sql);
 					//make key
-					key = date;
+					key = dateString;
 				}
 				if (Utils.doubleMatch(record.get(0), endPnodeID)) {
 					log.info("end of record matched.");
 					break;
 				}
 				sql = String.format("insert into %s (DDATE, DTYPE, %s) values (\"%s\", \"%s\", %s)",
-						this._table, insCols, date, record.get(5), Utils.getValueStringFromCsvRecord(record, indexes));
+						this._table, insCols, dateString, record.get(5), Utils.getValueStringFromCsvRecord(record, indexes));
 				if (Utils.shouldDump(i))
 					log.info("insert sql " + i + " : " + sql);
 				sqls.add(sql);
